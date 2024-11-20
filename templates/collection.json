@@ -38,21 +38,26 @@
     "c0d30568-1387-4780-a544-0eb43df127be": {
       "type": "richtext",
       "settings": {
-        "product": "",
-        "product_atc": false,
-        "custom_bg_color": false,
-        "remove_top_margin": false,
-        "remove_bottom_margin": false,
-        "center_align": false,
-        "bg_color": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "banner_enable": false,
-        "img_width_desk": 100,
-        "img_width_mobile": 100,
-        "overflow_y": false,
-        "overflow_size": 100,
-        "overflow_size_mob": 100
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "Use it to add SEO text",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Our Premium Shopify theme is designed with speed and performance in mind, ensuring that your store loads quickly and runs smoothly. With clean, minimalistic design and intuitive navigation, we've also optimized for conversion rates, making it easy for your customers to find what they're looking for and complete a purchase. <\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
       }
     },
     "797300e3-5121-4df5-82e8-10011c848a2c": {
@@ -99,7 +104,6 @@
         "71592a99-28bf-41b1-a85d-2e53c7f393a1",
         "8c87d306-18f0-4c5a-bd96-208381d4f0a5"
       ],
-      "disabled": true,
       "settings": {}
     },
     "faq_widget_dPpdG7": {

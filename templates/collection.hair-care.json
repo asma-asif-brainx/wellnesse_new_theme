@@ -37,41 +37,27 @@
     },
     "c0d30568-1387-4780-a544-0eb43df127be": {
       "type": "richtext",
-      "blocks": {
-        "heading_FNL3YQ": {
-          "type": "heading",
-          "settings": {
-            "heading": "About our hair care",
-            "heading_size": "h2"
-          }
-        },
-        "text_Ha6QjX": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Did you know that what you put on your skin, including your scalp, is absorbed into your bloodstream and can impact your whole body? Reading the ingredient label on hair products is essential to ensure they are free from harmful chemicals that could negatively affect your hair, scalp, and overall health. <\/p><p>The Wellnesse Restoring Shampoo and Conditioner set is carefully crafted with non-toxic, natural ingredients to cleanse, restore, and nourish your hair without exposing your body to harmful chemicals.  Many conventional shampoos contain harsh chemicals like sulfates, parabens, and synthetic fragrances, which can strip your hair of its natural oils, irritate your scalp, cause hormone imbalance, and even lead to long-term health concerns. <\/p><p>Our Wellnesse Restoring Shampoo and Conditioner are made with nourishing, plant-based ingredients that are free from harmful additives, making them safe for both your hair and your health. The shampoo gently cleanses while protecting and replenishing moisture, and the conditioner locks in hydration to leave hair softer, smoother, and healthier. By choosing non-toxic hair care products, you not only protect your hair's natural integrity but also prevent harmful chemicals from entering your body, promoting a holistic approach to both beauty and health.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_FNL3YQ",
-        "text_Ha6QjX"
-      ],
       "settings": {
-        "product": "",
-        "product_atc": false,
-        "custom_bg_color": false,
-        "remove_top_margin": false,
-        "remove_bottom_margin": false,
-        "center_align": false,
-        "bg_color": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "banner_enable": false,
-        "img_width_desk": 100,
-        "img_width_mobile": 100,
-        "overflow_y": false,
-        "overflow_size": 100,
-        "overflow_size_mob": 100
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "About Our Hair Care Collection",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Did you know that what you put on your skin, including your scalp, is absorbed into your bloodstream and can impact your whole body? Reading the ingredient label on hair products is essential to ensure they are free from harmful chemicals that could negatively affect your hair, scalp, and overall health. <\/p><p>The Wellnesse Restoring Shampoo and Conditioner set is carefully crafted with non-toxic, natural ingredients to cleanse, restore, and nourish your hair without exposing your body to harmful chemicals.  Many conventional shampoos contain harsh chemicals like sulfates, parabens, and synthetic fragrances, which can strip your hair of its natural oils, irritate your scalp, cause hormone imbalance, and even lead to long-term health concerns. <\/p><p>Our Wellnesse Restoring Shampoo and Conditioner are made with nourishing, plant-based ingredients that are free from harmful additives, making them safe for both your hair and your health. The shampoo gently cleanses while protecting and replenishing moisture, and the conditioner locks in hydration to leave hair softer, smoother, and healthier. By choosing non-toxic hair care products, you not only protect your hair's natural integrity but also prevent harmful chemicals from entering your body, promoting a holistic approach to both beauty and health.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
       }
     }
   },

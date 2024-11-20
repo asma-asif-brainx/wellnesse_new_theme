@@ -15,6 +15,14 @@ Violators will be prosecuted to the fullest extent of the law.
 %}
 
 <style>
+    .rich_text_logo{
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .description.left-align{
+    text-align: left;
+  }
     @media (max-width: 575px) {
         #richtext-with-image-{{ section.id }} {
             background-image: url({{ section.settings.img_mobile | image_url: width: 1200 }});
@@ -37,7 +45,10 @@ Violators will be prosecuted to the fullest extent of the law.
         font-size: 1rem !important;
     }
 }
-              
+  @media only screen and (max-width: 767px) {
+    .rich_text_logo {
+        max-width: 35px;
+    }              
 </style>
 
 {% unless section.settings.bg_color_hex == blank or section.settings.bg_color_hex contains 'rgba' %}
@@ -55,7 +66,37 @@ Violators will be prosecuted to the fullest extent of the law.
         <!-- You can place an optional top image or decorative element here -->
     {% endif %}
     <div class="{{ section.settings.container }}">
-       
+       {% if section.settings.logo %}
+                {% assign img = section.settings.logo %}
+                <img
+                  class="rich_text_logo"
+                  srcset="
+                    {%- if img.width >= 375 -%}{{ img | image_url: width: 375 }} 375w,{%- endif -%}
+                    {%- if img.width >= 550 -%}{{ img | image_url: width: 550 }} 550w,{%- endif -%}
+                    {%- if img.width >= 750 -%}{{ img | image_url: width: 750 }} 750w,{%- endif -%}
+                    {%- if img.width >= 1100 -%}{{ img | image_url: width: 1100 }} 1100w,{%- endif -%}
+                    {%- if img.width >= 1500 -%}{{ img | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {{ img | image_url }} 50w
+                  "
+                  sizes="(min-width: {{ settings.page_width }}px) 50px, 50px"
+                  loading="lazy"
+                  alt="{{ img.alt | escape }}"
+                  width="{{ img.width }}"
+                  height="{{ img.width | divided_by: img.aspect_ratio }}"
+                  src="{{ img | image_url: width: 50 }}"
+                >
+         {% endif %}
+      {% unless section.settings.main_title == blank %}
+            <div 
+                class="richtext-main__title animate__animated animate__fast opacity-0"
+                data-animate-class="animate__fadeInUp"
+                style="animation-delay: 400ms;">
+                <h2 class="title mb-5"
+                  style="color: {{ section.settings.main_title_color }};">
+                    {{ section.settings.main_title }}
+                </h2>
+            </div>
+        {% endunless %}
         {% unless section.settings.title == blank %}
             <div 
                 class="animate__animated animate__fast opacity-0"
@@ -72,7 +113,7 @@ Violators will be prosecuted to the fullest extent of the law.
                 class="animate__animated animate__fast opacity-0"
                 data-animate-class="animate__fadeInUp"
                 style="animation-delay: 600ms;">
-                <div class="description rte mb-10 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}"
+                <div class="description {% if section.settings.left_align_description %} left-align {% endif %} rte mb-10 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}"
                    style="color: {{ section.settings.description_color }};">
                     {{ section.settings.description }}
                 </div>
@@ -138,6 +179,22 @@ Violators will be prosecuted to the fullest extent of the law.
             ]
         },
         {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Icon"
+        },
+        {
+            "type": "text",
+            "id": "main_title",
+            "label": "Main Title"
+        },
+       {
+            "type": "color",
+            "id": "main_title_color",
+            "label": "Main Title Color",
+            "default": "#000000"
+        },
+        {
             "type": "text",
             "id": "title",
             "label": "Title",
@@ -172,12 +229,18 @@ Violators will be prosecuted to the fullest extent of the law.
             "label": "Description",
             "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
         },
-      {
-    "type": "color",
-    "id": "description_color",
-    "label": "Description Color",
-    "default": "#000000"
-},
+        {
+          "type": "color",
+          "id": "description_color",
+          "label": "Description Color",
+          "default": "#000000"
+          },
+          {
+              "type": "checkbox",
+              "id": "left_align_description",
+              "label": "Left align description text",
+              "default": false
+          },
          {
             "type": "range",
             "id": "description_font_size_mobile",

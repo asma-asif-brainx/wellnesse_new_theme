@@ -1,459 +1,330 @@
-{% style %}
-.custom-section-rich{
-    padding: 0 8rem;
-} 
-@media screen and (max-width:980px){
-    .custom-section-rich{
-        padding: 0 1.5rem;
-    } 
-}
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
 
-{% endstyle %}
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
 
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
+    assign bg_color = section.settings.bg_color
 
-<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
-
-<div class="custom-section-rich {% unless section.settings.full_width %}page-width{% endunless %}">
-  <div class="rich-text color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width{% endif %}">
-    <div class="rich-text__blocks">
-      {%- assign product = section.settings.product -%}
-      {%- for block in section.blocks -%}
-        
-        {%- case block.type -%}
-          {%- when 'logo' -%}
-            {% assign img = block.settings.logo %}
-            <img
-              class="rich_text_logo"
-              srcset="
-                {%- if img.width >= 375 -%}{{ img | image_url: width: 375 }} 375w,{%- endif -%}
-                {%- if img.width >= 550 -%}{{ img | image_url: width: 550 }} 550w,{%- endif -%}
-                {%- if img.width >= 750 -%}{{ img | image_url: width: 750 }} 750w,{%- endif -%}
-                {%- if img.width >= 1100 -%}{{ img | image_url: width: 1100 }} 1100w,{%- endif -%}
-                {%- if img.width >= 1500 -%}{{ img | image_url: width: 1500 }} 1500w,{%- endif -%}
-                {{ img | image_url }} {{ img.width }}w
-              "
-              sizes="(min-width: {{ settings.page_width }}px) 50px, 50px"
-              loading="lazy"
-              alt="{{ img.alt | escape }}"
-              width="{{ img.width }}"
-              height="{{ img.width | divided_by: img.aspect_ratio }}"
-              src="{{ img | img_url: '45x55' }}"
-            >
-          {%- when 'subheading' -%}
-            <h4 {{ block.shopify_attributes }}>{{ block.settings.subheading | escape }}</h4>
-          {%- when 'heading' -%}
-            <h1 {{ block.shopify_attributes }}>{{ block.settings.heading }}</h1>
-          {%- when 'text' -%}
-            <div class="rich-text__text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
-          {%- when 'button' -%}
-            {% if section.settings.product_atc != blank and product != blank %}
-                <form id="richtext" method="post" action="/cart/add" class="addToCart_form">
-                <input type="hidden" name="price" value="{{ product.first_available_variant.price }}">
-                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                <input type="hidden" min="1" type="number" id="quantity" name="quantity" value="1">
-                <button
-                  {% unless product.available %}
-                    disabled
-                  {% endunless %}
-                  type="submit"
-                  class="btn btn-primary"
-                  href="{{ product.url }}"
-                >
-                  BUY NOW
-                </button>
-              </form>
-              {% else %}
-            <a
-              {% if block.settings.button_link == blank %}
-                role="link" aria-disabled="true"
-              {% else %}
-                href="{{ block.settings.button_link }}"
-              {% endif %}
-              class="btn btn-primary"
-              {{ block.shopify_attributes }}
-            >
-              {{ block.settings.button_label | escape }}
-            </a>
-          {% endif %}
-        {%- endcase -%}
-      {%- endfor -%}
-    </div>
-  </div>
-  {% if section.settings.banner_enable != blank %}
-    <div class="and_img {% if section.settings.overflow_y != blank %} and_overflow {% endif %}">
-      {% assign img = section.settings.desk_img %}
-      {% assign img2 = section.settings.mob_img %}
-      <img
-        class="desktop_only"
-        srcset="
-          {%- if img.width >= 375 -%}{{ img | image_url: width: 375 }} 375w,{%- endif -%}
-          {%- if img.width >= 550 -%}{{ img | image_url: width: 550 }} 550w,{%- endif -%}
-          {%- if img.width >= 750 -%}{{ img | image_url: width: 750 }} 750w,{%- endif -%}
-          {%- if img.width >= 1100 -%}{{ img | image_url: width: 1100 }} 1100w,{%- endif -%}
-          {%- if img.width >= 1500 -%}{{ img | image_url: width: 1500 }} 1500w,{%- endif -%}
-          {%- if img.width >= 1780 -%}{{ img | image_url: width: 1780 }} 1780w,{%- endif -%}
-          {%- if img.width >= 2000 -%}{{ img | image_url: width: 2000 }} 2000w,{%- endif -%}
-          {%- if img.width >= 3000 -%}{{ img | image_url: width: 3000 }} 3000w,{%- endif -%}
-          {%- if img.width >= 3840 -%}{{ img | image_url: width: 3840 }} 3840w,{%- endif -%}
-          {{ img | image_url }} {{ img.width }}w
-        "
-        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 10 }}px, (min-width: 750px) calc(100vw - 10px), calc(100vw - 10px)"
-        loading="lazy"
-        alt="{{ img.alt | escape }}"
-        width="{{ img.width }}"
-        height="{{ img.width | divided_by: img.aspect_ratio }}"
-        src="{{ img | img_url: '1359x578' }}"
-      >
-
-      <img
-        class="mobile_only"
-        srcset="
-          {%- if img2.width >= 375 -%}{{ img2 | image_url: width: 375 }} 375w,{%- endif -%}
-          {%- if img2.width >= 550 -%}{{ img2 | image_url: width: 550 }} 550w,{%- endif -%}
-          {%- if img2.width >= 750 -%}{{ img2 | image_url: width: 750 }} 750w,{%- endif -%}
-          {%- if img2.width >= 1100 -%}{{ img2 | image_url: width: 1100 }} 1100w,{%- endif -%}
-          {%- if img2.width >= 1500 -%}{{ img2 | image_url: width: 1500 }} 1500w,{%- endif -%}
-          {%- if img2.width >= 1780 -%}{{ img2 | image_url: width: 1780 }} 1780w,{%- endif -%}
-          {%- if img2.width >= 2000 -%}{{ img2 | image_url: width: 2000 }} 2000w,{%- endif -%}
-          {%- if img2.width >= 3000 -%}{{ img2 | image_url: width: 3000 }} 3000w,{%- endif -%}
-          {%- if img2.width >= 3840 -%}{{ img2 | image_url: width: 3840 }} 3840w,{%- endif -%}
-          {{ img2 | image_url }} {{ img2.width }}w
-        "
-        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 10 | divided_by: 4 }}px, (min-width: 750px) calc(100vw - 10px), calc(100vw - 10px)"
-        loading="lazy"
-        alt="{{ img2.alt | escape }}"
-        width="{{ img2.width }}"
-        height="{{ img2.width | divided_by: img2.aspect_ratio }}"
-        src="{{ img2 | img_url: '372×632' }}"
-      >
-    </div>
-  {% endif %}
-</div>
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+%}
 <style>
-  {% if section.settings.custom_bg_color != blank %}
-    {% assign bg_color = section.settings.bg_color %}
-
-      #shopify-section-{{ section.id }},
-      #shopify-section-{{ section.id }} .gradient{
-        background-color: {{bg_color}};
-        margin-top:0;
-        padding-top:45px;
-      }
-  {% endif %}
-  #shopify-section-{{ section.id }} .and_img {
-    max-width: {{ section.settings.img_width_desk }}%;
-    margin-left:auto;
-    margin-right:auto;
+  .rich_text_logo{
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
   }
-  #shopify-section-{{ section.id }} .and_img{
-    margin-top:-{{ section.settings.overflow_size }}px;
-  }
-  {% if section.settings.remove_top_margin %}
-    #shopify-section-{{ section.id }}{
-     margin-top: 0 !important;
-    }
+  {% if section.settings.description_margin-top %}
+   #richtext-{{ section.id }} .description{
+     margin-top: 2rem !important;
+   }
   {% endif %}
-  {% if section.settings.remove_bottom_margin %}
-    #shopify-section-{{ section.id }} .rich-text{
-      margin-bottom: 0 !important;
-     }
-  {% endif %}
-  {% if section.settings.center_align %}
-
-     #shopify-section-{{ section.id }} .rich-text{
-      padding-top: 0;
-      padding-bottom: 33px;
+  @media only screen and (max-width: 767px) {
+    .rich_text_logo {
+        max-width: 35px;
     }
-  {% endif %}
-  @media only screen and (max-width:767px){
-    #shopify-section-{{ section.id }} .and_img {
-      max-width: {{ section.settings.img_width_mobile }}%;
-      margin-top:-{{ section.settings.overflow_size_mob }}px;
-    }
-  }
 </style>
+<section 
+    id="richtext-{{ section.id }}" 
+    class="richtext enter-view {{ bg_color }} {{ section.settings.text_align }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    <div class="container {% unless section.settings.animation == '' %}animate__animated animate__faster opacity-0{% endunless %}"
+        data-animate-class="{{ section.settings.animation }}"
+        style="animation-delay: 0ms">
+        <div class="mx-auto" style="max-width: {{ section.settings.max_width }}px">
+              {% if section.settings.logo %}
+                {% assign img = section.settings.logo %}
+                <img
+                  class="rich_text_logo"
+                  srcset="
+                    {%- if img.width >= 375 -%}{{ img | image_url: width: 375 }} 375w,{%- endif -%}
+                    {%- if img.width >= 550 -%}{{ img | image_url: width: 550 }} 550w,{%- endif -%}
+                    {%- if img.width >= 750 -%}{{ img | image_url: width: 750 }} 750w,{%- endif -%}
+                    {%- if img.width >= 1100 -%}{{ img | image_url: width: 1100 }} 1100w,{%- endif -%}
+                    {%- if img.width >= 1500 -%}{{ img | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {{ img | image_url }} 50w
+                  "
+                  sizes="(min-width: {{ settings.page_width }}px) 50px, 50px"
+                  loading="lazy"
+                  alt="{{ img.alt | escape }}"
+                  width="{{ img.width }}"
+                  height="{{ img.width | divided_by: img.aspect_ratio }}"
+                  src="{{ img | image_url: width: 50 }}"
+                >
+            {% endif %}
+            {% render 'section-header' %}
+            {% unless section.settings.btn_text == blank %}
+                <a 
+                    class="btn mb-1 {{ section.settings.btn_color }} {{ section.settings.btn_size }}" 
+                    href="{{ section.settings.btn_url }}">
+                    {{ section.settings.btn_text }}
+                </a>
+            {% endunless %}
+        </div>
+    </div>
+</section>
+
 {% schema %}
 {
-    "name": "custom-rich",
-    "tag": "section",
-    "class": "spaced-section spaced-section--full-width featured_text_sec",
+    "name": "Richtext",
     "settings": [
-      {
-        "type": "product",
-        "id": "product",
-        "label": "Product"
-      },
-      {
-        "type": "checkbox",
-        "id": "product_atc",
-        "default": false,
-        "label": "Add Product to Cart"
-      },
-      {
-        "type": "checkbox",
-        "id": "custom_bg_color",
-        "default": false,
-        "label": "Custom Background"
-      },
-      {
-        "type": "checkbox",
-        "id": "remove_top_margin",
-        "default": false,
-        "label": "Remove Top Margin"
-      },
-      {
-        "type": "checkbox",
-        "id": "remove_bottom_margin",
-        "default": false,
-        "label": "Remove Bottom Margin"
-      },
-      {
-        "type": "checkbox",
-        "id": "center_align",
-        "default": false,
-        "label": "Center Align Content"
-      },
-      {
-        "type": "color",
-        "id": "bg_color",
-        "label": "Background Color"
-      },
-      {
-        "type": "select",
-        "id": "color_scheme",
-        "options": [
-          {
-            "value": "accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "background-1",
-            "label": "Background 1"
-          },
-          {
-            "value": "background-2",
-            "label": "Background 2"
-          },
-          {
-            "value": "Inverse",
-            "label": "Inverse"
-          }
-        ],
-        "default": "background-1",
-        "label": "Color Scheme"
-      },
-      {
-        "type": "checkbox",
-        "id": "full_width",
-        "default": true,
-        "label": "Full Width"
-      },
-      {
-        "type": "header",
-        "content": "Banner on this Section"
-      },
-      {
-        "type": "checkbox",
-        "id": "banner_enable",
-        "label": "Enable/Disable Banner"
-      },
-      {
-        "type": "range",
-        "id": "img_width_desk",
-        "min": 20,
-        "max": 100,
-        "step": 10,
-        "default": 100,
-        "unit": "%",
-        "label": "Desktop Image Width"
-      },
-      {
-        "type": "range",
-        "id": "img_width_mobile",
-        "min": 20,
-        "max": 100,
-        "step": 10,
-        "default": 100,
-        "unit": "%",
-        "label": "Mobile Image Width"
-      },
-      {
-        "type": "image_picker",
-        "id": "desk_img",
-        "label": "Desktop Image"
-      },
-      {
-        "type": "image_picker",
-        "id": "mob_img",
-        "label": "Mobile Image"
-      },
-      {
-        "type": "checkbox",
-        "id": "overflow_y",
-        "label": "Overflow Y",
-        "default": false
-      },
-      {
-        "type": "range",
-        "id": "overflow_size",
-        "min": 10,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "label": "Overflow Size",
-        "default": 100
-      },
-      {
-        "type": "range",
-        "id": "overflow_size_mob",
-        "min": 10,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "label": "Overflow Size (Mobile)",
-        "default": 100
-      }
-    ],
-    "blocks": [
-      {
-        "type": "logo",
-        "name": "Logo Icon",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "logo",
-            "label": "Logo Icon"
-          }
-        ]
-      },
-      {
-        "type": "subheading",
-        "name": "Sub Heading",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "subheading",
-            "default": "-- CLEAN PERSONAL CARE PRODUCTS ON YOUR DOORSTEP --",
-            "label": "Sub Heading"
-          },
-          {
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
             "type": "select",
-            "id": "heading_size",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-body text-body",
             "options": [
-              {
-                "value": "h2",
-                "label": "H2"
-              },
-              {
-                "value": "h1",
-                "label": "H1"
-              },
-              {
-                "value": "h0",
-                "label": "H0"
-              }
-            ],
-            "default": "h1",
-            "label": "Heading Size"
-          }
-        ]
-      },
-      {
-        "type": "heading",
-        "name": "Heading",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "heading",
-            "default": "Talk about your brand",
-            "label": "Heading"
-          },
-          {
-            "type": "select",
-            "id": "heading_size",
-            "options": [
-              {
-                "value": "h2",
-                "label": "H2"
-              },
-              {
-                "value": "h1",
-                "label": "H1"
-              },
-              {
-                "value": "h0",
-                "label": "H0"
-              }
-            ],
-            "default": "h1",
-            "label": "Heading Size"
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "name": "Text",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "richtext",
-            "id": "text",
-            "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "label": "Text"
-          }
-        ]
-      },
-      {
-        "type": "button",
-        "name": "Button",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "button_label",
-            "default": "Button label",
-            "label": "Button Label"
-          },
-          {
-            "type": "url",
-            "id": "button_link",
-            "label": "Button Link"
-          },
-          {
+                { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+            ]
+        },
+      
+        {
             "type": "checkbox",
-            "id": "button_style_secondary",
+            "id": "bg_gradient",
+            "label": "Background gradient",
             "default": false,
-            "label": "Use Secondary Button Style"
-          }
-        ]
-      }
+            "info": "Will not apply to light colors"
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max width (px)",
+            "info": "Adjust container width (in pixels)",
+            "default": "960"
+        },
+         {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text align",
+            "default": "text-center",
+             "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" },
+               { "value": "text-end", "label": "Right" }
+            ]
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Icon"
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title",
+            "default": "<p>Richtext</p>"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "checkbox",
+            "id": "description_margin-top",
+            "label": "Add margin above description",
+            "default": false
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description (optional)",
+            "default": "<p>Add on optional description to this section</p>"
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "header",
+            "content": "Button"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text",
+            "info": "Leave empty to disable"
+        },
+        {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+        },
+        {
+            "type": "select",
+            "id": "btn_color",
+            "label": "Button color",
+            "default": "btn-primary",
+            "options": [
+                { "group": "Normal", "value": "btn-link", "label": "Link" },
+                { "group": "Normal", "value": "btn-light", "label": "Light" },
+                { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                { "group": "Normal", "value": "btn-success", "label": "Success" },
+                { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                { "group": "Normal", "value": "btn-info", "label": "Info" },
+                { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "btn_size",
+            "label": "Button size",
+            "default": "btn-md",
+            "options": [
+                { "value": "btn-sm", "label": "Small" },
+                { "value": "btn-md", "label": "Normal" },
+                { "value": "btn-lg", "label": "Large" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "animation",
+            "label": "Animation",
+            "default": "animate__fadeInUp",
+            "options": [
+                { "group": "Disabled", "value": "", "label": "No animation" },
+                { "group": "Fade", "value": "animate__fadeIn", "label": "Fade In" },
+                { "group": "Fade", "value": "animate__fadeInDown", "label": "Fade-in-down" },
+                { "group": "Fade", "value": "animate__fadeInLeft", "label": "Fade-in-left" },
+                { "group": "Fade", "value": "animate__fadeInRight", "label": "Fade-in-right" },
+                { "group": "Fade", "value": "animate__fadeInUp", "label": "Fade-in-up" },
+                { "group": "Zoom", "value": "animate__zoomIn", "label": "Zoom-in" },
+                { "group": "Zoom", "value": "animate__zoomInDown", "label": "Zoom-in-down" },
+                { "group": "Zoom", "value": "animate__zoomInLeft", "label": "Zoom-in-left" },
+                { "group": "Zoom", "value": "animate__zoomInRight", "label": "Zoom-in-right" },
+                { "group": "Zoom", "value": "animate__zoomInUp", "label": "Zoom-in-up" },
+                { "group": "Back", "value": "animate__backInDown", "label": "Back-in-down" },
+                { "group": "Back", "value": "animate__backInLeft", "label": "Back-in-left" },
+                { "group": "Back", "value": "animate__backInRight", "label": "Back-in-right" },
+                { "group": "Back", "value": "animate__backInUp", "label": "Back-in-up" },
+                { "group": "Bounce", "value": "animate__bounceIn", "label": "Bounce-in" },
+                { "group": "Bounce", "value": "animate__bounceInDown", "label": "Bounce-in-down" },
+                { "group": "Bounce", "value": "animate__bounceInLeft", "label": "Bounce-in-left" },
+                { "group": "Bounce", "value": "animate__bounceInRight", "label": "Bounce-in-right" },
+                { "group": "Bounce", "value": "animate__bounceInUp", "label": "Bounce-in-up" },
+                { "group": "LightSpeed", "value": "animate__lightSpeedInLeft", "label": "LightSpeed-in-left" },
+                { "group": "LightSpeed", "value": "animate__lightSpeedInRight", "label": "LightSpeed-in-right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "animation_speed",
+            "label": "Animation speed",
+            "default": "animate__fast",
+            "options": [
+                { "value": "animate__slower", "label": "Slower" },
+                { "value": "animate__slow", "label": "Slow" },
+                { "value": "", "label": "Normal" },
+                { "value": "animate__fast", "label": "Fast" },
+                { "value": "animate__faster", "label": "Faster" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
     ],
     "presets": [
-      {
-        "name": "custom-rich",
-        "blocks": [
-          {
-            "type": "heading"
-          },
-          {
-            "type": "text"
-          },
-          {
-            "type": "button"
-          }
-        ]
-      }
+        {
+            "name": "Richtext",
+            "category": "Text"
+        }
     ]
-  }
-  
+}
 {% endschema %}

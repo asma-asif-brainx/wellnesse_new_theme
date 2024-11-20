@@ -3,6 +3,29 @@
     "template-product": {
       "type": "template-product",
       "blocks": {
+        "c93963c3-bf4c-4de0-b3f8-b2cd7bc3e035": {
+          "type": "text",
+          "settings": {
+            "bg_color": "bg-body text-body",
+            "bg_gradient": false,
+            "border_size": "border border-0",
+            "border_color": "border-dark",
+            "border_radius": "rounded-0",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 3,
+            "title_text_transform": "",
+            "description": "<p>GIFT SET<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "description_text_transform": "text-uppercase",
+            "text_align": "text-start",
+            "mt": 3,
+            "mb": 2,
+            "pt": 2,
+            "pb": 2
+          }
+        },
         "15f00db4-48cd-4392-91c0-aaf0c622dd42": {
           "type": "title",
           "settings": {
@@ -219,6 +242,7 @@
         }
       },
       "block_order": [
+        "c93963c3-bf4c-4de0-b3f8-b2cd7bc3e035",
         "15f00db4-48cd-4392-91c0-aaf0c622dd42",
         "12d9314a-c9b3-4c19-bdc1-96fbed9e107a",
         "product_switcher_j7gKUt",
@@ -261,21 +285,26 @@
     "richtext_YKPGMr": {
       "type": "richtext",
       "settings": {
-        "product": "",
-        "product_atc": false,
-        "custom_bg_color": false,
-        "remove_top_margin": false,
-        "remove_bottom_margin": false,
-        "center_align": false,
-        "bg_color": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "banner_enable": false,
-        "img_width_desk": 100,
-        "img_width_mobile": 100,
-        "overflow_y": false,
-        "overflow_size": 100,
-        "overflow_size_mob": 100
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "Nothing To Lose – Everything To Gain",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<h4>No Regrets Allowed! Try Wellnesse Risk-Free With Our Happiness Guarantee<\/h4><h1><\/h1><p>At Wellnesse, we believe everything should be this good. That's why we're making it risk-free for you to try! If you're not happy with your purchase for whatever reason, just contact our customer service team within 30 days and we'll make sure you're happy.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
       }
     },
     "instagram_gallery_fmRqnB": {

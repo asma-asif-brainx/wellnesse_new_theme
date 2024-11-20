@@ -1,0 +1,24 @@
+<div class="product-ingredient {{ css_class }}" data-product-ids="{{ product_Id }}">
+    {%- assign skus = product_Id | remove: ' ' -%}
+    {%- assign is_array = false -%}
+
+    {%- if skus contains ',' -%}
+        {%- assign is_array = true -%}
+        {%- assign skus = skus | split: ',' -%}
+    {%- endif -%}
+            <div class="sku-preview align-items-center ingredients-array" data-product-handle="all">
+                <div class="content">
+                    <ul>
+                        {%- for sku in skus -%}
+                            {%- assign sku_id = sku | plus: 0 -%}
+                            {% assign outer_forloop = forloop %}
+                            {%- for p in collections.all-products-except-custom-bundle-coupon.products -%}
+                                {%- if p.id == sku_id -%}
+                                  <li><a href="{{ p.url }}">{{ p.title }}</a>{% unless outer_forloop.last %} <span> & </span>{% endunless %}</li>
+                                {%- endif -%}
+                            {%- endfor -%}
+                        {%- endfor -%}
+                    </ul>
+                </div>
+            </div>
+</div>

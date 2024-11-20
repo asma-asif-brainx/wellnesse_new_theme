@@ -1,0 +1,136 @@
+
+
+{% for block in section.blocks %}
+{%- assign selected_product = all_products[block.settings.product] -%}
+{% assign featured_image = selected_product.selected_or_first_available_variant.featured_image %}
+{%- assign skus = block.settings.product_ids | remove: ' ' -%}
+{%- assign is_array = false -%}
+{%- if skus contains ',' -%}
+    {%- assign is_array = true -%}
+    {%- assign skus = skus | split: ',' -%}
+{%- endif -%}
+{% capture products %}{%- for sku in skus -%}{%- assign sku_id = sku | plus: 0 -%}{% assign outer_forloop = forloop %}{%- for p in collections.all.products -%}{%- if p.id == sku_id -%}<li><a href="{{ p.url }}">{{ p.title | remove: "'" }}</a>{% unless outer_forloop.last %}<span>&</span>{% endunless %}</li>{%- endif -%}{%- endfor -%}{%- endfor -%}{% endcapture %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var ing_item_table = '';
+            ing_item_table +='<tr class="value1" data-site1="{{ block.settings.title }}" data-product="all{% if block.settings.product_ids != blank %}, {{ block.settings.product_ids }}{% endif %}">';
+            ing_item_table +='<td>{% if block.settings.title != blank %}<h3 class="product-title">{{ block.settings.title }}</h3>{% endif %}</td>';
+            ing_item_table +='<td>{% if block.settings.function != blank %}<p class="product-function">{{ block.settings.function }}</p>{% endif %}</td>';
+            ing_item_table +='<td>{% if block.settings.description != blank %}<p class="product-description">{{ block.settings.description }}</p>{% endif %}</td>';
+            ing_item_table +='<td>{% unless block.settings.ewg_rating < 1 %}<div class="product-rating ratting_{{ block.settings.ewg_rating }}"></div>{% else %} <div class="no-rating__tooltip tooltip"><span class="product-rating q_mark"></span><span class="tooltiptext custom-tooltiptext"><p style="padding-bottom: 5px">We are proud of all the ingredients and EWG ratings in our products. EWG currently only rates skin care ingredients, not food items, which is why we are unable to provide an EWG rating for this ingredient. Please reach out to <a class="contact-support" href="mailto:SUPPORT@WELLNESSE.COM">support@wellnesse.com</a> if you have any questions!</p></span></div>{% endunless %}</td>';
+            ing_item_table +='<td><div class="product-ingredient {{ css_class }}" data-product-ids="{{ block.settings.product_ids }}"><div class="sku-preview d-flex align-items-center ingredients-array" data-product-handle="all"><div class="content"><ul>';
+            ing_item_table +='{{products}}';
+            ing_item_table +='</ul></div></div></div></td>';
+            ing_item_table +='</tr>';
+
+            var ing_item_row = '';
+
+            ing_item_row +='<div class="row value2" data-site2="{{ block.settings.title  }}" data-product="all{% if block.settings.product_ids != blank %}, {{ block.settings.product_ids }}{% endif %}">';
+            ing_item_row +='<div class="ingredients_title_m">{% if block.settings.title != blank %}<div class="ingredients_title_rate"><h3 class="product-title">{{ block.settings.title }}</h3>{% unless block.settings.ewg_rating < 1 %}<div class="product-rating ratting_{{ block.settings.ewg_rating }}"></div>{% else %} <div class="no-rating__tooltip tooltip"><span class="product-rating q_mark"></span><span class="tooltiptext custom-tooltiptext"><p style="padding-bottom: 5px">We are proud of all the ingredients and EWG ratings in our products. EWG currently only rates skin care ingredients, not food items, which is why we are unable to provide an EWG rating for this ingredient. Please reach out to <a class="contact-support" href="mailto:SUPPORT@WELLNESSE.COM">support@wellnesse.com</a> if you have any questions!</p></span></div>{% endunless %}</div>{% endif %}{% if block.settings.function != blank %}<p>{{ block.settings.function }}</p>{% endif %}{% if block.settings.description != blank %}<p>{{ block.settings.description }}</p>{% endif %}</div>';
+            ing_item_row +='<div class="ingredients_skus_m"><p>Used In:</p>';
+            ing_item_row +='<td><div class="product-ingredient {{ css_class }}" data-product-ids="{{ block.settings.product_ids }}"><div class="sku-preview d-flex align-items-center ingredients-array" data-product-handle="all"><div class="content"><ul>';
+            ing_item_row +='{{products}}';
+
+            ing_item_row +='</ul></div></div></div></div>';
+          
+            var tbody = document.querySelector("tbody");
+            var contentBody = document.querySelector(".content-body");
+          
+            tbody.innerHTML += ing_item_table;
+            contentBody.innerHTML += ing_item_row;
+
+            
+            var deskSortingItems = Array.from(document.querySelectorAll('.value1')).sort(function(a, b) {
+                return a.getAttribute('data-site1').toLowerCase().localeCompare(b.getAttribute('data-site1').toLowerCase());
+              });
+              var deskListing = document.querySelector("#ing_desk_listing");
+              deskListing.innerHTML = '';
+              deskSortingItems.forEach(function(item) {
+                console.log(item);
+                deskListing.appendChild(item);
+              });
+              var mobSortingItems = Array.from(document.querySelectorAll('.value2')).sort(function(a, b) {
+                return a.getAttribute('data-site2').toLowerCase().localeCompare(b.getAttribute('data-site2').toLowerCase());
+              });
+              var mobileListing = document.querySelector("#ing_mobile_listing");
+              mobileListing.innerHTML = '';
+              mobSortingItems.forEach(function(item) {
+                mobileListing.appendChild(item);
+              });
+          });
+    </script>
+{% endfor %}
+{% schema %}
+{
+    "name": "More Ingredeints Listing",
+    "settings": [
+        {
+            "type":      "header",
+            "content":   "Add ingredients from below:"
+        },
+        {
+            "id": "ewg_text",
+            "type": "richtext",
+            "label": "Ewg Text",
+            "default": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE</p>"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "ingredient",
+            "name": "Ingredient",
+            "settings": [
+                {
+                    "id": "title",
+                    "type": "text",
+                    "label": "Title",
+                    "default": "Title"
+                },
+                {
+                    "id": "disclaimer",
+                    "type": "textarea",
+                    "label": "Disclaimer"
+                },
+                {
+                    "id": "function",
+                    "type": "textarea",
+                    "label": "Function",
+                    "default": "Function"
+                },
+                {
+                    "id": "description",
+                    "type": "textarea",
+                    "label": "Description",
+                    "default": "Description"
+                },
+                {
+                    "id": "ewg_rating",
+                    "type": "range",
+                    "label": "EWG Rating#",
+                    "min": 0,
+                    "max": 10,
+                    "default": 1,
+                    "unit": "#"
+                },
+                {
+                    "id": "ewg_rating_desc",
+                    "type": "text",
+                    "label": "EWG Rating Description",
+                    "default": "EWG Rating"
+                },
+                {
+                    "id":        "product_ids",
+                    "type":      "text",
+                    "label":     "Product ids",
+                    "info":      "List product ids which contain this ingredient."
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "More Ingredients Listing"
+      }
+    ]
+}
+{% endschema %}
