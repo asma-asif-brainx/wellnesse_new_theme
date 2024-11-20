@@ -1,0 +1,638 @@
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+%}
+<section 
+    id="ingredients-{{ section.id }}" 
+    class="ingredients-section {{ pt }} {{ pb }}">
+  <div class="page-width">
+  <div class="select-wrapper">
+    <select class="custom-select js-select-product">
+      {%- assign featured_collection = '' -%}
+
+      {%- if section.settings.feature_collection != blank -%}
+        {%- assign featured_collection = section.settings.feature_collection -%}
+      {%- else -%}
+        {%- assign featured_collection = 'all' -%}
+      {%- endif -%}
+
+      <option value="all" data-prod-handle="all">All Ingredients</option>
+
+      {% for product in collections[featured_collection].products %}
+        {% unless product.title contains 'Kit'
+          or product.title contains 'Essentials'
+          or product.tags contains 'hide-ingredients'
+          or product.tags contains 'search-hidden'
+        %}
+          <option value="{{ product.id }}" data-prod-handle="{{ product.handle }}">{{ product.title }}</option>
+        {% endunless %}
+      {% endfor %}
+    </select>
+  </div>
+</div>
+  <div class="ingredients">
+  <div class="table-responsive ingredients-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            <h5>Ingredient</h5>
+          </th>
+          <th>
+            <h5>Function</h5>
+          </th>
+          <th>
+            <h5>Description</h5>
+          </th>
+          <th>
+            <h5 style="display: inline-block">EWG rating</h5>
+            <div class="tooltip">
+              <span class="q_mark">?</span>
+              <span class="tooltiptext">
+                <p style="padding-bottom: 5px">
+                  {{ section.settings.ewg_text }}
+                </p>
+              </span>
+            </div>
+            <img
+              class="rattings"
+              src="https://cdn.shopify.com/s/files/1/0080/8229/2789/files/ingredients-rating-svg_2x-min.png?v=1691149751"
+              loading="lazy"
+            >
+          </th>
+          <th>
+            <h5>Product</h5>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="ing_desk_listing">
+        {% for block in section.blocks %}
+          <tr
+            class="value1"
+            data-site1="{{ block.settings.title }}"
+            data-product="all{% if block.settings.product_ids != blank %}, {{ block.settings.product_ids }}{% endif %}"
+          >
+            {%- assign selected_product = all_products[block.settings.product] -%}
+            {% assign featured_image = selected_product.selected_or_first_available_variant.featured_image %}
+
+            <td>
+              {% if block.settings.title != blank %}
+                <h3 class="product-title">{{ block.settings.title }}</h3>
+                {% if block.settings.disclaimer != blank %}
+                  <div class="tooltip">
+                    <span class="q_mark">?</span>
+                    <span class="tooltiptext">
+                      <p style="padding-bottom: 5px">
+                        {{ block.settings.disclaimer }}
+                      </p>
+                    </span>
+                  </div>
+                {% endif %}
+              {% endif %}
+            </td>
+            <td class="mobile-hidden">
+              {% if block.settings.function != blank %}
+                <p class="product-function">{{ block.settings.function }}</p>
+              {% endif %}
+            </td>
+
+            <td class="mobile-hidden">
+              {% if block.settings.description != blank %}
+                <p class="product-description">{{ block.settings.description }}</p>
+              {% endif %}
+            </td>
+            <td>
+              {% unless block.settings.ewg_rating < 1 %}
+                <div class="product-rating ratting_{{ block.settings.ewg_rating }}"></div>
+                {% else %}
+                <div class="no-rating__tooltip tooltip"><span class="product-rating q_mark"></span><span class="tooltiptext custom-tooltiptext"><p style="padding-bottom: 5px">We are proud of all the ingredients and EWG ratings in our products. EWG currently only rates skin care ingredients, not food items, which is why we are unable to provide an EWG rating for this ingredient. Please reach out to <a class="contact-support" href="mailto:SUPPORT@WELLNESSE.COM">support@wellnesse.com</a> if you have any questions!</p></span></div>
+              {% endunless %}
+            </td>
+            <td class="mobile-hidden">
+              {%- render 'ingredients-table-skus', product_Id: block.settings.product_ids -%}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="ingredients-table-mobile">
+    <div class="content-head">
+      <div class="mob_ing_head">
+        <h5 class="">Ingredient</h5>
+      </div>
+      <div class="mobile_rat_head">
+        <h5 class="">EWG rating</h5>
+        <span class="q_mark">?</span>
+      </div>
+    </div>
+    <div class="content-body" id="ing_mobile_listing">
+      {% for block in section.blocks %}
+        <div
+          class="row value2"
+          data-site2="{{ block.settings.title }}"
+          data-product="all{% if block.settings.product_ids != blank %}, {{ block.settings.product_ids }}{% endif %}"
+        >
+          {%- assign selected_product = all_products[block.settings.product] -%}
+          {% assign featured_image = selected_product.selected_or_first_available_variant.featured_image %}
+          <div class="ingredients_title_m">
+            {% if block.settings.title != blank %}
+              <div class="ingredients_title_rate">
+                <h3 class="product-title">{{ block.settings.title }}</h3>
+                {% unless block.settings.ewg_rating < 1 %}
+                  <div class="product-rating ratting_{{ block.settings.ewg_rating }}"></div>
+                  {% else %}
+                  <div class="no-rating__tooltip tooltip"><span class="product-rating q_mark"></span> <span class="tooltiptext custom-tooltiptext"><p style="padding-bottom: 5px">We are proud of all the ingredients and EWG ratings in our products. EWG currently only rates skin care ingredients, not food items, which is why we are unable to provide an EWG rating for this ingredient. Please reach out to <a class="contact-support" href="mailto:SUPPORT@WELLNESSE.COM">support@wellnesse.com</a> if you have any questions!</p></span></div>
+                {% endunless %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.function != blank %}
+              <p>{{ block.settings.function }}</p>
+            {% endif %}
+
+            {% if block.settings.description != blank %}
+              <p>{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+          <div class="ingredients_skus_m">
+            <p>Used In:</p>
+            {%- render 'ingredients-table-skus', product_Id: block.settings.product_ids -%}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var deskSortingItems = Array.from(document.querySelectorAll('.value1')).sort(function(a, b) {
+    return a.getAttribute('data-site1').toLowerCase().localeCompare(b.getAttribute('data-site1').toLowerCase());
+  });
+  var deskListing = document.querySelector("#ing_desk_listing");
+  deskListing.innerHTML = '';
+  deskSortingItems.forEach(function(item) {
+    console.log(item);
+    deskListing.appendChild(item);
+  });
+
+  var mobSortingItems = Array.from(document.querySelectorAll('.value2')).sort(function(a, b) {
+    return a.getAttribute('data-site2').toLowerCase().localeCompare(b.getAttribute('data-site2').toLowerCase());
+  });
+  var mobileListing = document.querySelector("#ing_mobile_listing");
+  mobileListing.innerHTML = '';
+  mobSortingItems.forEach(function(item) {
+    mobileListing.appendChild(item);
+  });
+});
+</script>
+
+<style>
+  .product-rating {
+      display: block !important;
+      position: relative;
+      width: 100%;
+      height: 100%;
+  }
+  .product-rating::after {
+      position: absolute;
+      content: '';
+      width: 35px;
+      height: 35px;
+      background-size: contain !important;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+.ratting_1::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/Group_74785_2x_61cb23fb-c37f-490b-a606-9d8ccfc02cb9.png?v=1645097463) no-repeat;
+  }
+  .ratting_2::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/2_2x_193399f1-15de-4982-b3f1-c7d6d38c7199.png?v=1645712431) no-repeat;
+  }
+  .ratting_3::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/3_2x_6e97dc59-704a-4ee4-aa15-e9306a943a07.png?v=1645712431) no-repeat;
+  }
+  .ratting_4::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/4_2x_0179b3cb-ab63-45a7-8d65-c21f0e300224.png?v=1645712431) no-repeat;
+  }
+  .ratting_5::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/5_2x_7f851c42-fbc5-4556-b03c-bb6b44cd93d5.png?v=1645712431) no-repeat;
+  }
+  .ratting_6::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/6_2x_42f25a0b-7590-4300-871c-178eebe4c161.png?v=1645712431) no-repeat;
+  }
+  .ratting_7::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/7_2x_227da330-004b-4340-92b8-bcb420049973.png?v=1645712431) no-repeat;
+  }
+  .ratting_8::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/8_2x_0c1fcef4-f3f6-4b5f-aebe-82b5893c47e0.png?v=1645712431) no-repeat;
+  }
+  .ratting_9::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/9_2x_7049cd8f-cf6d-4a70-bca9-7778b1d00540.png?v=1645712432) no-repeat;
+  }
+  .ratting_10::after {
+      background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/10_2x_119487cc-3b4e-46dd-bc43-3ec8c96741f6.png?v=1645712431) no-repeat;
+  }
+
+
+  .ingredients-table-mobile{
+      display: none;
+  }
+  /* select style */
+  .select-wrapper {
+      max-width: 500px;
+      margin:0 auto;
+      margin-bottom:70px;
+  }
+
+  .select-wrapper select {
+      border: none;
+      width: 100%;
+      font-size: 18px;
+      font-family: inherit;
+      padding: 20px 30px;
+      border: 1px solid;
+      border-radius: 50px;
+      background-position-x: 244px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right;
+      background-position-x: calc(100% - 25px);
+      cursor: pointer;
+  }
+
+  .select-wrapper select:focus, .select-wrapper select:active {
+      outline: none;
+      box-shadow: none;
+  }
+      .ingredients-table{
+          overflow: visible;
+          display: block;
+          width: 100%;
+      }
+      .ingredients-table table {
+          width: 100%;
+          margin: 0;
+          border-collapse: collapse;
+      }
+      .ingredients-table table th{
+          padding:30px 0;
+          position: relative;
+      }
+      .ingredients-table table th::after{
+          content: ' ';
+          display: inline-block;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 10px solid currentColor;
+          transform: rotate(90deg);
+          transition: transform .2s ease-out;
+          height: 15px;
+          width: 15px;
+          position: absolute;
+          bottom: -17px;
+          color: #e15e54;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+      }
+      .ingredients-table table th, .ingredients-table table td {
+          width: 20%;
+          text-align: center;
+          vertical-align: middle;
+      }
+      .ingredients-table thead , .ingredients-table thead th{
+          background: #E15E54;
+      }
+      .ingredients-table thead h5 {
+          margin: 0;
+          color: #fff;
+          font-size: 18px;
+          text-transform: uppercase;
+      }
+      .rattings {
+          width: 100%;
+          margin-top: 10px;
+      }
+      .tooltip {
+          position: relative;
+          display: inline-block;
+          border-bottom: none;
+          opacity: 1;
+          z-index: 1;
+      }
+      .tooltip:hover {
+          cursor: pointer;
+      }
+      span.tooltiptext {
+          visibility: hidden;
+          width: 300px;
+          text-align: center;
+          border-radius: 6px;
+          padding: 15px 10px;
+          position: absolute;
+          z-index: 1;
+          bottom: 20px;
+          left: -140px;
+          border: solid 2px #005b60;
+          background: #fff;
+          font-size: 16px;
+      }
+      .no-rating__tooltip
+      span.tooltiptext p{
+          font-weight: 400;
+      }
+      span.tooltiptext a{
+          font-weight: bold;
+          color:#E15E54;
+
+      }
+      .tooltip:hover .tooltiptext {
+          visibility: visible;
+      }
+
+      /* Table Body */
+      .ingredients-array ul{
+        margin-top: 1rem;
+      }
+      .ingredients-table tbody tr {
+          border-bottom: 1px solid #eee;
+          height: 200px;
+      }
+      .ingredients-table table td {
+          padding: 0 20px;
+      }
+      .product-title {
+          color: #e15e54;
+          margin: 0;
+          font-size:18px;
+      }
+      .product-ingredient ul li {
+          list-style: none;
+          padding-bottom: 12px;
+      }
+      .product-ingredient ul a {
+          color: #e15e54;
+      }
+      .product-rating img {
+          width: 35px;
+      }
+      .q_mark{
+          background: white;
+          border-radius: 50%;
+          color: #e15e54;
+          height: 20px;
+          width: 20px;
+          padding-top: 2px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          margin-left:10px;
+      }
+      .no-rating__tooltip .q_mark::after {
+         background: url(https://cdn.shopify.com/s/files/1/0080/8229/2789/files/question_565fb54d-70e4-4b3a-8356-97806bb80e13.png?v=1685683022) no-repeat;
+      }
+      .contact-support{
+        color: #e15e54;
+      }
+      span.custom-tooltiptext p{
+        list-style: none;
+      }
+      span.custom-tooltiptext{
+        left: -282px !important;
+      }
+      @media only screen and (max-width:768px){
+          .select-wrapper{
+              margin-bottom: 50px;
+          }
+          .ingredients-table-mobile{
+              display: block;
+          }
+          .ingredients-table{
+              display: none;
+          }
+          .content-head {
+              background: #e15e54;
+              padding: 30px 20px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+          }
+          .mobile_rat_head{
+              display:-webkit-box;
+              display:-ms-flexbox;
+              display:flex;
+          }
+          .content-head h5 {
+              color: #fff;
+              font-size: 16px;
+              text-transform: uppercase;
+              margin: 0;
+              position: relative;
+          }
+          .content-head h5::after{
+              content: ' ';
+              display: inline-block;
+              border-top: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+              border-left: 10px solid currentColor;
+              transform: rotate(90deg);
+              transition: transform .2s ease-out;
+              height: 15px;
+              width: 15px;
+              position: absolute;
+              bottom: -45px;
+              color: #e15e54;
+              left: 0;
+              right: 0;
+              margin: 0 auto;
+          }
+          .content-body .row {
+              padding: 20px 0;
+              border-bottom: 1px solid gray;
+          }
+          .ingredients_title_m, .ingredients_skus_m {
+              padding: 0 30px;
+          }
+          .ingredients_title_rate {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+          }
+
+          .ingredients_title_rate img {
+              max-width: 35px;
+          }
+          .ingredients_title_m p, .ingredients_skus_m p {
+              list-style: disc;
+              display: list-item;
+              margin: 8px 0 8px 20px;
+          }
+          .product-ingredient ul {
+              padding-left: 20px;
+          }
+          .product-rating {
+              width: 35px;
+              height: 35px;
+          }
+          .product-rating::after {
+              top:20px;
+          }
+          .no-rating__tooltip:click .tooltiptext {
+            visibility: visible;
+        }
+        span.custom-tooltiptext p{
+          margin: 5px !important;
+          }
+         span.custom-tooltiptext{
+            
+    width: 220px !important;
+    padding: 0px !important;
+    left: -211px !important;
+    font-size: 10px !important;
+            }
+      }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var selectProductElements = document.querySelectorAll(".js-select-product");
+  
+    selectProductElements.forEach(function(selectProductElement) {
+      selectProductElement.addEventListener('change', function() {
+        var optionValue = this.value;
+        var selectedOption = this.options[this.selectedIndex];
+        var selectedHandle = selectedOption.dataset.prodHandle;
+  
+        // desktop
+        var desktopTableRows = document.querySelectorAll('.ingredients-table tbody > tr');
+        desktopTableRows.forEach(function(row) {
+          row.style.display = 'none';
+        });
+  
+        var desktopMobileRows = document.querySelectorAll('.ingredients-table-mobile .content-body .row');
+        desktopMobileRows.forEach(function(row) {
+          row.style.display = 'none';
+        });
+  
+        var selectedDesktopRows = document.querySelectorAll('.ingredients-table tbody > tr[data-product*="' + optionValue + '"]');
+        selectedDesktopRows.forEach(function(row) {
+          row.setAttribute("data-selected-id", optionValue);
+          row.setAttribute("data-selected-handle", selectedHandle);
+          row.style.display = 'table-row';
+        });
+  
+        var selectedMobileRows = document.querySelectorAll('.ingredients-table-mobile .content-body .row[data-product*="' + optionValue + '"]');
+        selectedMobileRows.forEach(function(row) {
+          row.setAttribute("data-selected-id", optionValue);
+          row.setAttribute("data-selected-handle", selectedHandle);
+          row.style.display = 'block';
+        });
+      });
+  
+      // Trigger the change event initially
+      var event = new Event('change');
+      selectProductElement.dispatchEvent(event);
+    });
+  });
+  
+</script>
+{% schema %}
+{
+    "name": "Ingredients Listing",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Add ingredients from below:"
+        },
+        {
+            "id": "ewg_text",
+            "type": "richtext",
+            "label": "Ewg Text",
+            "default": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE</p>"
+        },
+        {
+            "id": "feature_collection",
+            "type": "collection",
+            "label": "Collection"
+        },
+      {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "ingredient",
+            "name": "Ingredient",
+            "settings": [
+                {
+                    "id": "title",
+                    "type": "text",
+                    "label": "Title",
+                    "default": "Title"
+                },
+                {
+                    "id": "disclaimer",
+                    "type": "textarea",
+                    "label": "Disclaimer"
+                },
+                {
+                    "id": "function",
+                    "type": "textarea",
+                    "label": "Function",
+                    "default": "Function"
+                },
+                {
+                    "id": "description",
+                    "type": "textarea",
+                    "label": "Description",
+                    "default": "Description"
+                },
+                {
+                    "id": "ewg_rating",
+                    "type": "range",
+                    "label": "EWG Rating#",
+                    "min": 0,
+                    "max": 10,
+                    "default": 1,
+                    "unit": "#"
+                },
+                {
+                    "id": "ewg_rating_desc",
+                    "type": "text",
+                    "label": "EWG Rating Description",
+                    "default": "EWG Rating"
+                },
+                {
+                    "id": "product_ids",
+                    "type": "text",
+                    "label": "Product ids",
+                    "info": "List product ids which contain this ingredient."
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "Ingredients Listing"
+      }
+    ]
+}
+{% endschema %}

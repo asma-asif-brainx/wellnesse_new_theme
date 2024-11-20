@@ -1,0 +1,176 @@
+
+<div id="banner-with-image-{{ section.id }}" class="collection-hero page-width banner-top-padding_{{ section.settings.padding_top }}">
+  <div class="collection-hero__banner-wrapper color_{{section.settings.color_scheme}}">
+    <img class="desktop_only" src="{{ section.settings.d-banner | img_url: 'master' }}" alt="{{ section.settings.d-banner.alt}}" width="{{ section.settings.d-banner.width}}" height="{{ section.settings.d-banner.height}}">
+    <img class="mobile_only" src="{{ section.settings.m-banner | img_url: 'master' }}" alt="{{ section.settings.m-banner.alt}}" width="{{ section.settings.m-banner.width}}" height="{{ section.settings.m-banner.height}}">
+    <div class="collection-hero__banner-text">
+      <h1>{{ section.settings.heading }}</h1>
+      <div class="collection_breadcrumb">
+        <span><a href="/">Home</a> >> {{ page.title }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.collection-hero__banner-wrapper {
+    position: relative;
+}
+.collection-hero__banner-text {
+    position: absolute;
+    bottom: 45%;
+    left: 60px;
+}
+.collection-hero__banner-text h1 {
+    margin: 0;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+.color_black .collection-hero__banner-text h1, 
+.color_black .collection-hero__banner-text span {
+    color: #000;
+}
+.color_white .collection-hero__banner-text h1, 
+.color_white .collection-hero__banner-text span {
+    color: #fff;
+}
+.collection-hero__banner-text span a {
+  text-decoration: none;
+  color:inherit;
+}
+.collection_breadcrumb {
+    position: relative;
+}
+
+.collection_breadcrumb span{
+  position: relative;
+}
+.color_black .collection_breadcrumb span::after {
+  background:#000;
+}
+.color_white .collection_breadcrumb span::after {
+  background:#fff;
+}
+.collection_breadcrumb span::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 40px;
+    background: #000;
+    left: -60px;
+    top: 45%;
+}
+.banner-top-padding_small {
+  padding-top: 10px;
+}
+.collection-hero img{
+  width: 100%;
+  height:auto;
+}
+  .page-width {
+    padding: 0 1.5rem;
+}
+@media screen and (min-width: 980px) {
+  .page-width {
+    padding:0 8rem;
+}
+}
+  @media screen and (min-width: 767px){
+    .banner-top-padding_medium {
+      padding-top: 40px;
+    }
+    .collection-hero__banner-text h1{
+      font-size: 40px;
+      font-weight: 400;
+    }
+  }
+@media only screen and (max-width:767px){
+  .banner-top-padding_medium {
+    padding-top: 20px;
+  }
+  .collection-hero__banner-text{
+    left:40px;
+  }
+  .collection-hero__banner-text{
+    top:10%;
+  }
+  .collection_breadcrumb span::after {
+    width: 28px;
+    left: -40px;
+    top: 50%;
+  }
+   .collection-hero__banner-text h1{
+      font-size: 2rem;
+      font-weight: 400;
+    }
+}
+      @media (max-width: 575px) {
+        .desktop_only {
+            display: none;
+        }
+    }
+    @media (min-width: 576px) {
+        .mobile_only {
+            display: none;
+        }
+}
+</style>
+{% schema %}
+{
+  "name": "Page Banner Section",
+  "class": "abc",
+  "settings": [
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+    },
+    {
+        "type": "image_picker",
+        "id": "d-banner",
+        "label": "Desktop Banner"
+    },
+    {
+        "type": "image_picker",
+        "id": "m-banner",
+        "label": "Mobile Banner"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ],
+      "default": "white",
+      "label": "Text Color"
+  },
+    {
+      "type": "select",
+      "id": "padding_top",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "medium"
+        }
+      ],
+      "default": "small",
+      "label": "Padding Top"
+  }
+  ],
+  "presets": [
+    {
+      "name": "Page Banner Section"
+    }
+  ]
+}
+{% endschema %}

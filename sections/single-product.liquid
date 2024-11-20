@@ -44,7 +44,7 @@ Violators will be prosecuted to the fullest extent of the law.
                         {{ 'product-1' | placeholder_svg_tag: 'product-item-img bg-light mb-4' }}
                     {% else %}
                         <div class="product-gallery-wrapper">
-                            {% render 'product-gallery', product: product %}
+                            {% render 'product-gallery', product: product , hide_thumbnails:section.settings.hide_thumbnails %}
                             {% render 'product-block-testimonial', suffix: '-gallery' %}
                         </div>
                     {% endif %}
@@ -208,6 +208,12 @@ Violators will be prosecuted to the fullest extent of the law.
         {
             "type": "header",
             "content": "Gallery"
+        },
+        {
+            "type": "checkbox",
+            "id": "hide_thumbnails",
+            "label": "Hide Thumbnails",
+            "default": false
         },
         {
             "type": "select",

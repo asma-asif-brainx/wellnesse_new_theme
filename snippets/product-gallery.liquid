@@ -159,7 +159,7 @@ Violators will be prosecuted to the fullest extent of the law.
                 </ul>
             </div>
         </div>
-        <div 
+  <div 
             class="
                 thumbs-splide splide mt-3 mt-lg-4
                 {% unless section.settings.gallery_show_thumbnails_mobile %}
@@ -169,7 +169,8 @@ Violators will be prosecuted to the fullest extent of the law.
             {% if product.media.size <= 1 %}
                 hidden
             {% endif %}>
-            <div class="splide__track">
+        {% unless hide_thumbnails %}
+           <div class="splide__track">
                 <ul class="splide__list">
                     {% for media in product.media %}
                         <li class="splide__slide {% if media.media_type contains 'video' %}is-video{% endif %} {% if media.media_type == 'model' %}is-model{% endif %} ">
@@ -184,6 +185,8 @@ Violators will be prosecuted to the fullest extent of the law.
                     {% endfor %}
                 </ul>
             </div>
+        {% endunless %}
+           
         </div>
     </div>
 {% endif %}

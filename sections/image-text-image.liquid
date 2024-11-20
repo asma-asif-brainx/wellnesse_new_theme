@@ -43,7 +43,14 @@ Violators will be prosecuted to the fullest extent of the law.
         assign visibility = ' d-lg-none' | prepend: visibility
     endif
 %}
-
+<style>
+    .icons{
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+    max-width: 400px;
+  }
+</style>
 {% unless section.settings.bg_image_desktop == blank %}
 <style>
   @media (min-width: 768px) {
@@ -91,6 +98,26 @@ Violators will be prosecuted to the fullest extent of the law.
                                     {{ block.settings.html }}
                                 </div>
                             {% endunless %}
+                            {% unless block.settings.icons == blank %}
+                              {% assign icons = block.settings.icons %}
+                               <img
+                                  class="icons"
+                                  srcset="
+                                    {%- if icons.width >= 375 -%}{{ icons | image_url: width: 375 }} 375w,{%- endif -%}
+                                    {%- if icons.width >= 550 -%}{{ icons | image_url: width: 550 }} 550w,{%- endif -%}
+                                    {%- if icons.width >= 750 -%}{{ icons | image_url: width: 750 }} 750w,{%- endif -%}
+                                    {%- if icons.width >= 1100 -%}{{ icons | image_url: width: 1100 }} 1100w,{%- endif -%}
+                                    {%- if icons.width >= 1500 -%}{{ icons | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                    {{ icons | image_url }} {{ icons.width }}w
+                                  "
+                                  sizes="(min-width: {{ settings.page_width }}px) 400px, (min-width: 750px) 400px, 400px"
+                                  loading="lazy"
+                                  alt="{{ icons.alt | escape }}"
+                                  width="{{ icons.width }}"
+                                  height="{{ icons.width | divided_by: icons.aspect_ratio }}"
+                                  src="{{ icons | image_url: width: 400 }}"
+                                >
+                              {% endunless %}
                            {% unless block.settings.btn_text == blank %}
                                             <a class="btn mt-5 w-100 {{ block.settings.btn_color }} {{ block.settings.btn_size }}" href="{{ block.settings.btn_url }}">
                                                 {{ block.settings.btn_text }}
@@ -414,7 +441,13 @@ Violators will be prosecuted to the fullest extent of the law.
                     "id": "description_color",
                     "label": "Description Color",
                     "default": "#333333"
+                },
+              {
+                    "type": "image_picker",
+                    "id": "icons",
+                    "label": "Icon Image"
                 }
+              
             ]
         },
         

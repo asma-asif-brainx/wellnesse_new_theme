@@ -1,0 +1,482 @@
+{
+  "sections": {
+    "richtext_with_image_XURYKw": {
+      "type": "richtext-with-image",
+      "settings": {
+        "bg_color": "",
+        "bg_color_hex": "",
+        "container": "container",
+        "main_title": "",
+        "main_title_color": "#df6459",
+        "title": "ARE YOU A DENTIST WHO NEEDS A FLUORIDE-FREE TOOTHPASTE RECOMMENDATION FOR YOUR PATIENTS",
+        "title_font_size_mobile": 6,
+        "title_color": "#000000",
+        "title_font_size_desktop": 7,
+        "description": "<p>As a dentist, your patients trust you for the best oral care recommendations. Now, when they ask for a fluoride-free option, you can confidently offer a solution that meets their needs without compromising on oral health.<\/p><p>Our fluoride-free toothpaste is crafted with natural ingredients to promote healthy teeth and gums, making it an excellent choice for those seeking alternatives to traditional fluoride formulas. Here’s why you’ll love trying it for yourself:<\/p><p><strong>Natural Cleaning Power<\/strong>: Our toothpaste effectively removes plaque and keeps breath fresh with ingredients like xylitol and baking soda, ensuring a deep clean.<\/p><p><strong>Gentle on Teeth and Gums: <\/strong>Free of harsh chemicals, it’s ideal for patients with sensitivities or those who prefer more natural oral care products.<\/p><p><strong>Cavity Protection<\/strong>: Though fluoride-free, it’s still formulated to maintain a healthy pH balance in the mouth, reducing the risk of cavities and decay.<\/p><p><strong>Micro-Hydroxyapatite: <\/strong>90% of our teeth and 60% of our bones are made of hydroxyapatite. This powerhouse ingredient effectively fills in micro cracks in the tooth enamel and restores demineralized enamel surfaces.<\/p><p><strong>Great Taste, No Compromise<\/strong>: We’ve perfected a refreshing mint flavor that leaves your mouth feeling clean and invigorated, without the aftertaste of artificial additives.<\/p>",
+        "description_color": "#000000",
+        "left_align_description": true,
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "#",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "img_mobile": "shopify:\/\/shop_images\/side-flowers_2x_1_eb9820cb-ed52-4fcf-a31c-680a249fc387.webp",
+        "img_desktop": "shopify:\/\/shop_images\/side-flowers_2x_1_945480c2-8ecc-4294-98a3-5188992a4e97.webp",
+        "pt": 0,
+        "pb": 20,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "single_product_XcVGBF": {
+      "type": "single-product",
+      "blocks": {
+        "title_tA39RK": {
+          "type": "title",
+          "settings": {
+            "title_font_size_mobile": 7,
+            "title_font_size_desktop": 8,
+            "mt": 0,
+            "mb": 3
+          }
+        },
+        "description_GzGWEr": {
+          "type": "description",
+          "settings": {
+            "title": "",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "mt": 3,
+            "mb": 5
+          }
+        },
+        "buy_buttons_JbUJyi": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_qty_field": true,
+            "qty_field_position": "above",
+            "show_buy_btn": true,
+            "show_dynamic_buttons": false,
+            "atc_btn_show_price": true,
+            "mt": 3,
+            "mb": 3
+          }
+        }
+      },
+      "block_order": [
+        "title_tA39RK",
+        "description_GzGWEr",
+        "buy_buttons_JbUJyi"
+      ],
+      "settings": {
+        "product": "whitening-toothpaste-2-pack-offer",
+        "collection": "",
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "max_width": "",
+        "text_align": "text-start",
+        "hide_thumbnails": true,
+        "gallery_img_orientation": "adapt",
+        "gallery_img_thumbnail": "",
+        "gallery_mobile_full_width": true,
+        "gallery_show_thumbnails_mobile": false,
+        "btn_text": "",
+        "btn_color": "btn-outline-primary",
+        "btn_size": "btn-md",
+        "pt": 12,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_text_image_FkRzdm": {
+      "type": "image-text-image",
+      "blocks": {
+        "richtext_G86jec": {
+          "type": "richtext",
+          "settings": {
+            "title": "Help your patients make the right choice. Fluoride-free, effective, and gentle.",
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md",
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 6,
+            "title_color": "#df6459",
+            "description": "<p>You’ll appreciate having a fluoride-free option on hand for patients who ask you for a recommendation. Try it today and experience the benefits first hand—because the best recommendations come from personal experience.<\/p><p>If your Dental office is interested in stocking our Hydroxyapatite Toothpaste for patients to purchase, simply fill out our <a href=\"https:\/\/wellnesse.com\/pages\/wholesale\"><span style=\"text-decoration:underline\">Wholesale form <\/span><\/a>and our team will reach out with next steps and pricing for you.<\/p>",
+            "html": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "description_color": "#ffffff"
+          }
+        },
+        "image_486WfJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_1458.png",
+            "img_width": "700",
+            "img_thumbnail": "",
+            "img_height": "700"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_G86jec",
+        "image_486WfJ"
+      ],
+      "settings": {
+        "bg_color": "bg-dark text-white",
+        "container": "container-fluid",
+        "align_center_desktop": true,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "row_xs": 1,
+        "row_sm": 2,
+        "row_lg": 2,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "show_guests": true,
+        "show_members": true,
+        "mb": 0
+      }
+    },
+    "image_text_image_JcAecf": {
+      "type": "image-text-image",
+      "blocks": {
+        "image_9XyPUt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_075aef3b-03ee-4b40-a8c8-4518ac058ad8.png",
+            "img_width": "700",
+            "img_thumbnail": "",
+            "img_height": "700"
+          }
+        },
+        "richtext_FX44wQ": {
+          "type": "richtext",
+          "settings": {
+            "title": "ALL SMILES. NOTHING TO HIDE.",
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md",
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 6,
+            "title_color": "#000000",
+            "description": "<p>Non-Toxic, Sustainable, and it really works. There’s no reason not to switch. Certified By: Leaping Bunny, B Corp Certified.<\/p>",
+            "html": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "description_color": "#000000",
+            "icons": "shopify:\/\/shop_images\/certified-logos_2x_93453cd0-0960-4a7c-ac93-37e83957f80a.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_9XyPUt",
+        "richtext_FX44wQ"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-dark",
+        "container": "container-fluid",
+        "align_center_desktop": true,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "row_xs": 1,
+        "row_sm": 2,
+        "row_lg": 2,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "show_guests": true,
+        "show_members": true,
+        "mb": 9
+      }
+    },
+    "richtext_with_image_fWP8Ly": {
+      "type": "richtext-with-image",
+      "settings": {
+        "bg_color": "",
+        "bg_color_hex": "",
+        "container": "container",
+        "main_title": "",
+        "main_title_color": "#df6459",
+        "title": "WELLNESSE WHITENING TOOTHPASTE INCLUDES THE VERY BEST, NATURAL INGREDIENTS FOR STRONGER TEETH, FRESHER BREATH, AND HEALTHIER FAMILIES",
+        "title_font_size_mobile": 6,
+        "title_color": "#000000",
+        "title_font_size_desktop": 7,
+        "description": "<p>In a time where there are literally thousands of \"all-natural\" products on store shelves, it can be hard to know who to trust. We found this out the hard way when we started doing our research... and discovered that not <strong>all \"natural\" toothpastes are created equal.<\/strong><br\/><br\/>In fact, did you know that most store-bought toothpaste is actually sabotaging your oral microbiome and destroying your teeth and gums? The more we looked into it, the more we were shocked to find that many ingredients found in all-natural toothpastes can contribute to poor oral health, cavities, and gum disease. And the few natural toothpastes that do deliver on ingredients are rarely effective or that pleasant to use. <strong>So we decided to make our own, for the health of our family - and yours.<\/strong><\/p>",
+        "description_color": "#000000",
+        "left_align_description": false,
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "#",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "img_mobile": "shopify:\/\/shop_images\/wellnesse-ingredients_1.png",
+        "img_desktop": "shopify:\/\/shop_images\/wellnesse-ingredients_1.png",
+        "pt": 0,
+        "pb": 20,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "look_book_wxxGQY": {
+      "type": "look-book",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "860",
+        "text_align": "text-center",
+        "title": "A TOOTHPASTE EVERYONE CAN AGREE ON",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>With Wellnesse toothpaste, you don’t have to sacrifice any quality or effectiveness. The minty flavor keeps your breath fresh all day, and the natural properties make your smile whiter and brighter with every brush. Kids (and picky spouses) love it. No odd flavor or gritty consistency. It performs and feels just like “regular” toothpaste.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "mobile_image": "shopify:\/\/shop_images\/image-07-responsive.png",
+        "desktop_image": "shopify:\/\/shop_images\/image-07.png",
+        "img_thumbnail": "",
+        "point_color": "--bs-primary",
+        "point_diameter": 1,
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_text_image_xqJJwY": {
+      "type": "image-text-image",
+      "blocks": {
+        "richtext_A33QKb": {
+          "type": "richtext",
+          "settings": {
+            "title": "A BRAND YOU CAN TRUST (MADE WITH YOUR WELLNESS IN MIND!)",
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md",
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 6,
+            "title_color": "#000000",
+            "description": "<p>Because we know the environment is as important to you as it is to those of us at Wellnesse, we’ve made our tubes compostable. Which means every time you use our toothpaste, it’s a reminder you’re giving back to the planet. In fact, compared to other consumer products, Wellnesse has a negative carbon footprint--and that’s truly something to smile about. A fan-favorite creation originally whipped up in the kitchen of Wellness Mama creator (and mom of six), Katie Wells.<\/p>",
+            "html": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "description_color": "#333333"
+          }
+        },
+        "image_HxqmKW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image-08.png",
+            "img_width": "700",
+            "img_thumbnail": "",
+            "img_height": "700"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_A33QKb",
+        "image_HxqmKW"
+      ],
+      "settings": {
+        "bg_color": "bg-secondary text-white",
+        "container": "container-fluid",
+        "align_center_desktop": true,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "row_xs": 1,
+        "row_sm": 2,
+        "row_lg": 2,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "show_guests": true,
+        "show_members": true,
+        "mb": 9
+      }
+    },
+    "testimonials_4Tahag": {
+      "type": "testimonials",
+      "blocks": {
+        "item_zYCdft": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "border-secondary",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/dr-meghan-thomas_2x_5d3a9d5f-3594-4489-9719-3929101f164a_webp.png",
+            "img_width": "150",
+            "img_height": "150",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "DR. MEGHAN THOMAS, DMD",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<h6>\"I use Wellnesse toothpaste and recommend it to my patients.<\/h6><p>It contains hydroxyapatite, a naturally occurring mineral that helps support tooth enamel to keep teeth strong. Ingredients like neem and green tea to support a healthy oral microbiome, and keep your breath fresh. Wellnesse toothpaste gets your teeth just as white (if not whiter) than everything else--without all the chemicals. Why would anyone NOT switch?”<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_AKLCB3": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "border-secondary",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/Dr_Porter_Headshot_1_jpg.webp",
+            "img_width": "150",
+            "img_height": "150",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "DR. RYAN PORTER, DDS",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<h6>\"I highly recommend it for all my patients. It's simply much healthier and reparative.<\/h6><p>Wellnesse is amazing! Not only do I use Wellnesse for my personal care, I highly recommend it for all my patients. It's simply much healthier and reparative.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_QLzXLi": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "border-secondary",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/Mask_Group_98096_2x-min_png.webp",
+            "img_width": "150",
+            "img_height": "150",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "CHELSEA PULEO",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<h6><strong>\"I love their philosophy as well as their clean ingredient list.<\/strong><\/h6><p>Finding a toothpaste with clean ingredients that actually works has been a challenge for me. When I discovered Wellnesse, I knew it was the right fit for us…As someone who is always trying to make better choices for my family, I love their philosophy as well as their clean ingredient list. Plus my children love the kids strawberry toothpaste so it’s a win for the whole family!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "item_zYCdft",
+        "item_AKLCB3",
+        "item_QLzXLi"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "fb_style": false,
+        "show_trustpilot_stars": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "What Experts Are Saying...",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_arrows": true,
+        "carousel_pagination": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "1",
+        "carousel_rewind": true,
+        "carousel_loop": false,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 3,
+        "btn_show": true,
+        "btn_text": "Read all reviews",
+        "btn_url": "shopify:\/\/pages\/reviews",
+        "btn_color": "btn-primary",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_with_image_e6mGyk": {
+      "type": "richtext-with-image",
+      "settings": {
+        "bg_color": "",
+        "bg_color_hex": "",
+        "container": "container",
+        "logo": "shopify:\/\/shop_images\/logo_2x_6549c91f-3bba-4453-9c27-b594e602ba7a.png",
+        "main_title": "-- Nothing To Lose – Everything To Gain --",
+        "main_title_color": "#df6459",
+        "title": "No Regrets Allowed! Try Wellnesse Risk-Free With Our Happiness Guarantee",
+        "title_font_size_mobile": 6,
+        "title_color": "#000000",
+        "title_font_size_desktop": 6,
+        "description": "<p>At Wellnesse, we believe everything should be this good. That's why we're making it risk-free for you to try! If you're not happy with your purchase for whatever reason, just contact our customer service team within 30 days and we'll make sure you're happy.<\/p>",
+        "description_color": "#000000",
+        "left_align_description": false,
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "Add to cart",
+        "btn_url": "#",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "img_mobile": "shopify:\/\/shop_images\/side-flowers_2x_1_eb9820cb-ed52-4fcf-a31c-680a249fc387.webp",
+        "img_desktop": "shopify:\/\/shop_images\/side-flowers_2x_1_945480c2-8ecc-4294-98a3-5188992a4e97.webp",
+        "pt": 0,
+        "pb": 17,
+        "mt": 12,
+        "mb": 7
+      }
+    }
+  },
+  "order": [
+    "richtext_with_image_XURYKw",
+    "single_product_XcVGBF",
+    "image_text_image_FkRzdm",
+    "image_text_image_JcAecf",
+    "richtext_with_image_fWP8Ly",
+    "look_book_wxxGQY",
+    "image_text_image_xqJJwY",
+    "testimonials_4Tahag",
+    "richtext_with_image_e6mGyk"
+  ]
+}

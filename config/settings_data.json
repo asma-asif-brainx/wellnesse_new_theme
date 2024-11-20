@@ -27,7 +27,7 @@
     "favicon": "shopify:\/\/shop_images\/logo_2x_3f010638-c23f-4b04-9500-dba11efa2386.png",
     "product_card_style": "card",
     "product_card_img_mode": "hover",
-    "product_card_img_orientation": "square",
+    "product_card_img_orientation": "potrait",
     "product_card_img_thumbnail": "",
     "product_card_show_sale_badge": false,
     "product_card_sale_badge_color": "bg-success text-white",

@@ -1,0 +1,1721 @@
+{
+  "sections": {
+    "16449209143e929b4f": {
+      "type": "page-banner-section",
+      "settings": {
+        "heading": "OUR INGREDIENTS",
+        "d-banner": "shopify:\/\/shop_images\/ingredients-banner_1.png",
+        "m-banner": "shopify:\/\/shop_images\/banner_3x_1.png",
+        "color_scheme": "black",
+        "padding_top": "medium"
+      }
+    },
+    "richtext_Ndby4f": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "max_width": "1000",
+        "text_align": "text-center",
+        "logo": "shopify:\/\/shop_images\/logo_2x_3f010638-c23f-4b04-9500-dba11efa2386.png",
+        "title": "<p>NOTHING TO HIDE HERE<br\/>BROWSE OUR INGREDIENT INDEX<\/p>",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 8,
+        "description_margin-top": true,
+        "description": "<p>Each ingredient in Wellnesse personal care products is <strong>care<\/strong>fully-selected, sustainably-sourced, clean, and high quality. <\/p><p>Because we believe in being 100% transparent, we provide you with the EWG (Environmental Working Group) rating for each ingredient. No need to open another tab, unless you want to, of course ;)<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 3,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 0,
+        "pb": 0,
+        "mt": 11,
+        "mb": 11
+      }
+    },
+    "ingredients_listing_wpxeNw": {
+      "type": "ingredients-listing",
+      "blocks": {
+        "63ac85ab-a512-4a33-90c0-09d89fa971d4": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Activated Charcoal Powder",
+            "disclaimer": "",
+            "function": "Pulls toxins from mouth, removes stains",
+            "description": "Charcoal from virgin coconut shell",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6687251497013"
+          }
+        },
+        "f9d92ef6-d831-48b5-abd8-614af4d512f9": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Acyl Coenzyme A Desaturase",
+            "disclaimer": "",
+            "function": "Enhances and protects hair texture",
+            "description": "Fatty Acid that makes up our active blend",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "1638012092469, 1638012223541, 4407291084853, 4410509819957, 7110308364341, 7124519518261"
+          }
+        },
+        "f86ff49c-1002-4987-b102-cda72c17a787": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Aloe Barbadensis Leaf Extract",
+            "disclaimer": "",
+            "function": "Softens and soothes the skin, adds a pleasant scent.\n\nEliminates disease-causing bacteria, whitens teeth, reduces staining",
+            "description": "The juice pressed from the aloe vera succulent",
+            "ewg_rating": 3,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949, 4407291084853, 1638012223541, 1638011961397, 6687251497013, 679036577387, 7110308364341,7124519518261, 6790365773877"
+          }
+        },
+        "d76cb382-91f4-45a6-928b-7be51d96f14b": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Aqua",
+            "disclaimer": "",
+            "function": "Builds the base of our formula",
+            "description": "It's fresh water!",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "6756920033333"
+          }
+        },
+        "23d62059-85fe-428c-b64d-ba87297581ee": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Argania Spinosa (Argan) Kernel Oil",
+            "disclaimer": "",
+            "function": "Conditions hair, remoisturizes scalp, boosts shine",
+            "description": "A plant oil produced from the kernels of the argan tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141, 4410509819957, 1638012092469, 7124519518261"
+          }
+        },
+        "e050f025-9ae4-4a42-8b76-cc8ef636800c": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Bisabolol",
+            "disclaimer": "",
+            "function": "Soothes the skin",
+            "description": "Bark from the Candeia Tree",
+            "ewg_rating": 2,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949"
+          }
+        },
+        "f4e92147-3966-4d41-9313-bc0cb1b13893": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Brassica Alcohol",
+            "disclaimer": "",
+            "function": "Clean conditioning base",
+            "description": "A 100% natural conditioning base derived from the cabbage plant. This crucial ingredient replaces BTMS and Cetrominum Chloride, found in most natural and non-natural conditioners.",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4410509819957, 1638012092469, 7124519518261"
+          }
+        },
+        "a2ca4458-b9c9-4bb3-9611-89fe2758eee7": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Brassicyl Valinate Esylate",
+            "disclaimer": "",
+            "function": "Clean conditioning base",
+            "description": "A natural emulsifier derived solely from fermentation and plant materials (rice and sugar cane) using sustainable green chemistry.",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "1638012092469, 4410509819957, 7124519518261"
+          }
+        },
+        "80645dba-8080-4683-8cc1-0c2b3b703b50": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Bursera Graveolens Wood Oil",
+            "disclaimer": "",
+            "function": "Adds a pleasant scent",
+            "description": "Wood Extract",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949"
+          }
+        },
+        "30ef21fa-9884-4937-b5ec-f22776c1e0c2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Butyrospermum Parkii (Shea) Butter",
+            "disclaimer": "",
+            "function": "Softens and soothes the skin. Moisturizes scalp",
+            "description": "A fat extracted from the nut of the African shea tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333, 6668776144949, 1638012092469, 1638012223541, 4407291084853, 4410509819957, 7110308364341, 7124519518261"
+          }
+        },
+        "bddb8093-8a0d-4488-8cf5-e8585488c8c7": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Calcium Carbonate",
+            "disclaimer": "",
+            "function": "Removes plaque, debris and surface stains",
+            "description": "A calcium derived from limestone and purified",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877"
+          }
+        },
+        "c2faacb7-f17f-49b4-b87d-4d0a48ab5ac9": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Camellia Sinesis (Green Tea) Leaf Extract",
+            "disclaimer": "",
+            "function": "Combats bad breath",
+            "description": "Green tea leaves that are stoneground and sifted into a fine powder",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013"
+          }
+        },
+        "cc82550c-ec1a-4227-a11b-31a3c3aa26e9": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Camellia Sinensis Leaf",
+            "disclaimer": "",
+            "function": "Antioxidant, anti-inflammatory, protects skin",
+            "description": "Tea plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "1069ed77-f1b9-4552-9d49-4c2f5371c0ac": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Candelilla Wax",
+            "disclaimer": "",
+            "function": "Allows floss to slide through teeth",
+            "description": "Wax derived from the candelilla shrub leaves",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668768772149"
+          }
+        },
+        "3d85435b-a3ee-4be2-aa87-305bb2344840": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Caprylic\/Capric Triglyceride",
+            "disclaimer": "",
+            "function": "Helps product spread smoothly on skin",
+            "description": "Oil derived from pressed coconuts",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949"
+          }
+        },
+        "4fce5836-8510-4d92-a8c9-1dd3b258168c": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Carthamus Tinctorius (Safflower) Oleosomes",
+            "disclaimer": "",
+            "function": "Boosts hydration, softness, shine and aids in dry combing",
+            "description": "A naturally derived emulsifer from Safflower Oil",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 7124519518261"
+          }
+        },
+        "62b475f9-bad6-428b-b4f3-d29e313f714d": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Cereus Grandiflorus (Cactus) Flower Extract",
+            "disclaimer": "",
+            "function": "Aids in shine and maintains pH balance of scalp",
+            "description": "Extract of Cactus Flower",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141"
+          }
+        },
+        "303d94e2-d5ef-4e81-9f6f-99642e3da916": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Water",
+            "disclaimer": "",
+            "function": "Builds the base of our formula",
+            "description": "It's Fresh Water!",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 1638012223541, 4407291084853, 6687251497013, 1638011961397, 6790365773877, 4515327082549, 7124519518261, 7110308364341"
+          }
+        },
+        "525d85f3-e852-4a8b-afa8-d213aa266d88": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Stevia Rebaudiana Leaf Extract",
+            "disclaimer": "",
+            "function": "Adds a pleasant, sweet taste",
+            "description": "A sweetener and sugar substitute derived from the leaves of Stevia rebaudiana",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877, 7128110071861"
+          }
+        },
+        "ffb209e2-a02a-40b3-a338-dda05983b4f1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Xanthan Gum",
+            "disclaimer": "",
+            "function": "Thickens toothpaste",
+            "description": "A sugar derived from corn",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877"
+          }
+        },
+        "209baeee-8fc5-49d4-9fa2-c7c105206875": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Natural Strawberry Flavor",
+            "disclaimer": "",
+            "function": "Adds a wonderful, strawberry taste",
+            "description": "A naturally derived flavor that gives our Strawberry Toothpaste its fruity taste!",
+            "ewg_rating": 3,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6790365773877"
+          }
+        },
+        "4e8733cc-5630-4b39-8ed5-ce1d1dd41da5": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Cocoyl Glutamate",
+            "disclaimer": "",
+            "function": "Creates a nice foam, binds oils and waters together",
+            "description": "A mild vegetable-based surfactant derived from from coconut oil",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877"
+          }
+        },
+        "622a8ac5-3bfd-487c-b7e9-0aae0cfc6acf": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Hydroxyapatite - Micro",
+            "disclaimer": "",
+            "function": "Restores enamel and remineralizes teeth",
+            "description": "A naturally occurring mineral that makes up tooth enamel",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877, 7128110071861"
+          }
+        },
+        "7a1f02ba-9af3-4684-9631-680c285518ac": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Silica",
+            "disclaimer": "",
+            "function": "Thickens toothpaste and whitens teeth",
+            "description": "A colorless compound which occurs naturally in sandstone and other rocks.",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877"
+          }
+        },
+        "e6354747-a09f-4045-9b8c-6fa8e82168e5": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Xylitol",
+            "disclaimer": "",
+            "function": "Enhances saliva flow and supports healthy pH levels in the mouth",
+            "description": "Naturally derived from corn cob",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877, 7128110071861"
+          }
+        },
+        "29fd27fe-ae10-4cea-ab00-a7e47e0d67b2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sorbitol",
+            "disclaimer": "",
+            "function": "Adds a pleasant sweet taste and binds ingredients together",
+            "description": "A carbohydrate that is a sugar based alcohol with one third the calories of traditional sugar",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877"
+          }
+        },
+        "add34d7e-21e7-4347-b496-2c2cd9e5bdd3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cocos Nucifera (Coconut) Oil",
+            "disclaimer": "",
+            "function": "Softens and soothes the skin\nConditioning booster, nourishing agent",
+            "description": "Oil derived from pressed coconuts",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949, 4407291084853, 1638012223541, 7110308364341, 7124519518261"
+          }
+        },
+        "d3067763-8c9e-4d16-8d5e-4297979945b7": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Bicarbonate",
+            "disclaimer": "",
+            "function": "Creates a nice foam. \nDeodorizer",
+            "description": "Baking Soda!",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397, 6687251497013, 6790365773877, 6668776144949"
+          }
+        }
+      },
+      "block_order": [
+        "63ac85ab-a512-4a33-90c0-09d89fa971d4",
+        "f9d92ef6-d831-48b5-abd8-614af4d512f9",
+        "f86ff49c-1002-4987-b102-cda72c17a787",
+        "d76cb382-91f4-45a6-928b-7be51d96f14b",
+        "23d62059-85fe-428c-b64d-ba87297581ee",
+        "e050f025-9ae4-4a42-8b76-cc8ef636800c",
+        "f4e92147-3966-4d41-9313-bc0cb1b13893",
+        "a2ca4458-b9c9-4bb3-9611-89fe2758eee7",
+        "80645dba-8080-4683-8cc1-0c2b3b703b50",
+        "30ef21fa-9884-4937-b5ec-f22776c1e0c2",
+        "bddb8093-8a0d-4488-8cf5-e8585488c8c7",
+        "c2faacb7-f17f-49b4-b87d-4d0a48ab5ac9",
+        "cc82550c-ec1a-4227-a11b-31a3c3aa26e9",
+        "1069ed77-f1b9-4552-9d49-4c2f5371c0ac",
+        "3d85435b-a3ee-4be2-aa87-305bb2344840",
+        "4fce5836-8510-4d92-a8c9-1dd3b258168c",
+        "62b475f9-bad6-428b-b4f3-d29e313f714d",
+        "303d94e2-d5ef-4e81-9f6f-99642e3da916",
+        "525d85f3-e852-4a8b-afa8-d213aa266d88",
+        "ffb209e2-a02a-40b3-a338-dda05983b4f1",
+        "209baeee-8fc5-49d4-9fa2-c7c105206875",
+        "4e8733cc-5630-4b39-8ed5-ce1d1dd41da5",
+        "622a8ac5-3bfd-487c-b7e9-0aae0cfc6acf",
+        "7a1f02ba-9af3-4684-9631-680c285518ac",
+        "e6354747-a09f-4045-9b8c-6fa8e82168e5",
+        "29fd27fe-ae10-4cea-ab00-a7e47e0d67b2",
+        "add34d7e-21e7-4347-b496-2c2cd9e5bdd3",
+        "d3067763-8c9e-4d16-8d5e-4297979945b7"
+      ],
+      "settings": {
+        "ewg_text": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE<\/p>",
+        "feature_collection": "ingredients",
+        "pt": 0,
+        "pb": 0
+      }
+    },
+    "more_ingredients_ckV9Jh": {
+      "type": "more-ingredients",
+      "blocks": {
+        "0de758f2-563a-44ed-a47b-4c95d8a82de8": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cetearyl Alcohol",
+            "disclaimer": "",
+            "function": "Emulsifier and thickener",
+            "description": "An alcohol derived from natural fatty acid from coconuts",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, , 7124519518261"
+          }
+        },
+        "3aa10260-2cf6-4e65-9e10-9a1c3686c940": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Citric Acid",
+            "disclaimer": "",
+            "function": "Maintains pH and boosts our preservative system",
+            "description": "An organic acid naturally occurring in citrus fruits",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 4407291084853, 1638012223541, 1638012092469, 7110308364341, 7124519518261"
+          }
+        },
+        "fd4aa432-9186-4f45-af6c-64e2e930ee3b": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Citrus Aurantium Dulcis (Orange) Peel Oil",
+            "disclaimer": "",
+            "function": "Adds a pleasant scent",
+            "description": "Essential oil derived from the peel of an orange",
+            "ewg_rating": 6,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "9b91dfb9-0228-4739-ac75-03a48f0d3743": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Citrus Aurantifolia (Lime) Fruit Extract",
+            "disclaimer": "",
+            "function": "Adds a delicious scent",
+            "description": "Conditions and provides aromatics for hair",
+            "ewg_rating": 3,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638012092469, 1638012223541, 4407291084853, 4410509819957, 7110308364341, 7124519518261"
+          }
+        },
+        "9a763f2b-a4f0-473d-b2f3-f1fb026bca88": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Citrus Reticulata (Tangerine) Peel Oil",
+            "disclaimer": "",
+            "function": "Adds a delicious scent",
+            "description": "Essential oil derived from tangerine",
+            "ewg_rating": 2,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "1f9ba16b-43a0-47fb-b058-7b5604efb083": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cocamidopropyl Hydroxysultaine",
+            "disclaimer": "",
+            "function": "Conditions, foams and cleanses",
+            "description": "A coconut oil derived surfactant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541, 7110308364341"
+          }
+        },
+        "2a0150d6-71d2-49f8-89fc-d3287a3f1160": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cocos Nucifera (Coconut) Fruit Extract",
+            "disclaimer": "",
+            "function": "Adds a delicious scent",
+            "description": "The extract of the fruit of the coconut tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541, 1638012092469, 4410509819957"
+          }
+        },
+        "6a86fb98-6fa9-434b-b74a-38c16289ac32": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cocos Nucifera (Coconut) Fruit Juice",
+            "disclaimer": "",
+            "function": "Adds a delicious scent",
+            "description": "The extract of the fruit of the coconut tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541"
+          }
+        },
+        "b5aef0f9-8e94-40b9-bc53-15d08e36cabf": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cocos Nucifera (Coconut) Water",
+            "disclaimer": "",
+            "function": "Adds a delicious scent",
+            "description": "The extract of the fruit of the coconut tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541"
+          }
+        },
+        "88d99aa8-9362-42ec-965e-2812f88ebba0": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Ethyl Alcohol",
+            "disclaimer": "",
+            "function": "Kills Germs",
+            "description": "Clear colorless liquid that serves as a hand sanitizer",
+            "ewg_rating": 4,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4515327082549"
+          }
+        },
+        "d46c141e-f7bc-4f38-8df4-5e9fdfc0276b": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Eucalyptus Globulus (Eucalyptus) Leaf Oil",
+            "disclaimer": "",
+            "function": "Antimicrobial and antiviral",
+            "description": "Essential oil derived from eucalyptus leaf",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4515327082549"
+          }
+        },
+        "746ccc79-4812-4211-9249-692538ff42a1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Glycerin",
+            "disclaimer": "",
+            "function": "Part of natural preservative blend",
+            "description": "A colorless, odorless, emollient that is sweet-tasting and non-toxic.",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "2 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 4407291084853, 1638012223541, 4515327082549, 6756920033333, 7110308364341, 7124519518261"
+          }
+        },
+        "6b0db8ba-d7b1-409f-ba52-0c2e549d0637": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Glycine Soja Oil",
+            "disclaimer": "",
+            "function": "Considered safe topically (not to ingest though) and helps protect moisture in skin and hair",
+            "description": "Protects and smoothes hair, Oil derived from the soybean plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "1638012092469, 4410509819957, 6668776144949, 7124519518261"
+          }
+        },
+        "c3039e2e-8b46-4ae8-8989-41bbba0351c5": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Helianthus Annuus (Sunflower) Seed Wax",
+            "disclaimer": "",
+            "function": "Gelling agent",
+            "description": "Wax derived from sunflower seeds",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949"
+          }
+        },
+        "ddd94990-56f7-450f-8981-f36637372b3d": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Hibiscus Sabdariffa Flower Extract",
+            "disclaimer": "",
+            "function": "Promotes healthy hair growth and retains moisture in hair strands",
+            "description": "Extract of Hibiscus Flower",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141"
+          }
+        },
+        "0028db5d-7688-4026-a389-36f972adc6a7": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Hydrogenated Vegetable Oil",
+            "disclaimer": "",
+            "function": "Protects and smoothes hair",
+            "description": "Oil derived from the soybean plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4410509819957, 1638012092469, 7124519518261"
+          }
+        },
+        "0e86eab9-abcd-4e9d-9c4c-d298b5aaafa8": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Hydrolyzed Keratin",
+            "disclaimer": "",
+            "function": "Smooths hair, reduces frizz, and promotes gloss",
+            "description": "A sheep-wool derived protein",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4410509819957, 1638012092469, 4407291084853, 1638012223541"
+          }
+        },
+        "b384fdc5-d83a-4752-bc4f-3e07b00f5c3a": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Hydrolyzed Quinoa",
+            "disclaimer": "",
+            "function": "Repairs hair damage, aids hair growth",
+            "description": "A quinoa grain extract that is broken down with water",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 4407291084853, 1638012223541, 7110308364341, 7124519518261"
+          }
+        }
+      },
+      "block_order": [
+        "0de758f2-563a-44ed-a47b-4c95d8a82de8",
+        "3aa10260-2cf6-4e65-9e10-9a1c3686c940",
+        "fd4aa432-9186-4f45-af6c-64e2e930ee3b",
+        "9b91dfb9-0228-4739-ac75-03a48f0d3743",
+        "9a763f2b-a4f0-473d-b2f3-f1fb026bca88",
+        "1f9ba16b-43a0-47fb-b058-7b5604efb083",
+        "2a0150d6-71d2-49f8-89fc-d3287a3f1160",
+        "6a86fb98-6fa9-434b-b74a-38c16289ac32",
+        "b5aef0f9-8e94-40b9-bc53-15d08e36cabf",
+        "88d99aa8-9362-42ec-965e-2812f88ebba0",
+        "d46c141e-f7bc-4f38-8df4-5e9fdfc0276b",
+        "746ccc79-4812-4211-9249-692538ff42a1",
+        "6b0db8ba-d7b1-409f-ba52-0c2e549d0637",
+        "c3039e2e-8b46-4ae8-8989-41bbba0351c5",
+        "ddd94990-56f7-450f-8981-f36637372b3d",
+        "0028db5d-7688-4026-a389-36f972adc6a7",
+        "0e86eab9-abcd-4e9d-9c4c-d298b5aaafa8",
+        "b384fdc5-d83a-4752-bc4f-3e07b00f5c3a"
+      ],
+      "settings": {
+        "ewg_text": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE<\/p>"
+      }
+    },
+    "164517031449a9fb93": {
+      "type": "more-ingredients",
+      "blocks": {
+        "5abc2311-33c7-4993-96fa-2e45378c422a": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Hydroxyacetophenone",
+            "disclaimer": "",
+            "function": "Part of natural preservative blend",
+            "description": "A compound found in arctic cloudberries, full of antioxidants",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 4407291084853, 1638012223541, 7110308364341, 7124519518261"
+          }
+        },
+        "69869f01-28b4-4e41-9a64-1fa859711998": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Jojoba Esters",
+            "disclaimer": "",
+            "function": "Moisturizing and smoothing agent. Soften and soothes the skin",
+            "description": "Jojoba Oil that is broken down with water",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 6668776144949, 7124519518261"
+          }
+        },
+        "08c8a5cc-3182-4142-b87b-528b92c19444": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Kaolin",
+            "disclaimer": "",
+            "function": "Absorbs 4x its weight in oil",
+            "description": "White clay derived from minerals",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141"
+          }
+        },
+        "d5a4b2d5-8719-455a-8ed7-2aaa6fabca51": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Keratin Amino Acids",
+            "disclaimer": "",
+            "function": "Hydrates and protects hair",
+            "description": "An amino acid crucial to our hair care formula",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 1638012223541, 4407291084853"
+          }
+        },
+        "81a36da5-0639-4086-9168-1b18c5169d90": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lactobacillus \/ Tomato Fruit Ferment Extract",
+            "disclaimer": "",
+            "function": "Hydrates and protects hair",
+            "description": "A natural probiotic",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4410509819957, 1638012092469, 1638012223541, 4407291084853, 4596661256245, 4596661977141, 7110308364341, 7124519518261"
+          }
+        },
+        "f48dacd1-1526-42d4-be92-88506815f9bd": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lauryl Glucoside",
+            "disclaimer": "",
+            "function": "Surfactant, cleansing agent",
+            "description": "A bacteria that acts as a probiotic for your hair and is common in fermented foods like yogurt",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541"
+          }
+        },
+        "6d42aca1-0a21-4e3e-b4cb-b5358f09b3f0": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Lavandula Angustifolia (Lavender) Oil",
+            "disclaimer": "",
+            "function": "Promotes a healthy scalp",
+            "description": "A floral oil derived from Lavender",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141"
+          }
+        },
+        "21b2f36b-59cd-40c4-9308-2d4d989d040e": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lavandula Angustifolia (Lavender) Flower Water",
+            "disclaimer": "",
+            "function": "Promotes a healthy scalp",
+            "description": "An organic aromatic water extracted from steaming lavender flowers",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "7110308364341"
+          }
+        },
+        "75f6a957-68aa-4785-800f-f84a751a98b7": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lavender (Lavandula Angustifolia) Distillate",
+            "disclaimer": "",
+            "function": "Soothes hair and scalp",
+            "description": "An organic aromatic water extracted from steaming lavender flowers",
+            "ewg_rating": 2,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4407291084853, 1638012223541"
+          }
+        },
+        "26381936-4422-408d-b849-119731649ce4": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Leuconostoc\/ Radish Root Ferment Filtrate",
+            "disclaimer": "",
+            "function": "Antimicrobial",
+            "description": "Derived from radishes",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541, 4410509819957, 1638012092469, 7124519518261"
+          }
+        },
+        "df7d57e3-bf2a-4781-9c3b-3f23c6617054": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Limonene",
+            "disclaimer": "",
+            "function": "Adds a fresh, citrus scent",
+            "description": "Oil extracted from citrus fruit",
+            "ewg_rating": 2,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333, 7110308364341, 7124519518261"
+          }
+        },
+        "aad125ab-0a9e-40b8-becb-a0fd10e34dab": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Linalool",
+            "disclaimer": "",
+            "function": "Adds a pleasant scent",
+            "description": "Found in the sweet orange essential oil",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333, 7110308364341, 7124519518261"
+          }
+        },
+        "080209ed-ed68-48d3-8ee8-4684f09a1c3c": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Maltodextrin",
+            "disclaimer": "",
+            "function": "Enhances volume and absorbs oil",
+            "description": "A starch derived from rice",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141"
+          }
+        }
+      },
+      "block_order": [
+        "5abc2311-33c7-4993-96fa-2e45378c422a",
+        "69869f01-28b4-4e41-9a64-1fa859711998",
+        "08c8a5cc-3182-4142-b87b-528b92c19444",
+        "d5a4b2d5-8719-455a-8ed7-2aaa6fabca51",
+        "81a36da5-0639-4086-9168-1b18c5169d90",
+        "f48dacd1-1526-42d4-be92-88506815f9bd",
+        "6d42aca1-0a21-4e3e-b4cb-b5358f09b3f0",
+        "21b2f36b-59cd-40c4-9308-2d4d989d040e",
+        "75f6a957-68aa-4785-800f-f84a751a98b7",
+        "26381936-4422-408d-b849-119731649ce4",
+        "df7d57e3-bf2a-4781-9c3b-3f23c6617054",
+        "aad125ab-0a9e-40b8-becb-a0fd10e34dab",
+        "080209ed-ed68-48d3-8ee8-4684f09a1c3c"
+      ],
+      "settings": {
+        "ewg_text": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE<\/p>"
+      }
+    },
+    "1645170793fe426996": {
+      "type": "more-ingredients",
+      "blocks": {
+        "f7a51544-683f-4d9a-99d5-382cb44a69e2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Melaleuca Alternifolia (Tea Tree) Leaf Oil",
+            "disclaimer": "",
+            "function": "Antimicrobial and antiviral",
+            "description": "Essential oil derived from tea tree",
+            "ewg_rating": 6,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4515327082549"
+          }
+        },
+        "788aeb55-d106-48f0-8d28-af85a5df76d9": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Melia Azadirachta (Neem) Oil",
+            "disclaimer": "",
+            "function": "Prevents tooth decay and gum disease",
+            "description": "Oil pressed from the fruits and seeds of the neem, an evergreen tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397"
+          }
+        },
+        "7d998da5-ad2d-4a14-bb93-b3c286bd8264": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Mentha Piperita (Peppermint) Flavor",
+            "disclaimer": "",
+            "function": "Adds a wonderful, minty taste",
+            "description": "The extract of peppermint herbs",
+            "ewg_rating": 4,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "1638011961397"
+          }
+        },
+        "ab97993e-19c4-4318-975a-e2386ee0ea7d": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Mentha Piperita (Peppermint) Oil",
+            "disclaimer": "",
+            "function": "Antimicrobial and antiviral",
+            "description": "Essential oil derived from peppermint leaf",
+            "ewg_rating": 5,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4515327082549, 6687251497013, 6668768772149, 7124519518261,7329061994549"
+          }
+        },
+        "ea60687b-a16d-4c6f-9013-614efad8cb7d": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Menthol",
+            "disclaimer": "",
+            "function": "Adds a wonderful, minty taste",
+            "description": "Derived from mentha (mint)",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6687251497013"
+          }
+        },
+        "573b1f76-b7c4-4141-9813-5e42ba4a2963": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Oryza Sative (Rice) Extract",
+            "disclaimer": "",
+            "function": "Hydrates and protects hair",
+            "description": "A rice extract",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 1638012223541, 4407291084853, 7110308364341, 7124519518261"
+          }
+        },
+        "7c8ad8a2-e09f-496b-aed8-0f516e6e4568": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Palm Acid",
+            "disclaimer": "",
+            "function": "Creates suds and foam",
+            "description": "Extract derived from the pulp found in the fruit of the palm tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "cb87135d-1aef-4185-af5f-16cdc6cd1c30": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Palm Kernel Acid",
+            "disclaimer": "",
+            "function": "Cleanses skin",
+            "description": "Extract derived from the kernel of the palm tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "de2d7ab3-cf9e-4515-a0d6-bb5bc75dd279": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Panthenol",
+            "disclaimer": "",
+            "function": "Highly effective humectant to moisturize hair",
+            "description": "A form of vitamin b derived from plants",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4407291084853, 1638012223541, 7110308364341"
+          }
+        },
+        "1b467590-9994-41dd-b2bb-86c8c9aa42ad": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Persea Americana (Avocado) Seed Oil",
+            "disclaimer": "",
+            "function": "Moisturizing and conditioning agent",
+            "description": "A rich creamy oil obtained from cold pressed avocado",
+            "ewg_rating": 0,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4410509819957, 1638012092469"
+          }
+        },
+        "08ca23a2-ff76-4644-8812-a07d4bca7eed": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Potassium Palmate",
+            "disclaimer": "",
+            "function": "Surfactant",
+            "description": "Potassium soap derived from palm oil",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "c100af72-0056-4d40-8faf-7ebeb3ef360b": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Potassium Palm Kernelate",
+            "disclaimer": "",
+            "function": "Binds oil and water together",
+            "description": "A natural salt derived from palm nuts",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "aa0548f3-018d-42c1-b0fd-4e22a760f74a": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Rubus Fruticosus Fruit Extract",
+            "disclaimer": "",
+            "function": "Adds a delicious, bright scent",
+            "description": "Extract of Blackberry Fruit",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141"
+          }
+        }
+      },
+      "block_order": [
+        "f7a51544-683f-4d9a-99d5-382cb44a69e2",
+        "788aeb55-d106-48f0-8d28-af85a5df76d9",
+        "7d998da5-ad2d-4a14-bb93-b3c286bd8264",
+        "ab97993e-19c4-4318-975a-e2386ee0ea7d",
+        "ea60687b-a16d-4c6f-9013-614efad8cb7d",
+        "573b1f76-b7c4-4141-9813-5e42ba4a2963",
+        "7c8ad8a2-e09f-496b-aed8-0f516e6e4568",
+        "cb87135d-1aef-4185-af5f-16cdc6cd1c30",
+        "de2d7ab3-cf9e-4515-a0d6-bb5bc75dd279",
+        "1b467590-9994-41dd-b2bb-86c8c9aa42ad",
+        "08ca23a2-ff76-4644-8812-a07d4bca7eed",
+        "c100af72-0056-4d40-8faf-7ebeb3ef360b",
+        "aa0548f3-018d-42c1-b0fd-4e22a760f74a"
+      ],
+      "settings": {
+        "ewg_text": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE<\/p>"
+      }
+    },
+    "16454415944a3d2906": {
+      "type": "more-ingredients",
+      "blocks": {
+        "fc369098-7c32-4a8f-9d9a-d73fee2ebf9b": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Silk",
+            "disclaimer": "",
+            "function": "Strong fibre that makes up the base of the floss",
+            "description": "Made from the silkworm’s cocoon",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668768772149"
+          }
+        },
+        "3dd51608-037a-497f-a99d-8733f571514b": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Simmondsia Chinensis (Jojoba) Seed Oil",
+            "disclaimer": "",
+            "function": "Moisturizing and smoothing agent",
+            "description": "Jojoba Oil that is broken down with water",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333,4596661256245, 4596661977141"
+          }
+        },
+        "41c94875-bc4a-4511-8935-5a62351af899": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Anisate",
+            "disclaimer": "",
+            "function": "Part of natural preservative blend",
+            "description": "A natural, anti-fungal compound, combined with Sodicum Levulinate acts as a comprehensive preservative",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 4407291084853, 1638012223541, 7110308364341, 7124519518261"
+          }
+        },
+        "b25b05e2-1c43-4d94-9bc9-a3f8e544d863": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Chloride",
+            "disclaimer": "",
+            "function": "Thickens shampoo, soap",
+            "description": "Made from evaporated ocean water",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541, 6756920033333, 7110308364341"
+          }
+        },
+        "07d68dce-32ad-402f-920d-f1ca49dfc8c3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Citrate",
+            "disclaimer": "",
+            "function": "Balances pH of scalp",
+            "description": "A salt derived from citrus fruits",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541, 7110308364341"
+          }
+        },
+        "17df5a51-1202-4f7f-899a-ab1423a101ee": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Gluconate",
+            "disclaimer": "",
+            "function": "Natural preservative",
+            "description": "Formed from gluconic acid and sodium",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "a9bb2754-4b79-4c02-a39a-a1079a57d87c": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Lauryl Glucose Carboxylate",
+            "disclaimer": "",
+            "function": "Removes oil and cleanses hair",
+            "description": "A sugar-based surfactant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541"
+          }
+        },
+        "753771c8-d095-410c-8098-0fdf8ee4a743": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Levulinate",
+            "disclaimer": "",
+            "function": "Part of natural preservative blend",
+            "description": "A salt, combined with Sodium Anisate acts as a comprehensive preservative",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 4407291084853, 1638012223541, 7110308364341, 7124519518261"
+          }
+        },
+        "f4c5b417-1b36-4da1-9fff-0e319c3f933d": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Olefin Sulfonate",
+            "disclaimer": "",
+            "function": "Creates suds and foam",
+            "description": "Surfactant, cleansing, foaming agent",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 163801222354, 7110308364341"
+          }
+        },
+        "51f096eb-554e-40f0-80d0-62bbceb5fbc2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Palmate",
+            "disclaimer": "",
+            "function": "Surfactant, binds oil and water together",
+            "description": "Derived from palm oil",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "a7499bc6-2358-4ed2-8159-e738300824c0": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium Palm Kernelate",
+            "disclaimer": "",
+            "function": "Cleanses skin, emulsifier",
+            "description": "A natural salt derived from palm fruit",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6756920033333"
+          }
+        },
+        "9a00fb79-e638-45b8-a2f0-8b3b76d106e2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sorbitan Oleate Decylglucoside Crosspolymer",
+            "disclaimer": "",
+            "function": "Binds oil and water",
+            "description": "A 100% natural emulsifier derived from sugar, corn, olive oil",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4407291084853, 1638012223541, 7110308364341"
+          }
+        }
+      },
+      "block_order": [
+        "fc369098-7c32-4a8f-9d9a-d73fee2ebf9b",
+        "3dd51608-037a-497f-a99d-8733f571514b",
+        "41c94875-bc4a-4511-8935-5a62351af899",
+        "b25b05e2-1c43-4d94-9bc9-a3f8e544d863",
+        "07d68dce-32ad-402f-920d-f1ca49dfc8c3",
+        "17df5a51-1202-4f7f-899a-ab1423a101ee",
+        "a9bb2754-4b79-4c02-a39a-a1079a57d87c",
+        "753771c8-d095-410c-8098-0fdf8ee4a743",
+        "f4c5b417-1b36-4da1-9fff-0e319c3f933d",
+        "51f096eb-554e-40f0-80d0-62bbceb5fbc2",
+        "a7499bc6-2358-4ed2-8159-e738300824c0",
+        "9a00fb79-e638-45b8-a2f0-8b3b76d106e2"
+      ],
+      "settings": {
+        "ewg_text": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE<\/p>"
+      }
+    },
+    "164544414434711ff4": {
+      "type": "more-ingredients",
+      "blocks": {
+        "812cfed3-47f0-4e77-b1ac-5379721827b1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Stearyl Alcohol",
+            "disclaimer": "",
+            "function": "Gelling agent",
+            "description": "Derived from coconuts",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949"
+          }
+        },
+        "80055fc6-41c9-47e4-8abf-3cd0c66cfd31": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Tapioca Starch",
+            "disclaimer": "",
+            "function": "Absorbs oil",
+            "description": "Gluten Free starch derived from the Cassava plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141, 6668776144949"
+          }
+        },
+        "588e78e2-93ad-440f-93da-f2227ebda5aa": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Theobroma Cacao (Cocoa) Powder",
+            "disclaimer": "",
+            "function": "Enhances color for darker hair",
+            "description": "Raw powder derived from the cocoa tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661977141"
+          }
+        },
+        "85cbf35c-6b3d-48be-93df-3778ad9c1926": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Tocopherol (Vitamin E)",
+            "disclaimer": "",
+            "function": "Stabilizes formula and adds nutrients, antioxidant",
+            "description": "An organic nutrient and vitamin",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 6668776144949, 7124519518261,7329061994549"
+          }
+        },
+        "6a3be53f-77d2-4c52-a73e-a393cd48d586": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Triethyl Citrate",
+            "disclaimer": "",
+            "function": "Antimicrobial",
+            "description": "Derived from the sugarcane plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949"
+          }
+        },
+        "8f22443e-dfc1-4630-a9a0-aa19145d8d96": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Urtica Dioica (Nettle) Leaf Extract",
+            "disclaimer": "",
+            "function": "Stimulates hair growth, restores shine, prevents breakage",
+            "description": "The extract from the nettle leaf plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 4407291084853, 1638012223541, 7110308364341, 7124519518261"
+          }
+        },
+        "8c5f2f46-178e-4831-86eb-0f01f4efb0c7": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Verbena Officinalis Extract",
+            "disclaimer": "",
+            "function": "Adds a delicious scent",
+            "description": "The extract from the verbena leaf plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "1 is low risk",
+            "product_ids": "4410509819957, 1638012092469, 1638012223541, 4407291084853, 7110308364341, 7124519518261"
+          }
+        }
+      },
+      "block_order": [
+        "812cfed3-47f0-4e77-b1ac-5379721827b1",
+        "80055fc6-41c9-47e4-8abf-3cd0c66cfd31",
+        "588e78e2-93ad-440f-93da-f2227ebda5aa",
+        "85cbf35c-6b3d-48be-93df-3778ad9c1926",
+        "6a3be53f-77d2-4c52-a73e-a393cd48d586",
+        "8f22443e-dfc1-4630-a9a0-aa19145d8d96",
+        "8c5f2f46-178e-4831-86eb-0f01f4efb0c7"
+      ],
+      "settings": {
+        "ewg_text": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE<\/p>"
+      }
+    },
+    "1645445534e6a2527c": {
+      "type": "more-ingredients",
+      "blocks": {
+        "4bec7a11-a4e4-4f5a-b241-f0c4a5d9a7a5": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "title": "Zea Mays (Corn) Starch",
+            "disclaimer": "",
+            "function": "Absorbs oil and bonds to dirt to remove it from hair",
+            "description": "Protects and smoothes hair",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "4596661256245, 4596661977141"
+          }
+        },
+        "b2b98458-96a7-4926-b58e-c619856d137c": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Zinc Ricinoleate",
+            "disclaimer": "",
+            "function": "Deodorizer, aids in sweat control",
+            "description": "Fatty acid found in Castor Oil",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949"
+          }
+        },
+        "17341480-4a85-4b85-95ed-74b371f276e0": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Chamomilla Recutita (Matricaria) Flower Extract",
+            "disclaimer": "",
+            "function": "Soothes and moisturizes scalp",
+            "description": "Extract of chamomile flowers",
+            "ewg_rating": 2,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7110308364341"
+          }
+        },
+        "85dc7d6a-735c-4410-bd0b-c7fae00c1ddf": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Chenopodium Quinoa Seed Extract",
+            "disclaimer": "",
+            "function": "Repairs hair damage, aids hair growth",
+            "description": "Extract from the quinoa plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7110308364341,7124519518261"
+          }
+        },
+        "ed3d4504-af91-4291-8d22-1d1152f89710": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Geraniol",
+            "disclaimer": "",
+            "function": "Antimicrobial",
+            "description": "Primary component of citronella, palmarosa and rose oils",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7110308364341,7124519518261"
+          }
+        },
+        "96de86d4-75c8-41cd-99db-c1de48e83761": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Hydrolyzed Cicer Seed Extract",
+            "disclaimer": "",
+            "function": "Protects hair and leaves it soft & shiny. Antimicrobial",
+            "description": "Extract of cicer seeds",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7110308364341,7124519518261"
+          }
+        },
+        "85172125-86f5-45ae-bb64-b975488e8746": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lens Esculenta (Lentil) Seed Extract",
+            "disclaimer": "",
+            "function": "Conditions, smoothes, and promotes shine",
+            "description": "Extract of lentil seeds",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7110308364341,7124519518261"
+          }
+        },
+        "c254b0b7-6b42-466a-9515-cfb5ba914883": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Yeast Amino Acids",
+            "disclaimer": "",
+            "function": "Hydrates hair",
+            "description": "Derived from rice amino acids",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7110308364341,7124519518261"
+          }
+        },
+        "883a7bb7-41f7-426f-9e2c-81bdae02dd81": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Olea Europaea (Olive) Fruit Oil",
+            "disclaimer": "",
+            "function": "Moisturizes hair, increases hair elasticity",
+            "description": "Oil extracted from the fruit of the olive tree",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7124519518261"
+          }
+        },
+        "c0007101-8563-4e4c-9410-1c46b9b34d75": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Persea Gratissima (Avocado) Oil",
+            "disclaimer": "",
+            "function": "Moisturizing and conditioning agent",
+            "description": "A rich creamy oil obtained from cold pressed avocado",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7124519518261"
+          }
+        },
+        "134cacbd-3376-4075-9edc-3ad3c345d4e0": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Helianthus Annuus (Sunflower) Seed Oil",
+            "disclaimer": "",
+            "function": "Keeps skin moisturized",
+            "description": "Oil derived from sunflower seeds",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "6668776144949"
+          }
+        },
+        "1a1b39d5-72d9-4cec-8153-787f107e8fe7": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lactobacillus reuteri",
+            "disclaimer": "",
+            "function": "Helps reduce P. gingivalis and sub-gingival plaque",
+            "description": "Originates from the environment",
+            "ewg_rating": 0,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "4a84e544-9c1d-43f7-bc60-444f21b95ba0": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lactobacillus acidophilus",
+            "disclaimer": "",
+            "function": "Helps inhibit the growth of harmful bacteria in the mouth",
+            "description": "\"Good\" bacteria naturally found in the body",
+            "ewg_rating": 0,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "f3fe93d4-bab2-47c1-b495-11133e8d1fcc": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lactobacillus salivarius",
+            "disclaimer": "",
+            "function": "Supports gum health and increases resistance to cavities",
+            "description": "Freeze dried culture grown and standardized from vegetarian media",
+            "ewg_rating": 0,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "9ddaf1d9-b32c-44a1-b591-aff6074ec079": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lactobacillus paracasei",
+            "disclaimer": "",
+            "function": "Helps resist oral pathogens",
+            "description": "Sourced from fermented milk",
+            "ewg_rating": 0,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "d179fa9b-8a29-49d7-85b7-72ed9fe9938e": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Peppermint Oil Powder",
+            "disclaimer": "",
+            "function": "Helps resist oral pathogens",
+            "description": "Oil derived from peppermint leaf",
+            "ewg_rating": 0,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "71350922-0b58-4247-b65f-0fd2f38fe38f": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Magnesium Stearate",
+            "disclaimer": "",
+            "function": "Lubrication property",
+            "description": "Mineral source originated from palm and magnesium hydroxide",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "33ec031f-4d57-47f5-9ece-02860b1837b4": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Stearic Acid",
+            "disclaimer": "",
+            "function": "Thicken and retain shape of the tablet",
+            "description": "Derived from Palm",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "39157192-2a5d-4070-8e51-a808590dc745": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Silicon Dioxide",
+            "disclaimer": "",
+            "function": "Aids in stain removal",
+            "description": "A white free flowing powder",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "a7943f93-684f-4f1d-83e8-fb74dcd4a3e0": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Chicory Root Extract",
+            "disclaimer": "",
+            "function": "Helps support good bacteria",
+            "description": "Derived from Chicory Root",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7128110071861"
+          }
+        },
+        "ingredient_jL8Hm6": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Almond Oil",
+            "disclaimer": "",
+            "function": "Reduces gingival scores",
+            "description": "Oil extracted from the almond fruit",
+            "ewg_rating": 2,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7329061994549"
+          }
+        },
+        "ingredient_mbyqea": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Cinnamon Leaf Oil",
+            "disclaimer": "",
+            "function": "Contains antimicrobial properties that combat many oral pathogens",
+            "description": "Cinnamon leaves are dried then distilled to create this oil",
+            "ewg_rating": 3,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7329061994549"
+          }
+        },
+        "ingredient_ktTTeL": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Spearmint Oil",
+            "disclaimer": "",
+            "function": "Reduces plaque and freshens breath",
+            "description": "Oil obtained from the leaves of the spearmint plant",
+            "ewg_rating": 4,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7329061994549"
+          }
+        },
+        "ingredient_zjBieB": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Clove Bud Oil",
+            "disclaimer": "",
+            "function": "Relieves tooth and gum pain",
+            "description": "Oil distilled from the clove tree",
+            "ewg_rating": 2,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7329061994549"
+          }
+        },
+        "ingredient_3fRYY9": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Myrrh Essential Oil",
+            "disclaimer": "",
+            "function": "Anti-inflammatory and antimicrobial. Prevents gum disease",
+            "description": "An oil distilled from the myrrrh plant",
+            "ewg_rating": 2,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7329061994549"
+          }
+        },
+        "ingredient_YTECbH": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Manuka Oil",
+            "disclaimer": "",
+            "function": "Contains natural antiviral properties. Fights oral infections",
+            "description": "Essential oil derived from the leaves and twigs of the manuka tree",
+            "ewg_rating": 4,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7329061994549"
+          }
+        },
+        "ingredient_xwUPJe": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Organic Oregano Oil",
+            "disclaimer": "",
+            "function": "Powerful antioxident that fights oral bacteria and infections",
+            "description": "Essential oil that is steam-distilled from the leaves of the oregano plant",
+            "ewg_rating": 1,
+            "ewg_rating_desc": "EWG Rating",
+            "product_ids": "7329061994549"
+          }
+        }
+      },
+      "block_order": [
+        "4bec7a11-a4e4-4f5a-b241-f0c4a5d9a7a5",
+        "b2b98458-96a7-4926-b58e-c619856d137c",
+        "17341480-4a85-4b85-95ed-74b371f276e0",
+        "85dc7d6a-735c-4410-bd0b-c7fae00c1ddf",
+        "ed3d4504-af91-4291-8d22-1d1152f89710",
+        "96de86d4-75c8-41cd-99db-c1de48e83761",
+        "85172125-86f5-45ae-bb64-b975488e8746",
+        "c254b0b7-6b42-466a-9515-cfb5ba914883",
+        "883a7bb7-41f7-426f-9e2c-81bdae02dd81",
+        "c0007101-8563-4e4c-9410-1c46b9b34d75",
+        "134cacbd-3376-4075-9edc-3ad3c345d4e0",
+        "1a1b39d5-72d9-4cec-8153-787f107e8fe7",
+        "4a84e544-9c1d-43f7-bc60-444f21b95ba0",
+        "f3fe93d4-bab2-47c1-b495-11133e8d1fcc",
+        "9ddaf1d9-b32c-44a1-b591-aff6074ec079",
+        "d179fa9b-8a29-49d7-85b7-72ed9fe9938e",
+        "71350922-0b58-4247-b65f-0fd2f38fe38f",
+        "33ec031f-4d57-47f5-9ece-02860b1837b4",
+        "39157192-2a5d-4070-8e51-a808590dc745",
+        "a7943f93-684f-4f1d-83e8-fb74dcd4a3e0",
+        "ingredient_jL8Hm6",
+        "ingredient_mbyqea",
+        "ingredient_ktTTeL",
+        "ingredient_zjBieB",
+        "ingredient_3fRYY9",
+        "ingredient_YTECbH",
+        "ingredient_xwUPJe"
+      ],
+      "settings": {
+        "ewg_text": "<p>The Environmental Working Group’s mission is to empower people to live healthier lives in a healthier environment. With breakthrough research and education, we drive consumer choice and civic action.LEARN MORE<\/p>"
+      }
+    },
+    "featured_products_NDJd3A": {
+      "type": "featured-products",
+      "blocks": {
+        "block_i7Jnaa": {
+          "type": "block",
+          "settings": {
+            "products": [],
+            "collection": "recommendations-products",
+            "limit": 4,
+            "tab_title": "Best-selling"
+          }
+        }
+      },
+      "block_order": [
+        "block_i7Jnaa"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Best-Selling Oral Care",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_enable": false,
+        "carousel_arrows": false,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "0",
+        "carousel_rewind": true,
+        "breakpoint_xs": 1,
+        "breakpoint_xs_partial": true,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": true,
+        "btn_text": "View more products",
+        "btn_url": "shopify:\/\/collections\/all",
+        "btn_color": "btn-link",
+        "pt": 0,
+        "pb": 0,
+        "mt": 9,
+        "mb": 13
+      }
+    }
+  },
+  "order": [
+    "16449209143e929b4f",
+    "richtext_Ndby4f",
+    "ingredients_listing_wpxeNw",
+    "more_ingredients_ckV9Jh",
+    "164517031449a9fb93",
+    "1645170793fe426996",
+    "16454415944a3d2906",
+    "164544414434711ff4",
+    "1645445534e6a2527c",
+    "featured_products_NDJd3A"
+  ]
+}
