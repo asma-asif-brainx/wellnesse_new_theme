@@ -1,0 +1,103 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+
+{% liquid 
+    assign mt = block.settings.mt | prepend: 'mt-'
+    assign mb = block.settings.mb | prepend: 'mb-'
+%}
+
+{% liquid 
+    if block.settings.icon_1
+        assign icons = block.settings.icon_1 | append: ','
+        assign text = block.settings.text_1 | append: ','
+    endif
+    if block.settings.icon_2
+        assign icons = block.settings.icon_2 | append: ',' | prepend: icons
+        assign text = block.settings.text_2 | append: ',' | prepend: text
+    endif
+    if block.settings.icon_3
+        assign icons = block.settings.icon_3 | append: ',' | prepend: icons
+        assign text = block.settings.text_3 | append: ',' | prepend: text
+    endif
+    if block.settings.icon_4
+        assign icons = block.settings.icon_4 | append: ',' | prepend: icons
+        assign text = block.settings.text_4 | append: ',' | prepend: text
+    endif
+
+    assign icons = icons | split: ','
+    assign text = text | split: ','
+%}
+
+<div 
+    class="product-block-trust-badges mx-auto {{ mt }} {{ mb }}" 
+    style="max-width: {{ block.settings.max_width }}px;"
+    {{ block.shopify_attributes }}>
+    <ul 
+        id="pdp-trust-badges"
+        class="list-unstyled row justify-content-center text-center small lh-sm mx-n4 mb-0"
+        aria-label="{{ block.settings.label }}">
+        {% unless block.settings.img_1 == blank %}
+            <li class="p-4 {{ block.settings.col_size }}">
+                <img 
+                    class="img-fluid mb-3"
+                    src="{{ block.settings.img_1 | image_url: width: block.settings.img_size }}" 
+                    alt="{{ block.settings.img_1.alt }}"
+                    width="{{ block.settings.img_size }}"
+                    height="{{ block.settings.img_size | divided_by: img.aspect_ratio | round }}"
+                    loading="lazy">
+                <div class="rte lh-sm">
+                    {{ block.settings.text_1 }}
+                </div>
+            </li>
+        {% endunless %}
+        {% unless block.settings.img_2 == blank %}
+            <li class="p-4 {{ block.settings.col_size }}">
+                <img 
+                    class="img-fluid mb-3"
+                    src="{{ block.settings.img_2 | image_url: width: block.settings.img_size }}" 
+                    alt="{{ block.settings.img_2.alt }}"
+                    width="{{ block.settings.img_size }}"
+                    height="{{ block.settings.img_size | divided_by: img.aspect_ratio | round }}"
+                    loading="lazy">
+                <div class="rte lh-sm">
+                    {{ block.settings.text_2 }}
+                </div>
+            </li>
+        {% endunless %}
+        {% unless block.settings.img_3 == blank %}
+            <li class="p-4 {{ block.settings.col_size }}">
+                <img 
+                    class="img-fluid mb-3"
+                    src="{{ block.settings.img_3 | image_url: width: block.settings.img_size }}" 
+                    alt="{{ block.settings.img_3.alt }}"
+                    width="{{ block.settings.img_size }}"
+                    height="{{ block.settings.img_size | divided_by: img.aspect_ratio | round }}"
+                    loading="lazy">
+                <div class="rte lh-sm">
+                    {{ block.settings.text_3 }}
+                </div>
+            </li>
+        {% endunless %}
+        {% unless block.settings.img_4 == blank %}
+            <li class="p-4 {{ block.settings.col_size }}">
+                <img 
+                    class="img-fluid mb-3"
+                    src="{{ block.settings.img_4 | image_url: width: block.settings.img_size }}" 
+                    alt="{{ block.settings.img_4.alt }}"
+                    width="{{ block.settings.img_size }}"
+                    height="{{ block.settings.img_size | divided_by: img.aspect_ratio | round }}"
+                    loading="lazy">
+                <div class="rte lh-sm">
+                    {{ block.settings.text_4 }}
+                </div>
+            </li>
+        {% endunless %}
+    </ul>
+</div>

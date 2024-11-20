@@ -1,0 +1,350 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+    assign bg_color = section.settings.bg_color
+%}
+
+<style>
+.download-promo-inner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2rem;
+    padding: 1rem; 
+}
+
+@media (max-width: 576px) {
+    .download-promo-inner {
+        background-image: url({{ section.settings.background_image_mobile | image_url }});
+        opacity: {{ section.settings.background_image_mobile_opacity }};
+    }
+    .download-promo-inner .text-container {
+        background: rgba(255, 255, 255, 0.8); 
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .download-promo-inner {
+        background-image: url({{ section.settings.background_image_desktop | image_url }});
+        opacity: {{ section.settings.background_image_desktop_opacity }};
+    }
+}
+
+@media (max-width: 991px) {
+    .download-promo-inner {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: 0 -.75rem;
+    }
+    .download-promo-inner .download-promo-image {
+        width: 160px;
+        margin: -3rem 0 0; 
+    }
+    .download-promo-inner .icon-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; 
+        gap: 1rem; 
+        margin-top: 1rem; 
+    }
+}
+
+@media (min-width: 992px) {
+    .download-promo-inner {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }    
+    .download-promo-inner .download-promo-image {
+        width: 240px;
+        margin: -3rem 0;
+    }
+    .download-promo-inner .icon-container {
+        display: flex;
+        justify-content: 
+        {% if section.settings.text_alignment == 'start' %}
+            flex-start;
+        {% elsif section.settings.text_alignment == 'end' %}
+            flex-end;
+        {% else %}
+            center;
+        {% endif %}
+        gap: 1rem; 
+    }
+}
+</style>
+
+<section id="download-promo-{{ section.id }}" class="download-promo overflow-hidden {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ bg_color }}">
+    <div class="container">
+        <div class="download-promo-inner rounded">
+            <div class="row {% if section.settings.image_alignment == 'right' %}flex-lg-row-reverse{% endif %} align-items-lg-center">
+                <div class="col-lg-5 text-center">
+                    <img
+                        class="img-fluid download-promo-image rounded"
+                        src="{{ section.settings.image.src | image_url }}"
+                        alt="{{ section.settings.image.alt | escape }}"
+                        width="{{ section.settings.image.width }}"
+                        height="{{ section.settings.image.height }}"
+                        loading="lazy">
+                </div>
+                <div class="col-lg-7 p-8 p-lg-12 text-center text-lg-{{ section.settings.text_alignment }}">
+                    {% unless section.settings.title == blank %}
+                        <h2 class="title mb-4 {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.title_color }}">
+                            {{ section.settings.title }}
+                        </h2>
+                    {% endunless %}
+                    {% unless section.settings.description == blank %}
+                        <div class="description rte mb-7 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.description_color }}">
+                            {{ section.settings.description }}
+                        </div>
+                    {% endunless %}
+                    <div class="icon-container">
+                        {% if section.settings.app_google_play_link != blank or section.settings.app_ios_link != blank %}
+                            {% unless section.settings.app_google_play_link == blank %}
+                                <a href="{{ section.settings.app_google_play_link }}" class="mobile-app-link">
+                                    <img
+                                        src="{{ 'app-google-play.png' | asset_img_url: 'x50' }}"
+                                        alt="Google Play app link"
+                                        width=""
+                                        height="50"
+                                        loading="lazy">
+                                </a>
+                            {% endunless %}
+                            {% unless section.settings.app_ios_link == blank %}
+                                <a href="{{ section.settings.app_ios_link }}" class="mobile-app-link">
+                                    <img
+                                        src="{{ 'app-ios.png' | asset_img_url: 'x50' }}"
+                                        alt="Apple iOS app link"
+                                        width=""
+                                        height="50"
+                                        loading="lazy">
+                                </a>
+                            {% endunless %}
+                        {% else %}
+                            <a href="{{ section.settings.button_1_link }}" class="btn btn-primary">{{ section.settings.button_1_text }}</a>
+                            <a href="{{ section.settings.button_2_link }}" class="btn btn-secondary">{{ section.settings.button_2_text }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Download Promo",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-dark",
+            "options": [
+                { "group": "Light", "value": "bg-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white", "label": "White" },
+                { "group": "Light", "value": "bg-light", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark", "label": "Dark" }
+            ]
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image_mobile",
+            "label": "Background Image (Mobile)"
+        },
+      
+        {
+            "type": "image_picker",
+            "id": "background_image_desktop",
+            "label": "Background Image (Desktop)"
+        },
+       
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Image with text"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+        {
+            "type": "color",
+            "id": "description_color",
+            "label": "Description color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "select",
+            "id": "image_alignment",
+            "label": "Image alignment",
+            "default": "left",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text alignment",
+            "default": "start",
+            "options": [
+                { "value": "start", "label": "Left" },
+                { "value": "center", "label": "Center" },
+                { "value": "end", "label": "Right" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "App links"
+        },
+        {
+            "type": "url",
+            "id": "app_google_play_link",
+            "label": "Google play link"
+        },
+        {
+            "type": "url",
+            "id": "app_ios_link",
+            "label": "iOS app link"
+        },
+        {
+            "type": "header",
+            "content": "Button Links"
+        },
+        {
+            "type": "text",
+            "id": "button_1_text",
+            "label": "Button 1 text",
+            "default": "Button 1"
+        },
+        {
+            "type": "url",
+            "id": "button_1_link",
+            "label": "Button 1 link"
+        },
+        {
+            "type": "text",
+            "id": "button_2_text",
+            "label": "Button 2 text",
+            "default": "Button 2"
+        },
+        {
+            "type": "url",
+            "id": "button_2_link",
+            "label": "Button 2 link"
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "Download promo",
+            "category": "General"
+        }
+    ]
+}
+{% endschema %}

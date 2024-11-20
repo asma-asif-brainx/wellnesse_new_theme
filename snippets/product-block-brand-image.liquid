@@ -1,0 +1,23 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+
+{% liquid 
+    assign pt = block.settings.pt | prepend: 'pt-'
+    assign pb = block.settings.pb | prepend: 'pb-'
+    assign mt = block.settings.mt | prepend: 'mt-'
+    assign mb = block.settings.mb | prepend: 'mb-'
+    assign width = block.settings.img_width
+    assign height = block.settings.img_height
+    assign metafield_namespace = block.settings.metafield | split: '.' | first
+    assign metafield_key = block.settings.metafield | split: '.' | last
+%}
+<div id="product-block-brand-image" class="{{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    <img class="img-fluid" src="{{ product.metafields[metafield_namespace][metafield_key] | image_url: width: width, height: width }}"  width="{{ width }}" height="{{ height }}" loading="lazy">
+</div>

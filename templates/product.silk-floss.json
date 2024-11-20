@@ -1,0 +1,1313 @@
+{
+  "sections": {
+    "template-product": {
+      "type": "template-product",
+      "blocks": {
+        "c93963c3-bf4c-4de0-b3f8-b2cd7bc3e035": {
+          "type": "text",
+          "settings": {
+            "bg_color": "bg-body text-body",
+            "bg_gradient": false,
+            "border_size": "border border-0",
+            "border_color": "border-dark",
+            "border_radius": "rounded-0",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 3,
+            "title_text_transform": "",
+            "description": "<h6>UNFLAVORED - 50 PICKS<\/h6>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "description_text_transform": "text-uppercase",
+            "text_align": "text-start",
+            "mt": 3,
+            "mb": 2,
+            "pt": 2,
+            "pb": 2
+          }
+        },
+        "15f00db4-48cd-4392-91c0-aaf0c622dd42": {
+          "type": "title",
+          "settings": {
+            "title_font_size_mobile": 9,
+            "title_font_size_desktop": 7,
+            "mt": 0,
+            "mb": 2
+          }
+        },
+        "12d9314a-c9b3-4c19-bdc1-96fbed9e107a": {
+          "type": "price",
+          "settings": {
+            "font_size_mobile": 4,
+            "font_size_desktop": 4,
+            "mt": 0,
+            "mb": 5
+          }
+        },
+        "product_switcher_j7gKUt": {
+          "type": "product_switcher",
+          "disabled": true,
+          "settings": {
+            "metafield": "ecomify.product_switcher",
+            "title": "Select Product",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "title_truncate": "text-truncate",
+            "selector_style": "buttons",
+            "mt": 5,
+            "mb": 5
+          }
+        },
+        "skio_subscriptions_yc_s20_app_block_F3WPTC": {
+          "type": "shopify:\/\/apps\/skio-subscriptions-yc-s20\/blocks\/app-block\/de50f7a4-0bb0-4d4c-84e2-c03dce83436d",
+          "settings": {
+            "form_id": "product-form-{{section.id}}",
+            "start_onetime": "false",
+            "onetime_first": "false",
+            "default_subscription": "",
+            "group_border_radius": 5,
+            "group_border_shadow": true,
+            "group_border_selected_color": "#78dad2",
+            "onetime_title": "One Time",
+            "subscription_title": "Subscribe",
+            "prepaid_title": "",
+            "discount_format": "percent",
+            "discount_style": "bubble",
+            "discount_prefix": "Save",
+            "discount_suffix": "",
+            "discount_color": "#174a50"
+          }
+        },
+        "ee812500-3080-4131-9bc9-08fe223ec0c0": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_qty_field": false,
+            "qty_field_position": "inline",
+            "show_buy_btn": false,
+            "show_dynamic_buttons": false,
+            "atc_btn_show_price": false,
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "1012e638-6dbc-4f7d-8d1f-74689a11b8f3": {
+          "type": "qty_breaks",
+          "disabled": true,
+          "settings": {
+            "title": "Buy more & save up to 40%",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "metafield": "ecomify.qty_breaks",
+            "save_badge_color": "bg-success text-white",
+            "preferred_option": "2",
+            "preferred_option_text": "Most Popular",
+            "price_logic": "item",
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "28c4bace-a705-4813-8902-7359da7b2c43": {
+          "type": "accordion",
+          "settings": {
+            "accordion_style": "accordion-flush",
+            "open_first_item": false,
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 2,
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "title_1": "DESCRIPTION",
+            "description_1": "<p>Bedtime just got a whole lot easier! Our Floss Picks provide the reach, grip, and control children often can’t get with ordinary thread floss. The smooth floss and sturdy (but flexible) pick creates an effortless experience, simple enough for little hands and gentle enough for little mouths!<\/p>",
+            "html_content_1": "",
+            "description_1_is_desc": false,
+            "icon_1": "",
+            "title_2": "INGREDIENTS",
+            "description_2": "<p>100% Corn Starch Handle, UHMWPE Floss Thread<br\/><br\/>*UHMWPE Floss Thread is 100% recyclable. We chose this thread because it is a strong thread that allows kids to learn how to floss early!<\/p>",
+            "html_content_2": "",
+            "icon_2": "",
+            "title_3": "COMPOSTABLE BIOPLASTIC PACKAGING",
+            "description_3": "<p><strong>FLOSS PICKS:<\/strong>The floss can be clipped off the pick and recycled, and the handle can be dropped off at a compost center!<\/p>",
+            "html_content_3": "",
+            "icon_3": "",
+            "title_4": "",
+            "description_4": "",
+            "html_content_4": "",
+            "icon_4": "",
+            "title_5": "",
+            "description_5": "",
+            "html_content_5": "",
+            "icon_5": "",
+            "title_6": "",
+            "description_6": "",
+            "html_content_6": "",
+            "icon_6": "",
+            "mt": 3,
+            "mb": 7
+          }
+        },
+        "6013329c-a6f0-468d-b01b-b2faf3421650": {
+          "type": "trust_badges",
+          "disabled": true,
+          "settings": {
+            "label": "Trust badges list",
+            "max_width": "560",
+            "col_size": "col-4",
+            "img_size": "35",
+            "text_1": "No Compromises <br> In Quality",
+            "text_2": "100% Satisfaction <br> Guarantee",
+            "text_3": "Free Shipping <br> Over $100",
+            "text_4": "",
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "16019ab6-f8d7-43bf-b3d8-b80dd76021c3": {
+          "type": "delivery_info",
+          "settings": {
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"24\" height=\"24\" fill=\"currentColor\" class=\"bi bi-truck\" viewbox=\"0 0 16 16\"><path d=\"M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z\"><\/path><\/svg>",
+            "title": "Delivery Info",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p><strong>Domestic<\/strong>: 3-6 days; <strong>International<\/strong>: 10-14 days<\/p>",
+            "delivery_start_days": 5,
+            "delivery_end_days": 7,
+            "delivery_message": "Order within the next 23 hours 11 minutes to receive it. Estimated delivery is between",
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "fbdb557a-90da-432b-984d-26c8ef0ef590": {
+          "type": "upsell_modal",
+          "disabled": true,
+          "settings": {
+            "modal_title": "Heads up, before it's too late...",
+            "metafield": "ecomify.upsell",
+            "limit": 2,
+            "modal_footer_btn": "Continue with your purchase",
+            "countdown_timer": "2024-08-25 11:10am",
+            "countdown_timer_pretext": "Offer expires in:"
+          }
+        },
+        "f706cec8-65d0-451f-a7e2-aab03ef5b5e0": {
+          "type": "bought_together",
+          "disabled": true,
+          "settings": {
+            "title": "Also Consider",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "metafield": "ecomify.upsell",
+            "limit": 4,
+            "img_orientation": "square",
+            "img_thumbnail": "img-thumbnail",
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "marquee_iTtLnL": {
+          "type": "marquee",
+          "settings": {
+            "bg_color": "bg-dark text-white",
+            "link": "",
+            "bg_gradient": false,
+            "text": "Easy grip, Safe for all ages, Recyclable floss, Trusted by Dentists and B-corp Certified, Sustainably sourced, Great for on-the-go, Kid tested and approved, Sturdy yet gentle on gums",
+            "font_size_mobile": 3,
+            "font_size_desktop": 3,
+            "text_transform": "text-capitalize",
+            "list_label": "Promotional Features",
+            "animation_duration": 20,
+            "marquee_direction": "left",
+            "separator": "separator-dot",
+            "gap": 6,
+            "pt": 2,
+            "pb": 2,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "testimonial_QRdpy7": {
+          "type": "testimonial",
+          "settings": {
+            "show_verified_badge": true,
+            "show_below_gallery_desktop": true,
+            "testimonial_1": "<p>\"I LOVE these floss picks! I actually look forward to flossing every day.\"<\/p>",
+            "author_1": "MARY B.",
+            "testimonial_2": "<p>\"I like how I can recycle the picks and the string is non-toxic. Makes flossing much easier in our house!\"<\/p>",
+            "author_2": "PENNY R.",
+            "testimonial_3": "<p>\"The floss picks are fun for my 3yo to use, and we're creating those healthy habits early.\"<\/p>",
+            "author_3": "JENN A.",
+            "mt": 5,
+            "mb": 5
+          }
+        }
+      },
+      "block_order": [
+        "c93963c3-bf4c-4de0-b3f8-b2cd7bc3e035",
+        "15f00db4-48cd-4392-91c0-aaf0c622dd42",
+        "12d9314a-c9b3-4c19-bdc1-96fbed9e107a",
+        "product_switcher_j7gKUt",
+        "skio_subscriptions_yc_s20_app_block_F3WPTC",
+        "ee812500-3080-4131-9bc9-08fe223ec0c0",
+        "1012e638-6dbc-4f7d-8d1f-74689a11b8f3",
+        "28c4bace-a705-4813-8902-7359da7b2c43",
+        "6013329c-a6f0-468d-b01b-b2faf3421650",
+        "16019ab6-f8d7-43bf-b3d8-b80dd76021c3",
+        "fbdb557a-90da-432b-984d-26c8ef0ef590",
+        "f706cec8-65d0-451f-a7e2-aab03ef5b5e0",
+        "marquee_iTtLnL",
+        "testimonial_QRdpy7"
+      ],
+      "settings": {
+        "show_breadcrumbs": false,
+        "show_share_btn": false,
+        "product_promo_background_color": "#ee1882",
+        "product_promo_font_color": "#ffffff",
+        "jump_to_variant": true,
+        "gallery_img_orientation": "square",
+        "gallery_img_thumbnail": "",
+        "gallery_mobile_full_width": true,
+        "gallery_show_thumbnails_mobile": true,
+        "gallery_enable_lightbox": true,
+        "gallery_arrows": "thumbs-slider",
+        "prev_next_show": true,
+        "prev_next_img_orientation": "square",
+        "prev_next_img_thumbnail": "img-thumbnail",
+        "pt": 9,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "16724093711e2e0ee2": {
+      "type": "apps",
+      "settings": {}
+    },
+    "richtext_YKPGMr": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "Nothing To Lose – Everything To Gain",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<h4>No Regrets Allowed! Try Wellnesse Risk-Free With Our Happiness Guarantee<\/h4><h1><\/h1><p>At Wellnesse, we believe everything should be this good. That's why we're making it risk-free for you to try! If you're not happy with your purchase for whatever reason, just contact our customer service team within 30 days and we'll make sure you're happy.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "201b7b0c-1e07-438d-9062-57c405acf005": {
+      "type": "comparison-table",
+      "blocks": {
+        "7e3009d2-d6fd-4de1-adb2-da130a0ae1c4": {
+          "type": "header",
+          "settings": {
+            "cell_1": "#",
+            "cell_2": "Wellnesse",
+            "cell_3": "All-Natural Alternative",
+            "cell_4": "Big Box Brand",
+            "cell_5": "",
+            "cell_6": "",
+            "cell_7": ""
+          }
+        },
+        "194114e7-f0ba-4754-864a-de2e3f0f3628": {
+          "type": "item",
+          "settings": {
+            "title": "Flouride-Free",
+            "cell_2": true,
+            "cell_2_text": "",
+            "cell_3": true,
+            "cell_3_text": "",
+            "cell_4": false,
+            "cell_4_text": "",
+            "cell_5": false,
+            "cell_5_text": "",
+            "cell_6": false,
+            "cell_6_text": "",
+            "cell_7": false,
+            "cell_7_text": ""
+          }
+        },
+        "94a158ac-906d-4848-b506-54fff03b4be2": {
+          "type": "item",
+          "settings": {
+            "title": "Sustainably Sourced",
+            "cell_2": true,
+            "cell_2_text": "",
+            "cell_3": true,
+            "cell_3_text": "",
+            "cell_4": false,
+            "cell_4_text": "",
+            "cell_5": false,
+            "cell_5_text": "",
+            "cell_6": false,
+            "cell_6_text": "",
+            "cell_7": false,
+            "cell_7_text": ""
+          }
+        },
+        "ab24b7c7-2890-4c33-ac28-c47968602f3e": {
+          "type": "item",
+          "settings": {
+            "title": "Glycerin-Free",
+            "cell_2": true,
+            "cell_2_text": "",
+            "cell_3": false,
+            "cell_3_text": "",
+            "cell_4": false,
+            "cell_4_text": "",
+            "cell_5": false,
+            "cell_5_text": "",
+            "cell_6": false,
+            "cell_6_text": "",
+            "cell_7": false,
+            "cell_7_text": ""
+          }
+        },
+        "item_6xfGNF": {
+          "type": "item",
+          "settings": {
+            "title": "Safe for Entire Family",
+            "cell_2": true,
+            "cell_2_text": "",
+            "cell_3": false,
+            "cell_3_text": "",
+            "cell_4": false,
+            "cell_4_text": "",
+            "cell_5": false,
+            "cell_5_text": "",
+            "cell_6": false,
+            "cell_6_text": "",
+            "cell_7": false,
+            "cell_7_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "7e3009d2-d6fd-4de1-adb2-da130a0ae1c4",
+        "194114e7-f0ba-4754-864a-de2e3f0f3628",
+        "94a158ac-906d-4848-b506-54fff03b4be2",
+        "ab24b7c7-2890-4c33-ac28-c47968602f3e",
+        "item_6xfGNF"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "How We Measure Up",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Compare our formulation to the competition.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "table_bg_color": "bg-white text-body",
+        "table_bordered": false,
+        "table_border_color": "",
+        "table_thead_color": "table-dark",
+        "table_second_col_color": "text-primary",
+        "table_striped": true,
+        "pt": 12,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "testimonials_tdzVJL": {
+      "type": "testimonials",
+      "blocks": {
+        "item_nma9wz": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/dr-meghan-thomas_2x_5d3a9d5f-3594-4489-9719-3929101f164a_webp.png",
+            "img_width": "100",
+            "img_height": "100",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "DR. MEGHAN THOMAS, DMD",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<h6>\"I use Wellnesse toothpaste and recommend it to my patients.<\/h6><p>It contains hydroxyapatite, a naturally occurring mineral that helps support tooth enamel to keep teeth strong. Ingredients like neem and green tea to support a healthy oral microbiome, and keep your breath fresh. Wellnesse toothpaste gets your teeth just as white (if not whiter) than everything else--without all the chemicals. Why would anyone NOT switch?”<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_cgYjjw": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/Dr_Porter_Headshot_1_jpg.webp",
+            "img_width": "100",
+            "img_height": "100",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "DR. RYAN PORTER, DDS",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<h6>\"I highly recommend it for all my patients. It's simply much healthier and reparative.<\/h6><p>Wellnesse is amazing! Not only do I use Wellnesse for my personal care, I highly recommend it for all my patients. It's simply much healthier and reparative.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_WJDwhc": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/Mask_Group_98096_2x-min_png.webp",
+            "img_width": "100",
+            "img_height": "100",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "CHELSEA PULEO",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<h6><strong>\"I love their philosophy as well as their clean ingredient list.<\/strong><\/h6><p>Finding a toothpaste with clean ingredients that actually works has been a challenge for me. When I discovered Wellnesse, I knew it was the right fit for us…As someone who is always trying to make better choices for my family, I love their philosophy as well as their clean ingredient list. Plus my children love the kids strawberry toothpaste so it’s a win for the whole family!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "item_nma9wz",
+        "item_cgYjjw",
+        "item_WJDwhc"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-secondary text-white",
+        "bg_gradient": false,
+        "fb_style": false,
+        "show_trustpilot_stars": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "What Experts Are Saying",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "1",
+        "carousel_rewind": true,
+        "carousel_loop": false,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 3,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 8,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "media_with_text_icons_dVM3a4": {
+      "type": "media-with-text-icons",
+      "blocks": {
+        "feature_PW6yby": {
+          "type": "feature",
+          "settings": {
+            "feature_title": "UHMWPE FLOSS THREAD",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "Used for a gentle interdental cleaning",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        },
+        "feature_WYmQyt": {
+          "type": "feature",
+          "settings": {
+            "feature_title": "100% CORNSTARCH HANDLE",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "Biodegradable handle to get all of those hard to get places",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PW6yby",
+        "feature_WYmQyt"
+      ],
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "div {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "main_image": "shopify:\/\/shop_images\/Untitled_design_-_2024-09-22T200342.066.png",
+        "video": "",
+        "autoplay": false,
+        "loop": false,
+        "muted": false,
+        "controls": false,
+        "img_border": "",
+        "center_text_mobile": true,
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "WHAT'S INSIDE OUR FLOSS PICKS",
+        "description_font_size_mobile": 6,
+        "description_font_size_desktop": 6,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-outline-dark",
+        "content_align": "flex-md-row",
+        "container": "container",
+        "max_width": "",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "testimonials_HTYWyx": {
+      "type": "testimonials",
+      "blocks": {
+        "item_4UcaGD": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Mary B.",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#df6459",
+            "description": "<p>\"I LOVE these floss picks! I've realized that I do not floss if I have regular string floss. With these floss picks, I actually look forward to flossing every day. I also love that they're good for the environment.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_UhxGEx": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Penny R.",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#df6459",
+            "description": "<p>\"My kids have a hard time using regular floss so I was looking for something that makes it super easy for them. I chose Wellnesse picks because I like how I can recycle the picks and the string is non-toxic. Makes flossing much easier in our house!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_Rp7Ac6": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Jenn A.",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#df6459",
+            "description": "<p>\"Finally! My 3 year old refuses to let me floss his teeth with standard floss, and his little fingers aren't capable. The floss picks are fun for him to use, and we're creating those healthy habits early. Love it!!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_GPjf4w": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Judy E.",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<p>\"I found that they were great with my teeth that are very tight. It’s making me floss much easier and love them. I am flossing now more regularly. Thank you. Will definitely not want to run out of those. They are wonderful.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_FypHTN": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Traci A.",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<p>\"I love using floss picks—so much easier than regular dental floss. I don’t have to wrap it around my hands and try to stick my fists in my mouth to clean my teeth. However, I don’t like throwing all that poisonous plastic pollution into the trash (& back into the earth). So glad that these are biodegradable!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "item_4UcaGD",
+        "item_UhxGEx",
+        "item_Rp7Ac6",
+        "item_GPjf4w",
+        "item_FypHTN"
+      ],
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": false,
+        "fb_style": false,
+        "show_trustpilot_stars": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "SOME OF OUR CUSTOMER REVIEWS",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "1",
+        "carousel_rewind": true,
+        "carousel_loop": false,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 9,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_3q7kct": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_w9T4Dp": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/last-habit-image_2x_a7a1b764-1d4d-49c2-8aa2-b9ca1fdf603a.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/last-habit-image_2x_a7a1b764-1d4d-49c2-8aa2-b9ca1fdf603a.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_K6MEfA": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "Little Habits Last a Lifetime",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description": "<ul><li>Flossing can be a challenge for little ones. Our Floss Picks let them take charge of their oral care routine, and you can rest easy that they’re still getting a good clean.<\/li><li>Once they’re a little older, they can graduate to our Silk Floss! Until then, building good habits early is key!<\/li><\/ul>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_w9T4Dp",
+        "text_K6MEfA"
+      ],
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "div {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "promo_about_kyFN6P": {
+      "type": "promo-about",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "title": "HEALTHY SMILES ARE HAPPY SMILES",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "subtitle": "",
+        "subtitle_font_size_mobile": 2,
+        "subtitle_font_size_desktop": 2,
+        "image": "shopify:\/\/shop_images\/lowr-banner-image-desktop_2_-min.png",
+        "img_width": "1200",
+        "img_height": "600",
+        "img_crop": "center",
+        "video": "",
+        "autoplay": false,
+        "loop": false,
+        "muted": false,
+        "controls": true,
+        "description_left": "<p>Did you know that brushing only cleans about 70% of the surface of the teeth? Flossing is necessary to reach the other 30%. It’s also a fact that cavities are the <em>most common <\/em>illness in children and usually result from insufficient oral care (flossing, in particular). Teaching our kids the importance of oral health is the surest way to keep those little teeth in tip-top shape.<\/p>",
+        "description_left_color": "#000000",
+        "description_left_alignment_mobile": "center",
+        "description_right": "",
+        "description_right_color": "#000000",
+        "description_right_alignment_mobile": "left",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 4,
+        "access_guests": true,
+        "access_members": true,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "1724548422abd74a4c": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_XDmpMK": {
+          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": "",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_XDmpMK"
+      ],
+      "settings": {}
+    },
+    "image_with_text_dTPKTD": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_AXFxLM": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/flouride-free-image_2x_1_074996fb-9db2-4b51-8108-76bb12744a98.webp",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/flouride-free-image_2x_1_074996fb-9db2-4b51-8108-76bb12744a98.webp",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_gXKYJ3": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "FLUORIDE-FREE & GOING STRONG",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description": "<p>Because excess fluoride can weaken bones, cause neurotoxicity, and suppress the thyroid – we stick to all-natural hydroxyapatite as our go-to mineral to keep your teeth healthy & strong! The benefits of hydroxyapatite are unmatched without <em>any <\/em>side effects! No poison control warning needed like in conventional toothpastes.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_AXFxLM",
+        "text_gXKYJ3"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 9,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_hwfiz9": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_4bxph4": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "Glycerin-Free Formula Leaves No Gunk Behind... Allowing Your Body To Do What It Does Naturally",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 7,
+            "description": "<p>At Wellnesse, we're proud of what's NOT in our oral care products. Most glycerin is derived from GMO vegetable oils which can wreak havoc on your dental health and oral hygiene. That's why we use a glycerin-free formula that lets your body do what it does naturally – keeping your teeth healthy & beautiful.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_BpePNq": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/glycerine-free-image_2x_c653cf04-0118-4d0d-83da-4312317c6d64.webp",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/glycerine-free-image_2x_c653cf04-0118-4d0d-83da-4312317c6d64.webp",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_4bxph4",
+        "image_BpePNq"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 7,
+        "pb": 7,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "featured_products_cr8jMV": {
+      "type": "featured-products",
+      "blocks": {
+        "block_HERYei": {
+          "type": "block",
+          "settings": {
+            "products": [
+              "concentrated-mouthwash"
+            ],
+            "collection": "oral-care",
+            "limit": 8,
+            "tab_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_HERYei"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Complete Your Oral Care Routine",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 6,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_enable": true,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "0",
+        "carousel_rewind": true,
+        "breakpoint_xs": 1,
+        "breakpoint_xs_partial": true,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 9,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "d167404f-6e0f-4b9a-9302-986b992f1537": {
+      "type": "sticky-atc",
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": false,
+        "max_width": "600",
+        "product_img_orientation": "square",
+        "product_img_thumbnail": "img-thumbnail",
+        "show_qty_field": true
+      }
+    },
+    "animated_counters_n3XTJT": {
+      "type": "animated-counters",
+      "blocks": {
+        "item_8wEFM4": {
+          "type": "item",
+          "settings": {
+            "value": "40",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 40,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_Jdy8Fk": {
+          "type": "item",
+          "settings": {
+            "value": "100",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 100,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_Pqpx3c": {
+          "type": "item",
+          "settings": {
+            "value": "75",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 75,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_jb9wdG": {
+          "type": "item",
+          "settings": {
+            "value": "25",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 25,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_8wEFM4",
+        "item_Jdy8Fk",
+        "item_Pqpx3c",
+        "item_jb9wdG"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "text_align": "text-center",
+        "title": "Animated Counters",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 6,
+        "description": "<p>Add on optional description to this section<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "speed": 2,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "pt": 9,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "scrolling_text_gRV3n9": {
+      "type": "scrolling-text",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "rounded": false,
+        "layout": "text_first",
+        "section_bg_color": "bg-dark text-white",
+        "section_bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "img_thumbnail": "",
+        "mobile_image_size": "small",
+        "content_text_align": "text-start",
+        "title": "Our Formulation",
+        "title_color": "#ffffff",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 12,
+        "description": "<p>Provides users with the following results...<\/p>",
+        "description_color": "#ffffff",
+        "description_font_size_mobile": 4,
+        "description_font_size_desktop": 3,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "scrolling_text_speed": 100,
+        "scrolling-text": "<p>Clean teeth<\/p><p>Corrected cavities<\/p><p>Faded Stains<\/p><p>Soothed gums<\/p><p>Fresh breath<\/p><p>Healthier smile<\/p><p>More confidence<\/p>",
+        "scrolling_text_align": "text-start",
+        "scrolling_text_weight": "fw-normal",
+        "scrolling_text_transform": "text-uppercase",
+        "text_font_size_desktop": 2,
+        "text_line_height_desktop": 4,
+        "text_font_size_mobile": 2,
+        "text_line_height_mobile": 7,
+        "content_align": "center",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "access_guests": true,
+        "access_members": true,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "template-product",
+    "16724093711e2e0ee2",
+    "richtext_YKPGMr",
+    "201b7b0c-1e07-438d-9062-57c405acf005",
+    "testimonials_tdzVJL",
+    "media_with_text_icons_dVM3a4",
+    "testimonials_HTYWyx",
+    "image_with_text_3q7kct",
+    "promo_about_kyFN6P",
+    "1724548422abd74a4c",
+    "image_with_text_dTPKTD",
+    "image_with_text_hwfiz9",
+    "featured_products_cr8jMV",
+    "d167404f-6e0f-4b9a-9302-986b992f1537",
+    "animated_counters_n3XTJT",
+    "scrolling_text_gRV3n9"
+  ]
+}

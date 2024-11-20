@@ -1,0 +1,241 @@
+{
+  "sections": {
+    "parallax_image_DPiijn": {
+      "type": "parallax-image",
+      "custom_css": [
+        "h2 {text-align: left;}",
+        "p {text-align: left;}",
+        "h2 {color: #ffffff;}",
+        "p {color: #ffffff;}",
+        "a {color: #ffffff;}"
+      ],
+      "settings": {
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "img_mobile": "shopify:\/\/shop_images\/Mobile_Banner_a43812a4-e073-4de2-970b-f8a23d6a93d5.webp",
+        "img_mobile_opacity": 0.8,
+        "img_mobile_blur": 0,
+        "img_mobile_orientation": "down",
+        "img_mobile_scale": 100,
+        "img_mobile_min_height": "205",
+        "img_desktop": "shopify:\/\/shop_images\/Web_Banner_fd2a5198-4aec-497b-8eae-2fa02923e3c5_1.png",
+        "img_desktop_opacity": 0.7,
+        "img_desktop_blur": 0,
+        "img_desktop_orientation": "down",
+        "img_desktop_scale": 100,
+        "img_desktop_min_height": "350",
+        "max_width": "720",
+        "subtitle": "",
+        "subtitle_font_size_mobile": 2,
+        "subtitle_font_size_desktop": 2,
+        "title": "WHOLESALE INQUIRIES",
+        "title_font_size_mobile": 4,
+        "title_font_size_desktop": 8,
+        "description": "<p><a href=\"https:\/\/wellnesse.com\/\" title=\"https:\/\/wellnesse.com\/\">Home<\/a> &gt;&gt; Wholesale<\/p>",
+        "description_font_size_mobile": 1,
+        "description_font_size_desktop": 3,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "single_product_EKGphx": {
+      "type": "single-product",
+      "blocks": {
+        "title_GX3qpc": {
+          "type": "title",
+          "settings": {
+            "title_font_size_mobile": 7,
+            "title_font_size_desktop": 9,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "price_wTgeAt": {
+          "type": "price",
+          "settings": {
+            "font_size_mobile": 4,
+            "font_size_desktop": 4,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "description_Vh8tmH": {
+          "type": "description",
+          "settings": {
+            "title": "Details",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "variant_selector_pk8cFW": {
+          "type": "variant_selector",
+          "settings": {
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "buy_buttons_Ypf4i8": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_qty_field": true,
+            "qty_field_position": "inline",
+            "show_buy_btn": true,
+            "show_dynamic_buttons": false,
+            "atc_btn_show_price": true,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "text_racwtW": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "title_text_transform": "text-capitalize",
+            "description": "<p>Add an optional description for this block<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "description_text_transform": "",
+            "mt": 3,
+            "mb": 3
+          }
+        }
+      },
+      "block_order": [
+        "title_GX3qpc",
+        "price_wTgeAt",
+        "description_Vh8tmH",
+        "variant_selector_pk8cFW",
+        "buy_buttons_Ypf4i8",
+        "text_racwtW"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "ecomify-mug",
+        "collection": "",
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "max_width": "",
+        "text_align": "text-start",
+        "gallery_img_orientation": "square",
+        "gallery_img_thumbnail": "img-thumbnail",
+        "gallery_mobile_full_width": true,
+        "gallery_show_thumbnails_mobile": true,
+        "btn_text": "Learn more",
+        "btn_color": "btn-outline-primary",
+        "btn_size": "btn-md",
+        "pt": 11,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_qEfm6b": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "WELCOME TO OUR WHOLESALE OPTIONS!",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 6,
+        "description": "<p>At Wellnesse, we’ve made it our mission to serve you through products and practices you can trust. Our formulas were created in a family kitchen out of a desire to protect our families – and yours – from the toxins and chemicals often found in conventional personal care products.<br\/><br\/>Now <strong>trusted in thousands of households across the world,<\/strong> we are as passionate as ever about providing safe, effective, responsibly sourced products, and we love partnering with like-minded businesses who share our goals. We are extremely grateful for our dedicated customers and those retailers that choose to carry our products in the marketplace. We look forward to working with you and helping you to share Wellnesse with your community.<\/p>",
+        "description_font_size_mobile": 3,
+        "description_font_size_desktop": 3,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_K4YPrp": {
+      "type": "image",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container-fluid",
+        "max_width": "",
+        "url": "",
+        "image_mobile": "shopify:\/\/shop_images\/side-flowers_2x_2_1_6217a72d-ced5-4e08-ad26-ef6a088b9267.png",
+        "img_mobile_width": "900",
+        "img_mobile_height": "600",
+        "img_mobile_crop": "center",
+        "img_mobile_thumbnail": "",
+        "image_desktop": "shopify:\/\/shop_images\/side-leaves-bg_2x_ea7ebb55-a01d-4109-9df3-0b18be0356c5.png",
+        "img_desktop_width": "1600",
+        "img_desktop_height": "900",
+        "img_desktop_crop": "center",
+        "img_desktop_thumbnail": "",
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_with_buttons_awqNbY": {
+      "type": "richtext-with-buttons",
+      "blocks": {
+        "button_Uc77gF": {
+          "type": "button",
+          "settings": {
+            "btn_text": "WHOLESALE APPLICATION",
+            "btn_url": "https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSeDBMd36K4LVlpAXmu95H0EkS8IsblEpkAYmHo9vB-RpX_6ew\/viewform",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "button_Uc77gF"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-dark",
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "THANK YOU FOR YOUR INTEREST IN OUR WHOLESALE OPTIONS",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 6,
+        "description": "<p>For next steps, please fill out the below form and our team will be in touch with you shortly.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "list_pretext": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 12,
+        "pb": 13,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "parallax_image_DPiijn",
+    "single_product_EKGphx",
+    "richtext_qEfm6b",
+    "image_K4YPrp",
+    "richtext_with_buttons_awqNbY"
+  ]
+}

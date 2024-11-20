@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "template-collection": {
+      "type": "template-collection",
+      "settings": {
+        "container": "container",
+        "text_align": "text-center",
+        "limit": 42,
+        "enable_infinite_pagination": true,
+        "infinite_pagination_trigger": "scroll",
+        "show_filters": true,
+        "filters_btn_color": "btn-outline-primary",
+        "filters_expanded": false,
+        "show_sort_by": true,
+        "show_scroll_top_btn": true,
+        "scroll_top_btn_color": "btn-secondary",
+        "show_breadcrumbs": true,
+        "hide_out_of_stock_products": true,
+        "show_collection_img": false,
+        "img_opacity": 0.3,
+        "img_blur": 0,
+        "title_font_size_mobile": 7,
+        "title_font_size_desktop": 9,
+        "show_collection_description": false,
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "collections_menu": "",
+        "collections_menu_img_orientation": "square",
+        "collections_menu_align": "justify-content-center",
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 3
+      }
+    },
+    "c0d30568-1387-4780-a544-0eb43df127be": {
+      "type": "richtext",
+      "blocks": {
+        "heading_pLbWfg": {
+          "type": "heading",
+          "settings": {
+            "heading": "About our oral care",
+            "heading_size": "h1"
+          }
+        },
+        "text_hLVEnp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Wellnesse hydroxyapatite toothpaste collection, featuring Whitening, Cinnamint, Charcoal, and Strawberry, offers a natural, fluoride-free option for safe and effective oral care. Each toothpaste is formulated with micro-hydroxyapatite, a mineral that supports tooth remineralization and helps strengthen enamel and provide effective protection against cavities without the use of fluoride. The Whitening toothpaste gently lifts stains, the Charcoal aids in detoxifying and whitening through natural charcoal, and the Strawberry flavor provides a kid-friendly option, making it easy for families to switch to a healthier, fluoride-free dental care routine. <\/p><p>In addition to the hydroxyapatite toothpaste, Wellnesse offers two types of floss—silk floss and floss picks for kids—along with a Copper tongue scraper, Oral Probiotic mints, and concentrated mouthwash for a complete oral hygiene routine. Our oral care collection has everything you need for a healthy mouth . Plus, it’s all fluoride-free and safe for everyone in the family!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pLbWfg",
+        "text_hLVEnp"
+      ],
+      "settings": {
+        "product": "",
+        "product_atc": false,
+        "custom_bg_color": false,
+        "remove_top_margin": false,
+        "remove_bottom_margin": false,
+        "center_align": false,
+        "bg_color": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "banner_enable": false,
+        "img_width_desk": 100,
+        "img_width_mobile": 100,
+        "overflow_y": false,
+        "overflow_size": 100,
+        "overflow_size_mob": 100
+      }
+    }
+  },
+  "order": [
+    "template-collection",
+    "c0d30568-1387-4780-a544-0eb43df127be"
+  ]
+}

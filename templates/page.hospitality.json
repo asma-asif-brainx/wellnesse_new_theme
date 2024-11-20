@@ -1,0 +1,311 @@
+{
+  "sections": {
+    "single_product_EKGphx": {
+      "type": "single-product",
+      "blocks": {
+        "title_GX3qpc": {
+          "type": "title",
+          "settings": {
+            "title_font_size_mobile": 7,
+            "title_font_size_desktop": 9,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "price_wTgeAt": {
+          "type": "price",
+          "settings": {
+            "font_size_mobile": 4,
+            "font_size_desktop": 4,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "description_Vh8tmH": {
+          "type": "description",
+          "settings": {
+            "title": "Details",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "variant_selector_pk8cFW": {
+          "type": "variant_selector",
+          "settings": {
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "buy_buttons_Ypf4i8": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_qty_field": true,
+            "qty_field_position": "inline",
+            "show_buy_btn": true,
+            "show_dynamic_buttons": false,
+            "atc_btn_show_price": true,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "text_racwtW": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "title_text_transform": "text-capitalize",
+            "description": "<p>Add an optional description for this block<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "description_text_transform": "",
+            "mt": 3,
+            "mb": 3
+          }
+        }
+      },
+      "block_order": [
+        "title_GX3qpc",
+        "price_wTgeAt",
+        "description_Vh8tmH",
+        "variant_selector_pk8cFW",
+        "buy_buttons_Ypf4i8",
+        "text_racwtW"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "ecomify-mug",
+        "collection": "",
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "max_width": "",
+        "text_align": "text-start",
+        "gallery_img_orientation": "square",
+        "gallery_img_thumbnail": "img-thumbnail",
+        "gallery_mobile_full_width": true,
+        "gallery_show_thumbnails_mobile": true,
+        "btn_text": "Learn more",
+        "btn_color": "btn-outline-primary",
+        "btn_size": "btn-md",
+        "pt": 11,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_qEfm6b": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-start",
+        "title": "Welcome to Wellnesse Hospitality",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 7,
+        "description": "<h6><strong>Enhancing Guest Experience at Your Luxury Resort and Spa<\/strong><\/h6><p><\/p><p>At Wellnesse, we understand how important guest experience and feedback is to your business and your team. We are excited to introduce our premium, fluoride-free, sustainable Whitening Toothpaste, designed specifically for high-end luxury resorts that prioritize guest satisfaction and sustainability.<\/p><p><\/p>",
+        "description_font_size_mobile": 4,
+        "description_font_size_desktop": 4,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_h8hzBw": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_wYiffH": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Whitening_Toothpaste_with_Scraper-5_copy.jpg",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "img-thumbnail",
+            "desktop_img": "shopify:\/\/shop_images\/Whitening_Toothpaste_with_Scraper-5_copy.jpg",
+            "desktop_img_orientation": "square",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_UMdjhx": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "Why Wellnesse?",
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 7,
+            "description": "<ul><li><strong>Luxurious:<\/strong> Enhance the in-room experience with our premium, natural Whitening Toothpaste, ensuring your guests feel truly pampered.<\/li><li><strong>Healthy:<\/strong> Our toothpaste is toxin-free and fluoride-free, made with natural ingredients, providing a smooth and enjoyable brushing experience.<\/li><li><strong>Made in the USA:<\/strong> Our Whitening Toothpaste is proudly manufactured in the United States<\/li><li><strong>Sustainable<\/strong> Our products are eco-friendly and packaged sustainably. The sugarcane bioplastic tubes are 100% compostable, and the lids are recyclable. The toothbrushes are made from bamboo and can be composted.<\/li><\/ul>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_wYiffH",
+        "text_UMdjhx"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 0,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_fTrDMV": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_fgCDmW": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "Wholesale Options Tailored for Luxury Resorts",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 7,
+            "description": "<ul><li><strong>Sustainability Commitment:<\/strong> Bulk orders reduce packaging waste and support eco-friendly practices.<\/li><li><strong>Economical Solutions:<\/strong> Benefit from our wholesale purchasing options while maintaining luxury standards.<\/li><li><strong>Efficient Supply Management:<\/strong> Streamlined delivery and inventory management ensure that your resort never runs out of essential guest amenities.<\/li><li><strong>Customizable Orders:<\/strong> Tailor the quantity and type of kits (travel size, sample kits) to suit the specific needs of your resort.<\/li><\/ul>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_AQhVGy": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/COMPLETEORALCARESET_594f550c-a39f-47b9-ae0f-e4cd94dc2667.webp",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/COMPLETEORALCARESET_594f550c-a39f-47b9-ae0f-e4cd94dc2667.webp",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_fgCDmW",
+        "image_AQhVGy"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 0,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "richtext_with_buttons_awqNbY": {
+      "type": "richtext-with-buttons",
+      "blocks": {
+        "button_Uc77gF": {
+          "type": "button",
+          "settings": {
+            "btn_text": "GET IN TOUCH",
+            "btn_url": "https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSeDBMd36K4LVlpAXmu95H0EkS8IsblEpkAYmHo9vB-RpX_6ew\/viewform",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "button_Uc77gF"
+      ],
+      "settings": {
+        "bg_color": "",
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "list_pretext": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_Fac3em": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>For wholesale inquiries, please contact us at <a href=\"mailto:wholesale@wellnesse.com\" title=\"mailto:wholesale@wellnesse.com\">wholesale@wellnesse.com <\/a>or apply <a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSeDBMd36K4LVlpAXmu95H0EkS8IsblEpkAYmHo9vB-RpX_6ew\/viewform\" title=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSeDBMd36K4LVlpAXmu95H0EkS8IsblEpkAYmHo9vB-RpX_6ew\/viewform\">here. <\/a><\/p><p>Elevate your guests’ experience with Wellnesse – where luxury meets sustainability.<\/p>",
+        "description_font_size_mobile": 4,
+        "description_font_size_desktop": 4,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 12,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "single_product_EKGphx",
+    "richtext_qEfm6b",
+    "image_with_text_h8hzBw",
+    "image_with_text_fTrDMV",
+    "richtext_with_buttons_awqNbY",
+    "richtext_Fac3em"
+  ]
+}

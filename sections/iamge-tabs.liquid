@@ -1,0 +1,593 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+
+{% liquid
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+    case section.settings.img_orientation
+        when 'square'
+            assign img_width  = 900
+            assign img_height = 900
+        when 'landscape'
+            assign img_width  = 900
+            assign img_height = 720
+        when 'landscape-x2'
+            assign img_width  = 900
+            assign img_height = 600
+        when 'potrait'
+            assign img_width  = 720
+            assign img_height = 900
+        when 'potrait-x2'
+            assign img_width  = 600
+            assign img_height = 900
+    endcase
+%}
+
+<section id="image-tabs-section-{{ section.id }}" class="image-tabs-section enter-view {{ bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    <div class="{{ section.settings.container }}" style="max-width: {{ section.settings.max_width }}px; margin: 0 auto;">
+        <div class="image-tabs__head text-center">
+            <h2 class="{{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.title_color }}">{{ section.settings.title }}</h2>
+            <p class="{{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.description_color }}">{{ section.settings.description }}</p>
+        </div>
+        <div id="nav-tabs-{{ section.id }}" class="nav nav-tabs justify-content-center {% if section.settings.breakpoint_xs_scroll %}scrollable-tabs{% endif %}" role="tablist">
+            {% for block in section.blocks %}
+                {% if forloop.index <= 6 %}
+                    <button 
+                        id="tab-{{ block.id }}"
+                        class="nav-link {% if forloop.first %}active{% endif %}" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#tab-pane-{{ block.id }}" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="tab-pane-{{ block.id }}" 
+                        aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                        <div class="d-flex align-items-center {{ block.settings.tab_title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.tab_title_font_size_desktop | prepend: 'fs-lg-' }}">
+                            {% if block.settings.icon != blank %}
+                                <img
+                                    class="img-fluid me-4 flex-shrink-0 rounded"
+                                    src="{{ block.settings.icon | image_url: width: 44 }}"
+                                    alt="{{ block.settings.icon.alt | escape }}"
+                                    width="22"
+                                    height="22"
+                                    loading="lazy">
+                            {% endif %}
+                            {{ block.settings.tab_title }}
+                        </div>
+                    </button>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="tab-content pt-5">
+            {% for block in section.blocks %}
+                {% if forloop.index <= 6 %}
+                    <div 
+                        id="tab-pane-{{ block.id }}" 
+                        class="tab-pane fade {% if forloop.first %}show active{% endif %}" 
+                        role="tabpanel" 
+                        aria-labelledby="tab-{{ block.id }}" 
+                        tabindex="0">
+                        <div class="row align-items-center {% if block.settings.media_alignment == 'right' %}flex-lg-row-reverse{% endif %}">
+                            {% if block.settings.image != blank %}
+                                <div class="col-lg-6 mb-6 mb-lg-0">
+                                    <div class="image-tabs__img">
+                                        <img
+                                            class="img-fluid rounded"
+                                            src="{{ block.settings.image | image_url: width: img_width, height: img_height, crop: section.settings.img_crop }}"
+                                            alt="{{ block.settings.image.alt | escape }}"
+                                            width="{{ img_width }}"
+                                            height="{{ img_height }}"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="col-lg-6">
+                                <div class="image-tabs__info">
+                                    {% for i in (1..3) %}
+                                        {% capture ingredient_title %}ingredient_title_{{ i }}{% endcapture %}
+                                        {% capture ingredient_text %}ingredient_text_{{ i }}{% endcapture %}
+                                        <div class="image-tabs__ingred-title {{ block.settings.ingredient_title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.ingredient_title_font_size_desktop | prepend: 'fs-lg-' }}">
+                                            <p><strong>{{ block.settings[ingredient_title] }}</strong></p>
+                                        </div>
+                                        {% capture ingredient_text_mobile %}{{ ingredient_text }}_font_size_mobile{% endcapture %}
+                                        {% capture ingredient_text_desktop %}{{ ingredient_text }}_font_size_desktop{% endcapture %}
+                                        <div class="image-tabs__ingred-text {{ block.settings[ingredient_text_mobile] | prepend: 'fs-' }} {{ block.settings[ingredient_text_desktop] | prepend: 'fs-lg-' }}" data-simplebar>
+                                            <p>{{ block.settings[ingredient_text] }}</p>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+  .image-tabs-section {
+    background-color: #fff8ec;
+    padding: 20px;
+  }
+  .image-tabs__head h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  .image-tabs__head p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  .nav-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-tabs.scrollable-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-tabs .nav-link {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .nav-tabs .nav-link.active {
+    background-color: {{ section.settings.active_tab_color }};
+  }
+  .tab-content .tab-pane {
+    display: none;
+  }
+  .tab-content .tab-pane.show.active {
+    display: block;
+  }
+  .image-tabs__img img {
+    max-width: 100%;
+    height: auto;
+  }
+  .image-tabs__ingred-title p {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .image-tabs__ingred-text p {
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 767px) {
+    .nav-tabs.scrollable-tabs {
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+    }
+    .nav-link {
+        flex-shrink: 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var tablinks = document.querySelectorAll(".nav-link");
+    var tabcontents = document.querySelectorAll(".tab-pane");
+
+    tablinks.forEach(function(tablink) {
+        tablink.addEventListener("click", function() {
+            var target = this.getAttribute("data-bs-target");
+
+            tablinks.forEach(function(tab) {
+                tab.classList.remove("active");
+            });
+            this.classList.add("active");
+
+            tabcontents.forEach(function(content) {
+                content.classList.remove("show", "active");
+                if (content.getAttribute("id") === target.substring(1)) {
+                    content.classList.add("show", "active");
+                }
+            });
+        });
+    });
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "Image Tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Meet the Ingredients"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "label": "Title font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "label": "Title font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Our formulas are crafted by our in-house team of scientists through an extensive research process."
+    },
+    
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_mobile",
+      "label": "Description font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_desktop",
+      "label": "Description font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "active_tab_color",
+      "label": "Active Tab Color",
+      "default": "#ddd"
+    },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "bg-body text-body",
+      "options": [
+          { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+          { "group": "Light", "value": "bg-white text-body", "label": "White" },
+          { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+          { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+          { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+          { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+          { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+          { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+          { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+          { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+      ]
+    },
+    {
+  "type": "checkbox",
+  "id": "breakpoint_xs_scroll",
+  "label": "Scroll on mobile",
+  "default": false,
+  "info": "Note: If enabled, the setting below \"Items per row / xs\" will not apply."
+},
+    {
+      "type": "checkbox",
+      "id": "bg_gradient",
+      "label": "Background gradient",
+      "default": false,
+      "info": "Will not apply to light colors"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Padding top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mt",
+      "label": "Margin top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mb",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container",
+      "default": "container",
+      "options": [
+        { "value": "container", "label": "Container" },
+        { "value": "", "label": "Full-width" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max-width (px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Scalp Serum"
+        },
+        {
+          "type": "range",
+          "id": "tab_title_font_size_mobile",
+          "label": "Tab Title font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "tab_title_font_size_desktop",
+          "label": "Tab Title font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 3
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Tab Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Tab Image"
+        },
+        {
+          "type": "select",
+          "id": "media_alignment",
+          "label": "Media Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_title_1",
+          "label": "Ingredient Title 1",
+          "default": "Copper Tripeptide-1"
+        },
+        {
+          "type": "range",
+          "id": "ingredient_title_font_size_mobile",
+          "label": "Ingredient Title font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 4
+        },
+        {
+          "type": "range",
+          "id": "ingredient_title_font_size_desktop",
+          "label": "Ingredient Title font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "ingredient_text_1",
+          "label": "Ingredient Description 1",
+          "default": "A small protein composed of the three amino acids..."
+        },
+        {
+          "type": "range",
+          "id": "ingredient_text_1_font_size_mobile",
+          "label": "Ingredient Text 1 font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "ingredient_text_1_font_size_desktop",
+          "label": "Ingredient Text 1 font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "text",
+          "id": "ingredient_title_2",
+          "label": "Ingredient Title 2",
+          "default": "Caffeine"
+        },
+        {
+          "type": "textarea",
+          "id": "ingredient_text_2",
+          "label": "Ingredient Description 2",
+          "default": "Supports thicker and healthier looking hair..."
+        },
+        {
+          "type": "range",
+          "id": "ingredient_text_2_font_size_mobile",
+          "label": "Ingredient Text 2 font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "ingredient_text_2_font_size_desktop",
+          "label": "Ingredient Text 2 font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "text",
+          "id": "ingredient_title_3",
+          "label": "Ingredient Title 3",
+          "default": "Tea Tree Oil"
+        },
+        {
+          "type": "textarea",
+          "id": "ingredient_text_3",
+          "label": "Ingredient Description 3",
+          "default": "Known to reduce and prevent excess oil buildup..."
+        },
+        {
+          "type": "range",
+          "id": "ingredient_text_3_font_size_mobile",
+          "label": "Ingredient Text 3 font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "ingredient_text_3_font_size_desktop",
+          "label": "Ingredient Text 3 font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "image-tabs",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Ecomify Serum",
+            "icon": "shopify://shop_images/icon_1.svg",
+            "image": "shopify://shop_images/image_1.jpg",
+            "media_alignment": "left",
+            "ingredient_title_1": "Ecomify Protein",
+            "ingredient_text_1": "Take your e-commerce game to the next level with Ecomify™",
+            "ingredient_text_1_font_size_mobile": 2,
+            "ingredient_text_1_font_size_desktop": 2,
+            "ingredient_title_2": "Ecomify Caffeine",
+            "ingredient_text_2": "Take your e-commerce game to the next level with Ecomify™.",
+            "ingredient_text_2_font_size_mobile": 2,
+            "ingredient_text_2_font_size_desktop": 2,
+            "ingredient_title_3": "Ecomify Tea Tree Oil",
+            "ingredient_text_3": "Take your e-commerce game to the next level with Ecomify™.",
+            "ingredient_text_3_font_size_mobile": 2,
+            "ingredient_text_3_font_size_desktop": 2
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Ecomify  Shampoo",
+            "icon": "shopify://shop_images/icon_2.svg",
+            "image": "shopify://shop_images/image_2.jpg",
+            "media_alignment": "right",
+            "ingredient_title_1": "Ecomify Green Tea",
+            "ingredient_text_1": "Take your e-commerce game to the next level with Ecomify™",
+            "ingredient_text_1_font_size_mobile": 2,
+            "ingredient_text_1_font_size_desktop": 2,
+            "ingredient_title_2": "Ecomify Microalgae",
+            "ingredient_text_2": "Take your e-commerce game to the next level with Ecomify™",
+            "ingredient_text_2_font_size_mobile": 2,
+            "ingredient_text_2_font_size_desktop": 2,
+            "ingredient_title_3": "Ecomify Tea Tree Oil",
+            "ingredient_text_3": "Take your e-commerce game to the next level with Ecomify™",
+            "ingredient_text_3_font_size_mobile": 2,
+            "ingredient_text_3_font_size_desktop": 2
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Ecomify  Conditioner",
+            "icon": "shopify://shop_images/icon_3.svg",
+            "image": "shopify://shop_images/image_3.jpg",
+            "media_alignment": "left",
+            "ingredient_title_1": "Ecomify Rice Protein",
+            "ingredient_text_1": "Take your e-commerce game to the next level with Ecomify™.",
+            "ingredient_text_1_font_size_mobile": 2,
+            "ingredient_text_1_font_size_desktop": 2,
+            "ingredient_title_2": "Ecomify Olive Leaf Extract",
+            "ingredient_text_2": "Take your e-commerce game to the next level with Ecomify™.",
+            "ingredient_text_2_font_size_mobile": 2,
+            "ingredient_text_2_font_size_desktop": 2,
+            "ingredient_title_3": "Ecomify Tea Tree Oil",
+            "ingredient_text_3": "Take your e-commerce game to the next level with Ecomify™",
+            "ingredient_text_3_font_size_mobile": 2,
+            "ingredient_text_3_font_size_desktop": 2
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "template-collection": {
+      "type": "template-collection",
+      "settings": {
+        "container": "container",
+        "text_align": "text-center",
+        "limit": 42,
+        "enable_infinite_pagination": true,
+        "infinite_pagination_trigger": "scroll",
+        "show_filters": true,
+        "filters_btn_color": "btn-outline-primary",
+        "filters_expanded": false,
+        "show_sort_by": true,
+        "show_scroll_top_btn": true,
+        "scroll_top_btn_color": "btn-secondary",
+        "show_breadcrumbs": true,
+        "hide_out_of_stock_products": true,
+        "show_collection_img": false,
+        "img_opacity": 0.3,
+        "img_blur": 0,
+        "title_font_size_mobile": 7,
+        "title_font_size_desktop": 9,
+        "show_collection_description": false,
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "collections_menu": "",
+        "collections_menu_img_orientation": "potrait",
+        "collections_menu_align": "justify-content-center",
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 3
+      }
+    },
+    "c0d30568-1387-4780-a544-0eb43df127be": {
+      "type": "richtext",
+      "blocks": {
+        "heading_48rEUB": {
+          "type": "heading",
+          "settings": {
+            "heading": "about our bundles",
+            "heading_size": "h2"
+          }
+        },
+        "text_LUXPMK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>What’s better than one Wellnesse product? A bundle of them at a discounted price! <\/p><p>Wellnesse offers several thoughtfully curated bundles that cater to various personal care needs, promoting an all-natural approach. These bundles, which include options like the Mini Gift Set, Ultimate Family Bundle or the “Just Because” set, combine popular products at discounted prices, making them ideal for gifting or personal use. Customers appreciate the quality and effectiveness, all while enjoying a discounted set. Which Wellnesse bundle is right for you? Check them all out!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_48rEUB",
+        "text_LUXPMK"
+      ],
+      "settings": {
+        "product": "",
+        "product_atc": false,
+        "custom_bg_color": false,
+        "remove_top_margin": false,
+        "remove_bottom_margin": false,
+        "center_align": false,
+        "bg_color": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "banner_enable": false,
+        "img_width_desk": 100,
+        "img_width_mobile": 100,
+        "overflow_y": false,
+        "overflow_size": 100,
+        "overflow_size_mob": 100
+      }
+    }
+  },
+  "order": [
+    "template-collection",
+    "c0d30568-1387-4780-a544-0eb43df127be"
+  ]
+}

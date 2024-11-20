@@ -1,0 +1,504 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    case section.settings.img_orientation
+        when 'square'
+            assign img_width  = 1200
+            assign img_height = 1200
+        when 'landscape'
+            assign img_width  = 1200
+            assign img_height = 960
+        when 'landscape-x2'
+            assign img_width  = 1200
+            assign img_height = 600
+        when 'potrait'
+            assign img_width  = 960
+            assign img_height = 1200
+        when 'potrait-x2'
+            assign img_width  = 600
+            assign img_height = 1200
+    endcase
+
+          assign show_section = true
+
+    if customer
+        assign show_section = section.settings.show_members
+    else
+        assign show_section = section.settings.show_guests
+    endif
+
+    assign visibility = ''
+
+    if section.settings.visibility_xs == false
+        assign visibility = 'd-none'
+    endif
+
+    if section.settings.visibility_md
+        assign visibility = ' d-md-block' | prepend: visibility
+    else 
+        assign visibility = ' d-md-none' | prepend: visibility
+    endif
+
+    if section.settings.visibility_lg
+        assign visibility = ' d-lg-block' | prepend: visibility
+    else 
+        assign visibility = ' d-lg-none' | prepend: visibility
+    endif
+    
+
+%}
+
+{% unless section.settings.bg_image_desktop == blank %}
+<style>
+  @media (min-width: 768px) {
+    #image-with-product-kit-{{ section.id }} {
+      background-image: url({{ section.settings.bg_image_desktop | img_url: '1600x' }});
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  }
+</style>
+{% endunless %}
+
+{% unless section.settings.bg_image_mobile == blank %}
+<style>
+  @media (max-width: 767px) {
+    #image-with-product-kit-{{ section.id }} {
+      background-image: url({{ section.settings.bg_image_mobile | img_url: '800x' }});
+      background-size: cover;
+      background-attachment: scroll;
+    }
+  }
+</style>
+{% endunless %}
+
+
+
+<section 
+    id="image-with-product-kit-{{ section.id }}" 
+    class="image-with-product-kit enter-view overflow-hidden {{ section.settings.bg_color }} {{ section.settings.text_align }} {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }}">
+    <div class="{{ section.settings.container }}">
+        <div class="mx-auto" style="max-width: {{ section.settings.max_width }}px;">
+            <div class="row align-items-center {{ section.settings.img_align_desktop }}">
+                <div class="col-lg-6">
+                    <div 
+                        class="animate__animated animate__faster opacity-0"
+                        data-animate-class="animate__fadeIn"
+                        style="animation-delay: 0ms">
+                        {% if section.settings.image == blank %}
+                            {{ 'image' | placeholder_svg_tag }}
+                        {% else %}
+                            <img
+                                class="img-fluid w-100 rounded {{ section.settings.img_thumbnail }}"
+                                src="{{ section.settings.image.src | image_url: width: img_width, height: img_height, crop: section.settings.img_crop }}"
+                                alt="{{ section.settings.image.alt | escape }}"
+                                width="{{ img_width }}"
+                                height="{{ img_height }}"
+                                loading="lazy">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="pt-8 pb-10 {% if section.settings.container == '' %}px-5 px-xxl-14{% endif %}">
+                        <div class="" style="max-width: 600px">
+                            {% unless section.settings.title == blank %}
+                                <h2 class="title mb-3 text-center text-lg-start {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+
+                                    {{ section.settings.title }}
+                                </h2>
+                            {% endunless %}
+                            {% unless section.settings.description == blank %}
+                                <div class="description rte mb-8 text-center text-lg-start {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+
+                                    {{ section.settings.description }}
+                                </div>
+                            {% endunless %}
+                            <ul class="list-unstyled mb-7" aria-label="Product list">
+                                {% for block in section.blocks %}
+                                    <li class="py-3">
+                                        {% assign product = block.settings.product %}
+                                        <div 
+                                            class="animate__animated animate__faster opacity-0"
+                                            data-animate-class="animate__fadeInUp"
+                                            style="animation-delay: {{ forloop.index0 | times: 150 }}ms;">
+                                            <div class="row align-items-center">
+                                                <div class="col-4 col-lg-3">
+                                                    <img 
+                                                        class="product-item-img img-fluid rounded {{ block.settings.img_thumbnail }}"
+                                                        src="{{ product.featured_image.src | image_url: width: 240, height: 240, crop: 'center' }}" 
+                                                        alt="{{ product.featured_image.alt | escape }}"
+                                                        width="240"
+                                                        height="240"
+                                                        loading="lazy">
+                                                </div>
+                                                <div class="col-8 col-lg-9">
+                                                    <h3 class="h6 mb-2 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                                                        {{ product.title }}
+                                                    </h3>
+                                                    {% render 'product-rating-badge', product: product %}
+                                                    {% unless block.settings.description == blank %}
+                                                        <div class="description rte mt-3 small {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                                                            {{ block.settings.description }}
+                                                        </div>
+                                                    {% endunless %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            {% form 'product', section.settings.product, onsubmit: 'onSubmitAtcForm(this, event)' %}
+                                <input type="hidden" name="id" value="{{ section.settings.product.first_available_variant.id }}">
+                                <button
+                                    class="btn-atc btn btn-md w-100 btn-primary px-4"
+                                    type="submit"
+                                    name="add"
+                                    data-text-add-to-cart="{{ 'product.add_to_cart' | t }}">
+                                    {{ 'product.add_to_cart' | t }}
+                                </button>
+                            {% endform %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Image With Product Kit",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "",
+            "options": [
+                { "group": "Inherit", "value": "", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-dark", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-dark", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" }
+            ]
+        },
+      {
+    "type": "image_picker",
+    "id": "bg_image_desktop",
+    "label": "Background image (Desktop)"
+},
+{
+    "type": "image_picker",
+    "id": "bg_image_mobile",
+    "label": "Background image (Mobile)"
+},
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid" },
+                { "value": "", "label": "Full-width" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max-width (px)"
+        },
+         {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text align",
+            "default": "text-center",
+             "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" },
+               { "value": "text-end", "label": "Right" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+       {
+                    "type": "select",
+                    "id": "img_thumbnail",
+                    "label": "Image thumbnail",
+                    "default": "img-thumbnail",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+        {
+            "type": "select",
+            "id": "img_orientation",
+            "label": "Image orientation",
+            "default": "landscape",
+            "options": [
+                { "value": "square", "label": "Square" },
+                { "value": "landscape", "label": "Landscape" },
+                { "value": "landscape-x2", "label": "Landscape 2x" },
+                { "value": "potrait", "label": "Potrait" },
+                { "value": "potrait-x2", "label": "Potrait 2x" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "img_crop",
+            "label": "Image crop",
+            "default": "center",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "center", "label": "Center" },
+                { "value": "bottom", "label": "Bottom" },
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "img_align_desktop",
+            "label": "Image alignment (desktop)",
+            "default": "flex-lg-row",
+            "options": [
+                { "value": "flex-lg-row", "label": "Left" },
+                { "value": "flex-lg-row-reverse", "label": "Right" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Image With Product Kit"
+        },
+     {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>"
+        },
+       {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+
+        {
+            "type": "header",
+            "content": "Product"
+        },
+        {
+            "type": "product",
+            "id": "product",
+            "label": "Product",
+            "info": "The main product (product kit) that will be added to the cart."
+        },
+      {
+            "type": "header",
+            "content": "Access"
+        },
+        {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        },
+      {
+            "type": "header",
+            "content": "Visibility",
+            "info": "Show/hide this section based on the screen resolution"
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_xs",
+            "label": "Show on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_md",
+            "label": "Show on tablet",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_lg",
+            "label": "Show on desktop",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "product",
+            "name": "Product",
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "product",
+                    "label": "Product"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>"
+                },
+              {
+                    "type": "select",
+                    "id": "img_thumbnail",
+                    "label": "Image thumbnail",
+                    "default": "img-thumbnail",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 4
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 4
+        },
+
+ {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 3
+        }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image With Product Kit",
+            "category": "Product"
+        }
+    ]
+}
+{% endschema %}

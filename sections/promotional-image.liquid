@@ -1,0 +1,504 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+
+{% liquid
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'pb-'
+
+    if customer
+        assign show_section = section.settings.access_members
+    else
+        assign show_section = section.settings.access_guests
+    endif
+
+    assign visibility = ''
+
+    if section.settings.visibility_xs == false
+        assign visibility = 'd-none'
+    endif
+
+    if section.settings.visibility_md
+        assign visibility = ' d-md-block' | prepend: visibility
+    else 
+        assign visibility = ' d-md-none' | prepend: visibility
+    endif
+
+    if section.settings.visibility_lg
+        assign visibility = ' d-lg-block' | prepend: visibility
+    else 
+        assign visibility = ' d-lg-none' | prepend: visibility
+    endif
+
+    assign background_style = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign background_style = 'linear-gradient(' | append: section.settings.bg_gradient_direction | append: ', ' | append: section.settings.bg_gradient_start | append: ', ' | append: section.settings.bg_gradient_end | append: ')'
+    endif
+%}
+
+<section class="custom-section {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }}" style="background: {{ background_style }};">
+  <div class="container">
+    <div class="row {{ section.settings.media_align }}">
+      <div class="col-md-6 order-2 order-md-1">
+        <div class="text-content">
+          <div class="badge-group mb-3">
+            <span class="badge" style="background-color: {{ section.settings.badge_bg_color }}; color: {{ section.settings.badge_text_color }}; font-size: {{ section.settings.badge_size_mobile }}px; display: inline-block;">{{ section.settings.badge_text }}</span>
+            <span class="badge" style="background-color: {{ section.settings.badge2_bg_color }}; color: {{ section.settings.badge2_text_color }}; font-size: {{ section.settings.badge2_size_mobile }}px; display: inline-block;">{{ section.settings.badge2_text }}</span>
+          </div>
+          <h2 class="title {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">{{ section.settings.title }}</h2>
+          <p class="subheading {{ section.settings.subtitle_font_size_mobile | prepend: 'fs-' }} {{ section.settings.subtitle_font_size_desktop | prepend: 'fs-lg-' }}">{{ section.settings.subheading }}</p>
+          <div class="description {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+            <ul style="list-style: none; padding: 0;">
+              {% for block in section.blocks %}
+              <li class="{{ block.settings.description_item_size_mobile | prepend: 'fs-' }} {{ block.settings.description_item_size_desktop | prepend: 'fs-lg-' }}"><span class="emoji">{{ block.settings.emoji }}</span> {{ block.settings.text }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% if section.settings.btn_text != blank %}
+            <a href="{{ section.settings.btn_url }}" class="btn {{ section.settings.btn_color }} btn-lg w-100 mb-5">{{ section.settings.btn_text }}</a>
+          {% endif %}
+          <p class="rating mt-3 text-center {{ section.settings.rating_font_size | prepend: 'fs-' }}">{{ section.settings.rating_text }}</p>
+        </div>
+      </div>
+      <div class="col-md-6 text-center order-1 order-md-2">
+        {% unless section.settings.img1 == blank and section.settings.img2 == blank and section.settings.img3 == blank %}
+        <div class="splide splide-timeline-{{ section.id }}" id="splide-{{ section.id }}" data-img-count="{{ img_count }}">
+          <div class="splide__track">
+            <ul class="splide__list">
+              {% unless section.settings.img1 == blank %}
+              <li class="splide__slide">
+                <img class="img-fluid card-img-top {{ section.settings.img_border }}" src="{{ section.settings.img1 | image_url }}" alt="Image 1" style="width: {{ mobile_img_width }}px; height: {{ mobile_img_height }}px;">
+              </li>
+              {% endunless %}
+              {% unless section.settings.img2 == blank %}
+              <li class="splide__slide">
+                <img class="img-fluid card-img-top {{ section.settings.img_border }}" src="{{ section.settings.img2 | image_url }}" alt="Image 2" style="width: {{ mobile_img_width }}px; height: {{ mobile_img_height }}px;">
+              </li>
+              {% endunless %}
+              {% unless section.settings.img3 == blank %}
+              <li class="splide__slide">
+                <img class="img-fluid card-img-top {{ section.settings.img_border }}" src="{{ section.settings.img3 | image_url }}" alt="Image 3" style="width: {{ mobile_img_width }}px; height: {{ mobile_img_height }}px;">
+              </li>
+              {% endunless %}
+            </ul>
+          </div>
+        </div>
+        {% else %}
+        <img src="{{ section.settings.main_image_mobile | img_url: '600x600' }}" alt="Main Image" class="product-image img-fluid {{ section.settings.img_border }} d-md-none">
+        <img src="{{ section.settings.main_image | img_url: '600x600' }}" alt="Main Image" class="product-image img-fluid {{ section.settings.img_border }} d-none d-md-block">
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom-section {
+    position: relative;
+    padding: 50px 0;
+  }
+  .custom-section .text-content {
+    z-index: 2;
+    position: relative;
+  }
+  .custom-section .badge-group .badge {
+    margin-right: 5px;
+  }
+  .custom-section .features-list {
+    list-style: none;
+    padding: 0;
+  }
+  .custom-section .features-list li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .custom-section .features-list .emoji {
+    margin-right: 10px;
+  }
+  .custom-section .btn {
+    margin-top: 20px;
+  }
+  .custom-section .rating {
+    font-size: 1rem;
+    color: #555;
+  }
+  .custom-section .product-image {
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width: 768px) {
+    .custom-section .col-md-6 {
+      order: 2;
+    }
+    .custom-section .product-image {
+      order: 1;
+      width: 100%;
+    }
+    .custom-section .text-content {
+      padding-top: 20px; /* Add some spacing between image and text content on mobile */
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Promotional Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF",
+      "options": [
+        { "group": "Light", "value": "#FFFFFF", "label": "White" },
+        { "group": "Light", "value": "#F8F9FA", "label": "Light" },
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "bg_gradient",
+      "label": "Background gradient",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_gradient_start",
+      "label": "Gradient start color",
+      "default": "#F1BCDB"
+    },
+    {
+      "type": "color",
+      "id": "bg_gradient_end",
+      "label": "Gradient end color",
+      "default": "#A1D8FF"
+    },
+    {
+      "type": "select",
+      "id": "bg_gradient_direction",
+      "label": "Gradient direction",
+      "default": "to right",
+      "options": [
+        { "value": "to right", "label": "To right" },
+        { "value": "to left", "label": "To left" },
+        { "value": "to top", "label": "To top" },
+        { "value": "to bottom", "label": "To bottom" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The theme and team is fantastic"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "label": "Title font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "label": "Title font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "The support at EcomGraduates is absolutely phenomenal."
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size_mobile",
+      "label": "Subtitle font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size_desktop",
+      "label": "Subtitle font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 7
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating Text",
+      "default": "Rated 5/5 based on 800+ reviews"
+    },
+    {
+      "type": "range",
+      "id": "rating_font_size",
+      "label": "Rating font-size",
+      "min": 1,
+      "max": 12,
+      "default": 3
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image_mobile",
+      "label": "Main Image (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "New & Improved"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "badge_size_mobile",
+      "label": "Badge size ",
+      "min": 1,
+      "max": 24,
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "badge2_text",
+      "label": "Second Badge Text",
+      "default": "3X Better"
+    },
+    {
+      "type": "color",
+      "id": "badge2_bg_color",
+      "label": "Second Badge Background Color",
+      "default": "#FF0096"
+    },
+    {
+      "type": "color",
+      "id": "badge2_text_color",
+      "label": "Second Badge Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "badge2_size_mobile",
+      "label": "Second Badge size",
+      "min": 1,
+      "max": 24,
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text",
+      "default": "Shop Now",
+      "info": "Leave empty to disable"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "btn_color",
+      "label": "Button color",
+      "default": "btn-primary",
+      "options": [
+        { "group": "Normal", "value": "btn-link", "label": "Link" },
+        { "group": "Normal", "value": "btn-light", "label": "Light" },
+        { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+        { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+        { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+        { "group": "Normal", "value": "btn-success", "label": "Success" },
+        { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+        { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+        { "group": "Normal", "value": "btn-info", "label": "Info" },
+        { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+        { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+        { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+        { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+        { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+        { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+        { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+        { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "img_border",
+      "label": "Image border",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Square" },
+        { "value": "rounded", "label": "Rounded" },
+        { "value": "img-thumbnail", "label": "Thumbnail" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Visibility",
+      "info": "Show/hide this section based on the screen resolution"
+    },
+    {
+      "type": "checkbox",
+      "id": "visibility_xs",
+      "label": "Show on mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "visibility_md",
+      "label": "Show on tablet",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "visibility_lg",
+      "label": "Show on desktop",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing",
+      "info": "Based on Bootstrap spacing utility classes [Learn more](https://getbootstrap.com/docs/5.0/utilities/spacing/)"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Padding top",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 9
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 9
+    },
+    {
+      "type": "range",
+      "id": "mt",
+      "label": "Margin top",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mb",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "access_guests",
+      "label": "Guests",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "access_members",
+      "label": "Members",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "media_align",
+      "label": "Media alignment",
+      "info": "Note: On mobile Media will always be on top and text on the bottom",
+      "default": "flex-md-row",
+      "options": [
+        { "value": "flex-md-row", "label": "Left" },
+        { "value": "flex-md-row-reverse", "label": "Right" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "description_list",
+      "name": "Description Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Fantastic theme! and great user experience"
+        },
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji",
+          "default": "🚀"
+        },
+        {
+          "type": "range",
+          "id": "description_item_size_mobile",
+          "label": "Description item size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 4
+        },
+        {
+          "type": "range",
+          "id": "description_item_size_desktop",
+          "label": "Description item size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 6
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promotional Section",
+      "category": "General"
+    }
+  ],
+  "max_blocks": 4
+}
+{% endschema %}

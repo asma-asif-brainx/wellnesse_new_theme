@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "template-collection": {
+      "type": "template-collection",
+      "settings": {
+        "container": "container",
+        "text_align": "text-center",
+        "limit": 42,
+        "enable_infinite_pagination": true,
+        "infinite_pagination_trigger": "scroll",
+        "show_filters": true,
+        "filters_btn_color": "btn-outline-secondary",
+        "filters_expanded": false,
+        "show_sort_by": true,
+        "show_scroll_top_btn": true,
+        "scroll_top_btn_color": "btn-secondary",
+        "show_breadcrumbs": true,
+        "hide_out_of_stock_products": true,
+        "show_collection_img": false,
+        "img_opacity": 0.3,
+        "img_blur": 0,
+        "title_font_size_mobile": 7,
+        "title_font_size_desktop": 9,
+        "show_collection_description": false,
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "collections_menu": "",
+        "collections_menu_img_orientation": "landscape",
+        "collections_menu_align": "justify-content-center",
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 2,
+        "breakpoint_xl": 2,
+        "breakpoint_xxl": 2
+      }
+    },
+    "c0d30568-1387-4780-a544-0eb43df127be": {
+      "type": "richtext",
+      "blocks": {
+        "heading_VXkQXA": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Our skin care",
+            "heading_size": "h2"
+          }
+        },
+        "text_x9M67w": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Wellnesse Skin Care collection includes a range of products designed to support a healthy and balanced skin microbiome. The best-selling Mineral Deodorant is gentle, yet effective, and is crafted with natural ingredients that neutralize odor without disrupting the skin microbiome. Deodorants that use aluminum or large amounts of baking soda can cause clogged pores and underarm irritation. The Mineral Deodorant, on the other hand, works to nourish the skin with coconut oil, shea butter, jojoba oil, and aloe vera. Additional ingredients such as Tapioca Starch and Zinc Ricinoleate work to naturally absorb the moisture and allow the sweat ducts to function normally while keeping the skin dry. Why opt for conventional toxic deodorants when our Mineral Deodorant works just as hard to offer a clean, natural solution for long-lasting freshness?<\/p><p>Additionally, our skin care collection features a Citrus Body Bar that refreshes and hydrates the skin with natural oils, and a Natural Hand Sanitizer that cleanses without harsh chemicals, making it a great on-the-go option for maintaining healthy skin.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VXkQXA",
+        "text_x9M67w"
+      ],
+      "settings": {
+        "product": "",
+        "product_atc": false,
+        "custom_bg_color": false,
+        "remove_top_margin": false,
+        "remove_bottom_margin": false,
+        "center_align": false,
+        "bg_color": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "banner_enable": false,
+        "img_width_desk": 100,
+        "img_width_mobile": 100,
+        "overflow_y": false,
+        "overflow_size": 100,
+        "overflow_size_mob": 100
+      }
+    }
+  },
+  "order": [
+    "template-collection",
+    "c0d30568-1387-4780-a544-0eb43df127be"
+  ]
+}

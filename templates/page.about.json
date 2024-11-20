@@ -1,0 +1,471 @@
+{
+  "sections": {
+    "promo_about_pfMiNt": {
+      "type": "promo-about",
+      "custom_css": [
+        "@media screen and (min-width: 768px) {h2 {text-align: center; vertical-align: middle; }}"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "container": "container",
+        "title": "PERSONAL CARE PRODUCTS CRAFTED BY A CONSCIOUS CONSUMER LIKE YOU",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 8,
+        "subtitle": "",
+        "subtitle_font_size_mobile": 2,
+        "subtitle_font_size_desktop": 2,
+        "image": "shopify:\/\/shop_images\/1x_1cde6634-c323-402e-b8aa-af82085209b3.webp",
+        "img_width": "1200",
+        "img_height": "600",
+        "img_crop": "center",
+        "video": "",
+        "autoplay": true,
+        "loop": true,
+        "muted": false,
+        "controls": true,
+        "description_left": "<p>Wellnesse was started by a mom who was struggling with her own health. After doing tons of research, she realized most of the products on store shelves were filled with toxic ingredients. As such, she went to work whipping up her own DIY recipes for the personal care products used by her and her family.<\/p>",
+        "description_left_color": "#000000",
+        "description_left_alignment_mobile": "center",
+        "description_right": "",
+        "description_right_color": "#000000",
+        "description_right_alignment_mobile": "left",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 3,
+        "access_guests": true,
+        "access_members": true,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_collapse_TaF4fV": {
+      "type": "richtext-collapse",
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "max_width": "768",
+        "btn_text": "See Full Text of ecomify",
+        "btn_color": "btn-primary",
+        "btn_size": "",
+        "description": "<p>Take your e-commerce game to the next level with Ecomify™ - where convenience and innovation come together.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 4,
+        "description_color": "#000000",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "pt": 6,
+        "pb": 3,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_7UVYBn": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_DizWCR": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Katie_Wells_Wellness_Mama_Family.png",
+            "mobile_img_orientation": "square",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Katie_Wells_Wellness_Mama_Family.png",
+            "desktop_img_orientation": "square",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_hTXkT9": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "The End Result:",
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 7,
+            "description": "<p>In each recipe, she carefully selected and sourced the best ingredients - always searching for healthy alternatives to toxins. The end result: clean personal care products that were more effective than their conventional counterparts. After sharing the recipe with her community, busy people started begging for her to create and sell the products herself.<\/p><p><\/p><p><strong>And Thus, Wellnesse was born.<\/strong><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_DizWCR",
+        "text_hTXkT9"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "duel_columns_with_images_FUARky": {
+      "type": "duel-columns-with-images",
+      "blocks": {
+        "item_eqHRww": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/natural-product_2x_1a7e2798-4088-4934-b36b-29b0067fdaac.png",
+            "text_align": "text-start",
+            "title": "",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>That's why we don't have thousands of different products - but a select few that our own families use and we're proud to share with yours.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_AMwLEX": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/best_2x_7b52e76a-f6a8-45e7-8099-87ee0abcf1c9.png",
+            "text_align": "text-start",
+            "title": "",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>That's why we question every last ingredient and formula - always asking ourselves how we can do better - and encourage you to do the same.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_bArk39": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/eco-friendly_2x_777ab47d-54aa-4db6-be94-71dd7b08845d.png",
+            "text_align": "text-start",
+            "title": "",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>That's why we use the most sustainable packaging available so that we don't harm our planet.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_eqHRww",
+        "item_AMwLEX",
+        "item_bArk39"
+      ],
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "h3 {color: #000000;}",
+        "p {color: #000000;}"
+      ],
+      "settings": {
+        "media_align": "flex-md-row",
+        "container": "container",
+        "img_border": "",
+        "text_align": "text-center",
+        "bg_color": "bg-light text-body",
+        "image_mobile": "shopify:\/\/shop_images\/b-corp-certified_2x_3779f40c-aa5d-41ba-ab3b-89f74c8c933f.png",
+        "image_desktop": "shopify:\/\/shop_images\/b-corp-certified_2x_aee89aab-e64e-4443-9c49-3e3395ba573b.png",
+        "title": "BECAUSE WE BELIEVE EVERYTHING SHOULD BE THIS GOOD!",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 7,
+        "description": "<p>Each of our products was inspired by one of our founder's original creations. As a certified B-Corp, we don't do what's easy - we do what's RIGHT!<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-outline-primary",
+        "btn_size": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 11,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "advanced_image_with_text_LNQXNY": {
+      "type": "advanced-image-with-text",
+      "blocks": {
+        "item_d6ecRj": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/we_re-real-graphics_2x_11zon_f5fc665a-fc6c-4034-8229-ef7c79c0d3fa.png",
+            "img_width": "1000",
+            "img_height": "1000",
+            "img_thumbnail": "",
+            "shadow": "shadow-none"
+          }
+        }
+      },
+      "block_order": [
+        "item_d6ecRj"
+      ],
+      "custom_css": [
+        "h4 {color: #df6459;}"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_image_desktop": "shopify:\/\/shop_images\/real-bg-image_2x_12016f48-1b57-4a5d-a595-8aa9fbfad533.png",
+        "bg_image_mobile": "shopify:\/\/shop_images\/real-bg-image_2x_11zon.png",
+        "bg_gradient": false,
+        "container": "container-fluid",
+        "media_align": "flex-row",
+        "text_align_mobile": "text-center",
+        "text_align_desktop": "text-lg-start",
+        "subtitle": "",
+        "subtitle_font_size_mobile": 2,
+        "subtitle_font_size_desktop": 2,
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<h4><strong>Reliable<\/strong><\/h4><p>Only the best ingredients will do.<\/p><h4><strong>Empathetic<\/strong><\/h4><p>To our customers' wellbeing and true needs.<\/p><h4><strong>Accountable<\/strong><\/h4><p>We never create a product that we don't believe in.<\/p><h4><strong>Loyal<\/strong><\/h4><p>To our people & to our planet.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 3,
+        "btn_text": "SHOP NOW",
+        "btn_url": "shopify:\/\/collections\/oral-care",
+        "btn_color": "btn-primary",
+        "btn_size": "",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "eg_counter_UNmac8": {
+      "type": "eg-counter",
+      "blocks": {
+        "word_cMiwNB": {
+          "type": "word",
+          "settings": {
+            "text": "MORE"
+          }
+        },
+        "word_A3dehf": {
+          "type": "word",
+          "settings": {
+            "text": "THAN A"
+          }
+        },
+        "word_c7bCRm": {
+          "type": "word",
+          "settings": {
+            "text": "MILLION"
+          }
+        },
+        "word_yRbm6n": {
+          "type": "word",
+          "settings": {
+            "text": "TUBES"
+          }
+        },
+        "word_gBfRXF": {
+          "type": "word",
+          "settings": {
+            "text": "SOLD"
+          }
+        }
+      },
+      "block_order": [
+        "word_cMiwNB",
+        "word_A3dehf",
+        "word_c7bCRm",
+        "word_yRbm6n",
+        "word_gBfRXF"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Our Best-Selling Whitening Toothpaste",
+        "heading_custom": true,
+        "heading_font": "poppins_n4",
+        "heading_size": 48,
+        "heading_size_mobile": 32,
+        "heading_height": 130,
+        "heading_align": "center",
+        "counter_mt": 32,
+        "counter_delay": 3.5,
+        "counter_card_radius": 16,
+        "counter_card_radius_mobile": 10,
+        "counter_custom": true,
+        "counter_font": "poppins_n4",
+        "text": "At Wellnesse, we create safe, high quality and responsibly sourced personal care products, with the goal of maximizing economic, environmental, and social value for our customers, communities, and planet.",
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 22,
+        "text_size_mobile": 20,
+        "text_height": 130,
+        "text_align": "center",
+        "text_mt": 32,
+        "heading_color": "#000000",
+        "card_bg_color": "#333232",
+        "card_text_color": "#ffffff",
+        "text_color": "#000000",
+        "background_color": "#e9ecef",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0
+      }
+    },
+    "richtext_with_buttons_KcaJi8": {
+      "type": "richtext-with-buttons",
+      "blocks": {
+        "button_9xkgHk": {
+          "type": "button",
+          "settings": {
+            "btn_text": "TEAM BIOS",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "button_9xkgHk"
+      ],
+      "settings": {
+        "bg_color": "",
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "MEET THE TEAM!",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Wellnesse calls the Sunshine State home, but our tight-knit, fully remote team is spread across 7 states and 5 time zones! If you want to get to know our team better or put a face to a name, check out our team bios <a href=\"https:\/\/wellnesse.com\/pages\/meet-our-team\" title=\"MEET OUR TEAM!\">here!<\/a><\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "list_pretext": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 11,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_zg4prz": {
+      "type": "image",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container-fluid",
+        "max_width": "",
+        "url": "",
+        "image_mobile": "shopify:\/\/shop_images\/team-images-mobile_1.png",
+        "img_mobile_width": "1300",
+        "img_mobile_height": "600",
+        "img_mobile_crop": "center",
+        "img_mobile_thumbnail": "",
+        "image_desktop": "shopify:\/\/shop_images\/1_52dc1da1-401c-40e9-bb13-9368f3d0dbf9.webp",
+        "img_desktop_width": "1600",
+        "img_desktop_height": "900",
+        "img_desktop_crop": "center",
+        "img_desktop_thumbnail": "",
+        "pt": 6,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "featured_products_3X7iwB": {
+      "type": "featured-products",
+      "blocks": {
+        "block_WazecF": {
+          "type": "block",
+          "settings": {
+            "products": [
+              "charcoal-toothpaste",
+              "toothpaste",
+              "concentrated-mouthwash",
+              "floss-picks",
+              "probiotic-mints"
+            ],
+            "collection": "",
+            "limit": 6,
+            "tab_title": "Best-selling"
+          }
+        }
+      },
+      "block_order": [
+        "block_WazecF"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "text_align": "text-center",
+        "title": " MOST POPULAR ",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_enable": true,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "0",
+        "carousel_rewind": true,
+        "breakpoint_xs": 1,
+        "breakpoint_xs_partial": true,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "View more products",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 0,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "promo_about_pfMiNt",
+    "richtext_collapse_TaF4fV",
+    "image_with_text_7UVYBn",
+    "duel_columns_with_images_FUARky",
+    "advanced_image_with_text_LNQXNY",
+    "eg_counter_UNmac8",
+    "richtext_with_buttons_KcaJi8",
+    "image_zg4prz",
+    "featured_products_3X7iwB"
+  ]
+}

@@ -1,0 +1,1112 @@
+{
+  "sections": {
+    "template-product": {
+      "type": "template-product",
+      "blocks": {
+        "c93963c3-bf4c-4de0-b3f8-b2cd7bc3e035": {
+          "type": "text",
+          "settings": {
+            "bg_color": "bg-body text-body",
+            "bg_gradient": false,
+            "border_size": "border border-0",
+            "border_color": "border-dark",
+            "border_radius": "rounded-0",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 3,
+            "title_text_transform": "",
+            "description": "<p>SHEA BUTTER & ORANGE PEEL OIL<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "description_text_transform": "text-uppercase",
+            "text_align": "text-start",
+            "mt": 3,
+            "mb": 2,
+            "pt": 2,
+            "pb": 2
+          }
+        },
+        "15f00db4-48cd-4392-91c0-aaf0c622dd42": {
+          "type": "title",
+          "settings": {
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 7,
+            "mt": 0,
+            "mb": 2
+          }
+        },
+        "12d9314a-c9b3-4c19-bdc1-96fbed9e107a": {
+          "type": "price",
+          "settings": {
+            "font_size_mobile": 4,
+            "font_size_desktop": 4,
+            "mt": 0,
+            "mb": 5
+          }
+        },
+        "product_switcher_j7gKUt": {
+          "type": "product_switcher",
+          "disabled": true,
+          "settings": {
+            "metafield": "ecomify.product_switcher",
+            "title": "Select Product",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "title_truncate": "text-truncate",
+            "selector_style": "buttons",
+            "mt": 5,
+            "mb": 5
+          }
+        },
+        "skio_subscriptions_yc_s20_app_block_F3WPTC": {
+          "type": "shopify:\/\/apps\/skio-subscriptions-yc-s20\/blocks\/app-block\/de50f7a4-0bb0-4d4c-84e2-c03dce83436d",
+          "settings": {
+            "form_id": "product-form-{{section.id}}",
+            "start_onetime": "false",
+            "onetime_first": "false",
+            "default_subscription": "",
+            "group_border_radius": 5,
+            "group_border_shadow": true,
+            "group_border_selected_color": "#78dad2",
+            "onetime_title": "One Time",
+            "subscription_title": "Subscribe",
+            "prepaid_title": "",
+            "discount_format": "percent",
+            "discount_style": "bubble",
+            "discount_prefix": "Save",
+            "discount_suffix": "",
+            "discount_color": "#174a50"
+          }
+        },
+        "ee812500-3080-4131-9bc9-08fe223ec0c0": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_qty_field": false,
+            "qty_field_position": "inline",
+            "show_buy_btn": false,
+            "show_dynamic_buttons": false,
+            "atc_btn_show_price": false,
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "1012e638-6dbc-4f7d-8d1f-74689a11b8f3": {
+          "type": "qty_breaks",
+          "disabled": true,
+          "settings": {
+            "title": "Buy more & save up to 40%",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "metafield": "ecomify.qty_breaks",
+            "save_badge_color": "bg-success text-white",
+            "preferred_option": "2",
+            "preferred_option_text": "Most Popular",
+            "price_logic": "item",
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "28c4bace-a705-4813-8902-7359da7b2c43": {
+          "type": "accordion",
+          "settings": {
+            "accordion_style": "accordion-flush",
+            "open_first_item": false,
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 2,
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "title_1": "DESCRIPTION",
+            "description_1": "<p>With its fresh, citrus scent and silky smooth lather, our body bar is setting a new standard for clean skincare. Infused with nature's finest ingredients, this body bar offers a harmonious blend of cleansing and moisturizing elements, ensuring that your skin is pampered and protected. Embrace the feeling of a warm, tropical day on the beach every day from the privacy of your own bathroom. You’ll never look back.<\/p>",
+            "html_content_1": "",
+            "description_1_is_desc": false,
+            "icon_1": "",
+            "title_2": "INGREDIENTS",
+            "description_2": "<p>Sodium Palm Kernelate, Aqua, Sodium Palmate, Potassium Palm Kernelate, Palm Kernel Acid, Butyrospermum Parkii (Shea) Butter, Glycerin, Potassium Palmate, Sodium Gluconate, Palm Acid, Sodium Chloride, Citrus Reticulata (Tangerine) Peel Oil, Camellia Sinensis Leaf, Simmondsia Chinensis (Jojoba) Seed Oil, Citrus Aurantium Dulcis (Orange) Peel Oil, Linalool, Limonene<\/p>",
+            "html_content_2": "",
+            "icon_2": "",
+            "title_3": "PACKAGING DISPOSAL",
+            "description_3": "<p><strong>Body Bar:<\/strong> 100% recyclable<\/p>",
+            "html_content_3": "",
+            "icon_3": "",
+            "title_4": "",
+            "description_4": "",
+            "html_content_4": "",
+            "icon_4": "",
+            "title_5": "",
+            "description_5": "",
+            "html_content_5": "",
+            "icon_5": "",
+            "title_6": "",
+            "description_6": "",
+            "html_content_6": "",
+            "icon_6": "",
+            "mt": 3,
+            "mb": 7
+          }
+        },
+        "6013329c-a6f0-468d-b01b-b2faf3421650": {
+          "type": "trust_badges",
+          "disabled": true,
+          "settings": {
+            "label": "Trust badges list",
+            "max_width": "560",
+            "col_size": "col-4",
+            "img_size": "35",
+            "text_1": "No Compromises <br> In Quality",
+            "text_2": "100% Satisfaction <br> Guarantee",
+            "text_3": "Free Shipping <br> Over $100",
+            "text_4": "",
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "16019ab6-f8d7-43bf-b3d8-b80dd76021c3": {
+          "type": "delivery_info",
+          "settings": {
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"24\" height=\"24\" fill=\"currentColor\" class=\"bi bi-truck\" viewbox=\"0 0 16 16\"><path d=\"M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z\"><\/path><\/svg>",
+            "title": "Delivery Info",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p><strong>Domestic<\/strong>: 2-3 days; <strong>International<\/strong>: 7-10 days<\/p>",
+            "delivery_start_days": 3,
+            "delivery_end_days": 10,
+            "delivery_message": "Order within the next 23 hours 11 minutes to receive it. Estimated delivery is between",
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "fbdb557a-90da-432b-984d-26c8ef0ef590": {
+          "type": "upsell_modal",
+          "disabled": true,
+          "settings": {
+            "modal_title": "Heads up, before it's too late...",
+            "metafield": "ecomify.upsell",
+            "limit": 2,
+            "modal_footer_btn": "Continue with your purchase",
+            "countdown_timer": "2024-08-25 11:10am",
+            "countdown_timer_pretext": "Offer expires in:"
+          }
+        },
+        "f706cec8-65d0-451f-a7e2-aab03ef5b5e0": {
+          "type": "bought_together",
+          "disabled": true,
+          "settings": {
+            "title": "Also Consider",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "metafield": "ecomify.upsell",
+            "limit": 4,
+            "img_orientation": "square",
+            "img_thumbnail": "img-thumbnail",
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "marquee_iTtLnL": {
+          "type": "marquee",
+          "settings": {
+            "bg_color": "bg-dark text-white",
+            "link": "",
+            "bg_gradient": false,
+            "text": "RSPO certified palm oil, Gently lathers, Light citrus fragrance, Ingredients you can trust, Sustainably sourced, Made in the USA, Safe for all ages, Leaping Bunny & B-corp Certified",
+            "font_size_mobile": 3,
+            "font_size_desktop": 3,
+            "text_transform": "text-capitalize",
+            "list_label": "Promotional Features",
+            "animation_duration": 20,
+            "marquee_direction": "left",
+            "separator": "separator-dot",
+            "gap": 6,
+            "pt": 2,
+            "pb": 2,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "testimonial_QRdpy7": {
+          "type": "testimonial",
+          "settings": {
+            "show_verified_badge": true,
+            "show_below_gallery_desktop": true,
+            "testimonial_1": "<p>\"This soap makes me feel extremely clean after my shower! No sticky feeling like some natural soaps make your skin feel.\"<\/p>",
+            "author_1": "AMBER",
+            "testimonial_2": "<p>\"Honestly smells like orange sherbet and I LOVE IT! It has a silky smooth feel when applying and incredible bubbly lather.\"<\/p>",
+            "author_2": "ELIZABETH",
+            "testimonial_3": "<p>\"I love the aroma & the rich lather of this soap. My skin feels soft & hydrated all day.\"<\/p>",
+            "author_3": "JONI",
+            "mt": 5,
+            "mb": 5
+          }
+        }
+      },
+      "block_order": [
+        "c93963c3-bf4c-4de0-b3f8-b2cd7bc3e035",
+        "15f00db4-48cd-4392-91c0-aaf0c622dd42",
+        "12d9314a-c9b3-4c19-bdc1-96fbed9e107a",
+        "product_switcher_j7gKUt",
+        "skio_subscriptions_yc_s20_app_block_F3WPTC",
+        "ee812500-3080-4131-9bc9-08fe223ec0c0",
+        "1012e638-6dbc-4f7d-8d1f-74689a11b8f3",
+        "28c4bace-a705-4813-8902-7359da7b2c43",
+        "6013329c-a6f0-468d-b01b-b2faf3421650",
+        "16019ab6-f8d7-43bf-b3d8-b80dd76021c3",
+        "fbdb557a-90da-432b-984d-26c8ef0ef590",
+        "f706cec8-65d0-451f-a7e2-aab03ef5b5e0",
+        "marquee_iTtLnL",
+        "testimonial_QRdpy7"
+      ],
+      "settings": {
+        "show_breadcrumbs": false,
+        "show_share_btn": false,
+        "product_promo_background_color": "#ee1882",
+        "product_promo_font_color": "#ffffff",
+        "jump_to_variant": true,
+        "gallery_img_orientation": "square",
+        "gallery_img_thumbnail": "",
+        "gallery_mobile_full_width": true,
+        "gallery_show_thumbnails_mobile": true,
+        "gallery_enable_lightbox": true,
+        "gallery_arrows": "thumbs-slider",
+        "prev_next_show": true,
+        "prev_next_img_orientation": "square",
+        "prev_next_img_thumbnail": "",
+        "pt": 9,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "16724093711e2e0ee2": {
+      "type": "apps",
+      "settings": {}
+    },
+    "richtext_YKPGMr": {
+      "type": "richtext",
+      "custom_css": [
+        "h4 {color: #000000;}",
+        "p {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "Nothing To Lose – Everything To Gain",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 8,
+        "description": "<h6><strong>No Regrets Allowed! Try Wellnesse Risk-Free With Our Happiness Guarantee<\/strong><\/h6><h1><\/h1><p>At Wellnesse, we believe everything should be this good. That's why we're making it risk-free for you to try! If you're not happy with your purchase for whatever reason, just contact our customer service team within 30 days and we'll make sure you're happy.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "testimonials_HTYWyx": {
+      "type": "testimonials",
+      "blocks": {
+        "item_4UcaGD": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Amber",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<p>\"This soap makes me feel extremely clean after my shower! No sticky feeling like some natural soaps make your skin feel. It lathers up nicely and lasts a long time!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_UhxGEx": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Elizabeth B",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<p>\"Honestly smells like orange sherbet and I LOVE IT! It has a silky smooth feel when applying and incredible bubbly lather. Unlike most natural bars, it doesn't dry out my skin.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_Rp7Ac6": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Joni B",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<p>\"I love the aroma & the rich lather of this soap. My skin feels soft & hydrated all day.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "item_4UcaGD",
+        "item_UhxGEx",
+        "item_Rp7Ac6"
+      ],
+      "settings": {
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "fb_style": false,
+        "show_trustpilot_stars": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "What Customers Are Saying About Our Citrus Body Bar",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 6,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_arrows": true,
+        "carousel_pagination": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "1",
+        "carousel_rewind": true,
+        "carousel_loop": false,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 9,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_side_icons_RfB8pA": {
+      "type": "image-with-side-icons",
+      "blocks": {
+        "slide_AdM97x": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_-_2024-09-24T214828.410.png",
+            "img_border": "",
+            "img_width": "700",
+            "img_height": "465",
+            "title": "WHAT'S INSIDE OUR CITRUS BODY BAR?",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 5,
+            "title_color": "#000000",
+            "description": "<h6><strong>All Natural Formula<\/strong><\/h6><p>We take integrity and transparency seriously and only use the cleanest ingredients in our formulas.<\/p><h6><strong>Shea Butter<\/strong><\/h6><p>Moisturizes and smoothes your skin.<\/p><h6><strong>Camellia Sinensis Leaf<\/strong><\/h6><p>Has antioxidant and anti-inflammation properties<\/p><h6><strong>Orange Peel Oil<\/strong><\/h6><p>Gives the body bar its light, fresh, citrus scent<\/p>",
+            "description_font_size_mobile": 1,
+            "description_font_size_desktop": 1,
+            "description_color": "#000000",
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_AdM97x"
+      ],
+      "settings": {
+        "bg_color": "bg-light",
+        "container": "container",
+        "media_align": "flex-md-row",
+        "indicators": true,
+        "autoplay": false,
+        "animation": "slide",
+        "access_guests": true,
+        "access_members": true,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "pt": 5,
+        "pb": 5,
+        "mt": 0,
+        "mb": 0,
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8
+      }
+    },
+    "media_with_text_icons_dVM3a4": {
+      "type": "media-with-text-icons",
+      "blocks": {
+        "feature_PW6yby": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_11_c0c0710a-72ff-4d5a-9009-38fcf0a2f177.png",
+            "feature_title": "98% of users claim",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "Wellnesse Whitening Toothpaste improves the health of their teeth",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        },
+        "feature_WYmQyt": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_11_2.png",
+            "feature_title": "79% of users claim",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "Their gums appear healthier and breath smells better",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        },
+        "feature_NKzN4B": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_13_1.png",
+            "feature_title": "82% of users claim",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "They feel more confident going to their dental appointments",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        },
+        "feature_EWAh6j": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/lav.png",
+            "feature_title": "95% of users claim",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "Their teeth are whiter after consistent use",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PW6yby",
+        "feature_WYmQyt",
+        "feature_NKzN4B",
+        "feature_EWAh6j"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-info text-white",
+        "bg_gradient": false,
+        "main_image": "shopify:\/\/shop_images\/Untitled_design_-_2024-08-21T211144.883.png",
+        "video": "",
+        "autoplay": false,
+        "loop": false,
+        "muted": false,
+        "controls": false,
+        "img_border": "",
+        "center_text_mobile": true,
+        "title": "Clinically Proven Micro-Hydroxyapetite",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "When it comes to both preventing cavities and reducing sensitivity of teeth, hydroxyapatite is incredibly effective at re-mineralizing teeth, which in turn leads to stronger teeth that are more resistant to cavity-causing foods and drinks. It may also help reverse small cavities.",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "content_align": "flex-md-row",
+        "container": "container",
+        "max_width": "",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_CEmV3y": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_BV4cAP": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "REFRESH, RESTORE, REVITALIZE",
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 5,
+            "description": "<ul><li>Each of our ingredients was hand-selected to produce a formula that cleanses, moisturizes, and refreshes your skin for a once-in-a-lifetime experience every time you step into the shower.<\/li><li>With its fresh, citrus scent and silky smooth lather, our body bar is setting a new standard for clean skincare.<\/li><li>Embrace the feeling of a warm, tropical day on the beach every day from the privacy of your own bathroom. You’ll never look back.<\/li><\/ul>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_raUBNX": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/flouride-free-image_2_1.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/flouride-free-image_2_1.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_BV4cAP",
+        "image_raUBNX"
+      ],
+      "custom_css": [
+        "div {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 9,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_fEqDGE": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_W8Bk4p": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/1_1338da8b-95e7-4012-ba32-eab7f97c8883.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/1_1338da8b-95e7-4012-ba32-eab7f97c8883.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_4WYUjT": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "WHY WE CHOSE PALM OIL?",
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 5,
+            "description": "<p>In recent years, irresponsible palm oil harvesting has led to rapid deforestation and displacement of wildlife. Unfortunately, the harvesting methods for some palm oil alternatives have proven to be unethical as well. To solve this problem, Wellnesse joined RSPO, a not-for-profit that aids businesses in harvesting sustainable palm oil, allowing us to be mindful of the planet while continuing to provide you with the highest quality products possible!<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "https:\/\/wellnesse.com\/products\/charcoal-toothpaste?_pos=1&_sid=4d052f7b0&_ss=r#",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_W8Bk4p",
+        "text_4WYUjT"
+      ],
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "p {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 9,
+        "pb": 7,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "faq_z4N4rF": {
+      "type": "faq",
+      "blocks": {
+        "text_iMU4b3": {
+          "type": "text",
+          "settings": {
+            "title": "Where do you ship?",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 3,
+            "description": "<p>We ship all around the world... Please provide here you own shipping information, including times, prices, options etc.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        },
+        "text_QaA99j": {
+          "type": "text",
+          "settings": {
+            "title": "How long will it take to receive my order",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 3,
+            "description": "<p>This depends on whether it is an International or a Domestic order. All orders within the U.S. are considered domestic orders and they are shipped and delivered within 2-5 business days. Please see International Orders for more details.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        },
+        "text_BpgqkF": {
+          "type": "text",
+          "settings": {
+            "title": "What payment methods do you support?",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 3,
+            "description": "<p>We accept PayPal, Visa, MasterCard, Discover, and American Express but feel free to contact us for other payment options.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        },
+        "text_mJHCxm": {
+          "type": "text",
+          "settings": {
+            "title": "How can I track my order?",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 3,
+            "description": "<p>We will send tracking information to the e-mail address associated with your order once the item has shipped. If you have not received your tracking information and it has been over 2 business day, please contact us at (012) 123 - 4567<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        },
+        "text_Py4PwN": {
+          "type": "text",
+          "settings": {
+            "title": "Can I order as a gift for someone else?",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 3,
+            "description": "<p>When ordering as a gift for someone, be sure to enter in your email address to receive all summary information but enter in the recipient’s name and shipping information. We will be sure to keep all prices and receipts out of the package.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        },
+        "text_kcWmJU": {
+          "type": "text",
+          "settings": {
+            "title": "How can I get a refund for my order?",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 3,
+            "description": "<p>If for any reason you are not completely satisfied with your purchase, within 30 days of placing your order, we will refund you for your purchase with no questions asked.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        }
+      },
+      "block_order": [
+        "text_iMU4b3",
+        "text_QaA99j",
+        "text_BpgqkF",
+        "text_mJHCxm",
+        "text_Py4PwN",
+        "text_kcWmJU"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "accordion_style": "accordion-default",
+        "open_first_item": true,
+        "text_align": "text-center",
+        "title": "Frequently Asked Questions",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "img_orientation": "landscape",
+        "img_crop": "center",
+        "img_thumbnail": "img-thumbnail",
+        "img_align_desktop": "flex-lg-row",
+        "pt": 10,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "featured_products_3JEtMg": {
+      "type": "featured-products",
+      "blocks": {
+        "block_GNnxYN": {
+          "type": "block",
+          "settings": {
+            "products": [],
+            "collection": "oral-care",
+            "limit": 8,
+            "tab_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_GNnxYN"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Complete Your Oral Care Routine",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 7,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_enable": true,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "0",
+        "carousel_rewind": true,
+        "breakpoint_xs": 1,
+        "breakpoint_xs_partial": true,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 8,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "d167404f-6e0f-4b9a-9302-986b992f1537": {
+      "type": "sticky-atc",
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": false,
+        "max_width": "600",
+        "product_img_orientation": "square",
+        "product_img_thumbnail": "img-thumbnail",
+        "show_qty_field": true
+      }
+    },
+    "animated_counters_n3XTJT": {
+      "type": "animated-counters",
+      "blocks": {
+        "item_8wEFM4": {
+          "type": "item",
+          "settings": {
+            "value": "40",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 40,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_Jdy8Fk": {
+          "type": "item",
+          "settings": {
+            "value": "100",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 100,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_Pqpx3c": {
+          "type": "item",
+          "settings": {
+            "value": "75",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 75,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_jb9wdG": {
+          "type": "item",
+          "settings": {
+            "value": "25",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 25,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_8wEFM4",
+        "item_Jdy8Fk",
+        "item_Pqpx3c",
+        "item_jb9wdG"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "text_align": "text-center",
+        "title": "Animated Counters",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 6,
+        "description": "<p>Add on optional description to this section<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "speed": 2,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "pt": 9,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "scrolling_text_gRV3n9": {
+      "type": "scrolling-text",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "rounded": false,
+        "layout": "text_first",
+        "section_bg_color": "bg-dark text-white",
+        "section_bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "img_thumbnail": "",
+        "mobile_image_size": "small",
+        "content_text_align": "text-start",
+        "title": "Our Formulation",
+        "title_color": "#ffffff",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 12,
+        "description": "<p>Provides users with the following results...<\/p>",
+        "description_color": "#ffffff",
+        "description_font_size_mobile": 4,
+        "description_font_size_desktop": 3,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "scrolling_text_speed": 100,
+        "scrolling-text": "<p>Clean teeth<\/p><p>Corrected cavities<\/p><p>Faded Stains<\/p><p>Soothed gums<\/p><p>Fresh breath<\/p><p>Healthier smile<\/p><p>More confidence<\/p>",
+        "scrolling_text_align": "text-start",
+        "scrolling_text_weight": "fw-normal",
+        "scrolling_text_transform": "text-uppercase",
+        "text_font_size_desktop": 2,
+        "text_line_height_desktop": 4,
+        "text_font_size_mobile": 2,
+        "text_line_height_mobile": 7,
+        "content_align": "center",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "access_guests": true,
+        "access_members": true,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "template-product",
+    "16724093711e2e0ee2",
+    "richtext_YKPGMr",
+    "testimonials_HTYWyx",
+    "image_with_side_icons_RfB8pA",
+    "media_with_text_icons_dVM3a4",
+    "image_with_text_CEmV3y",
+    "image_with_text_fEqDGE",
+    "faq_z4N4rF",
+    "featured_products_3JEtMg",
+    "d167404f-6e0f-4b9a-9302-986b992f1537",
+    "animated_counters_n3XTJT",
+    "scrolling_text_gRV3n9"
+  ]
+}

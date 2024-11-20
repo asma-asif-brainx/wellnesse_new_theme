@@ -1,0 +1,446 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign visibility = ''
+
+    if section.settings.visibility_xs == false
+        assign visibility = 'd-none'
+    endif
+
+    if section.settings.visibility_md
+        assign visibility = ' d-md-block' | prepend: visibility
+    else 
+        assign visibility = ' d-md-none' | prepend: visibility
+    endif
+
+    if section.settings.visibility_lg
+        assign visibility = ' d-lg-block' | prepend: visibility
+    else 
+        assign visibility = ' d-lg-none' | prepend: visibility
+    endif
+
+    assign bg_color = section.settings.bg_color
+    assign text_color = 'text-dark'
+    if bg_color == 'bg-dark'
+        assign text_color = 'text-light'
+    endif
+%}
+
+<section 
+    id="ingredient-cards-wrapper-{{ section.id }}" 
+    class="ingredient-cards-wrapper {{ bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }}">
+    <div class="{{ section.settings.container }}">
+        <div class="row {{ section.settings.media_align }}">
+            <div class="col-lg-6 ingredient-tabs">
+                <div class="ingredients-heading">
+                    <h2 class="{{ section.settings.heading_font_size_mobile | prepend: 'fs-' }} {{ section.settings.heading_font_size_desktop | prepend: 'fs-lg-' }} {{ section.settings.heading_color }}" style="color: {{ section.settings.heading_color }};">
+                        {{ section.settings.heading }}
+                    </h2>
+                </div>
+                <div class="ingredients-text">
+                    <p class="{{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.description_color }};">
+                        {{ section.settings.description }}
+                    </p>
+                </div>
+                <div class="ingredient-tabs-list d-flex d-md-block flex-nowrap overflow-auto">
+                    {% for block in section.blocks %}
+                        <div class="ingredient-tab rounded" style="color: {{ block.settings.title_color }};" data-target="slide-{{ forloop.index0 }}">
+                            <p class="mb-0">{{ block.settings.title }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+        
+            </div>
+            <div class="col-lg-6">
+                <div id="splide-{{ section.id }}" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            {% for block in section.blocks %}
+                                <li class="splide__slide" id="slide-{{ forloop.index0 }}">
+                                    <div class="ingredient-card rounded" style="background-color: {{ block.settings.bg_color }};">
+                                        <h3 class="{{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ block.settings.title_color }};">
+                                            {{ block.settings.title }}
+                                        </h3>
+                                        <div class="ingredient-card-text rounded">
+                                            <p class="{{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ block.settings.description_color }};">
+                                                {{ block.settings.text }}
+                                            </p>
+                                        </div>
+                                        <div class="ingredient-card-image">
+                                            <img class="{{ block.settings.img_border }}" src="{{ block.settings.image | img_url: '500x' }}" alt="{{ block.settings.image.alt }}">
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% if section.settings.show_pagination %}
+                        <div class="splide__pagination"></div>
+                    {% endif %}
+                  {% if section.settings.button_text != blank %}
+                <!-- Desktop Button -->
+                <a href="{{ section.settings.button_link }}" class="btn m-1 {{ section.settings.button_color }} {{ section.settings.button_size }} mt-3 d-none d-md-block">
+                    {{ section.settings.button_text }}
+                </a>
+                <!-- Mobile Button -->
+                <div class="d-block d-md-none text-center mt-2">
+                    <a href="{{ section.settings.button_link }}" class="btn {{ section.settings.button_color }} {{ section.settings.button_size }}">
+                        {{ section.settings.button_text }}
+                    </a>
+                </div>
+{% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#splide-{{ section.id }}', {
+            type: 'loop',
+            perPage: 1,
+            perMove: 1,
+            pagination: {{ section.settings.show_pagination }},
+        }).mount();
+
+        // Sync the tab with the slider
+        document.querySelectorAll('.ingredient-tab').forEach(function (tab, index) {
+            tab.addEventListener('click', function () {
+                splide.go(index);
+            });
+        });
+
+        // Change the tab information when the slide changes
+        splide.on('moved', function (newIndex) {
+            document.querySelectorAll('.ingredient-tab').forEach(function (tab) {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.ingredient-tab')[newIndex].classList.add('active');
+        });
+
+        // Change the color of the ingredient card when an image is clicked
+        document.querySelectorAll('.ingredient-card img').forEach(function (img, index) {
+            img.addEventListener('click', function () {
+                document.querySelectorAll('.ingredient-card').forEach(function (card) {
+                    card.classList.remove('active-card');
+                });
+                document.querySelector(`#slide-${index} .ingredient-card`).classList.add('active-card');
+                document.querySelectorAll('.ingredient-tab').forEach(function (tab) {
+                    tab.classList.remove('active');
+                });
+                document.querySelector(`.ingredient-tab[data-target="slide-${index}"]`).classList.add('active');
+            });
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Ingredient Cards",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Place Heading Here"
+        },
+      {
+            "type": "range",
+            "id": "heading_font_size_desktop",
+            "label": "Heading font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+      {
+            "type": "range",
+            "id": "heading_font_size_mobile",
+            "label": "Heading font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+       {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading color",
+            "default": "#000000"
+        },
+        {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."
+        },
+      {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 4
+        },
+        
+        {
+            "type": "color",
+            "id": "description_color",
+            "label": "Description color",
+            "default": "#000000"
+        },
+      {
+            "type": "select",
+            "id": "media_align",
+            "label": "Media alignment",
+            "info": "Note: On mobile Media will always be on top and text on the bottom",
+            "default": "flex-md-row",
+            "options": [
+                { "value": "flex-md-row", "label": "Left" },
+                { "value": "flex-md-row-reverse", "label": "Right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid container" },
+                { "value": "", "label": "Full-width" }
+            ],
+            "default": "container"
+        },
+          {
+                    "type": "select",
+                    "id": "button_color",
+                    "label": "Button color",
+                    "default": "btn-primary",
+                    "options": [
+                        { "group": "Normal", "value": "btn-link", "label": "Link" },
+                        { "group": "Normal", "value": "btn-white", "label": "White" },
+                        { "group": "Normal", "value": "btn-light", "label": "Light" },
+                        { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                        { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                        { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                        { "group": "Normal", "value": "btn-success", "label": "Success" },
+                        { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                        { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                        { "group": "Normal", "value": "btn-info", "label": "Info" },
+                        { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                        { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                        { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                        { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                        { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                        { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                        { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+                    ]
+                },
+       {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Disover Today"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "options": [
+                { "value": "bg-white", "label": "White" },
+                { "value": "bg-light", "label": "Light" },
+                { "value": "bg-primary", "label": "Primary" }
+               
+            ],
+            "default": "bg-light"
+        },
+        {
+            "type": "select",
+            "id": "button_size",
+            "label": "Button size",
+            "options": [
+                { "value": "btn-sm", "label": "Small" },
+                { "value": "btn-md", "label": "Medium" },
+                { "value": "btn-lg", "label": "Large" }
+            ],
+            "default": "btn-md"
+        },
+       {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_xs",
+            "label": "Show on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_md",
+            "label": "Show on tablet",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_lg",
+            "label": "Show on desktop",
+            "default": true
+        },
+        
+        {
+            "type": "checkbox",
+            "id": "show_pagination",
+            "label": "Show pagination dots",
+            "default": true
+        }
+    ],
+    "blocks": [
+        {
+            "type": "ingredient",
+            "name": "Ingredient",
+            "limit": 6,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "title goes here"
+                },
+                {
+                    "type": "textarea",
+                    "id": "text",
+                    "label": "Text",
+                    "default": "Pair large text with an image to give focus to your chosen product, collection, or blog post"
+                },
+               {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 5
+                },
+               {
+                    "type": "color",
+                    "id": "title_color",
+                    "label": "Title color",
+                    "default": "#000000"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 6
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "select",
+                    "id": "img_border",
+                    "label": "Image border",
+                    "default": "",
+                    "options": [
+                        { "value": "", "label": "Square" },
+                        { "value": "rounded", "label": "Rounded" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+               
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 3
+                },
+               
+                {
+                    "type": "color",
+                    "id": "description_color",
+                    "label": "Description color",
+                    "default": "#000000"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Ingredient Cards",
+            "category": "Custom"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,476 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+
+  assign row_xs = section.settings.row_xs | prepend: 'row-cols-'
+  assign row_sm = section.settings.row_sm | prepend: 'row-cols-sm-'
+  assign row_lg = section.settings.row_lg | prepend: 'row-cols-lg-'
+
+  assign img_width = 90
+  assign img_height = 90
+
+  assign bg_color = section.settings.bg_color
+
+  if section.settings.bg_gradient
+    assign bg_color = bg_color | append: ' bg-gradient'
+  endif
+
+  if customer
+    assign show_section = section.settings.access_members
+  else
+    assign show_section = section.settings.access_guests
+  endif
+%}
+{% if show_section %}
+<section
+  id="social-cards-{{ section.id }}"
+  class="social-cards enter-view position-relative overflow-hidden {{ section.settings.bg_color }} {{ section.settings.text_align }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}"
+>
+  <div class="container" style="max-width: {{ section.settings.max_width }}px;">
+    <h2 class="title mb-4 {{ section.settings.title_text_align }} {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+      {{ section.settings.title }}
+    </h2>
+    {% unless section.settings.description == blank %}
+      <div class="description rte mt-n3 mb-5 {{ section.settings.description_text_align }} {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+        {{ section.settings.description }}
+      </div>
+    {% endunless %}
+    <div class="row mx-n3 mx-lg-n4 {{ row_xs }} {{ row_sm }} {{ row_lg }}">
+      {% for block in section.blocks %}
+        <div class="col p-3 p-lg-4">
+          <div
+            class="animate__animated animate__faster opacity-0 h-100"
+            data-animate-class="animate__fadeInUp"
+            style="animation-delay: {{ forloop.index | times: 150 }}ms;"
+          >
+            <div
+              class="card rounded rounded -3 h-100 {{ block.settings.shadow }} {{ block.settings.border_color }}"
+              style="border-width: {{ block.settings.border_width }}px;"
+            >
+              <div class="d-flex p-6">
+                {% unless block.settings.img == blank %}
+                  <div class="flex-shrink-0 me-5">
+                    <img
+                      class="img-fluid rounded-circle"
+                      src="{{ block.settings.img.src | image_url: width: img_width, height: img_height, crop: block.settings.img_crop }}"
+                      alt="{{ block.settings.img.alt | escape }}"
+                      width="{{ img_width }}"
+                      height="{{ img_height }}"
+                      loading="lazy"
+                    >
+                  </div>
+                {% endunless %}
+                <div class="">
+                  {% unless block.settings.title == blank %}
+                    <h3 class="title mb-2 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                      {{ block.settings.title }}
+                    </h3>
+                  {% endunless %}
+                 
+                  {% unless block.settings.description == blank %}
+                    <div class="description rte mb-4 {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                      {{ block.settings.description }}
+                    </div>
+                  {% endunless %}
+                  <ul class="list-unstyled d-flex flex-wrap mb-0 mx-n2 ">
+                    {% unless block.settings.facebook_link == blank %}
+                      <a
+                        href="{{ block.settings.facebook_link }}"
+                        class="btn btn-light m-2 text-capitalize"
+                        target="_blank"
+                        aria-label="Facebook"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24">
+                          <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                        </svg>
+                        <span class="ms-2 d-none d-sm-inline-block small">Facebook</span>
+                      </a>
+                    {% endunless %}
+                    {% unless block.settings.instagram_link == blank %}
+                      <a
+                        href="{{ block.settings.instagram_link }}"
+                        class="btn btn-light m-2 text-capitalize"
+                        target="_blank"
+                        aria-label="Instagram"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z"/>
+                        </svg>
+                        <span class="ms-2 d-none d-sm-inline-block small">Instagram</span>
+                      </a>
+                    {% endunless %}
+                    {% unless block.settings.twitter_link == blank %}
+                      <a
+                        href="{{ block.settings.twitter_link }}"
+                        class="btn btn-light m-2 text-capitalize"
+                        target="_blank"
+                        aria-label="Twitter"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24">
+                          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                        </svg>
+                        <span class="ms-2 d-none d-sm-inline-block small">Twitter</span>
+                      </a>
+                    {% endunless %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "social-cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "",
+      "options": [
+        { "group": "Inherit", "value": "", "label": "Body" },
+        { "group": "Light", "value": "bg-white text-dark", "label": "White" },
+        { "group": "Light", "value": "bg-light text-dark", "label": "Light" },
+        { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+        { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+        { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max-width (px)",
+      "default": "1200"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Social Cards"
+    },
+    {
+      "type": "select",
+      "id": "title_text_align",
+      "label": "Title Text Align",
+      "default": "text-center",
+      "options": [
+        { "value": "text-start", "label": "Left" },
+        { "value": "text-center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Align",
+      "default": "text-center",
+      "options": [
+        { "value": "text-start", "label": "Left" },
+        { "value": "text-center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "label": "Title font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "label": "Title font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 5
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description (optional)",
+      "default": "<p>Add an optional description to this section</p>"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_mobile",
+      "label": "Description font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_desktop",
+      "label": "Description font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "description_text_align",
+      "label": "Description Text Align",
+      "default": "text-center",
+      "options": [
+        { "value": "text-start", "label": "Left" },
+        { "value": "text-center", "label": "Center" }
+      ]
+    },
+  
+    {
+      "type": "checkbox",
+      "id": "access_guests",
+      "label": "Guests",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "access_members",
+      "label": "Members",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Items per Row",
+      "info": "Based on screen resolution."
+    },
+    {
+      "type": "range",
+      "id": "row_xs",
+      "label": "Mobile",
+      "info": "up to 575px",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "row_sm",
+      "label": "Tablet",
+      "info": "576px - 991px",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "row_lg",
+      "label": "Desktop",
+      "info": "992px and up",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Padding top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mt",
+      "label": "Margin top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mb",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "header",
+          "content": "General"
+        },
+        {
+          "type": "select",
+          "id": "shadow",
+          "label": "Shadow",
+          "options": [
+            { "value": "shadow-none", "label": "No shadow" },
+            { "value": "shadow-sm", "label": "Shadow sm" },
+            { "value": "shadow", "label": "Shadow" },
+            { "value": "shadow-lg", "label": "Shadow lg" }
+          ],
+          "default": "shadow-sm"
+        },
+        {
+          "type": "select",
+          "id": "border_color",
+          "label": "Border Color",
+          "options": [
+            { "value": "", "label": "Default" },
+            { "value": "border-primary", "label": "Primary" },
+            { "value": "border-secondary", "label": "Secondary" },
+            { "value": "border-dark", "label": "Dark" },
+            { "value": "border-success", "label": "Success" },
+            { "value": "border-warning", "label": "Warning" },
+            { "value": "border-danger", "label": "Danger" },
+            { "value": "border-info", "label": "Info" }
+          ],
+          "default": ""
+        },
+        {
+          "type": "range",
+          "id": "border_width",
+          "label": "Border width",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "img_crop",
+          "label": "Image crop",
+          "default": "center",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "center", "label": "Center" },
+            { "value": "bottom", "label": "Bottom" },
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Card Title"
+        },
+        {
+          "type": "range",
+          "id": "title_font_size_mobile",
+          "label": "Title font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 6
+        },
+        {
+          "type": "range",
+          "id": "title_font_size_desktop",
+          "label": "Title font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 8
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+        {
+          "type": "range",
+          "id": "description_font_size_mobile",
+          "label": "Description font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "description_font_size_desktop",
+          "label": "Description font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        
+        {
+          "type": "header",
+          "content": "Social Links"
+        },
+        
+        {
+          "type": "url",
+          "id": "facebook_link",
+          "label": "Facebook Link"
+        },
+        {
+          "type": "url",
+          "id": "instagram_link",
+          "label": "Instagram Link"
+        },
+        {
+          "type": "url",
+          "id": "twitter_link",
+          "label": "Twitter Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "social-cards",
+      "category": "General"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,677 @@
+{
+  "sections": {
+    "promo_about_pfMiNt": {
+      "type": "promo-about",
+      "custom_css": [
+        "@media screen and (min-width: 768px) {h2 {text-align: center; vertical-align: middle; }}",
+        "h2 {color: #c55e55;}",
+        "h2 {font-weight: bold;}"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "container": "container",
+        "title": "TO YOUR WELLNESS",
+        "title_font_size_mobile": 4,
+        "title_font_size_desktop": 3,
+        "subtitle": "OUR COMMITMENT",
+        "subtitle_font_size_mobile": 6,
+        "subtitle_font_size_desktop": 9,
+        "image": "shopify:\/\/shop_images\/All_Products-7.jpg",
+        "img_width": "1200",
+        "img_height": "600",
+        "img_crop": "center",
+        "video": "",
+        "autoplay": true,
+        "loop": true,
+        "muted": false,
+        "controls": true,
+        "description_left": "<p>Over a decade ago, Wellnesse was born from a tiny seed of hope for cleaner, more ethical personal care products. And even now as a large-scale operation, we are proud to embody the high standards we set when we were first filling glass mason jars with toothpaste at our kitchen table.<\/p>",
+        "description_left_color": "#000000",
+        "description_left_alignment_mobile": "center",
+        "description_right": "",
+        "description_right_color": "#000000",
+        "description_right_alignment_mobile": "left",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 3,
+        "access_guests": true,
+        "access_members": true,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_collapse_TaF4fV": {
+      "type": "richtext-collapse",
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "max_width": "768",
+        "btn_text": "See Full Text of ecomify",
+        "btn_color": "btn-primary",
+        "btn_size": "",
+        "description": "<p>Take your e-commerce game to the next level with Ecomify™ - where convenience and innovation come together.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 4,
+        "description_color": "#000000",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "pt": 6,
+        "pb": 3,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_7UVYBn": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_hTXkT9": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "WELLNESSE, A LABOR OF LOVE, FROM OUR FAMILY TO YOURS",
+            "subtitle_font_size_mobile": 5,
+            "subtitle_font_size_desktop": 8,
+            "title": "OUR PRODUCTS ADHERE TO THE FOLLOWING VALUES:",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 5,
+            "description": "<p>In each recipe, she carefully selected and sourced the best ingredients - always searching for healthy alternatives to toxins. The end result: clean personal care products that were more effective than their conventional counterparts. After sharing the recipe with her community, busy people started begging for her to create and sell the products herself.<\/p><p><\/p><p><strong>And Thus, Wellnesse was born.<\/strong><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_DizWCR": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/jwi-209_1.jpg",
+            "mobile_img_orientation": "square",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/jwi-163.jpg",
+            "desktop_img_orientation": "landscape-4x3",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_hTXkT9",
+        "image_DizWCR"
+      ],
+      "custom_css": [
+        "h2 {color: #c55e55;}",
+        "h2 {font-weight: bold;}"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "duel_columns_with_images_FUARky": {
+      "type": "duel-columns-with-images",
+      "blocks": {
+        "item_eqHRww": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/1_fd45b3be-d389-4f45-b46d-40b8b471c4a9.png",
+            "text_align": "text-start",
+            "title": "SAFE FOR YOU",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 6,
+            "description": "<p>We started Wellnesse to create healthy alternatives for our own family, and we would never create any product that we wouldn’t feel safe using on our kids or ourselves. That’s why we pledge to make only the highest quality products that are <a href=\"https:\/\/wellnesse.gorgias.help\/en-US\/what-do-you-mean-by-%22natural%22-and-%22non-toxic-255188\" title=\"https:\/\/wellnesse.gorgias.help\/en-US\/what-do-you-mean-by-%22natural%22-and-%22non-toxic-255188\">natural<\/a> and <a href=\"https:\/\/wellnesse.gorgias.help\/en-US\/what-do-you-mean-by-%22natural%22-and-%22non-toxic-255188\" title=\"https:\/\/wellnesse.gorgias.help\/en-US\/what-do-you-mean-by-%22natural%22-and-%22non-toxic-255188\">non-toxic<\/a>. But we also take it a step further by using ingredients that are good for you from the outside in – from mineral-building hydroxyapatite in our toothpaste, to tomato fruit extract in our shampoo. Our formulas work better than what’s already on shelves, but without toxins, parabens, sulfates and more. You can see all of our ingredients for yourself <a href=\"https:\/\/wellnesse.com\/pages\/ingredients\" title=\"Ingredients\">here<\/a> and explore our collections <a href=\"https:\/\/wellnesse.com\/collections\/products\" title=\"https:\/\/wellnesse.com\/collections\/products\">here.<\/a><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_AMwLEX": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "img": "shopify:\/\/shop_images\/best_2x_7b52e76a-f6a8-45e7-8099-87ee0abcf1c9.png",
+            "text_align": "text-start",
+            "title": "",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>That's why we question every last ingredient and formula - always asking ourselves how we can do better - and encourage you to do the same.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_bArk39": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "img": "shopify:\/\/shop_images\/eco-friendly_2x_777ab47d-54aa-4db6-be94-71dd7b08845d.png",
+            "text_align": "text-start",
+            "title": "",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>That's why we use the most sustainable packaging available so that we don't harm our planet.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_eqHRww",
+        "item_AMwLEX",
+        "item_bArk39"
+      ],
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "h3 {color: #000000;}",
+        "p {color: #000000;}"
+      ],
+      "settings": {
+        "media_align": "flex-md-row",
+        "container": "container",
+        "img_border": "",
+        "text_align": "text-center",
+        "bg_color": "bg-light text-body",
+        "image_mobile": "shopify:\/\/shop_images\/1x_39a5b94a-26c3-4752-8414-c591b9250f2a.webp",
+        "image_desktop": "shopify:\/\/shop_images\/1x_39a5b94a-26c3-4752-8414-c591b9250f2a.webp",
+        "title": "",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 7,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-outline-primary",
+        "btn_size": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 11,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "duel_columns_with_images_FzRAqY": {
+      "type": "duel-columns-with-images",
+      "blocks": {
+        "item_PGmH3X": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/2_743b6cf3-43fa-427d-89b1-c24caf03d220.png",
+            "text_align": "text-start",
+            "title": "SAFE FOR THE ENVIRONMENT",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 6,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_kz98NE": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Untitled_design_-_2024-10-01T201951.072.png",
+            "text_align": "text-start",
+            "title": "B-CORP CERTIFIED",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>Having a B Corp Certification indicates that we meet the highest standards of social and environmental performance. This is determined by B Lab, a nonprofit network whose mission is to <strong>“transform the global economy to benefit all people, communities, and the planet.”<\/strong><\/p><p>When a company applies to become a B Corp, B Lab starts with a thorough assessment. First, they evaluate the quality and sustainability of the company operations and business model. They look at everything from the supply chain to charitable giving and public transparency. This data is then used to understand how the business impacts workers, the environment, and customers, both now and in the future. These combined pieces ultimately determine whether the business is fit for Certification.<\/p><p>Is it a long process? Yup. Is it worth it? Absolutely! You can learn more about the entire process here.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_B8nqib": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/EWGVerified2048_c8688cca-c00b-4d64-9ba4-75d9e1adfbb8.webp",
+            "text_align": "text-start",
+            "title": "EWG CERTIFIED",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>The Environmental Working Group fights outdated legislation and sets standards for healthy agricultural practices, ensuring that production processes are safe for both the environment and consumers. Most of our ingredients are rated the cleanest possible rating by the EWG because they are sustainably sourced to support the world in which we live. You can learn more and check out EWG’s ratings of our ingredients in their database here.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_PGmH3X",
+        "item_kz98NE",
+        "item_B8nqib"
+      ],
+      "settings": {
+        "media_align": "flex-md-row",
+        "container": "container",
+        "img_border": "",
+        "text_align": "text-center",
+        "bg_color": "bg-white text-body",
+        "image_mobile": "shopify:\/\/shop_images\/1_3031bf81-c38f-452c-9ea1-bef0f607a803.png",
+        "image_desktop": "shopify:\/\/shop_images\/Charcoal_Toothpaste_on_Toothbrush-7.jpg",
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 5,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-outline-primary",
+        "btn_size": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "advanced_image_with_text_LNQXNY": {
+      "type": "advanced-image-with-text",
+      "blocks": {
+        "item_d6ecRj": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/What_is_Clean_Beauty_Blog_Graphic_1.webp",
+            "img_width": "1000",
+            "img_height": "1000",
+            "img_thumbnail": "",
+            "shadow": "shadow-none"
+          }
+        }
+      },
+      "block_order": [
+        "item_d6ecRj"
+      ],
+      "custom_css": [
+        "h4 {color: #df6459;}"
+      ],
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": false,
+        "container": "container-fluid",
+        "media_align": "flex-row",
+        "text_align_mobile": "text-start",
+        "text_align_desktop": "text-lg-start",
+        "subtitle": "",
+        "subtitle_font_size_mobile": 2,
+        "subtitle_font_size_desktop": 2,
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<h3>LEAPING BUNNY CERTIFIED<\/h3><p>The Leaping Bunny Certification designates that our products are truly cruelty-free, which means no animal testing on any of our individual ingredients OR finished products. You can read more about what it means to be Leaping Bunny Certified <a href=\"https:\/\/www.leapingbunny.org\/about\/corporate-standard-compassion-animals-standard\" target=\"_blank\" title=\"https:\/\/www.leapingbunny.org\/about\/corporate-standard-compassion-animals-standard\">here.<\/a><\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 3,
+        "btn_text": "SHOP NOW",
+        "btn_url": "shopify:\/\/collections\/oral-care",
+        "btn_color": "btn-primary",
+        "btn_size": "",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 4,
+        "pb": 4,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "duel_columns_with_images_ahwh9q": {
+      "type": "duel-columns-with-images",
+      "blocks": {
+        "item_PXMUe9": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/3_e6fb517f-c790-41cf-bf5c-0968dedcbec5.png",
+            "text_align": "text-start",
+            "title": "SAFE FOR THE GREATER GOOD",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 6,
+            "description": "<p>We source our products globally – not only so we’re able to source the best ingredients, but so we can source them ethically, too. This is also why many of our formulas are not certified organic. In fact, <strong>we’ve gone beyond organic.<\/strong> Here’s why:<br\/><br\/>Just because an ingredient is “certified organic,” it doesn’t mean that it’s ethically produced – and many times, certified organic ingredients come from countries where it’s difficult to know the full scope of the labor conditions. (Additionally, while some ingredients can be grown organically in the US, the plant may grow more purely and naturally in other places, which is always our preference).<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_UGWVKA": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Untitled.png",
+            "text_align": "text-start",
+            "title": "SUSTAINABLE, ETHICAL, &amp; CHEMICAL FREE LABOR",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 5,
+            "description": "<p>We source our products globally – not only so we’re able to source the best ingredients, but so we can source them ethically, too. This is also why many of our formulas are not certified organic. In fact, <strong>we’ve gone beyond organic<\/strong>. Here’s why:<br\/><br\/>Just because an ingredient is “certified organic,” it doesn’t mean that it’s ethically produced – and many times, certified organic ingredients come from countries where it’s difficult to know the full scope of the labor conditions. (Additionally, while some ingredients can be grown organically in the US, the plant may grow more purely and naturally in other places, which is always our preference).<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_PXMUe9",
+        "item_UGWVKA"
+      ],
+      "settings": {
+        "media_align": "flex-md-row",
+        "container": "container",
+        "img_border": "",
+        "text_align": "text-center",
+        "bg_color": "bg-body text-body",
+        "image_mobile": "shopify:\/\/shop_images\/Charcoal_Toothpaste-2_3_15ae8919-d721-4a5f-8ca0-2c1176c1d02d.webp",
+        "image_desktop": "shopify:\/\/shop_images\/Charcoal_Toothpaste-2_3_15ae8919-d721-4a5f-8ca0-2c1176c1d02d.webp",
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 6,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-outline-primary",
+        "btn_size": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "eg_counter_UNmac8": {
+      "type": "eg-counter",
+      "blocks": {
+        "word_cMiwNB": {
+          "type": "word",
+          "settings": {
+            "text": "MORE"
+          }
+        },
+        "word_A3dehf": {
+          "type": "word",
+          "settings": {
+            "text": "THAN A"
+          }
+        },
+        "word_c7bCRm": {
+          "type": "word",
+          "settings": {
+            "text": "MILLION"
+          }
+        },
+        "word_yRbm6n": {
+          "type": "word",
+          "settings": {
+            "text": "TUBES"
+          }
+        },
+        "word_gBfRXF": {
+          "type": "word",
+          "settings": {
+            "text": "SOLD"
+          }
+        }
+      },
+      "block_order": [
+        "word_cMiwNB",
+        "word_A3dehf",
+        "word_c7bCRm",
+        "word_yRbm6n",
+        "word_gBfRXF"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Our Best-Selling Whitening Toothpaste",
+        "heading_custom": true,
+        "heading_font": "poppins_n4",
+        "heading_size": 48,
+        "heading_size_mobile": 32,
+        "heading_height": 130,
+        "heading_align": "center",
+        "counter_mt": 32,
+        "counter_delay": 3.5,
+        "counter_card_radius": 16,
+        "counter_card_radius_mobile": 10,
+        "counter_custom": true,
+        "counter_font": "poppins_n4",
+        "text": "At Wellnesse, we create safe, high quality and responsibly sourced personal care products, with the goal of maximizing economic, environmental, and social value for our customers, communities, and planet.",
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 22,
+        "text_size_mobile": 20,
+        "text_height": 130,
+        "text_align": "center",
+        "text_mt": 32,
+        "heading_color": "#000000",
+        "card_bg_color": "#333232",
+        "card_text_color": "#ffffff",
+        "text_color": "#000000",
+        "background_color": "#e9ecef",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0
+      }
+    },
+    "richtext_with_buttons_KcaJi8": {
+      "type": "richtext-with-buttons",
+      "blocks": {
+        "button_9xkgHk": {
+          "type": "button",
+          "settings": {
+            "btn_text": "TEAM BIOS",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "button_9xkgHk"
+      ],
+      "settings": {
+        "bg_color": "",
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "MEET THE TEAM!",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Wellnesse calls the Sunshine State home, but our tight-knit, fully remote team is spread across 7 states and 5 time zones! If you want to get to know our team better or put a face to a name, check out our team bios <a href=\"https:\/\/wellnesse.com\/pages\/meet-our-team\" title=\"MEET OUR TEAM!\">here!<\/a><\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "list_pretext": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 11,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_zg4prz": {
+      "type": "image",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container-fluid",
+        "max_width": "",
+        "url": "",
+        "image_mobile": "shopify:\/\/shop_images\/team-images-mobile_1.png",
+        "img_mobile_width": "1300",
+        "img_mobile_height": "600",
+        "img_mobile_crop": "center",
+        "img_mobile_thumbnail": "",
+        "image_desktop": "shopify:\/\/shop_images\/1_52dc1da1-401c-40e9-bb13-9368f3d0dbf9.webp",
+        "img_desktop_width": "1600",
+        "img_desktop_height": "900",
+        "img_desktop_crop": "center",
+        "img_desktop_thumbnail": "",
+        "pt": 6,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_jbFnCm": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_MDNKUf": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/1x_ca4e3e16-248e-4905-b506-f9cf0bdbeb5a.webp",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/1x_ca4e3e16-248e-4905-b506-f9cf0bdbeb5a.webp",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_XVhtMF": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "LITTLE MORE WELLNESSE EVERY DAY",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 6,
+            "description": "<p>We hope you’ll join us in our mission to give families and the planet a little more Wellnesse every day! If you have any questions about our products or processes, we’d love to hear from you.<\/p><p>Drop us a line at <a href=\"mailto:support@wellnesse.com\" target=\"_blank\" title=\"mailto:support@wellnesse.com\">support@wellnesse.com<\/a><\/p><p>Contact Us Today At:<br\/><a href=\"https:\/\/wellnesse.com\/pages\/contact\" target=\"_blank\" title=\"https:\/\/wellnesse.com\/pages\/contact\">https:\/\/wellnesse.com\/pages\/contact<\/a><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_MDNKUf",
+        "text_XVhtMF"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "featured_products_3X7iwB": {
+      "type": "featured-products",
+      "blocks": {
+        "block_WazecF": {
+          "type": "block",
+          "settings": {
+            "products": [
+              "charcoal-toothpaste",
+              "toothpaste",
+              "concentrated-mouthwash",
+              "floss-picks",
+              "probiotic-mints"
+            ],
+            "collection": "",
+            "limit": 6,
+            "tab_title": "Best-selling"
+          }
+        }
+      },
+      "block_order": [
+        "block_WazecF"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "text_align": "text-center",
+        "title": " MOST POPULAR ",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_enable": true,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "0",
+        "carousel_rewind": true,
+        "breakpoint_xs": 1,
+        "breakpoint_xs_partial": true,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "View more products",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 0,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "promo_about_pfMiNt",
+    "richtext_collapse_TaF4fV",
+    "image_with_text_7UVYBn",
+    "duel_columns_with_images_FUARky",
+    "duel_columns_with_images_FzRAqY",
+    "advanced_image_with_text_LNQXNY",
+    "duel_columns_with_images_ahwh9q",
+    "eg_counter_UNmac8",
+    "richtext_with_buttons_KcaJi8",
+    "image_zg4prz",
+    "image_with_text_jbFnCm",
+    "featured_products_3X7iwB"
+  ]
+}

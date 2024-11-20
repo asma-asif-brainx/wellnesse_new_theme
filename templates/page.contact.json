@@ -1,0 +1,213 @@
+{
+  "sections": {
+    "image_with_text_TDAqaW": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_XKqLQc": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "Contact Us",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description": "<p>Your feedback is important to us. Whatever your needs, please don't hestiate to reach out. Our customer support team will be happy to assist you!<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_aaVKqT": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Updated.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Updated.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_XKqLQc",
+        "image_aaVKqT"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "p {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "",
+        "animation_speed": "animate__fast",
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "duel_columns_with_images_YPMRzX": {
+      "type": "duel-columns-with-images",
+      "blocks": {
+        "item_MPkmGz": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/email-icon_2x_0f7f5ea2-9872-4ffd-a491-e19ad777c1e8.png",
+            "text_align": "text-start",
+            "title": "Email Us",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>Email us for general queries, including marketing and partnership opportunities.<\/p><p><a href=\"mailto:support@wellnesse.com\" target=\"_blank\" title=\"mailto:support@wellnesse.com\">SUPPORT@WELLNESSE.COM<\/a><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_tjc7P6": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/call-us-icon_2x_2c40ba4b-0f32-4b7c-9cd7-9293a33ab04f.png",
+            "text_align": "text-start",
+            "title": "Call Us",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>Call us to speak to a member of our team. We are always happy to help.<\/p><p><a href=\"tel:+1%20850-820-2000\" target=\"_blank\" title=\"tel:+1%20850-820-2000\">850-820-2000<\/a><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        },
+        "item_XVnzJm": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/support-icon_2x_67b33c36-ff8a-4aa2-a333-ef34660d90ce.png",
+            "text_align": "text-start",
+            "title": "Support",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 6,
+            "description": "<p>Check out helpful resources, FAQs and partnerships.<\/p><p><a href=\"https:\/\/wellnesse.gorgias.help\/en-US\" title=\"https:\/\/wellnesse.gorgias.help\/en-US\">SUPPORT CENTER<\/a><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_MPkmGz",
+        "item_tjc7P6",
+        "item_XVnzJm"
+      ],
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "p {color: #000000;}",
+        "a {color: #df6459;}",
+        "h3 {color: #000000}"
+      ],
+      "settings": {
+        "media_align": "flex-md-row",
+        "container": "container",
+        "img_border": "",
+        "text_align": "text-center",
+        "bg_color": "bg-white text-body",
+        "image_mobile": "shopify:\/\/shop_images\/Updated.png",
+        "image_desktop": "shopify:\/\/shop_images\/Updated.png",
+        "title": "Contact Us",
+        "title_font_size_mobile": 7,
+        "title_font_size_desktop": 9,
+        "description": "<p>Your feedback is important to us. Whatever your needs, please don't hestiate to reach out. Our customer support team will be happy to assist you!<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 4,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-outline-primary",
+        "btn_size": "",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true,
+        "pt": 10,
+        "pb": 2,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "23e845c6-1e65-48b9-b6fb-62265282463d": {
+      "type": "contact-form",
+      "blocks": {
+        "614649d5-0657-49ac-bb8d-381c46c3b023": {
+          "type": "input_field",
+          "settings": {
+            "type": "text",
+            "label": "Name",
+            "required": true
+          }
+        },
+        "af8809a3-e618-403d-b98b-a3981ba2faed": {
+          "type": "input_field",
+          "settings": {
+            "type": "email",
+            "label": "Email address",
+            "required": true
+          }
+        },
+        "4b9b065a-ecc1-48e3-b491-72d54e0131b7": {
+          "type": "textarea",
+          "settings": {
+            "rows": 8,
+            "label": "Your Message",
+            "required": true
+          }
+        },
+        "b0f8f658-ac15-4d5a-be09-7bf54ab9609a": {
+          "type": "submit_btn",
+          "settings": {
+            "btn_text": "Send",
+            "btn_color": "btn-primary"
+          }
+        }
+      },
+      "block_order": [
+        "614649d5-0657-49ac-bb8d-381c46c3b023",
+        "af8809a3-e618-403d-b98b-a3981ba2faed",
+        "4b9b065a-ecc1-48e3-b491-72d54e0131b7",
+        "b0f8f658-ac15-4d5a-be09-7bf54ab9609a"
+      ],
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": true,
+        "max_width": "850",
+        "title": "CONTACT US FOR MORE DETAILS!",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "form_fields_size": "md",
+        "form_success_msg": "<p>Thanks for contacting us. We'll get back to you as soon as possible.<\/p>",
+        "pt": 11,
+        "pb": 17,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "image_with_text_TDAqaW",
+    "duel_columns_with_images_YPMRzX",
+    "23e845c6-1e65-48b9-b6fb-62265282463d"
+  ]
+}

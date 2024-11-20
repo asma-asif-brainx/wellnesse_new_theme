@@ -1,0 +1,147 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+<style>
+.discount-sheet {
+    position: fixed;
+    bottom: -50%;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    transition: bottom 0.3s;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding-top: 16px;
+    z-index: 1023;
+}
+
+.discount-sheet.open {
+    bottom: 0;
+}
+
+.discount-handle {
+    width: 40px;
+    height: 5px;
+    background: #ccc;
+    border-radius: 5px;
+    margin: 9px auto 9px;
+    cursor: pointer;
+    padding-top: 0.4rem;
+}
+
+.discount-promo-content {
+    padding: 0 16px 16px;
+}
+
+.discount-promo-code {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.discount-copy-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.discount-copy-btn:hover {
+    background-color: #0056b3;
+}
+</style>
+<div class="container">
+    <div class="discount-sheet">
+        <div class="discount-handle"></div>
+        <div class="discount-promo-content">
+            <div class="promo-header text-start">
+                <h2 class="fs-5 fw-bold">Offer available</h2>
+                <p class="text-muted">We'll automatically apply the offer at checkout. Terms and Conditions may apply.</p>
+            </div>
+            <div class="discount-promo-code d-flex justify-content-between align-items-center p-3">
+                <span class="fw-bold">Promo code</span>
+                <div class="code-box d-flex align-items-center">
+                    <span class="me-2">FB10</span>
+                    <button class="btn discount-copy-btn">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const sheet = document.querySelector('.discount-sheet');
+    const handle = document.querySelector('.discount-handle');
+    const copyBtn = document.querySelector('.discount-copy-btn');
+    let startY;
+    let startBottom;
+
+    const delay = 2000;
+
+    setTimeout(() => {
+        sheet.classList.add('open');
+    }, delay);
+
+    const dragStart = function (e) {
+        e.preventDefault();
+        startY = e.clientY || e.touches[0].clientY;
+        startBottom = parseInt(window.getComputedStyle(sheet).bottom);
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('mousemove', dragSheet);
+        document.addEventListener('mouseup', stopDrag);
+        document.addEventListener('touchmove', dragSheet);
+        document.addEventListener('touchend', stopDrag);
+    };
+
+    const dragSheet = function (e) {
+        const clientY = e.clientY || e.touches[0].clientY;
+        const diffY = startY - clientY;
+        const newBottom = startBottom + diffY;
+        if (newBottom >= -window.innerHeight && newBottom <= window.innerHeight) {
+            sheet.style.bottom = `${newBottom}px`;
+        }
+    };
+
+    const stopDrag = function () {
+        document.removeEventListener('mousemove', dragSheet);
+        document.removeEventListener('mouseup', stopDrag);
+        document.removeEventListener('touchmove', dragSheet);
+        document.removeEventListener('touchend', stopDrag);
+        document.body.style.overflow = ''; // Re-enable page scrolling
+        const currentBottom = parseInt(window.getComputedStyle(sheet).bottom);
+        if (currentBottom > window.innerHeight / 4) {
+            sheet.style.bottom = '0px';
+        } else {
+            sheet.style.bottom = '-50%';
+        }
+    };
+
+    handle.addEventListener('mousedown', dragStart);
+    handle.addEventListener('touchstart', dragStart);
+
+    copyBtn.addEventListener('click', function () {
+        const code = document.querySelector('.code-box span').textContent;
+        navigator.clipboard.writeText(code).then(() => {
+            copyBtn.textContent = 'Copied!';
+            copyBtn.classList.add('btn-success');
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy';
+                copyBtn.classList.remove('btn-success');
+            }, 2000);
+        }).catch(err => {
+            console.error('Could not copy text: ', err);
+        });
+    });
+});
+</script>
+{% schema %}
+{
+  "name": "Discount slide up",
+  "settings": []
+}
+{% endschema %}

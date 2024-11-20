@@ -1,0 +1,663 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+    case settings.product_card_img_orientation
+        when 'square'
+            assign product_img_width  = 600
+            assign product_img_height = 600
+        when 'landscape'
+            assign product_img_width  = 600
+            assign product_img_height = 480
+        when 'potrait'
+            assign product_img_width  = 480
+            assign product_img_height = 600
+    endcase
+    
+%}
+
+<section 
+    id="pricing-plans-{{ section.id }}" 
+    class="pricing-plans enter-view position-relative overflow-hidden {{ bg_color }} {{ section.settings.text_align }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    <div class="{{ section.settings.container }} ">
+        {% render 'section-header' %}
+        <ul class="list-unstyled row m-n3 m-lg-n4">
+            {% for block in section.blocks %}
+                {% liquid
+                    if request.page_type == 'product' and block.settings.product_current
+                        assign product = product
+                    else
+                        assign product = block.settings.product
+                    endif
+
+                    if block.settings.product_img_custom != nil
+                        assign product_img = block.settings.product_img_custom
+                    else
+                        assign product_img = product.featured_image
+                    endif
+                %}
+                <li class="col p-3 p-lg-4" {{ block.shopify_attributes }}>
+                    <div 
+                        class="h-100 {% unless section.settings.animation == '' %}animate__animated opacity-0 {{ section.settings.animation_speed }}{% endunless %}"
+                        data-animate-class="{{ section.settings.animation }}"
+                        style="animation-delay: {{ forloop.index | times: 150 }}ms;">
+                        <div 
+                            class="card h-100 {{ block.settings.shadow }} {{ block.settings.border_color }}"
+                            style="border-width: {{ block.settings.border_width }}px;">
+                            {% if product != nil and block.settings.product_img_show %}
+                                <a href="{{ product.url | within: collection }}">
+                                    <img 
+                                        class="product-item-img card-img-top img-fluid"
+                                        src="{{ product_img.src | image_url: width: product_img_width, height: product_img_height, crop: 'center' }}" 
+                                        alt="{{ product_img.alt | escape }}"
+                                        width="{{ product_img_width }}"
+                                        height="{{ product_img_height }}"
+                                        loading="lazy">
+                                </a>
+                            {% endif %}
+                            <div class="card-body">
+                                {% unless block.settings.img == blank %}
+                                    <img
+                                        class="img-fluid mt-2 mb-5"
+                                        src="{{ block.settings.img.src | image_url: height: block.settings.img_height }}"
+                                        alt="{{ block.settings.img.alt | escape }}"
+                                        width="{{ block.settings.img_height | times: block.settings.img.aspect_ratio | round }}"
+                                        height="{{ block.settings.img_height }}"
+                                        loading="lazy">
+                                {% endunless %}
+                                {% unless block.settings.subtitle == blank %}
+                                    <p class="subtitle text-uppercase fw-500 mb-1 text-muted {{ block.settings.subtitle_font_size_mobile | prepend: 'fs-' }} {{ block.settings.subtitle_font_size_desktop | prepend: 'fs-lg-' }}">
+                                        {{ block.settings.subtitle }}
+                                    </p>
+                                {% endunless %}
+                                {% unless block.settings.title == blank %}
+                                    <h3 class="title mb-4 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                                        {{ block.settings.title }}
+                                    </h3>
+                                {% endunless %}
+                                {% if product != nil and block.settings.product_price_show %}
+                                    <p class="product-item-price fs-3 mb-4">
+                                        {% if block.settings.product_discount > 0 %}
+                                            <span class="product-item-price-compare text-muted me-1">
+                                                <span class="visually-hidden">
+                                                    {{ 'product.price_regular' | t }} &nbsp;
+                                                </span>
+                                                <s>{{ product.price | times: block.settings.product_quantity |  money_without_trailing_zeros }}</s>
+                                            </span>
+                                            <span class="product-item-price-final"> 
+                                                <span class="visually-hidden">
+                                                    {{ 'product.price_sale' | t }} &nbsp;
+                                                </span>
+                                                {{ 100 | minus: block.settings.product_discount | divided_by: 100.0 | times: product.price | times: block.settings.product_quantity | money_without_trailing_zeros }}
+                                            </span>
+                                        {% else %}
+                                            <span class="product-item-price-final">
+                                                {% if product.price_varies %}
+                                                    {{ 'product.price_from' | t }}
+                                                {% endif %}
+                                                {{ product.price | times: block.settings.product_quantity | money_without_trailing_zeros  }}
+                                            </span>
+                                        {% endif %}
+                                    </p>
+                                {% endif %}
+                                {% if product != nil and block.settings.product_save_show %}
+                                    <p class="mt-n4">
+                                        {{ 'product.you_save' | t }}: 
+                                        <span> 
+                                            {{ block.settings.product_discount | divided_by: 100.0 | times: product.price | times: block.settings.product_quantity | money_without_trailing_zeros }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+                                <hr class="">
+                                {% unless block.settings.description == blank %}
+                                    <div class="description rte mb-5 {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                                        {{ block.settings.description 
+                                            | replace: '[check]', '<span class="text-primary px-2">✓</span>' 
+                                            | replace: '[cross]', '<span class="text-muted px-2">✖️</span>' }}
+                                    </div>
+                                {% endunless %}
+                                {% if product != nil %}
+                                    {% form 'product', product, class: 'shopify-product-form product-item-form', onsubmit: 'onSubmitAtcForm(this, event)' %}
+                                        <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+                                        <input type="hidden" name="quantity" value="{{ block.settings.product_quantity }}">
+                                        {% if product.available == false %}
+                                            <button class="btn-atc btn w-100 {{ block.settings.btn_color }} {{ block.settings.btn_size }}" disabled>
+                                                {{ 'product.sold_out' | t }}
+                                            </button>
+                                        {% elsif product.has_only_default_variant %}
+                                            <button
+                                                class="btn-atc btn btn-md w-100 {{ block.settings.btn_color }} {{ block.settings.btn_size }}"
+                                                type="submit"
+                                                name="add"
+                                                data-text-add-to-cart="{{ block.settings.btn_text }}">
+                                                {{ block.settings.btn_text }}
+                                            </button>
+                                        {% else %}
+                                            <div class="btn-group w-100 dropup">
+                                                <button 
+                                                    type="button" 
+                                                    class="btn-atc btn btn-md dropdown-toggle {{ block.settings.btn_color }} {{ block.settings.btn_size }}" 
+                                                    data-bs-toggle="dropdown" 
+                                                    data-text-add-to-cart="{{ block.settings.btn_text }}"
+                                                    aria-expanded="false">
+                                                    {{ block.settings.btn_text }}
+                                                </button>
+                                                    <ul class="dropdown-menu shadow w-100">
+                                                        {% for variant in product.variants %}
+                                                            <li class="{{ variant.inventory_policy }}">
+                                                                <button
+                                                                    class="dropdown-item" 
+                                                                    onclick="onClickAtcFormVariant(this, event)"
+                                                                    data-variant-id="{{ variant.id }}"
+                                                                    type="button"
+                                                                    {% unless variant.available %}disabled{% endunless %}>
+                                                                    <div class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center lh-sm">
+                                                                        <span class="small">
+                                                                            {{ variant.title }}
+                                                                        </span>
+                                                                        {% if settings.product_card_form_show_inventory %}
+                                                                            {% if variant.available %}
+                                                                                {% if variant.inventory_quantity <= 0 or variant.inventory_quantity >= 10 %}
+                                                                                    <small class="text-success">
+                                                                                        {{ 'product.in_stock' | t }}
+                                                                                    </small>
+                                                                                {% else %}
+                                                                                    <small class="text-danger">
+                                                                                        {{ 'product.stock_count' | t: count: variant.inventory_quantity }}
+                                                                                    </small>
+                                                                                {% endif %}
+                                                                            {% else %}
+                                                                                <small class="">
+                                                                                    {{ 'product.sold_out' | t }}
+                                                                                </small>
+                                                                            {% endif %}
+                                                                        {% endif %}
+                                                                    </div>
+                                                                </button>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                        {% endif %}
+                                    {% endform %}
+
+                                    {% if block.settings.product_show_review %}
+                                        <div class="mt-3 mb-n3">
+                                            {% render 'product-rating-badge', product: product %}
+                                        </div>
+                                    {% endif %}
+
+                                {% else %}
+                                    {% unless block.settings.btn_text == blank %}
+                                        <a 
+                                            class="btn w-100 {{ block.settings.btn_color }} {{ block.settings.btn_size }}" 
+                                            href="{{ block.settings.btn_url }}">
+                                            {{ block.settings.btn_text }}
+                                        </a>
+                                    {% endunless %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Pricing Plans",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-body text-body",
+            "options": [
+                { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "bg_gradient",
+            "label": "Background gradient",
+            "default": false,
+            "info": "Will not apply to light colors"
+        },
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text align",
+            "default": "text-center",
+             "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" },
+               { "value": "text-end", "label": "Right" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Pricing plans"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description (optional)",
+            "default": "<p>Add on optional description to this section</p>"
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "select",
+            "id": "animation",
+            "label": "Animation",
+            "default": "animate__fadeInRight",
+            "options": [
+                { "group": "Disabled", "value": "", "label": "No animation" },
+                { "group": "Fade", "value": "animate__fadeIn", "label": "Fade In" },
+                { "group": "Fade", "value": "animate__fadeInDown", "label": "Fade-in-down" },
+                { "group": "Fade", "value": "animate__fadeInLeft", "label": "Fade-in-left" },
+                { "group": "Fade", "value": "animate__fadeInRight", "label": "Fade-in-right" },
+                { "group": "Fade", "value": "animate__fadeInUp", "label": "Fade-in-up" },
+                { "group": "Zoom", "value": "animate__zoomIn", "label": "Zoom-in" },
+                { "group": "Zoom", "value": "animate__zoomInDown", "label": "Zoom-in-down" },
+                { "group": "Zoom", "value": "animate__zoomInLeft", "label": "Zoom-in-left" },
+                { "group": "Zoom", "value": "animate__zoomInRight", "label": "Zoom-in-right" },
+                { "group": "Zoom", "value": "animate__zoomInUp", "label": "Zoom-in-up" },
+                { "group": "Back", "value": "animate__backInDown", "label": "Back-in-down" },
+                { "group": "Back", "value": "animate__backInLeft", "label": "Back-in-left" },
+                { "group": "Back", "value": "animate__backInRight", "label": "Back-in-right" },
+                { "group": "Back", "value": "animate__backInUp", "label": "Back-in-up" },
+                { "group": "Bounce", "value": "animate__bounceIn", "label": "Bounce-in" },
+                { "group": "Bounce", "value": "animate__bounceInDown", "label": "Bounce-in-down" },
+                { "group": "Bounce", "value": "animate__bounceInLeft", "label": "Bounce-in-left" },
+                { "group": "Bounce", "value": "animate__bounceInRight", "label": "Bounce-in-right" },
+                { "group": "Bounce", "value": "animate__bounceInUp", "label": "Bounce-in-up" },
+                { "group": "LightSpeed", "value": "animate__lightSpeedInLeft", "label": "LightSpeed-in-left" },
+                { "group": "LightSpeed", "value": "animate__lightSpeedInRight", "label": "LightSpeed-in-right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "animation_speed",
+            "label": "Animation speed",
+            "default": "animate__fast",
+            "options": [
+                { "value": "animate__slower", "label": "Slower" },
+                { "value": "animate__slow", "label": "Slow" },
+                { "value": "", "label": "Normal" },
+                { "value": "animate__fast", "label": "Fast" },
+                { "value": "animate__faster", "label": "Faster" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "plan",
+            "name": "Plan",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "General"
+                },
+                {
+                    "type": "select",
+                    "id": "shadow",
+                    "label": "Shadow",
+                    "options": [
+                        { "value": "shadow-none", "label": "No shadow" },
+                        { "value": "shadow-sm", "label": "Shadow sm" },
+                        { "value": "shadow", "label": "Shadow" },
+                        { "value": "shadow-lg", "label": "Shadow lg" }
+                    ],
+                    "default": "shadow-sm"
+                },
+                {
+                    "type": "select",
+                    "id": "border_color",
+                    "label": "Border Color",
+                    "options": [
+                        { "value": "", "label": "Default" },
+                        { "value": "border-primary", "label": "Primary" },
+                        { "value": "border-secondary", "label": "Secondary" },
+                        { "value": "border-dark", "label": "Dark" },
+                        { "value": "border-success", "label": "Success" },
+                        { "value": "border-warning", "label": "Warning" },
+                        { "value": "border-danger", "label": "Danger" },
+                        { "value": "border-info", "label": "Info" }
+                    ],
+                    "default": ""
+                },
+                {
+                    "type": "range",
+                    "id": "border_width",
+                    "label": "Border width",
+                    "min": 0,
+                    "max": 10,
+                    "step": 1,
+                    "default": 1
+                },
+                {
+                    "type": "header",
+                    "content": "Product"
+                },
+                {
+                    "type": "product",
+                    "id": "product",
+                    "label": "Product"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "product_current",
+                    "label": "Use current product",
+                    "default": true,
+                    "info": "This settings works only if the section is published on the product page. Leave empty the setting above."
+                },
+                {
+                    "type": "checkbox",
+                    "id": "product_img_show",
+                    "label": "Show image",
+                    "default": true
+                },
+                {
+                    "type": "image_picker",
+                    "id": "product_img_custom",
+                    "label": "Custom image",
+                    "info": "In case you prefer to show a different product image. This depends  on if you are wanting your image to be square, landscape or portrait. Best practices are around  Square 1200px by 1200px. Landscape 1200px by 650px. Portrait 900px by 1200px"
+                },
+                {
+                    "type": "range",
+                    "id": "product_quantity",
+                    "label": "Quantity",
+                    "info": "The quantity that will be added to the cart",
+                    "default": 1,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "range",
+                    "id": "product_discount",
+                    "label": "Discount",
+                    "default": 0,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "checkbox",
+                    "id": "product_price_show",
+                    "label": "Show price",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "product_save_show",
+                    "label": "Show \"You save\" text",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "product_show_review",
+                    "label": "Show review badge",
+                    "default": true
+                },
+                {
+                    "type": "header",
+                    "content": "Header"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "img_height",
+                    "label": "Image height (px)",
+                    "default": "40"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Plan title"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "text",
+                    "id": "subtitle",
+                    "label": "Subtitle",
+                    "info": "Will show above the title"
+                },
+                {
+                    "type": "range",
+                    "id": "subtitle_font_size_mobile",
+                    "label": "Subtitle font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "subtitle_font_size_desktop",
+                    "label": "Subtitle font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "header",
+                    "content": "Body"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "header",
+                    "content": "Footer"
+                },
+                {
+                    "type": "text",
+                    "id": "btn_text",
+                    "label": "Button text",
+                    "default": "Sign up",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button URL",
+                    "info": "Not needed if using a product"
+                },
+                {
+                    "type": "select",
+                    "id": "btn_color",
+                    "label": "Button color",
+                    "default": "btn-primary",
+                    "options": [
+                        { "group": "Normal", "value": "btn-link", "label": "Link" },
+                        { "group": "Normal", "value": "btn-light", "label": "Light" },
+                        { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                        { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                        { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                        { "group": "Normal", "value": "btn-success", "label": "Success" },
+                        { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                        { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                        { "group": "Normal", "value": "btn-info", "label": "Info" },
+                        { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                        { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                        { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                        { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                        { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                        { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                        { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                        { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "btn_size",
+                    "label": "Button size",
+                    "default": "btn-sm",
+                    "options": [
+                        { "value": "btn-sm", "label": "Small" },
+                        { "value": "btn-md", "label": "Normal" },
+                        { "value": "btn-lg", "label": "Large" }
+                    ]
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Pricing Plans",
+            "category": "General"
+        }
+    ]
+}
+{% endschema %}

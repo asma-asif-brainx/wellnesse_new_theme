@@ -1,0 +1,158 @@
+{
+  "sections": {
+    "template-collection": {
+      "type": "template-collection",
+      "settings": {
+        "container": "container",
+        "text_align": "text-center",
+        "limit": 42,
+        "enable_infinite_pagination": true,
+        "infinite_pagination_trigger": "scroll",
+        "show_filters": true,
+        "filters_btn_color": "btn-outline-secondary",
+        "filters_expanded": false,
+        "show_sort_by": true,
+        "show_scroll_top_btn": true,
+        "scroll_top_btn_color": "btn-secondary",
+        "show_breadcrumbs": true,
+        "hide_out_of_stock_products": true,
+        "show_collection_img": true,
+        "img_opacity": 0.3,
+        "img_blur": 0,
+        "title_font_size_mobile": 7,
+        "title_font_size_desktop": 9,
+        "show_collection_description": false,
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "collections_menu": "",
+        "collections_menu_img_orientation": "landscape",
+        "collections_menu_align": "justify-content-center",
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 3
+      }
+    },
+    "c0d30568-1387-4780-a544-0eb43df127be": {
+      "type": "richtext",
+      "settings": {
+        "product": "",
+        "product_atc": false,
+        "custom_bg_color": false,
+        "remove_top_margin": false,
+        "remove_bottom_margin": false,
+        "center_align": false,
+        "bg_color": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "banner_enable": false,
+        "img_width_desk": 100,
+        "img_width_mobile": 100,
+        "overflow_y": false,
+        "overflow_size": 100,
+        "overflow_size_mob": 100
+      }
+    },
+    "797300e3-5121-4df5-82e8-10011c848a2c": {
+      "type": "collection-banner",
+      "blocks": {
+        "71592a99-28bf-41b1-a85d-2e53c7f393a1": {
+          "type": "mobile",
+          "settings": {
+            "inject": 5,
+            "bg_color": "bg-dark text-white",
+            "url": "shopify:\/\/collections\/all",
+            "img_opacity": 0.7,
+            "video_mobile": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "video_controls": true,
+            "title": "Shop New",
+            "title_font_size": 5,
+            "description": "<p>Add on optional short description<\/p>",
+            "btn_text": "Shop collection"
+          }
+        },
+        "8c87d306-18f0-4c5a-bd96-208381d4f0a5": {
+          "type": "desktop",
+          "settings": {
+            "inject": 8,
+            "bg_color": "bg-dark text-white",
+            "url": "shopify:\/\/collections\/all",
+            "img_opacity": 0.7,
+            "video_desktop": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "video_muted": true,
+            "video_controls": false,
+            "title": "Shop New",
+            "title_font_size": 5,
+            "description": "<p>Add on optional short description<\/p>",
+            "btn_text": "Shop collection"
+          }
+        }
+      },
+      "block_order": [
+        "71592a99-28bf-41b1-a85d-2e53c7f393a1",
+        "8c87d306-18f0-4c5a-bd96-208381d4f0a5"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "faq_widget_dPpdG7": {
+      "type": "faq-widget",
+      "blocks": {
+        "text_bjqaJ4": {
+          "type": "text",
+          "settings": {
+            "faq_heading": "faq 1",
+            "faq_content": "<p>bjk gui guyguy fuyfuygj<\/p>"
+          }
+        },
+        "text_kaFLq4": {
+          "type": "text",
+          "settings": {
+            "faq_heading": "test 2",
+            "faq_content": "<p>ghjug ug guii <\/p>"
+          }
+        },
+        "text_H9YeLy": {
+          "type": "text",
+          "settings": {
+            "faq_heading": "test 3",
+            "faq_content": "<p>gig uiui<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_bjqaJ4",
+        "text_kaFLq4",
+        "text_H9YeLy"
+      ],
+      "settings": {
+        "vertical_offset": 270,
+        "accordion_style": "accordion-fancy",
+        "open_first_item": true,
+        "popup_btn_text": "faq",
+        "faq_popup_title": "testing",
+        "faq_title_font_size_mobile": 4,
+        "faq_title_font_size_desktop": 4,
+        "detail": "<p>reviewhjkhjkhjjk<\/p>",
+        "faq_description_font_size_mobile": 2,
+        "faq_description_font_size_desktop": 2,
+        "show_stars": true,
+        "view_more_text": "",
+        "view_more_link": ""
+      }
+    }
+  },
+  "order": [
+    "template-collection",
+    "c0d30568-1387-4780-a544-0eb43df127be",
+    "797300e3-5121-4df5-82e8-10011c848a2c",
+    "faq_widget_dPpdG7"
+  ]
+}

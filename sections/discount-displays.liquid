@@ -1,0 +1,256 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+   if customer
+    assign show_section = section.settings.access_members
+else
+    assign show_section = section.settings.access_guests
+endif
+
+%}
+
+<style>
+    .discount-displays-tiers {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .discount-displays-tiers li {
+        flex: 1;
+        text-align: center;
+        margin: .125rem;
+    }
+    
+    .discount-displays-tiers li span, .discount-displays-tiers li b {
+        display: block;
+        padding: .25rem;
+    }
+    
+    .discount-displays-tiers li b {
+        font-size: 3rem;
+        line-height: 0.9;
+    }
+    @media (max-width: 575px) {
+        .discount-displays-tiers {
+            flex-wrap: wrap;
+            max-width: 340px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .discount-displays-tiers li {
+            width: 48%;
+            margin: .5rem;
+        }
+    }
+</style>
+
+{% if show_section %}
+<section id="discount-displays-{{ section.id }}" class="discount-displays text-center">
+    <div style="background-color: {{ section.settings.bg_color }};
+                padding-top: {{ section.settings.pt }}px; 
+                padding-bottom: {{ section.settings.pb }}px; 
+                margin-top: {{ section.settings.mt }}px; 
+                margin-bottom: {{ section.settings.mb }}px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <h2 class="title mb-5 mb-lg-0 {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                        {{ section.settings.title | replace: '[', '<span>' | replace: ']', '</span>' }}
+                    </h2>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="discount-displays-tiers mx-n2 mb-6 mb-lg-0">
+                        {% for tier in section.blocks %}
+                            <li>
+                                <span style="color: {{ tier.settings.spend_text_color }};">{{ tier.settings.spend_text }}</span>
+                                <b style="color: {{ tier.settings.discount_text_color }};">{{ tier.settings.discount_text }}</b>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <a class="btn w-100 fs-5 text-uppercase mb-n4 mb-lg-0 {{ section.settings.btn_color }}" href="{{ section.settings.btn_url }}">
+                        {{ section.settings.btn_text }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  {% endif %}
+
+
+{% schema %}
+{
+    "name": "Discount Displays",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+    "type": "color",
+    "id": "bg_color",
+    "label": "Background color",
+    "default": "#ffffff"
+},
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Special Discounts!"
+        },
+          {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text",
+            "default": "Shop Now"
+        },
+        {
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button URL"
+                },
+        {
+            "type": "select",
+            "id": "btn_color",
+            "label": "Button color",
+            "default": "btn-primary",
+            "options": [
+                { "value": "btn-primary", "label": "Primary" },
+                { "value": "btn-secondary", "label": "Secondary" },
+                { "value": "btn-success", "label": "Success" },
+                { "value": "btn-danger", "label": "Danger" },
+                { "value": "btn-warning", "label": "Warning" },
+                { "value": "btn-info", "label": "Info" },
+                { "value": "btn-light", "label": "Light" },
+                { "value": "btn-dark", "label": "Dark" }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "default": 0
+        },
+       {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        }
+    ],
+    "blocks": [
+       {
+        "type": "discount-tier",
+        "name": "Discount Tier",
+        "limit": 4,
+        "settings": [
+            {
+                "type": "text",
+                "id": "spend_text",
+                "label": "Spend Text",
+                "default": "Spend $0 - $75"
+            },
+            {
+                "type": "color",
+                "id": "spend_text_color",
+                "label": "Spend Text Color",
+                "default": "#000000"
+            },
+            {
+                "type": "text",
+                "id": "discount_text",
+                "label": "Discount Text",
+                "default": "15% OFF"
+            },
+            {
+                "type": "color",
+                "id": "discount_text_color",
+                "label": "Discount Text Color",
+                "default": "#000000"
+            }
+        ]
+    }
+],
+    "presets": [
+        {
+            "name": "discount displays",
+            "category": "Custom"
+        }
+    ]
+}
+{% endschema %}

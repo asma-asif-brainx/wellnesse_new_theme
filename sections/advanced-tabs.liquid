@@ -1,0 +1,532 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+%}
+
+<style>
+/*
+    Advanced Tabs
+*/
+.advanced-tabs {
+}
+
+.advanced-tabs .nav .nav-link {
+    position: relative;
+    transition: all .2s ease-out;
+    opacity: .5;
+}
+
+.advanced-tabs .nav .nav-link:hover,
+.advanced-tabs .nav .nav-link:focus {
+    opacity: 1;
+}
+
+.advanced-tabs .nav .nav-link.active {
+    opacity: 1;
+}
+
+.advanced-tabs .nav .nav-link.active img {
+    box-shadow: 0 0 1rem rgb(255 255 255 / 25%);
+}
+
+.advanced-tabs .nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-position: center;
+    background-size: cover;
+}
+
+.advanced-tabs h2.title {
+    font-size: 3.5rem;
+}
+
+.advanced-tabs h2.title small {
+    font-size: .62em;
+    display: block;
+}
+
+@media (min-width: 576px) {
+    .advanced-tabs h2.title {
+        font-size: 5rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .advanced-tabs h2.title {
+        font-size: 6rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .advanced-tabs .img-wrapper {
+        margin-bottom: 3rem;
+    }
+}
+</style>
+
+<section 
+  id="advanced-tabs-{{ section.id }}"
+  class="advanced-tabs enter-view overflow-hidden {{ section.settings.bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }}"
+>
+  <div class="container">
+    <div class="row {{ section.settings.media_align }}">
+      <div class="col-lg-7">
+        <div class="mb-11">
+          <div class="text-center text-lg-start">
+            {% unless section.settings.title == blank %}
+             <h2 class="title lh-1 mb-4 {{ section.settings.title_size }} {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+  {{ section.settings.title }}
+</h2>
+            {% endunless %}
+            {% unless section.settings.description == blank %}
+              <div class="description rte mb-8 {{ section.settings.description_size }} {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                {{ section.settings.description }}
+              </div>
+            {% endunless %}
+          </div>
+          <div class="d-lg-none">
+            <div
+              class="img-wrapper animate__animated animate__fast opacity-0 mb-7"
+              data-animate-class="animate__fadeIn"
+              style="animation-delay: 200ms;"
+            >
+              <img
+                class="img-fluid w-100 {{ section.settings.img_border }}"
+                src="{{ section.settings.img | img_url: '800x', crop: 'center' }}"
+                alt="{{ section.settings.img.alt | escape }}"
+                width="800"
+                height="{{ 800 | divided_by: section.settings.img.aspect_ratio | round }}"
+                loading="lazy"
+              >
+            </div>
+          </div>
+          <ul
+            class="advanced-tabs-images nav list-unstyled row row-cols-3 row-cols-lg-3 justify-content-center"
+            role="tablist"
+          >
+            {% for block in section.blocks %}
+              <li class="" role="presentation">
+                <a
+                  class="nav-link px-0 px-lg-5 {% if forloop.first %}active{% endif %}"
+                  id="tab-{{ block.id }}"
+                  data-bs-toggle="tab"
+                  href="#tab-content-{{ block.id }}"
+                  role="tab"
+                  aria-controls="tab-content-{{ block.id }}"
+                  aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                  aria-label="{{ block.settings.title }}"
+                >
+                  <img
+                    class="img-fluid rounded-circle border {{ block.settings.img_border }}"
+                    src="{{ block.settings.img | img_url: '360x360', crop: 'center' }}"
+                    alt="{{ block.settings.img.alt | escape }}"
+                    width="360"
+                    height="360"
+                    loading="lazy"
+                  >
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="d-none d-lg-block">
+          <div
+            class="img-wrapper animate__animated animate__fast opacity-0"
+            data-animate-class="animate__fadeIn"
+            style="animation-delay: 200ms;"
+          >
+            <img
+              class="img-fluid w-100 {{ section.settings.img_border }}"
+              src="{{ section.settings.img | img_url: '800x', crop: 'center' }}"
+              alt="{{ section.settings.img.alt | escape }}"
+              width="800"
+              height="{{ 800 | divided_by: section.settings.img.aspect_ratio | round }}"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="tab-content">
+        {% for block in section.blocks %}
+          <div
+            id="tab-content-{{ block.id }}"
+            class="tab-pane fade {% if forloop.first %}show active{% endif %}"
+            role="tabpanel"
+            aria-labelledby="tab-{{ block.id }}"
+          >
+            <div class="card">
+              <h4 class="card-header bg-white text-primary {{ block.settings.collapse_1_title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.collapse_1_title_font_size_desktop | prepend: 'fs-lg-' }}">
+                {{ block.settings.title }}
+              </h4>
+              <div class="card-body">
+                <div class="rte mb-6 {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                  {{ block.settings.description }}
+                </div>
+                <div class="row mx-n3">
+                  <div class="col-lg-6 px-3">
+                    <a
+                      class="btn btn-secondary bg-secondary w-100 text-start px-6 py-3 my-2 accordion-button collapsed rounded"
+                      data-bs-toggle="collapse"
+                      href="#advanced-tabs-collapse-{{ block.id }}-1"
+                      role="button"
+                      aria-expanded="false"
+                      aria-controls="advanced-tabs-collapse-{{ block.id }}-1"
+                    >
+                      {{ block.settings.collapse_1_title }}
+                    </a>
+                    <div id="advanced-tabs-collapse-{{ block.id }}-1" class="collapse">
+                      <div class="pt-4 {{ block.settings.collapse_1_desc_font_size_mobile | prepend: 'fs-' }} {{ block.settings.collapse_1_desc_font_size_desktop | prepend: 'fs-lg-' }}">
+                        {{ block.settings.collapse_1_desc }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 px-3">
+                    <a
+                      class="btn btn-secondary bg-secondary w-100 text-start px-6 py-3 my-2 accordion-button collapsed rounded"
+                      data-bs-toggle="collapse"
+                      href="#advanced-tabs-collapse-{{ block.id }}-2"
+                      role="button"
+                      aria-expanded="false"
+                      aria-controls="advanced-tabs-collapse-{{ block.id }}-2"
+                    >
+                      {{ block.settings.collapse_2_title }}
+                    </a>
+                    <div id="advanced-tabs-collapse-{{ block.id }}-2" class="collapse">
+                      <div class="pt-4 {{ block.settings.collapse_2_desc_font_size_mobile | prepend: 'fs-' }} {{ block.settings.collapse_2_desc_font_size_desktop | prepend: 'fs-lg-' }}">
+                        {{ block.settings.collapse_2_desc }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Advanced Tabs",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-white text-body",
+            "options": [
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" }
+            ]
+        },
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+        },
+        {
+            "type": "select",
+            "id": "img_border",
+            "label": "Image border",
+            "default": "",
+            "options": [
+                { "value": "", "label": "Square" },
+                { "value": "rounded", "label": "Rounded" },
+                { "value": "img-thumbnail", "label": "Thumbnail" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        
+        {
+            "type": "select",
+            "id": "media_align",
+            "label": "Media alignment",
+            "info": "Note: On mobile Media will always be on top and text on the bottom",
+            "default": "flex-md-row",
+            "options": [
+                { "value": "flex-md-row", "label": "Left" },
+                { "value": "flex-md-row-reverse", "label": "Right" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Visibility",
+            "info": "Show/hide this section based on the screen resolution"
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_xs",
+            "label": "Show on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_md",
+            "label": "Show on tablet",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_lg",
+            "label": "Show on desktop",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Spacing",
+            "info": "Based on Bootstrap spacing utility classes [Learn more](https://getbootstrap.com/docs/5.0/utilities/spacing/)"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "tab",
+            "name": "Tab",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Image"
+                },
+                {
+                    "type": "select",
+                    "id": "img_border",
+                    "label": "Image border",
+                    "default": "",
+                    "options": [
+                        { "value": "", "label": "Square" },
+                        { "value": "rounded", "label": "Rounded" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 6
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 6
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "text",
+                    "id": "collapse_1_title",
+                    "label": "Collapse 1 - title",
+                    "default": "Description"
+                },
+                {
+                    "type": "range",
+                    "id": "collapse_1_title_font_size_mobile",
+                    "label": "Collapse 1 - title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 6
+                },
+                {
+                    "type": "range",
+                    "id": "collapse_1_title_font_size_desktop",
+                    "label": "Collapse 1 - title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 8
+                },
+                {
+                    "type": "richtext",
+                    "id": "collapse_1_desc",
+                    "label": "Collapse 1 - desc"
+                },
+                {
+                    "type": "range",
+                    "id": "collapse_1_desc_font_size_mobile",
+                    "label": "Collapse 1 - desc font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "collapse_1_desc_font_size_desktop",
+                    "label": "Collapse 1 - desc font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "text",
+                    "id": "collapse_2_title",
+                    "label": "Collapse 2 - title",
+                    "default": "Benefits"
+                },
+                {
+                    "type": "range",
+                    "id": "collapse_2_title_font_size_mobile",
+                    "label": "Collapse 2 - title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 6
+                },
+                {
+                    "type": "range",
+                    "id": "collapse_2_title_font_size_desktop",
+                    "label": "Collapse 2 - title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 8
+                },
+                {
+                    "type": "richtext",
+                    "id": "collapse_2_desc",
+                    "label": "Collapse 2 - desc"
+                },
+                {
+                    "type": "range",
+                    "id": "collapse_2_desc_font_size_mobile",
+                    "label": "Collapse 2 - desc font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "collapse_2_desc_font_size_desktop",
+                    "label": "Collapse 2 - desc font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Advanced Tabs",
+            "category": "General",
+            "blocks": [
+                {
+                    "type": "tab"
+                },
+                {
+                    "type": "tab"
+                },
+                {
+                    "type": "tab"
+                }
+            ]
+        }
+    ],
+    "max_blocks": 3
+}
+{% endschema %}

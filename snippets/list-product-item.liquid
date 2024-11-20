@@ -1,0 +1,178 @@
+{% unless product.title contains 'Free Wellnesse Biodegradable Toothbrush' or product.handle contains 'insurance' %}
+    {% assign subscription_product = product.metafields.subscriptions %}
+    {% assign subscription_id = subscription_product.subscription_id %}
+    {% assign variant_map = subscription_product.original_to_hidden_variant_map | default: false %}
+    {% if variant_map %}
+      {% capture variant_to_duplicate %}{% for variant in variant_map %}{% if variant[1]['discount_variant_id'] %}{{ variant[1]['discount_variant_id'] }}{% endif %}{% endfor %}{% endcapture %}
+    {% endif %}
+  
+    {% if product.published_at != blank %}
+      <div class="bundler--product">
+        {% if product.metafields.custom.top_badge != blank %}
+          <div class="top_badge">
+            {{ product.metafields.custom.top_badge }}
+          </div>
+        {% endif %}
+        <div class="bundler--card_content">
+        {% if product.metafields.custom.supply_duration != blank %}
+          <div class="supply_duration">
+            {{ product.metafields.custom.supply_duration }}
+          </div>
+        {% endif %}
+        <div
+          class="bundler--product-card js-bundler-card"
+          {% if product.metafields.my_fields.badge != blank %}
+            data-label="{{product.metafields.my_fields.badge}}"
+          {% endif %}
+          id="bundler--product-card--{{ bp_product.id }}"
+          data-price="{{ bp_product.price }}"
+          data-title="{% if block.settings.title != blank %}{{ block.settings.title }}{% else %}{{ bp_product.title }}{% endif %}"
+          data-id="{{ bp_product.selected_or_first_available_variant.id }}"
+          data-image="{{ bp_image.src | img_url: '600x' }}"
+        >
+          <div class="bundler--product-card-image-wrap">
+            {% if template.suffix == 'black-friday' or template.suffix == 'cyber-monday' -%}
+              <img class="bow_img" loading="lazy" src="{{ 'bow.png' | asset_img_url: '200x' }}">
+            {%- endif %}
+            <a href="{% if product.type == 'Custom Bundle' %}/apps/bundles/bundle/109078{% else %}{{ product.url }}{% endif %}" aria-label="Product Details">
+  {% if custom_img != blank %}
+                <img
+                  src="{{ custom_img | img_url: '900x' }}"
+                  alt="{{ product.title }}"
+                  loading="lazy"
+                  class="bundler--product-card-image"
+                  width="900"
+                  height="1060"
+                >
+              {% else %}
+                <img
+                  src="{{ product.featured_image | img_url: '900x' }}"
+                  alt="{{ product.title }}"
+                  loading="lazy"
+                  class="bundler--product-card-image"
+                  width="900"
+                  height="1060"
+                >
+              {% endif %}
+            </a>
+          </div>
+          <div class="bundler--product-card-bottom ">
+            <div class="bundler--product-card-info">
+              <h4>
+                <a href="{% if product.type == 'Custom Bundle' %}/apps/bundles/bundle/109078{% else %}{{ product.url }}{% endif %}">
+                  {{- product.title | remove: "Wild Pastures -" -}}
+                </a>
+              </h4>
+              {% unless product.type == 'Custom Bundle' %}
+                {% if product.metafields.custom.price_per_item != blank %}
+                  <div class="price_per_item_container">
+                    <p class="price_per_item">
+                      {{ product.metafields.custom.price_per_item }}
+                      <span class="per_item_text">/tube</span>
+                    </p>
+                    <p class="total_price">(Total: {{ product.price | money_without_trailing_zeros }})</p>
+                  </div>
+                {% else %}
+                  <p>
+                   {% if alternate_price != blank %}<span class="regular_price">{{ alternate_price }}</span>
+                   {% else %}
+                      {% if product.compare_at_price > product.price %}
+                        <span class="sale_price">{{ product.compare_at_price | money }}</span>
+                      {% endif %}
+                     
+                      <span class="regular_price"> {{ product.price | money }}</span>
+                   {% endif %}
+                  </p>
+                {% endif %}
+              {% endunless %}
+            </div>
+            <div>
+              {% if product.compare_at_price_max > product.price
+                and show_saving
+                and template.suffix != 'dry-shampo-landing'
+                and template.suffix != 'dry-shampo-landing-offer'
+                and template.suffix != 'hand-sanitizer-offer'
+              %}
+                <div class="saving">
+                  <p>
+                    <span> Your Savings: </span>
+                    <span>
+                      {% if discount != blank %}
+                        {{ discount }}
+                      {% else %}
+                        {{
+                          product.compare_at_price_min
+                          | minus: product.price
+                          | times: 100.0
+                          | divided_by: product.compare_at_price_min
+                          | money_without_currency
+                          | times: 100
+                          | replace: '.0', ''
+                        -}}
+                        %
+                      {% endif %}
+                    </span>
+                  </p>
+                </div>
+              {% endif %}
+  
+              {% unless product.tags contains 'hide-reviews' or show_review == false %}
+                <div class="bundler--product-card-review">
+                  {% render 'okendo-reviews-product-rating-summary', product: product %}
+                </div>
+              {% endunless %}
+              {% if atc %}
+                <form method="post" action="/cart/add" class="addToCart_form">
+                  <input type="hidden" name="price" value="{{ product.first_available_variant.price }}">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <input min="1" type="number" id="quantity" name="quantity" value="1">
+                  <button
+                    {% unless product.available %}
+                      disabled
+                    {% endunless %}
+                    type="submit"
+                    class="btn-atc btn btn-md w-100 btn-primary"
+                    href="{{ product.url }}"
+                  >
+                    {% if product.available %}
+                      {% if atc_text %}
+                        {{ atc_text }}
+                      {% else %}
+                        Shop Now
+                      {% endif %}
+                    {% else %}
+                      SOLD OUT
+                    {% endif %}
+                  </button>
+                </form>
+              {% else %}
+                <div class="">
+                  <a
+                    class="button"
+                    href="{% if product.type == 'Custom Bundle' %}/apps/bundles/bundle/109078{% else %}{{ product.url }}{% endif %}"
+                  >
+                    {%- if atc_text %} {{ atc_text }} {% else %} Shop Now {% endif -%}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% if product.metafields.custom.guarantee_text != blank %}
+          <div class="guarantee_text">
+            {{ product.metafields.custom.guarantee_text }}
+          </div>
+        {% endif %}
+        {% assign payment_icon_img = product.metafields.custom.payment_icons %}
+        {% if payment_icon_img != blank %}
+          <div class="payment__icons">
+            <img src="{{ payment_icon_img.value | image_url }}" loading="lazy">
+            
+          </div>
+        {% endif %}
+  
+      </div>
+      </div>
+    {% endif %}
+  {% endunless %}
+  

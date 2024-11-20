@@ -1,0 +1,104 @@
+{% style %}
+.custom-ingred{
+    padding: 0 8rem;
+} 
+@media screen and (max-width:980px){
+    .custom-ingred{
+        padding: 0 1.5rem;
+    } 
+}
+
+{% endstyle %}
+
+{% assign bg_color = section.settings.bg_color %}
+<div class="page-width custom-ingred">
+    <div class="affiliate_ing_head">
+        <h1>{{ section.settings.heading }}</h1>
+    </div>
+    <div class="desktop_only">
+        <img src="{{ section.settings.d_img | image_url }}" width="{{ section.settings.d_img.width }}" height= "{{ section.settings.d_img.height }}" alt="{{ section.settings.d_img | escape }}" loading="lazy">
+    </div>
+    <div class="mobile_only">
+        <img src="{{ section.settings.m_img | image_url }}" width="{{ section.settings.m_img.width }}" height= "{{ section.settings.m_img.height }}" alt="{{ section.settings.m_img | escape }}" loading="lazy">
+        <div class="affiliate_m_ingredients rte">
+            {{ section.settings.text }}
+        </div>
+    </div>
+</div>
+<style>
+.affiliate_ingredients{
+    background: #F2F2F2;
+}
+
+.affiliate_ing_head h1 {
+    font-size: 32px;
+    padding: 80px 0;
+    margin: 0;
+    text-align: center;
+}
+
+.affiliates_ingredients img {
+    max-width: 100%;
+}
+
+.affiliate_ingredients img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+@media only screen and (max-width:767px){
+    .affiliate_ingredients .page-width {
+        padding: 0;
+    }
+    .affiliate_ing_head h1{
+        font-size: 24px;
+        padding:40px 0;
+    }
+    .affiliate_m_ingredients.rte strong {
+        color: #e15e54;
+    }
+    .affiliate_m_ingredients .affiliate_ing_head{
+        padding: 0 1.5rem;
+    }
+    .affiliate_m_ingredients.rte {
+        margin-top: 20px;
+        padding: 0 1.5rem;
+    }
+}
+</style>
+  {% schema %}
+  {
+    "name": "Affiliat- Ingredients",
+    "tag": "section",
+    "class":"affiliate_ingredients",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "heading",
+            "default": "Heading",
+            "label": "Heading"
+        },
+        {
+            "type": "image_picker",
+            "id": "d_img",
+            "label": "Desktop Ingredients Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "m_img",
+            "label": "Mobile Ingredietns Image"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Mobile Ingredients Text"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Affiliat- Ingredients"
+      }
+    ]
+  }
+  {% endschema %}
+  

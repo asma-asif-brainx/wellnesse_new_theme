@@ -1,0 +1,380 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+
+        if customer
+        assign show_section = section.settings.access_members
+    else
+        assign show_section = section.settings.access_guests
+    endif
+
+       assign visibility = ''
+
+    if section.settings.visibility_xs == false
+        assign visibility = 'd-none'
+    endif
+
+    if section.settings.visibility_md
+        assign visibility = ' d-md-block' | prepend: visibility
+    else 
+        assign visibility = ' d-md-none' | prepend: visibility
+    endif
+
+    if section.settings.visibility_lg
+        assign visibility = ' d-lg-block' | prepend: visibility
+    else 
+        assign visibility = ' d-lg-none' | prepend: visibility
+    endif
+
+
+    
+%}
+
+
+
+{% if show_section %}
+<section
+  id="designed-by-{{ section.id }}"
+  class="designed-by enter-view  {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }} "
+  style="background-color: {{ section.settings.bg_color }};"
+>
+  <div class="container">
+    <div class="mx-auto" style="max-width: {{ section.settings.max_width }}px;">
+      <div class="row align-items-lg-center {{ section.settings.img_align_mobile }} {{ section.settings.img_align_desktop }}">
+        <div class="col-lg-6 {% if section.settings.img_align_mobile == 'flex-column' %}mb-8 mb-lg-0 {% else %}mt-8 mt-lg-0{% endif %}">
+          <div
+            class="animate__animated animate__faster opacity-0"
+            data-animate-class="animate__fadeIn"
+            style="animation-delay: 200ms;"
+          >
+            <img
+              class="img-fluid w-100 rounded "
+              src="{{ section.settings.image.src | image_url: width: 900 }}"
+              alt="{{ section.settings.image.alt | escape }}"
+              width="{{ section.settings.img_width }}"
+              height="{{ section.settings.img_height }}"
+              loading="lazy"
+            >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="text-center px-xl-12">
+            {% unless section.settings.title == blank %}
+              <h2 class="title mb-4 {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                {{ section.settings.title }}
+              </h2>
+            {% endunless %}
+            {% unless section.settings.description == blank %}
+              <div class="description rte mb-5 mb-lg-8 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                {{ section.settings.description }}
+              </div>
+            {% endunless %}
+            {% unless section.settings.btn_text == blank %}
+              <a
+                href="{{ section.settings.btn_url }}"
+                class="btn {{ section.settings.btn_color }} {{ section.settings.btn_size }}"
+              >
+                {{ section.settings.btn_text }}
+              </a>
+            {% endunless %}
+            {% unless section.settings.collapse_btn_text == blank %}
+              <a
+                href="#designed-by-{{ section.id }}-collapse"
+                class="btn btn-primary w-100 rounded text-start py-3 mb-5"
+                data-bs-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="designed-by-{{ section.id }}-collapse"
+              >
+                {{ section.settings.collapse_btn_text }}
+              </a>
+              <div id="designed-by-{{ section.id }}-collapse" class="collapse">
+                <h2 class=" description rte mb-5 mb-lg-8  {{ section.settings.collapse_text_font_size_mobile | prepend: 'fs-' }} {{ section.settings.collapse_text_font_size_desktop | prepend: 'fs-lg-' }}">
+                  {{ section.settings.collapse_text }}
+                </h2>
+              </div>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+{% schema %}
+{
+    "name": "image-with-dropdown",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max-width (px)"
+        },
+        {
+            "type": "header",
+            "content": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+         {
+            "type": "header",
+            "content": "Visibility",
+            "info": "Show/hide this section based on the screen resolution"
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_xs",
+            "label": "Show on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_md",
+            "label": "Show on tablet",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_lg",
+            "label": "Show on desktop",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "img_align_mobile",
+            "label": "Image alignment (mobile)",
+            "default": "flex-column",
+            "options": [
+                { "value": "flex-column", "label": "Top" },
+                { "value": "flex-column-reverse", "label": "Bottom" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "img_align_desktop",
+            "label": "Image alignment (desktop)",
+            "default": "flex-lg-row",
+            "options": [
+                { "value": "flex-lg-row", "label": "Left" },
+                { "value": "flex-lg-row-reverse", "label": "Right" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "html",
+            "id": "title",
+            "label": "Title",
+            "default": "Image with text"
+        },
+         {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+
+ {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+
+        {
+            "type": "header",
+            "content": "Button"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text",
+            "info": "Leave empty to disable"
+        },
+        {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+        },
+        {
+            "type": "select",
+            "id": "btn_color",
+            "label": "Button color",
+            "default": "btn-outline-primary",
+            "options": [
+                { "group": "Normal", "value": "btn-link", "label": "Link" },
+                { "group": "Normal", "value": "btn-light", "label": "Light" },
+                { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                { "group": "Normal", "value": "btn-success", "label": "Success" },
+                { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                { "group": "Normal", "value": "btn-info", "label": "Info" },
+                { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "btn_size",
+            "label": "Button size",
+            "default": "",
+            "options": [
+                { "value": "btn-sm", "label": "Small" },
+                { "value": "", "label": "Normal" },
+                { "value": "btn-lg", "label": "Large" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Collapse"
+        },
+        {
+            "type": "text",
+            "id": "collapse_btn_text",
+            "label": "Collapse button text",
+            "default": "Read More here"
+        },
+        {
+            "type": "richtext",
+            "id": "collapse_text",
+            "label": "Collapse text",
+          "info": "Add text here to enable the drop down feature"
+        },
+      {
+            "type": "range",
+            "id": "collapse_text_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "collapse_text_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+      {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "image-with-dropdown",
+            "category": "Image"
+        }
+    ]
+}
+{% endschema %}

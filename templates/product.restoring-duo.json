@@ -1,0 +1,1178 @@
+{
+  "sections": {
+    "template-product": {
+      "type": "template-product",
+      "blocks": {
+        "15f00db4-48cd-4392-91c0-aaf0c622dd42": {
+          "type": "title",
+          "settings": {
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 7,
+            "mt": 0,
+            "mb": 2
+          }
+        },
+        "12d9314a-c9b3-4c19-bdc1-96fbed9e107a": {
+          "type": "price",
+          "settings": {
+            "font_size_mobile": 4,
+            "font_size_desktop": 4,
+            "mt": 0,
+            "mb": 5
+          }
+        },
+        "product_switcher_j7gKUt": {
+          "type": "product_switcher",
+          "disabled": true,
+          "settings": {
+            "metafield": "ecomify.product_switcher",
+            "title": "Select Product",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "title_truncate": "text-truncate",
+            "selector_style": "buttons",
+            "mt": 5,
+            "mb": 5
+          }
+        },
+        "skio_subscriptions_yc_s20_app_block_F3WPTC": {
+          "type": "shopify:\/\/apps\/skio-subscriptions-yc-s20\/blocks\/app-block\/de50f7a4-0bb0-4d4c-84e2-c03dce83436d",
+          "settings": {
+            "form_id": "product-form-{{section.id}}",
+            "start_onetime": "false",
+            "onetime_first": "false",
+            "default_subscription": "",
+            "group_border_radius": 5,
+            "group_border_shadow": true,
+            "group_border_selected_color": "#78dad2",
+            "onetime_title": "One Time",
+            "subscription_title": "Subscribe",
+            "prepaid_title": "",
+            "discount_format": "percent",
+            "discount_style": "bubble",
+            "discount_prefix": "Save",
+            "discount_suffix": "",
+            "discount_color": "#174a50"
+          }
+        },
+        "ee812500-3080-4131-9bc9-08fe223ec0c0": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_qty_field": false,
+            "qty_field_position": "inline",
+            "show_buy_btn": false,
+            "show_dynamic_buttons": false,
+            "atc_btn_show_price": false,
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "1012e638-6dbc-4f7d-8d1f-74689a11b8f3": {
+          "type": "qty_breaks",
+          "disabled": true,
+          "settings": {
+            "title": "Buy more & save up to 40%",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "metafield": "ecomify.qty_breaks",
+            "save_badge_color": "bg-success text-white",
+            "preferred_option": "2",
+            "preferred_option_text": "Most Popular",
+            "price_logic": "item",
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "28c4bace-a705-4813-8902-7359da7b2c43": {
+          "type": "accordion",
+          "settings": {
+            "accordion_style": "accordion-flush",
+            "open_first_item": false,
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 2,
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "title_1": "DESCRIPTION",
+            "description_1": "<p>Our Restoring Hair Care Set was created for you and by you; your feedback, your needs, and your unique hair type inspired these new and improved formulas. At Wellnesse, we know that every body, skin type, and hair type is different. So, we went back to the drawing board to bring you our best hair care formula yet, designed to meet each of your unique hair needs. We can't wait for you to try it!<\/p>",
+            "html_content_1": "",
+            "description_1_is_desc": false,
+            "icon_1": "",
+            "title_2": "INGREDIENTS",
+            "description_2": "<p>Water, Cocamidopropyl Hydroxysultaine, Sorbitan Oleate Decylglucoside Crosspolymer, Sodium C14-16 Olefin Sulfonate, Glycerin, Chamomilla Recutita (Matricaria) Flower Extract, Sodium Chloride, Panthenol, Verbena Officinalis Extract, Lens Esculenta (Lentil) Seed Extract, Hydrolyzed Cicer Seed Extract, Chenopodium Quinoa Seed Extract, Hydrolyzed Quinoa, Citrus Aurantifolia (Lime) Fruit Extract, Butyrospermum Parkii (Shea) Oil, Lavandula Angustifolia (Lavender) Flower Water, Cocos Nucifera (Coconut) Oil, Aloe Barbadensis Leaf Extract, Lactobacillus\/Tomato Fruit Ferment Extract, Yeast Amino Acids, Oryza Sativa (Rice) Extract, Urtica Dioica (Nettle) Leaf Extract, Acyl Coenzyme A Desaturase, Sodium Levulinate, Hydroxyacetophenone, Sodium Anisate, Citric Acid, Sodium Citrate, Linalool, Limonene, Geraniol<\/p>",
+            "html_content_2": "",
+            "icon_2": "",
+            "title_3": "COMPOSTABLE BIOPLASTIC PACKAGING",
+            "description_3": "<p>We care about our planet. That’s why our hair care tubes are made of 100% sugarcane bioplastic. To dispose of the tubes, we recommend compost pickup (you can also compost at home but it will take longer to break down). Our caps are also recyclable.<\/p>",
+            "html_content_3": "",
+            "icon_3": "",
+            "title_4": "",
+            "description_4": "",
+            "html_content_4": "",
+            "icon_4": "",
+            "title_5": "",
+            "description_5": "",
+            "html_content_5": "",
+            "icon_5": "",
+            "title_6": "",
+            "description_6": "",
+            "html_content_6": "",
+            "icon_6": "",
+            "mt": 3,
+            "mb": 7
+          }
+        },
+        "6013329c-a6f0-468d-b01b-b2faf3421650": {
+          "type": "trust_badges",
+          "disabled": true,
+          "settings": {
+            "label": "Trust badges list",
+            "max_width": "560",
+            "col_size": "col-4",
+            "img_size": "35",
+            "text_1": "No Compromises <br> In Quality",
+            "text_2": "100% Satisfaction <br> Guarantee",
+            "text_3": "Free Shipping <br> Over $100",
+            "text_4": "",
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "16019ab6-f8d7-43bf-b3d8-b80dd76021c3": {
+          "type": "delivery_info",
+          "settings": {
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"24\" height=\"24\" fill=\"currentColor\" class=\"bi bi-truck\" viewbox=\"0 0 16 16\"><path d=\"M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z\"><\/path><\/svg>",
+            "title": "Delivery Info",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p><strong>Domestic<\/strong>: 2-3 days; <strong>International<\/strong>: 7-10 days<\/p>",
+            "delivery_start_days": 3,
+            "delivery_end_days": 10,
+            "delivery_message": "Order within the next 23 hours 11 minutes to receive it. Estimated delivery is between",
+            "mt": 3,
+            "mb": 6
+          }
+        },
+        "fbdb557a-90da-432b-984d-26c8ef0ef590": {
+          "type": "upsell_modal",
+          "disabled": true,
+          "settings": {
+            "modal_title": "Heads up, before it's too late...",
+            "metafield": "ecomify.upsell",
+            "limit": 2,
+            "modal_footer_btn": "Continue with your purchase",
+            "countdown_timer": "2024-08-25 11:10am",
+            "countdown_timer_pretext": "Offer expires in:"
+          }
+        },
+        "f706cec8-65d0-451f-a7e2-aab03ef5b5e0": {
+          "type": "bought_together",
+          "disabled": true,
+          "settings": {
+            "title": "Also Consider",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "metafield": "ecomify.upsell",
+            "limit": 4,
+            "img_orientation": "square",
+            "img_thumbnail": "img-thumbnail",
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "marquee_iTtLnL": {
+          "type": "marquee",
+          "settings": {
+            "bg_color": "bg-dark text-white",
+            "link": "",
+            "bg_gradient": false,
+            "text": "Plant-based keratin, Gentle and light scent, Strengthens hair shaft, Supports scalp health, Paraben-free, Sustainably sourced, Made in the USA, Leaping Bunny & B-corp Certified",
+            "font_size_mobile": 3,
+            "font_size_desktop": 3,
+            "text_transform": "text-capitalize",
+            "list_label": "Promotional Features",
+            "animation_duration": 20,
+            "marquee_direction": "left",
+            "separator": "separator-dot",
+            "gap": 6,
+            "pt": 2,
+            "pb": 2,
+            "mt": 3,
+            "mb": 3
+          }
+        },
+        "testimonial_QRdpy7": {
+          "type": "testimonial",
+          "settings": {
+            "show_verified_badge": true,
+            "show_below_gallery_desktop": true,
+            "testimonial_1": "<p>This conditioner makes my hair feel so healthy and is much shinier than it has ever been!<\/p>",
+            "author_1": "Elizabeth K.",
+            "testimonial_2": "<p>I use these products on my daughters’ hair. They both have curly hair and the shampoo and conditioner make their hair healthy, shiny and manageable.<\/p>",
+            "author_2": "Michael C.",
+            "testimonial_3": "<p>I recently tried this hair conditioner, and it's been a game-changer for my medium-length curly hair. It leaves my curls noticeably softer, more manageable, and adds a healthy shine without weighing them down. Definitely a must-try for those with curly hair!<\/p>",
+            "author_3": "Kristina M.",
+            "mt": 5,
+            "mb": 5
+          }
+        }
+      },
+      "block_order": [
+        "15f00db4-48cd-4392-91c0-aaf0c622dd42",
+        "12d9314a-c9b3-4c19-bdc1-96fbed9e107a",
+        "product_switcher_j7gKUt",
+        "skio_subscriptions_yc_s20_app_block_F3WPTC",
+        "ee812500-3080-4131-9bc9-08fe223ec0c0",
+        "1012e638-6dbc-4f7d-8d1f-74689a11b8f3",
+        "28c4bace-a705-4813-8902-7359da7b2c43",
+        "6013329c-a6f0-468d-b01b-b2faf3421650",
+        "16019ab6-f8d7-43bf-b3d8-b80dd76021c3",
+        "fbdb557a-90da-432b-984d-26c8ef0ef590",
+        "f706cec8-65d0-451f-a7e2-aab03ef5b5e0",
+        "marquee_iTtLnL",
+        "testimonial_QRdpy7"
+      ],
+      "settings": {
+        "show_breadcrumbs": false,
+        "show_share_btn": false,
+        "product_promo_background_color": "#ee1882",
+        "product_promo_font_color": "#ffffff",
+        "jump_to_variant": true,
+        "gallery_img_orientation": "square",
+        "gallery_img_thumbnail": "",
+        "gallery_mobile_full_width": true,
+        "gallery_show_thumbnails_mobile": true,
+        "gallery_enable_lightbox": true,
+        "gallery_arrows": "thumbs-slider",
+        "prev_next_show": true,
+        "prev_next_img_orientation": "square",
+        "prev_next_img_thumbnail": "",
+        "pt": 9,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "16724093711e2e0ee2": {
+      "type": "apps",
+      "settings": {}
+    },
+    "richtext_YKPGMr": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "Nothing To Lose – Everything To Gain",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<h4>No Regrets Allowed! Try Wellnesse Risk-Free With Our Happiness Guarantee<\/h4><h1><\/h1><p>At Wellnesse, we believe everything should be this good. That's why we're making it risk-free for you to try! If you're not happy with your purchase for whatever reason, just contact our customer service team within 30 days and we'll make sure you're happy.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "201b7b0c-1e07-438d-9062-57c405acf005": {
+      "type": "comparison-table",
+      "blocks": {
+        "7e3009d2-d6fd-4de1-adb2-da130a0ae1c4": {
+          "type": "header",
+          "settings": {
+            "cell_1": "#",
+            "cell_2": "Wellnesse",
+            "cell_3": "All-Natural Alternative",
+            "cell_4": "Big Box Brand",
+            "cell_5": "",
+            "cell_6": "",
+            "cell_7": ""
+          }
+        },
+        "194114e7-f0ba-4754-864a-de2e3f0f3628": {
+          "type": "item",
+          "settings": {
+            "title": "Flouride-Free",
+            "cell_2": true,
+            "cell_2_text": "",
+            "cell_3": true,
+            "cell_3_text": "",
+            "cell_4": false,
+            "cell_4_text": "",
+            "cell_5": false,
+            "cell_5_text": "",
+            "cell_6": false,
+            "cell_6_text": "",
+            "cell_7": false,
+            "cell_7_text": ""
+          }
+        },
+        "94a158ac-906d-4848-b506-54fff03b4be2": {
+          "type": "item",
+          "settings": {
+            "title": "Sustainably Sourced",
+            "cell_2": true,
+            "cell_2_text": "",
+            "cell_3": true,
+            "cell_3_text": "",
+            "cell_4": false,
+            "cell_4_text": "",
+            "cell_5": false,
+            "cell_5_text": "",
+            "cell_6": false,
+            "cell_6_text": "",
+            "cell_7": false,
+            "cell_7_text": ""
+          }
+        },
+        "ab24b7c7-2890-4c33-ac28-c47968602f3e": {
+          "type": "item",
+          "settings": {
+            "title": "Glycerin-Free",
+            "cell_2": true,
+            "cell_2_text": "",
+            "cell_3": false,
+            "cell_3_text": "",
+            "cell_4": false,
+            "cell_4_text": "",
+            "cell_5": false,
+            "cell_5_text": "",
+            "cell_6": false,
+            "cell_6_text": "",
+            "cell_7": false,
+            "cell_7_text": ""
+          }
+        },
+        "item_6xfGNF": {
+          "type": "item",
+          "settings": {
+            "title": "Safe for Entire Family",
+            "cell_2": true,
+            "cell_2_text": "",
+            "cell_3": false,
+            "cell_3_text": "",
+            "cell_4": false,
+            "cell_4_text": "",
+            "cell_5": false,
+            "cell_5_text": "",
+            "cell_6": false,
+            "cell_6_text": "",
+            "cell_7": false,
+            "cell_7_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "7e3009d2-d6fd-4de1-adb2-da130a0ae1c4",
+        "194114e7-f0ba-4754-864a-de2e3f0f3628",
+        "94a158ac-906d-4848-b506-54fff03b4be2",
+        "ab24b7c7-2890-4c33-ac28-c47968602f3e",
+        "item_6xfGNF"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "How We Measure Up",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Compare our formulation to the competition.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "table_bg_color": "bg-body text-body",
+        "table_bordered": false,
+        "table_border_color": "",
+        "table_thead_color": "table-dark",
+        "table_second_col_color": "text-primary",
+        "table_striped": true,
+        "pt": 12,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "testimonials_tdzVJL": {
+      "type": "testimonials",
+      "blocks": {
+        "item_nma9wz": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/dr-meghan-thomas_2x_5d3a9d5f-3594-4489-9719-3929101f164a_webp.png",
+            "img_width": "100",
+            "img_height": "100",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "DR. MEGHAN THOMAS, DMD",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<h6>\"I use Wellnesse toothpaste and recommend it to my patients.<\/h6><p>It contains hydroxyapatite, a naturally occurring mineral that helps support tooth enamel to keep teeth strong. Ingredients like neem and green tea to support a healthy oral microbiome, and keep your breath fresh. Wellnesse toothpaste gets your teeth just as white (if not whiter) than everything else--without all the chemicals. Why would anyone NOT switch?”<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_cgYjjw": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/Dr_Porter_Headshot_1_jpg.webp",
+            "img_width": "100",
+            "img_height": "100",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "DR. RYAN PORTER, DDS",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<h6>\"I highly recommend it for all my patients. It's simply much healthier and reparative.<\/h6><p>Wellnesse is amazing! Not only do I use Wellnesse for my personal care, I highly recommend it for all my patients. It's simply much healthier and reparative.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_WJDwhc": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/Mask_Group_98096_2x-min_png.webp",
+            "img_width": "100",
+            "img_height": "100",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "CHELSEA PULEO",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#174a50",
+            "description": "<h6><strong>\"I love their philosophy as well as their clean ingredient list.<\/strong><\/h6><p>Finding a toothpaste with clean ingredients that actually works has been a challenge for me. When I discovered Wellnesse, I knew it was the right fit for us…As someone who is always trying to make better choices for my family, I love their philosophy as well as their clean ingredient list. Plus my children love the kids strawberry toothpaste so it’s a win for the whole family!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "item_nma9wz",
+        "item_cgYjjw",
+        "item_WJDwhc"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-secondary text-white",
+        "bg_gradient": false,
+        "fb_style": false,
+        "show_trustpilot_stars": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "What Experts Are Saying",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "1",
+        "carousel_rewind": true,
+        "carousel_loop": false,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 3,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 8,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_3q7kct": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_w9T4Dp": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/super-charged-image_1.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/super-charged-image_1.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_K6MEfA": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "Plant-Based Keratin Keeps Hair Beautiful & Strong",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description": "<p>Keratin (the protein that makes up our hair) is an essential building block to restoring strength and supporting regrowth. Our formula uses slicer seed and lentil seed to provide these essential aminos to your hair!<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "https:\/\/wellnesse.com\/products\/restoring-conditioner?_pos=1&_sid=74212f9e6&_ss=r#",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_w9T4Dp",
+        "text_K6MEfA"
+      ],
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "p {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_dTPKTD": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_AXFxLM": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/hit_undo_damage_1_dced67b8-f215-4f35-9387-d497ada40719.jpg",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/hit_undo_damage_1_dced67b8-f215-4f35-9387-d497ada40719.jpg",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": "img-thumbnail"
+          }
+        },
+        "text_gXKYJ3": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "Hit ‘Undo’ on Damage",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description": "<p>Whether your heat styling days are long behind you or you’ve never treated your hair at all, environmental factors like free radicals, chemicals in your water, and even air pollution can cause significant hair damage. Our Restoring Conditioner brings life back to your hair using moisturizing shea butter, hydrating safflower, and reparative quinoa.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "https:\/\/wellnesse.com\/products\/restoring-shampoo#",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_AXFxLM",
+        "text_gXKYJ3"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "p {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 9,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "testimonials_HTYWyx": {
+      "type": "testimonials",
+      "blocks": {
+        "item_4UcaGD": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "CHRISTINE B.",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<p>\"I was SO afraid to switch because I was a huge fan of the All Hair Shampoo and Conditioners. When they went out of stock I decided to take a chance...best decision ever. I love these so much more than the previous product, my hair feels stronger and softer! \"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_Rp7Ac6": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "NICOLE H.",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<p>\"Like most women out there, I'm very picky about what products I use on my hair. I'm so thankful that I found the Restoring shampoo and conditioner - it is the perfect light scent, cleans my hair really well, and it looks so much healthier than it did several months ago.  My hair loves it!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_Hcafxc": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "JAYLYN P.",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<p>\"I have very fine hair, which means I deal with lots of tangles. I've always had trouble with natural formulas leaving my hair even dryer and more tangled than it already is, but this new conditioner has changed my perspective. I love the ingredients and my hair does too. I don't have to spend 15 minutes trying to brush through my hair. I only have to brush through my hair once now, then I'm left with smooth, soft hair for the rest of the day!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "item_4UcaGD",
+        "item_Rp7Ac6",
+        "item_Hcafxc"
+      ],
+      "settings": {
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "fb_style": false,
+        "show_trustpilot_stars": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "What Folks Like You Are Saying About Our Restoring Shampoo and Conditioner",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 6,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "1",
+        "carousel_rewind": true,
+        "carousel_loop": false,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 3,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 9,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "media_with_text_icons_dVM3a4": {
+      "type": "media-with-text-icons",
+      "blocks": {
+        "feature_PW6yby": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_11_c0c0710a-72ff-4d5a-9009-38fcf0a2f177.png",
+            "feature_title": "Coconut Oil",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "Not only does it provide hydration, this natural coconut oil adds a smooth, delicious scent.",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        },
+        "feature_WYmQyt": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_11_2.png",
+            "feature_title": "Safflower",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "Safflower provides salon-worthy hair with oleic acid penetrating deep into each hair follicle to provide softness, shine, and hydration.",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        },
+        "feature_NKzN4B": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_13_1.png",
+            "feature_title": "Shea Butter",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "Make your hair shine with shea butter while simultaneously sealing and protecting your hair from damage.",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        },
+        "feature_EWAh6j": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/lav.png",
+            "feature_title": "Argan Oil",
+            "feature_title_font_size_mobile": 4,
+            "feature_title_font_size_desktop": 5,
+            "feature_description": "A cosmetic powerhouse ingredient, argan oil provides a megadose of hydration while softening the hair and scalp.",
+            "feature_description_font_size_mobile": 2,
+            "feature_description_font_size_desktop": 3,
+            "icon_position": "top",
+            "feature_text_align": "text-center"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PW6yby",
+        "feature_WYmQyt",
+        "feature_NKzN4B",
+        "feature_EWAh6j"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {color: #000000;}",
+        "p {color: #000000;}",
+        "h5 {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-warning text-white",
+        "bg_gradient": false,
+        "main_image": "shopify:\/\/shop_images\/Untitled_design_-_2024-09-02T205215.714.png",
+        "video": "",
+        "autoplay": false,
+        "loop": false,
+        "muted": false,
+        "controls": false,
+        "img_border": "",
+        "center_text_mobile": true,
+        "title": "INGREDIENTS YOU CAN ACTUALLY PRONOUNCE",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "Curious about what else is in our conditioner?",
+        "btn_url": "https:\/\/wellnesse.com\/pages\/ingredients",
+        "btn_color": "btn-outline-primary",
+        "content_align": "flex-md-row",
+        "container": "container",
+        "max_width": "",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "1724548422abd74a4c": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_XDmpMK": {
+          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": "",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_XDmpMK"
+      ],
+      "settings": {}
+    },
+    "featured_products_xMBJfE": {
+      "type": "featured-products",
+      "blocks": {
+        "block_ijExV7": {
+          "type": "block",
+          "settings": {
+            "products": [
+              "probiotic-mints",
+              "charcoal-toothpaste",
+              "childrens-strawberry-toothpaste",
+              "toothpaste"
+            ],
+            "collection": "",
+            "limit": 8,
+            "tab_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_ijExV7"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Complete Your Wellnesse Routine",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 6,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_enable": true,
+        "carousel_arrows": true,
+        "carousel_pagination": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "0",
+        "carousel_rewind": true,
+        "breakpoint_xs": 1,
+        "breakpoint_xs_partial": true,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "View more products",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 8,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "d167404f-6e0f-4b9a-9302-986b992f1537": {
+      "type": "sticky-atc",
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": false,
+        "max_width": "600",
+        "product_img_orientation": "square",
+        "product_img_thumbnail": "img-thumbnail",
+        "show_qty_field": true
+      }
+    },
+    "animated_counters_n3XTJT": {
+      "type": "animated-counters",
+      "blocks": {
+        "item_8wEFM4": {
+          "type": "item",
+          "settings": {
+            "value": "40",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 40,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_Jdy8Fk": {
+          "type": "item",
+          "settings": {
+            "value": "100",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 100,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_Pqpx3c": {
+          "type": "item",
+          "settings": {
+            "value": "75",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 75,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "item_jb9wdG": {
+          "type": "item",
+          "settings": {
+            "value": "25",
+            "suffix": "%",
+            "value_font_size_mobile": 8,
+            "value_font_size_desktop": 10,
+            "value_color": "text-primary",
+            "show_circle": true,
+            "circle_progress": 25,
+            "circle_inactive_color": "#e9ecef",
+            "circle_active_color": "#d81b60",
+            "title": "Animated Counters",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_8wEFM4",
+        "item_Jdy8Fk",
+        "item_Pqpx3c",
+        "item_jb9wdG"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "text_align": "text-center",
+        "title": "Animated Counters",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 6,
+        "description": "<p>Add on optional description to this section<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "speed": 2,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "pt": 9,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "scrolling_text_gRV3n9": {
+      "type": "scrolling-text",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "rounded": false,
+        "layout": "text_first",
+        "section_bg_color": "bg-dark text-white",
+        "section_bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "img_thumbnail": "",
+        "mobile_image_size": "small",
+        "content_text_align": "text-start",
+        "title": "Our Formulation",
+        "title_color": "#ffffff",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 12,
+        "description": "<p>Provides users with the following results...<\/p>",
+        "description_color": "#ffffff",
+        "description_font_size_mobile": 4,
+        "description_font_size_desktop": 3,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "scrolling_text_speed": 100,
+        "scrolling-text": "<p>Clean teeth<\/p><p>Corrected cavities<\/p><p>Faded Stains<\/p><p>Soothed gums<\/p><p>Fresh breath<\/p><p>Healthier smile<\/p><p>More confidence<\/p>",
+        "scrolling_text_align": "text-start",
+        "scrolling_text_weight": "fw-normal",
+        "scrolling_text_transform": "text-uppercase",
+        "text_font_size_desktop": 2,
+        "text_line_height_desktop": 4,
+        "text_font_size_mobile": 2,
+        "text_line_height_mobile": 7,
+        "content_align": "center",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "access_guests": true,
+        "access_members": true,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "template-product",
+    "16724093711e2e0ee2",
+    "richtext_YKPGMr",
+    "201b7b0c-1e07-438d-9062-57c405acf005",
+    "testimonials_tdzVJL",
+    "image_with_text_3q7kct",
+    "image_with_text_dTPKTD",
+    "testimonials_HTYWyx",
+    "media_with_text_icons_dVM3a4",
+    "1724548422abd74a4c",
+    "featured_products_xMBJfE",
+    "d167404f-6e0f-4b9a-9302-986b992f1537",
+    "animated_counters_n3XTJT",
+    "scrolling_text_gRV3n9"
+  ]
+}

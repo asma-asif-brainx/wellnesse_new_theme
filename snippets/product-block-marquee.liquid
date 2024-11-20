@@ -1,0 +1,38 @@
+{% liquid 
+    assign pt = block.settings.pt | prepend: 'pt-'
+    assign pb = block.settings.pb | prepend: 'pb-'
+    assign mt = block.settings.mt | prepend: 'mt-'
+    assign mb = block.settings.mb | prepend: 'mb-'
+  
+    assign bg_color = block.settings.bg_color
+
+    if block.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+    assign text_list = block.settings.text | split: ', '
+    assign marquee_link = block.settings.link
+%}
+
+{% if marquee_link != blank %}
+<a href="{{ marquee_link }}">
+{% endif %}
+<div 
+    id="marquee-{{ block.id }}"
+    class="product-block-marquee marquee overflow-hidden rounded {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ block.settings.separator }} {{ bg_color }}" {{ block.shopify_attributes }}>
+    <ul 
+        class="list-unstyled mb-0 {{ block.settings.font_size_mobile | prepend: 'fs-' }} {{ block.settings.font_size_desktop | prepend: 'fs-lg-' }} {{ block.settings.text_transform }}"
+        data-animation-duration="{{ block.settings.animation_duration }}"
+        data-marquee-direction="{{ block.settings.marquee_direction }}"
+        data-section-id="{{ block.id }}"
+        aria-label="{{ block.settings.list_label }}">
+        {% for text in text_list %}
+            <li class="px-{{ block.settings.gap }}">
+                {{ text }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% if marquee_link != blank %}
+</a>
+{% endif %}

@@ -1,0 +1,472 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'pb-'
+
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+    assign visibility = ''
+
+    if section.settings.visibility_xs == false
+        assign visibility = 'd-none'
+    endif
+
+    if section.settings.visibility_md
+        assign visibility = ' d-md-block' | prepend: visibility
+    else 
+        assign visibility = ' d-md-none' | prepend: visibility
+    endif
+
+    if section.settings.visibility_lg
+        assign visibility = ' d-lg-block' | prepend: visibility
+    else 
+        assign visibility = ' d-lg-none' | prepend: visibility
+    endif
+%}
+
+{% style %}
+.video_tabs_section {
+    position: relative;
+    max-width: 1280px;
+    padding: 5rem;
+    margin: auto;
+}
+.video_tabs_section .container, .video_tabs_section .container-fluid {
+    padding: 0 1rem;
+}
+.video_tabs_section .tab_section {
+    max-width: 475px;
+    margin-bottom: 30px;
+}
+.video_tabs_section h3 {
+    font-size: 40px;
+    color: #000;
+    line-height: 51px;
+    margin: 0;
+}
+.video_tabs_section span {
+    font-weight: 400;
+    font-style: italic;
+}
+.video_tabs_section .tab_nav {
+    margin: 0;
+    padding: 5px;
+    border: 1px solid {{ section.settings.color }};
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: fit-content;
+    max-width: 100%;
+}
+.video_tabs_section .tab_nav.right {
+    position: absolute;
+    top: 10rem;
+    right: 5rem;
+    bottom: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: {{ section.settings.max_width }}px;
+}
+.video_tabs_section .tab_nav li {
+    padding: 6px 20px;
+    list-style: none;
+    cursor: pointer;
+}
+.video_tabs_section li.active {
+    background-color: {{ section.settings.color }};
+    border-radius: 8px;
+}
+.video_tabs_section li.active div.tablink {
+    color: #fff;
+}
+.video_tabs_section .tab_nav li div {
+    color: {{ section.settings.tablink_color }};
+    text-decoration: none;
+    font-size: 17px;
+}
+.tabcontent {
+    padding-top: 20px;
+    position: relative;
+}
+.tabcontent video {
+    width: 100%;
+    border-radius: 25px;
+  
+}
+.tabcontent.active {
+    animation: lineAnimation-1 1s linear forwards;
+}
+@keyframes lineAnimation-1 {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@media (max-width: 991px) {
+    .video_tabs_section {
+        padding: 10px;
+    }
+    .video_tabs_section .tab_row {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+        align-items: center;
+    }
+    .video_tabs_section .tab_nav {
+        position: static;
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: center;
+    }
+    .video_tabs_section .tab_nav.right {
+        position: static;
+        justify-content: flex-end;
+    }
+    .video_tabs_section h3 {
+        font-size: 26px;
+        line-height: 1.3em;
+        text-align: center;
+    }
+    .video_tabs_section .tab_section {
+        margin-bottom: 10px;
+    }
+}
+{% endstyle %}
+
+
+<div class="video_tabs_section {{ bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }}">
+    <div class="{{ section.settings.container }}">
+        <div class="mx-auto" style="max-width: {{ section.settings.max_width }}px;">
+            <div class="section-header tab_section">
+                <h3 class="{{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.heading1_color }};">
+                    {{ section.settings.heading1 }}
+                    <span class="{{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.heading2_color }};">
+                        {{ section.settings.heading2 }}
+                    </span>
+                </h3>
+            </div>
+            <div class="tab_row">
+                {% if section.settings.tab_placement == "top" %}
+                    <ul class="tab_nav" style="max-width: {{ section.settings.max_width }}px;">
+                        {% for block in section.blocks %}
+                            <li {% if forloop.index == 1 %}class="active"{% endif %}>
+                                <div class="tablink" tab="tab{{ forloop.index }}">{{ block.settings.t1 }}</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <div class="tab_content">
+                    {% for block in section.blocks %}
+                        <div id="tab{{ forloop.index }}" class="tabcontent" {% unless forloop.index == 1 %}style="display:none"{% endunless %}>
+                            <a href="{{ block.settings.video_url }}" target="_blank">
+                                <video class="content rounded {{ block.settings.img_border }}" {% if block.settings.autoplay %}autoplay{% endif %} {% if block.settings.loop %}loop{% endif %} {% if block.settings.muted %}muted{% endif %} {% if block.settings.controls %}controls{% endif %} playsinline controlslist="nodownload" poster="{{ block.settings.thumbnail }}" src="{{ block.settings.t2 }}"></video>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if section.settings.tab_placement == "bottom" %}
+                    <ul class="tab_nav" style="max-width: {{ section.settings.max_width }}px;">
+                        {% for block in section.blocks %}
+                            <li {% if forloop.index == 1 %}class="active"{% endif %}>
+                                <div class="tablink" tab="tab{{ forloop.index }}">{{ block.settings.t1 }}</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% if section.settings.tab_placement == "right" %}
+                    <ul class="tab_nav right" style="max-width: {{ section.settings.max_width }}px;">
+                        {% for block in section.blocks %}
+                            <li {% if forloop.index == 1 %}class="active"{% endif %}>
+                                <div class="tablink" tab="tab{{ forloop.index }}">{{ block.settings.t1 }}</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll(".tab_nav li").forEach(function(e) {
+        e.addEventListener("click", function(e) {
+            document.querySelectorAll(".tab_nav li").forEach(function(e) {
+                e.classList.remove("active");
+            });
+            this.classList.add("active");
+
+            document.querySelectorAll(".tabcontent").forEach(function(e) {
+                e.style.display = "none";
+                e.classList.remove("active");
+            });
+
+            var t = '#' + this.querySelector('div').getAttribute("tab");
+            document.querySelector(t).style.display = "block";
+            document.querySelector(t).classList.add('active');
+        });
+    });
+</script>
+{% schema %}
+{
+    "name": "Video Tabs",
+    "settings": [
+       {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max width (px)",
+            "info": "Adjust container width - BEST TO KEEP AT  1200",
+            "default": "960"
+        },
+      
+        {
+            "type": "text",
+            "id": "heading1",
+            "label": "Heading 1",
+            "default": "See it in action."
+        },
+        {
+            "type": "text",
+            "id": "heading2",
+            "label": "Heading 2",
+            "default": "So easy to customize and use, so many great features."
+        },
+        {
+            "type": "color",
+            "id": "color",
+            "label": "Tab color",
+            "default": "#D81B60"
+        },
+      {
+    "type": "color",
+    "id": "tablink_color",
+    "label": "Tab Link Color",
+    "default": "#D81B60"
+},
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "color",
+            "id": "heading1_color",
+            "label": "Heading 1 Color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "heading2_color",
+            "label": "Heading 2 Color",
+            "default": "#000000"
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Visibility",
+            "info": "Show/hide this section based on the screen resolution"
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_xs",
+            "label": "Show on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_md",
+            "label": "Show on tablet",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_lg",
+            "label": "Show on desktop",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "tab_placement",
+            "label": "Tab Placement",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "bottom", "label": "Bottom" },
+                { "value": "right", "label": "Right" }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Video",
+            "limit": 4,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "t1",
+                    "label": "Tab Title",
+                    "default": "Tab title"
+                },
+                {
+                    "type": "text",
+                    "id": "t2",
+                    "label": "Video Link",
+                    "default": "https://cdn.shopify.com/videos/c/o/v/306f05efd8f24611a56eb11ec44a92e5.mp4",
+                   "info": "best to keep videls the same size.  example: all portrait or all landscape"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "autoplay",
+                    "label": "Autoplay",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "loop",
+                    "label": "Loop",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "muted",
+                    "label": "Muted",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "controls",
+                    "label": "Controls",
+                    "default": true
+                },
+                {
+                    "type": "image_picker",
+                    "id": "thumbnail",
+                    "label": "Video Thumbnail"
+                },
+                {
+                    "type": "select",
+                    "id": "img_border",
+                    "label": "Video Thumbnail Border",
+                    "default": "",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "url",
+                    "id": "video_url",
+                    "label": "Video URL"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Video Tabs"
+        }
+    ]
+}
+{% endschema %}

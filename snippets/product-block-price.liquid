@@ -1,0 +1,48 @@
+{% liquid 
+    assign current_variant = product.selected_or_first_available_variant
+
+    assign mt = block.settings.mt | prepend: 'mt-'
+    assign mb = block.settings.mb | prepend: 'mb-'
+
+    assign fs_mobile = block.settings.font_size_mobile | prepend: 'fs-' 
+    assign fs_desktop = block.settings.font_size_desktop | prepend: 'fs-lg-'
+%}
+
+<div class="product-price {{ fs_mobile }} {{ fs_desktop }} {{ mt }} {{ mb }}" {{ block.shopify_attributes }}>
+    {% if current_variant.compare_at_price > current_variant.price %}
+        <span class="product-price-compare text-muted me-3">
+            <span class="visually-hidden">
+                {{ 'product.price_regular' | t }} &nbsp;
+            </span>
+            <s>{{ current_variant.compare_at_price | money_with_currency }}</s>
+        </span>
+        <span class="product-price-final">
+            <span class="visually-hidden">
+                {{ 'product.price_sale' | t }} &nbsp;
+            </span>
+            {{ current_variant.price | money_with_currency }}
+        </span>
+    {% else %}
+        <span class="product-price-final">
+            {{ current_variant.price | money_with_currency }}
+        </span>
+    {% endif %}
+    {% if settings.product_card_show_sale_badge and product.available and product.compare_at_price > product.price %}
+        <span 
+            class="price-badge-sale badge {{ settings.product_card_sale_badge_color }}"
+            data-sale-badge-type="{{ settings.sale_badge_display }}">
+            {% if settings.sale_badge_display == 'percentage' %}
+                {{ 'product.save' | t }} {{ current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price | round | append: '%' }}
+            {% else %}
+                {{ 'product.save' | t }} {{ current_variant.compare_at_price | minus: current_variant.price | money_without_trailing_zeros }}
+            {% endif %}
+        </span>    
+    {% endif %}
+    {% unless current_variant.available %}
+        <span class="price-badge-sold-out badge">
+            {{ 'product.sold_out' | t }}
+        </span>        
+    {% endunless %}
+</div>
+
+{{ form | payment_terms }} 

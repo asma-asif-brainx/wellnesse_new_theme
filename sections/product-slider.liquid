@@ -1,0 +1,403 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+    if customer
+        assign show_section = section.settings.show_members
+    else
+        assign show_section = section.settings.show_guests
+    endif
+
+    assign visibility = ''
+
+    if section.settings.visibility_xs == false
+        assign visibility = 'd-none'
+    endif
+
+    if section.settings.visibility_md
+        assign visibility = ' d-md-block' | prepend: visibility
+    else 
+        assign visibility = ' d-md-none' | prepend: visibility
+    endif
+
+    if section.settings.visibility_lg
+        assign visibility = ' d-lg-block' | prepend: visibility
+    else 
+        assign visibility = ' d-lg-none' | prepend: visibility
+    endif
+%}
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const initSplide = () => {
+            const mySplide = new Splide('#general-slider-{{ section.id }} .splide', {
+                type: 'loop',
+                arrows: true,
+                pagination: false,
+                perPage: 1,
+                perMove: 1,
+                mediaQuery: 'min',
+                padding: '10%',
+                breakpoints: {
+                    576: { perPage: 2, padding: 0 },
+                    768: { perPage: 2, padding: 0 },
+                    992: { perPage: 3, padding: 0 },
+                    1200: { perPage: 3, padding: 0 },
+                    1400: { perPage: 3, padding: 0 }
+                }
+            })
+
+            mySplide.mount()
+        }
+        initSplide()
+    
+        document.addEventListener('shopify:section:load', (e) => {
+            if (event.detail.sectionId === '{{ section.id }}') {
+                initSplide()
+            }
+        })
+    })
+</script>
+
+<section 
+    id="general-slider-{{ section.id }}" 
+    class="general-slider overflow-hidden {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }}"
+    style="background-color: {{ section.settings.bg_color }};">
+    <div class="{{ section.settings.container }}">
+        <h2 class="title mb-4 {{ section.settings.text_align }} {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+            {{ section.settings.title }}
+        </h2>
+        <div class="splide">
+            <div class="splide__track">
+                <ul class="splide__list product-list">
+                    {% for block in section.blocks %}
+                        <li class="splide__slide p-2 text-center">
+                            <div 
+                                class="rounded h-100" 
+                                style="background-color: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }}">
+                                <div class="pt-4 pt-lg-8 px-4 px-lg-6">
+                                    {% unless block.settings.title == blank %}
+                                        <h3 class="title mb-1 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                                            {{ block.settings.title }}
+                                        </h3>
+                                    {% endunless %}
+                                    {% unless block.settings.description == blank %}
+                                        <div class="description rte mb-2 {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                                            {{ block.settings.description }}
+                                        </div>
+                                    {% endunless %}
+                                    {% unless block.settings.btn_text == blank %}
+                                        <a 
+                                            class="btn mt-5 w-100 {{ block.settings.btn_color }} {{ block.settings.btn_size }} mb-4" 
+                                            href="{{ block.settings.btn_url }}">
+                                            {{ block.settings.btn_text }}
+                                        </a>
+                                    {% endunless %}
+                                </div>
+                                {% unless block.settings.img == blank %}
+                                    <a href="{{ block.settings.btn_url }}">
+                                        <img
+                                            class="img-fluid rounded {{ block.settings.img_border }}"
+                                            src="{{ block.settings.img.src | image_url: width: block.settings.img_width, height: block.settings.img_height, crop: 'center' }}"
+                                            alt="{{ block.settings.img.alt | escape }}"
+                                            width="{{ block.settings.img_width }}"
+                                            height="{{ block.settings.img_height }}"
+                                            loading="lazy">
+                                    </a>
+                                {% endunless %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Product Slider",
+    "settings": [
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "#ffffff"
+        },
+     {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Product Slider"
+        },
+      {
+    "type": "select",
+    "id": "text_align",
+    "label": "Text align",
+    "default": "text-center",
+    "options": [
+        { "value": "text-start", "label": "Left" },
+        { "value": "text-center", "label": "Center" },
+        { "value": "text-end", "label": "Right" }
+    ]
+},
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "header",
+            "content": "Visibility",
+            "info": "Show/hide this section based on the screen resolution"
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_xs",
+            "label": "Show on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_md",
+            "label": "Show on tablet",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_lg",
+            "label": "Show on desktop",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "item",
+            "name": "Item",
+            "settings": [
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "label": "Background color",
+                    "default": "#E6E6E6"
+                },
+                {
+                    "type": "header",
+                    "content": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Image"
+                },
+                {
+                    "type": "select",
+                    "id": "img_border",
+                    "label": "Image border",
+                    "default": "",
+                    "options": [
+                        { "value": "", "label": "Square" },
+                        { "value": "rounded", "label": "Rounded" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "img_width",
+                    "label": "Image width (px)",
+                    "default": "600"
+                },
+                {
+                    "type": "text",
+                    "id": "img_height",
+                    "label": "Image height (px)",
+                    "default": "600"
+                },
+                {
+                    "type": "header",
+                    "content": "Text"
+                },
+                {
+                    "type": "color",
+                    "id": "text_color",
+                    "label": "Text color",
+                    "default": "#002b45"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Block Title"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 6
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "<p>Some optional description goes here</p>"
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "header",
+                    "content": "Button"
+                },
+                {
+                    "type": "text",
+                    "id": "btn_text",
+                    "label": "Button text",
+                    "default": "Learn more",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button URL"
+                },
+                {
+                    "type": "select",
+                    "id": "btn_color",
+                    "label": "Button color",
+                    "default": "btn-primary",
+                    "options": [
+                        { "group": "Normal", "value": "btn-link", "label": "Link" },
+                        { "group": "Normal", "value": "btn-light", "label": "Light" },
+                        { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                        { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                        { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                        { "group": "Normal", "value": "btn-success", "label": "Success" },
+                        { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                        { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                        { "group": "Normal", "value": "btn-info", "label": "Info" },
+                        { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                        { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                        { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                        { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                        { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                        { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                        { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                        { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "btn_size",
+                    "label": "Button size",
+                    "default": "btn-md",
+                    "options": [
+                        { "value": "btn-sm", "label": "Small" },
+                        { "value": "btn-md", "label": "Normal" },
+                        { "value": "btn-lg", "label": "Large" }
+                    ]
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product Slider",
+            "category": "General"
+        }
+    ]
+}
+{% endschema %}

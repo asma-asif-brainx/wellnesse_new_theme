@@ -1,0 +1,607 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+
+  assign bg_color = section.settings.bg_color
+
+  if section.settings.bg_gradient
+    assign bg_color = bg_color | append: ' bg-gradient'
+  endif
+
+  if customer
+    assign show_section = section.settings.access_members
+  else
+    assign show_section = section.settings.access_guests
+  endif
+
+  assign visibility = ''
+
+  if section.settings.visibility_xs == false
+    assign visibility = 'd-none'
+  endif
+
+  if section.settings.visibility_md
+    assign visibility = ' d-md-block' | prepend: visibility
+  else
+    assign visibility = ' d-md-none' | prepend: visibility
+  endif
+
+  if section.settings.visibility_lg
+    assign visibility = ' d-lg-block' | prepend: visibility
+  else
+    assign visibility = ' d-lg-none' | prepend: visibility
+  endif
+%}
+
+{% if show_section %}
+  <section
+    id="image-with-text-{{ section.id }}"
+    class="{{ bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}{{ visibility }} "
+  >
+    <div class="{{ section.settings.container }}" style="max-width: {{ section.settings.max_width }}px;">
+      <div class="row {{ section.settings.content_align }}">
+        <div class="col-lg-4 d-flex flex-column justify-content-center">
+          <div class="{% if section.settings.center_text_mobile %}text-center text-lg-start{% else %}text-start text-lg-start{% endif %} mb-4">
+              <div class="animate__animated opacity-0 {{ section.settings.animation_speed }}" data-animate-class="{{ section.settings.animation }}" style="animation-delay: 400ms;">
+                  <h2 class="title mb-4 {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                      {{ section.settings.title }}
+                  </h2>
+              </div>
+              <div class="animate__animated opacity-0 {{ section.settings.animation_speed }}" data-animate-class="{{ section.settings.animation }}" style="animation-delay: 800ms;">
+                  <p class="description rte mb-7 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                      {{ section.settings.description }}
+                  </p>
+              </div>
+             {% if section.settings.btn_text != blank %}
+              <div class="d-inline-flex {% if section.settings.center_text_mobile %}justify-content-center{% endif %} animate__animated opacity-0 {{ section.settings.animation_speed }}" data-animate-class="{{ section.settings.animation }}" style="animation-delay: 1200ms;">
+                   <a class="btn {{ section.settings.btn_color }} {{ section.settings.btn_size }}" href="{{ section.settings.btn_url }}">
+                      {{ section.settings.btn_text }}
+                  </a>
+              </div>
+                {% endif %}
+          </div>
+        </div>
+        <div class="col-lg-4 mb-6 mb-lg-0 d-flex justify-content-center">
+          <div
+            class="animate__animated animate__faster opacity-0"
+            data-animate-class="{{ section.settings.animation }}"
+            style="animation-delay: 0ms"
+          >
+            {% if section.settings.video != blank %}
+              <video
+                class="img-fluid rounded {{ section.settings.img_border }}"
+                src="{{ section.settings.video }}"
+                width="{{ section.settings.img_width }}"
+                height="{{ section.settings.img_height }}"
+                {% if section.settings.autoplay %} autoplay{% endif %}
+                {% if section.settings.loop %} loop{% endif %}
+                {% if section.settings.muted %} muted{% endif %}
+                {% if section.settings.controls %} controls{% endif %}
+                loading="lazy"
+              ></video>
+            {% else %}
+              {% unless section.settings.main_image == blank %}
+                <img
+                  class="img-fluid rounded {{ section.settings.img_border }}"
+                  src="{{ section.settings.main_image.src | image_url: width: section.settings.img_width, height: section.settings.img_height, crop: 'center' }}"
+                  alt="{{ section.settings.main_image.alt | escape }}"
+                  width="{{ section.settings.img_width }}"
+                  height="{{ section.settings.img_height }}"
+                  loading="lazy"
+                >
+              {% endunless %}
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex flex-column justify-content-center">
+          <div class="features d-flex flex-column align-items-center align-items-lg-start">
+            {% for block in section.blocks %}
+              <div class="feature-item mb-4 {% if block.settings.icon_position == 'left' %}d-flex align-items-center{% else %}text-center{% endif %}">
+                {% unless block.settings.icon == blank %}
+                  <img
+                    class="feature-icon mb-3 {% if block.settings.icon_position == 'top' %}mx-auto{% endif %}"
+                    src="{{ block.settings.icon.src | image_url: width: 60, height: 60, crop: 'center' }}"
+                    alt="{{ block.settings.feature_title }}"
+                    width="60"
+                    height="60"
+                    loading="lazy">
+                {% endunless %}
+                <div class="ms-3 {{ block.settings.feature_text_align }}">
+                  <h5 class="feature-title {{ block.settings.feature_title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.feature_title_font_size_desktop | prepend: 'fs-lg-' }}">
+                    {{ block.settings.feature_title }}
+                  </h5>
+                  <p class="feature-description {{ block.settings.feature_description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.feature_description_font_size_desktop | prepend: 'fs-lg-' }}">
+                    {{ block.settings.feature_description }}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+
+  <style>
+    /*
+        Image with Text and Features
+    */
+  @media (max-width: 575px) {
+    #image-with-text-{{ section.id }} div.row.xs-scroll {
+        overflow: auto;
+        flex-wrap: nowrap;
+        padding: 0 0.5rem 0.5rem;
+        margin: 0 -1rem -0.5rem !important;
+    }
+
+    #image-with-text-{{ section.id }} div.row.xs-scroll .col {
+        width: 75vw;
+        flex: none;
+    }
+}
+
+#image-with-text-{{ section.id }} {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+}
+
+#image-with-text-{{ section.id }} .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#image-with-text-{{ section.id }} .description {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+#image-with-text-{{ section.id }} .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+#image-with-text-{{ section.id }} .feature-item {
+    margin-bottom: 10px; /* Adjust this value as needed */
+}
+
+#image-with-text-{{ section.id }} .feature-icon {
+    margin-bottom: 5px; /* Adjust this value as needed */
+}
+
+#image-with-text-{{ section.id }} .feature-title {
+    margin-top: 5px; /* Adjust this value as needed */
+    margin-bottom: 5px; /* Adjust this value as needed */
+}
+
+#image-with-text-{{ section.id }} .feature-description {
+    margin-bottom: 10px; /* Adjust this value as needed */
+}
+
+#image-with-text-{{ section.id }} .features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust this value as needed */
+}
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize animations
+        const animateElements = document.querySelectorAll('[data-animate-class]');
+        animateElements.forEach(el => {
+            const animateClass = el.getAttribute('data-animate-class');
+            el.classList.add(animateClass);
+            el.classList.remove('opacity-0');
+        });
+    });
+  </script>
+
+
+{% schema %}
+{
+    "name": "Media With Text-Icons",
+    "settings": [
+       {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-body text-body",
+            "options": [
+                { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "bg_gradient",
+            "label": "Background gradient",
+            "default": false,
+            "info": "Will not apply to light colors"
+        },
+        {
+            "type": "image_picker",
+            "id": "main_image",
+            "label": "Main Image"
+        },
+        {
+            "type": "url",
+            "id": "video",
+            "label": "Video URL",
+          "info": "Grab the url link from the uploaded content area in your files. Remove Url link if you want image instead"
+        },
+        {
+            "type": "checkbox",
+            "id": "autoplay",
+            "label": "Autoplay Video",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "loop",
+            "label": "Loop Video",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "muted",
+            "label": "Mute Video",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "controls",
+            "label": "Show Video Controls",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "img_border",
+            "label": "Image border",
+            "default": "",
+            "options": [
+                { "value": "", "label": "Square" },
+                { "value": "rounded", "label": "Rounded" },
+                { "value": "img-thumbnail", "label": "Thumbnail" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "center_text_mobile",
+            "label": "Center Text on Mobile",
+           "info": "will only apply to movbile display for center title, description and button",
+            "default": false
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Media with text icons "
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text",
+            "default": "Shop Now"
+        },
+        {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+        },
+        {
+            "type": "select",
+            "id": "btn_color",
+            "label": "Button color",
+            "default": "btn-primary",
+            "options": [
+                { "group": "Normal", "value": "btn-link", "label": "Link" },
+                { "group": "Normal", "value": "btn-light", "label": "Light" },
+                { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                { "group": "Normal", "value": "btn-success", "label": "Success" },
+                { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                { "group": "Normal", "value": "btn-info", "label": "Info" },
+                { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+            ]
+        },
+        
+        {
+            "type": "select",
+            "id": "content_align",
+            "label": "Content Alignment",
+            "info": "Note: On mobile, the content will always be below the image.",
+            "default": "flex-md-row",
+            "options": [
+                { "value": "flex-md-row", "label": "Text and Buttons Left, Icons Right" },
+                { "value": "flex-md-row-reverse", "label": "Icons Left, Text and Buttons Right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max-width (px)"
+        },
+        {
+            "type": "select",
+            "id": "animation",
+            "label": "Animation",
+            "default": "animate__fadeInUp",
+            "options": [
+                { "value": "", "label": "No animation" },
+                { "value": "animate__fadeIn", "label": "Fade In" },
+                { "value": "animate__fadeInDown", "label": "Fade-in-down" },
+                { "value": "animate__fadeInLeft", "label": "Fade-in-left" },
+                { "value": "animate__fadeInRight", "label": "Fade-in-right" },
+                { "value": "animate__fadeInUp", "label": "Fade-in-up" },
+                { "value": "animate__zoomIn", "label": "Zoom-in" },
+                { "value": "animate__zoomInDown", "label": "Zoom-in-down" },
+                { "value": "animate__zoomInLeft", "label": "Zoom-in-left" },
+                { "value": "animate__zoomInRight", "label": "Zoom-in-right" },
+                { "value": "animate__zoomInUp", "label": "Zoom-in-up" },
+                { "value": "animate__backInDown", "label": "Back-in-down" },
+                { "value": "animate__backInLeft", "label": "Back-in-left" },
+                { "value": "animate__backInRight", "label": "Back-in-right" },
+                { "value": "animate__backInUp", "label": "Back-in-up" },
+                { "value": "animate__bounceIn", "label": "Bounce-in" },
+                { "value": "animate__bounceInDown", "label": "Bounce-in-down" },
+                { "value": "animate__bounceInLeft", "label": "Bounce-in-left" },
+                { "value": "animate__bounceInRight", "label": "Bounce-in-right" },
+                { "value": "animate__bounceInUp", "label": "Bounce-in-up" },
+                { "value": "animate__lightSpeedInLeft", "label": "LightSpeed-in-left" },
+                { "value": "animate__lightSpeedInRight", "label": "LightSpeed-in-right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "animation_speed",
+            "label": "Animation speed",
+            "default": "animate__fast",
+            "options": [
+                { "value": "animate__slower", "label": "Slower" },
+                { "value": "animate__slow", "label": "Slow" },
+                { "value": "", "label": "Normal" },
+                { "value": "animate__fast", "label": "Fast" },
+                { "value": "animate__faster", "label": "Faster" }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Visibility",
+            "info": "Show/hide this section based on the screen resolution"
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_xs",
+            "label": "Show on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_md",
+            "label": "Show on tablet",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_lg",
+            "label": "Show on desktop",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        }
+    ],
+    "blocks": [
+        {
+            "type": "feature",
+            "name": "Feature",
+            "limit": 4,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "icon",
+                    "label": "Feature Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "feature_title",
+                    "label": "Feature Title",
+                    "default": "Ecomify For The Win"
+                },
+                {
+                    "type": "range",
+                    "id": "feature_title_font_size_mobile",
+                    "label": "Feature Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "feature_title_font_size_desktop",
+                    "label": "Feature Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 5
+                },
+                {
+                    "type": "textarea",
+                    "id": "feature_description",
+                    "label": "Feature Description",
+                    "default": "Effortlessly design with Ecomify's theme—over 60 sections and features."
+                },
+                {
+                    "type": "range",
+                    "id": "feature_description_font_size_mobile",
+                    "label": "Feature Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "feature_description_font_size_desktop",
+                    "label": "Feature Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 3
+                },
+                {
+                    "type": "select",
+                    "id": "icon_position",
+                    "label": "Icon Position",
+                    "default": "left",
+                    "options": [
+                        { "value": "left", "label": "Left" },
+                        { "value": "top", "label": "Top" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "feature_text_align",
+                    "label": "Feature Text Alignment",
+                    "default": "text-start",
+                    "options": [
+                        { "value": "text-start", "label": "Left" },
+                        { "value": "text-center", "label": "Center" },
+                        { "value": "text-end", "label": "Right" }
+                    ]
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Media With Text-Icons",
+            "category": "Image"
+        }
+    ]
+}
+{% endschema %}

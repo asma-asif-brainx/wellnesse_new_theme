@@ -1,0 +1,519 @@
+{
+  "sections": {
+    "richtext_jBwkyi": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "Meet Our Team!",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Add on optional description to this section<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 8,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_collapse_TaF4fV": {
+      "type": "richtext-collapse",
+      "disabled": true,
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "max_width": "768",
+        "btn_text": "See Full Text of ecomify",
+        "btn_color": "btn-primary",
+        "btn_size": "",
+        "description": "<p>Take your e-commerce game to the next level with Ecomify™ - where convenience and innovation come together.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 4,
+        "description_color": "#000000",
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "pt": 6,
+        "pb": 3,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_7UVYBn": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_DizWCR": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Katie_2x_8fdc6071-61ee-483b-a931-80077340a55e.png",
+            "mobile_img_orientation": "square",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Katie_2x_8fdc6071-61ee-483b-a931-80077340a55e.png",
+            "desktop_img_orientation": "square",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_hTXkT9": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "Katie Wells",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 6,
+            "title": "Co-Founder, Chief Formulator",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 4,
+            "description": "<p>Katie Wells is the Co-Founder of Wellnesse and the Founder and CEO of Wellness Mama, a natural living blog and podcast dedicated to women and moms. Motivated by her own health struggles as well as the shocking reality of the ingredients used in conventional personal care products, Katie began creating her own natural recipes in her kitchen. Eventually, those recipes became the Wellnesse personal care line. In addition to her professional accomplishments, Katie is a mom of six, DIYer, doula, scuba-diver, and amateur pole-vaulter. Katie sees health and wellness as a lifestyle, not a job. She enjoys spending her free time creating new recipes, reading medical journals, and sharing the freedoms of natural living with women and moms in all walks of life.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_DizWCR",
+        "text_hTXkT9"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/3",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_mpJVFJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_ntaEkE": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "Seth Spears",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 6,
+            "title": "Founder, Chief Visionary Officer",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "description": "<p>Seth is an avid adventurer, entrepreneur, product designer, business connector, podcaster, and professional out-of the-box thinker (to name a few). He is dedicated to efficiency, optimization, and self-improvement and is often looking for new (and better!) ways to do things. In addition to his work with Wellnesse, Seth is the former Co-Founder and CMO\/CTO of Wellness Mama, the largest health and wellness website and podcast for moms. Seth’s passion project is Rewild Gear, a company he founded with his three brothers to inspire men to explore the wilderness with top-quality outdoor equipment. When he isn’t working, Seth devotes his time to his six kids and his many interests and hobbies. On any given day, you’ll likely find him outdoors, camping, skiing, hunting, on the water, or appreciating live music. A Kentucky native, Seth is a die-hard fan of the Cincinnati Reds, Cincinnati Bengals, and Kentucky basketball and is always up for a good drink and deep conversation.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_r9GxT3": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Seth_Spears_2x_7259c3ff-02cb-47c0-a7fd-837b7b563971.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Seth_Spears_2x_7259c3ff-02cb-47c0-a7fd-837b7b563971.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_ntaEkE",
+        "image_r9GxT3"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/3",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_zW7ynq": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_LE4wxA": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Emily_Blain_2x_107f1ade-4306-4007-b3f2-5cbdb57aa040.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Emily_Blain_2x_107f1ade-4306-4007-b3f2-5cbdb57aa040.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_afhiHe": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "EMILY BLAIN",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 6,
+            "title": "CEO",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "description": "<p>From product development to day-to-day operations, Emily ensures all things (big and small)run smoothly. No matter the project, she has her finger on the pulse of the company. Emily is a graduate of both Bellarmine University (Undergraduate) and the University of Kentucky (Master’s) and has been with Wellnesse almost from the very beginning. As difficult as her job may be, it’s made all the easier (she claims) by her lifelong passion for health and wellness. Emily was born and raised on a farm in Kentucky, the state that she calls home to this day. A wife and mother of four, Emily enjoys traveling, concerts, and ultra running.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_LE4wxA",
+        "text_afhiHe"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/3",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_hQPTyW": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_69CBfq": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "SHELLY GARDNER",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 6,
+            "title": "Content Manager",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "description": "<p>Shelly provides an expert opinion and keen eye for detail that ensures all our content (from blog posts to product descriptions) meets our strict editorial standards and provides valuable information our readers can trust. A proud Purdue graduate, Shelly has dedicated her career to Health Management and has been a member of the Wellnesse team from the start. When she isn’t providing organization and direction for our team, Shelly loves good coffee, baseball, and spending time with her husband, son, and two dogs (both named after characters from her favorite TV show, Grey’s Anatomy). Shelly currently resides in the suburbs of Chicago, but wonders every winter why she’s still there.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_qKWTwk": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Shelly_2x_334eb06a-409b-464b-a750-d7f839cc217b.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Shelly_2x_334eb06a-409b-464b-a750-d7f839cc217b.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_69CBfq",
+        "image_qKWTwk"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/3",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_i7KiEp": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_zXkHNa": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "KENZIE BEUKES",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 6,
+            "title": "Product Development, Wholesale Management",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "description": "<p>From ingredient research and sourcing to formula testing, Kenzie helps to bring all our new products to life! She’s also one of the masterminds behind our wholesale program, where she works with our retail partners to get Wellnesse products into stores all around the world! Kenzie graduated as a student-athlete from the University of Oklahoma with a degree in Nutrition and a minor in International Studies. (Fun fact: She had the amazing opportunity to study abroad three times while pursuing her degree!) Kenzie is still pursuing her pole-vaulting career, which she one day hopes to combine with her passion for travel by competing internationally.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_eX86df": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Kenzie_2x_874ef0d2-ec7e-4306-a62f-db8211a23796.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Kenzie_2x_874ef0d2-ec7e-4306-a62f-db8211a23796.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_zXkHNa",
+        "image_eX86df"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_yJJkV9": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_R3zqd4": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Sheree_2x_60b0e5b9-cc41-4f70-ba6e-14afb0537cb7.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Sheree_2x_60b0e5b9-cc41-4f70-ba6e-14afb0537cb7.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_q4AfUX": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "Sheree Gravador",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 6,
+            "title": "Amazon Storefront Manager",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "description": "<p>Sheree is the brains behind our Amazon storefront. She ensures that product pages are simple, accessible, and up-to-date so your customer experience is the best it can be. Sheree graduated from the International Culinary Center in New York, where she studied Professional Culinary Arts. She loves traveling and cooking, and she always prefers to whip up a brand new creation than to follow a recipe. Sheree can be shy when you first meet her, but once you get to know her, you can’t help loving her friendly, bubbly personality!<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_R3zqd4",
+        "text_q4AfUX"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/3",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_4Kjjmg": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_ktikxK": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "Avery Shell",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 6,
+            "title": "Customer Service Representative",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "description": "<p>Avery is Kenzie’s younger sister and a new addition to our team! Customer service became a passion for Avery when she realized how much you can learn from answering questions! She loves interacting with customers and receiving challenging questions that allow her to discover new information and share it with others. Avery fell in love with natural wellness when she realized that only the cleanest, most natural ingredients made her body feel and perform its best. Physical fitness is essential to Avery’s lifestyle as a student-athlete and pole vaulter at Arkansas State University.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_A3rVbi": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Avery_2x_063a2e64-40bc-422d-ad58-e01a2c0abe36.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Avery_2x_063a2e64-40bc-422d-ad58-e01a2c0abe36.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_ktikxK",
+        "image_A3rVbi"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/3",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_Fcah4R": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_e7Frpk": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/1_cf102afd-6395-4166-a994-10aa85695677.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/1_cf102afd-6395-4166-a994-10aa85695677.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_dYeQzj": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "Audrey Aragon-Natividad",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 6,
+            "title": "Wholesale\/Operations Administrative Assistant",
+            "title_font_size_mobile": 3,
+            "title_font_size_desktop": 3,
+            "description": "<p>Audrey keeps our backend operations running smoothly by managing shipments, wholesale orders, inventory, and costs with her keen attention to detail and proactive approach. She also works to foster relationships with our retail partners. When she’s not at work, Audrey is a super mom to her two teenage boys and two dogs. In her downtime, she channels her creativity into managing her dogs' Instagram, experimenting with digital art, and staying physically active.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_e7Frpk",
+        "text_dYeQzj"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/3",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 6,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    }
+  },
+  "order": [
+    "richtext_jBwkyi",
+    "richtext_collapse_TaF4fV",
+    "image_with_text_7UVYBn",
+    "image_with_text_mpJVFJ",
+    "image_with_text_zW7ynq",
+    "image_with_text_hQPTyW",
+    "image_with_text_i7KiEp",
+    "image_with_text_yJJkV9",
+    "image_with_text_4Kjjmg",
+    "image_with_text_Fcah4R"
+  ]
+}

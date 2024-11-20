@@ -1,0 +1,56 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+
+{% liquid
+  assign mt = block.settings.mt | prepend: 'mt-'
+  assign mb = block.settings.mb | prepend: 'mb-'
+  assign text_color = block.settings.text_color
+  assign opacity = block.settings.image_opacity | divided_by: 100.0
+  
+  if block.settings.background_image != blank
+    assign background_image_url = block.settings.background_image | img_url: '2000x'
+  endif
+%}
+
+{% unless block.settings.slide_link == blank %}
+<a href="{{ block.settings.slide_link }}" style="text-decoration: none; color: inherit;">
+{% endunless %}
+
+<div class="{{ mt }} rounded p-4" 
+     style=" 
+       position: relative;
+       border: 1px solid rgb(100, 100, 100);
+       color: {{ text_color }};
+       margin-bottom: 0; /* Remove extra bottom margin */
+       "
+     >
+  {% if background_image_url %}
+    <div 
+      class="rounded"
+      style="
+         position: absolute;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         background-image: url('{{ background_image_url }}');
+         background-size: cover; 
+         background-repeat: no-repeat; 
+         background-position: center;
+         opacity: {{ opacity }};
+         z-index: -1;
+       "></div>
+  {% endif %}
+  <p>{{ block.settings.free_gift_message }}</p>
+</div>
+
+{% unless block.settings.slide_link == blank %}
+</a>
+{% endunless %}

@@ -1,0 +1,3183 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+    assign pt = section.settings.pt | prepend: 'pt-5 pt-sm-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+
+    assign variants_json = product.variants | json
+%}
+
+<a class="visually-hidden-focusable" href="#product-content">
+    {{ 'general.accessibility.skip_product_content' | t }}
+</a>
+
+<section 
+    id="product-template"
+    data-p-id="6253269352530:120"
+    class="{{ pt }} {{ pb }}"
+    data-product-handle="{{ product.handle }}">
+    <div class="container">
+        {% if section.settings.show_breadcrumbs %}
+            <div class="breadcrumbs-wrapper mb-6">
+                {% render 'breadcrumbs' %}
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product-gallery-wrapper">
+                    {% render 'product-gallery' %}
+                    {% render 'product-block-testimonial', suffix: '-gallery' %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div id="product-content" class="product-content">
+                    {% form 'product', product, onsubmit: 'onSubmitAtcForm(this, event)', data-variants: variants_json %}
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                        {% liquid
+                            for block in section.blocks
+                                case block.type
+                                    when 'title'
+                                        render 'product-block-title', block: block
+                                    when 'description'
+                                        render 'product-block-description', block: block
+                                    when 'price'
+                                        render 'product-block-price', block: block, form: form
+                                    when 'variant_selector'
+                                        render 'product-block-variant-selector', block: block
+                                    when 'purchase_options'
+                                        render 'product-block-purchase-options', block: block
+                                    when 'buy_buttons'
+                                        render 'product-block-buy-buttons', block: block, form: form
+                                    when 'personalization'
+                                        render 'product-block-personalization', block: block
+                                    when 'accordion'
+                                        render 'product-block-accordion', block: block
+                                    when 'inventory_bar'
+                                        render 'product-block-inventory-bar', block: block
+                                    when 'qty_breaks'
+                                        render 'product-block-qty-breaks', block: block
+                                    when 'delivery_info'
+                                        render 'product-block-delivery-info', block: block
+                                    when 'trust_badges'
+                                        render 'product-block-trust-badges', block: block
+                                    when 'text'
+                                        render 'product-block-text', block: block
+                                    when 'liquid_code'
+                                        render 'product-block-liquid-code', block: block
+                                    when 'limited_offer'
+                                        render 'product-block-limited-offer', block: block
+                                    when 'store_availability'
+                                        render 'product-block-store-availability', block: block
+                                    when 'separator'
+                                        render 'product-block-separator', block: block
+                                    when 'media'
+                                        render 'product-block-media', block: block
+                                    when 'testimonial'
+                                        render 'product-block-testimonial', block: block
+                                    when 'variant_description'
+                                        render 'product-block-variant-description', block: block
+                                    when 'brand_image'
+                                        render 'product-block-brand-image', block: block
+                                    when 'product_switcher'
+                                        render 'product-block-product-switcher', block: block
+                                   when 'free_gift_notice'
+                                        render 'product-block-freegift-notice', block: block
+                                    when 'marquee'
+                                        render 'product-block-marquee', block: block
+                                    when 'stories'
+                                        render 'product-block-stories', block: block
+                                    when 'page-content'
+                                        render 'product-block-page-content', block: block
+                                    when 'collection_link'
+                                        render 'product-block-collection', block: block
+                                    when '@app'
+                                        render block
+                                endcase
+                            endfor
+                        %}
+
+                    {% endform %}
+
+                    {% liquid
+                        render 'product-bought-together' 
+                        render 'product-contact-form'
+                    %}
+
+                    {% if section.settings.show_share_btn %}
+                        <div class="d-flex justify-content-end">
+                            {% render 'share-button', title: product.title, url: product.url %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% liquid
+    render 'product-block-upsell-modal'
+    render 'product-block-size-chart'
+    render 'product-prev-next'
+%}
+
+{%- liquid
+    if product.selected_or_first_available_variant.featured_media
+        assign seo_media = product.selected_or_first_available_variant.featured_media
+    else
+        assign seo_media = product.featured_media
+    endif
+-%}
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},
+    {% if seo_media -%}
+        "image": [
+            {{ seo_media | image_url: width: seo_media.preview_image.width | prepend: "https:" | json }}
+        ],
+    {%- endif %}
+    "description": {{ product.description | strip_html | json }},
+    {% if product.selected_or_first_available_variant.sku != blank -%}
+        "sku": {{ product.selected_or_first_available_variant.sku | json }},
+    {%- endif %}
+    "brand": {
+        "@type": "Brand",
+        "name": {{ product.vendor | json }}
+    },
+    "offers": [
+        {%- for variant in product.variants -%}
+            {
+            "@type" : "Offer",
+            {%- if variant.sku != blank -%}
+                "sku": {{ variant.sku | json }},
+            {%- endif -%}
+            {%- if variant.barcode.size == 12 -%}
+                "gtin12": {{ variant.barcode }},
+            {%- endif -%}
+            {%- if variant.barcode.size == 13 -%}
+                "gtin13": {{ variant.barcode }},
+            {%- endif -%}
+            {%- if variant.barcode.size == 14 -%}
+                "gtin14": {{ variant.barcode }},
+            {%- endif -%}
+            "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+            "price" : {{ variant.price | divided_by: 100.00 | json }},
+            "priceCurrency" : {{ cart.currency.iso_code | json }},
+            "url" : {{ request.origin | append: variant.url | json }}
+            }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+    ]
+}
+</script>
+
+{% schema %}
+{
+    "name": "Product (template)",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_breadcrumbs",
+            "label": "Show Breacrumb",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_share_btn",
+            "label": "Show Share button",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Gallery"
+        },
+        {
+            "type": "color",
+            "id": "product_promo_background_color",
+            "label": "Product Promo Text Background Color",
+            "info": "Requires metafield product.metafields.custom.product_promo_title if it doesnt exist the promo text will not display",
+            "default": "#ee1882"
+        },
+        {
+            "type": "color",
+            "id": "product_promo_font_color",
+            "label": "Product Promo Text Font Color",
+            "info": "Requires metafield product.metafields.custom.product_promo_title if it doesnt exist the promo text will not display",
+            "default": "#fff"
+        },
+        {
+            "type": "checkbox",
+            "id": "jump_to_variant",
+            "label": "Show first variant image",
+            "info": "The first variant image will be selected instead of the featured image",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "gallery_img_orientation",
+            "label": "Image orientation",
+            "default": "square",
+            "options": [
+                { "value": "adapt", "label": "Adapt" },
+                { "value": "square", "label": "Square" },
+                { "value": "landscape-4x3", "label": "Landscape 4x3" },
+                { "value": "potrait-3x4", "label": "Potrait 3x4" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "gallery_img_thumbnail",
+            "label": "Image thumbnail",
+            "default": "img-thumbnail",
+            "options": [
+                { "value": "", "label": "None" },
+                { "value": "img-thumbnail", "label": "Thumbnail" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "gallery_mobile_full_width",
+            "label": "Full-width on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "gallery_show_thumbnails_mobile",
+            "label": "Show thumb images on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "gallery_enable_lightbox",
+            "label": "Enable lightbox mode (full-screen)",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "gallery_arrows",
+            "label": "Arrows",
+            "default": "thumbs-slider",
+            "options": [
+                { "value": "", "label": "None" },
+                { "value": "thumbs-slider", "label": "Thumbs slider" },
+                { "value": "main-slider", "label": "Main slider" },
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Previous/Next links"
+        },
+        {
+            "type": "paragraph",
+            "content": "Will show the previous and next products if the current product is within a collection link"
+        },
+         {
+            "type": "checkbox",
+            "id": "prev_next_show",
+            "label": "Show Prev/Next buttons",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "prev_next_img_orientation",
+            "label": "Image orientation",
+            "default": "square",
+            "options": [
+                { "value": "square", "label": "Square" },
+                { "value": "landscape", "label": "Landscape" },
+                { "value": "potrait", "label": "Potrait" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "prev_next_img_thumbnail",
+            "label": "Image thumbnail",
+            "default": "img-thumbnail",
+            "options": [
+                { "value": "", "label": "None" },
+                { "value": "img-thumbnail", "label": "Thumbnail" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 10
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 10
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "title",
+            "name": "Title",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 7
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 9
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "description",
+            "name": "Description",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Details",
+                    "info": "Leave empty to hide"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 6
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 8
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "price",
+            "name": "Price",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "font_size_mobile",
+                    "label": "Font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "font_size_desktop",
+                    "label": "Font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "variant_selector",
+            "name": "Variant selector",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "purchase_options",
+            "name": "Purchase options",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "sub_selected_first",
+                    "label": "Subscription selected first",
+                    "default": false,
+                    "info": "The subscription plan will be selected first on page load"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Purchase options",
+                    "info": "Leave empty to hide"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "richtext",
+                    "id": "sub_benefits",
+                    "label": "Subscription benefits",
+                    "default": "<ul><li>Automatically save 10%</li><li>Pause, swap or cancel anytime!</li><li>Special discounts/partnerships</li><li>Free shipping after 2nd order</li></ul>",
+                    "info": "Leave empty to hide"
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "buy_buttons",
+            "name": "Buy Buttons",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "show_qty_field",
+                    "label": "Show quantity field",
+                    "default": true
+                },
+                {
+                    "type": "select",
+                    "id": "qty_field_position",
+                    "label": "Quantity field position",
+                    "options": [
+                        { "value": "inline", "label": "Inline" },
+                        { "value": "above", "label": "Above" }
+                    ],
+                    "default": "inline"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_buy_btn",
+                    "label": "Show Buy button",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_dynamic_buttons",
+                    "label": "Show dynamic buttons",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "id": "atc_btn_show_price",
+                    "label": "Show price in the \"Add to cart\" button",
+                    "default": true
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "collection_link",
+            "name": "Collection Link",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "prefix",
+                    "label": "Add prefix before collection name",
+                    "default": "From:",
+                    "info": "Prefix can be 'By - ', 'From: ', etc."
+                },
+                {
+                    "type": "text",
+                    "id": "sub_title",
+                    "label": "View all from the same collection",
+                    "info": "Add a short one sentence description",
+                    "default": "View all from the same collection"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_arrow",
+                    "label": "Show arrow",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "name": "Text",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "General"
+                },
+                {
+                    "type": "select",
+                    "id": "bg_color",
+                    "label": "Background color",
+                    "default": "bg-body text-body",
+                    "options": [
+                        { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                        { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                        { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                        { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                        { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                        { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                        { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                        { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                        { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                        { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "id": "bg_gradient",
+                    "label": "Background gradient",
+                    "default": false,
+                    "info": "Will not apply to light colors"
+                },
+                {
+                    "type": "select",
+                    "id": "border_size",
+                    "label": "Border Size",
+                    "default": "border border-0",
+                    "options": [
+                      { "value": "border border-0", "label": "None" },
+                      { "value": "border border-1", "label": "1px" },
+                      { "value": "border border-2", "label": "2px" },
+                      { "value": "border border-3", "label": "3px" },
+                      { "value": "border border-4", "label": "4px" },
+                      { "value": "border border-5", "label": "5px" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "border_color",
+                    "label": "Border Color",
+                    "default": "border-dark",
+                    "options": [
+                      { "value": "border-primary", "label": "Primary" },
+                      { "value": "border-secondary", "label": "Secondary" },
+                      { "value": "border-success", "label": "Success" },
+                      { "value": "border-danger", "label": "Danger" },
+                      { "value": "border-warning", "label": "Warning" },
+                      { "value": "border-info", "label": "Info" },
+                      { "value": "border-light", "label": "Light" },
+                      { "value": "border-dark", "label": "Dark" },
+                      { "value": "border-white", "label": "White" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "border_radius",
+                    "label": "Border Radius",
+                    "default": "rounded-0",
+                    "options": [
+                      { "value": "rounded-0", "label": "None" },
+                      { "value": "rounded-1", "label": "Small" },
+                      { "value": "rounded-2", "label": "Medium" },
+                      { "value": "rounded-3", "label": "Large" },
+                      { "value": "rounded-circle", "label": "Circle" },
+                      { "value": "rounded-pill", "label": "Pill" }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title (optional)"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "select",
+                    "id": "title_text_transform",
+                    "label": "Title text-transform",
+                    "default": "text-capitalize",
+                    "options": [
+                        { "value": "", "label": "Normal" },
+                        { "value": "text-capitalize", "label": "Capitalize" },
+                        { "value": "text-lowercase", "label": "Lowercase" },
+                        { "value": "text-uppercase", "label": "Uppercase" }
+        
+                    ]
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description (optional)",
+                    "default": "<p>Add an optional description for this block</p>"
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "select",
+                    "id": "description_text_transform",
+                    "label": "Description text-transform",
+                    "default": "",
+                    "options": [
+                        { "value": "", "label": "Normal" },
+                        { "value": "text-capitalize", "label": "Capitalize" },
+                        { "value": "text-lowercase", "label": "Lowercase" },
+                        { "value": "text-uppercase", "label": "Uppercase" }
+        
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "text_align",
+                    "label": "Text align",
+                    "default": "text-start",
+                    "options": [
+                        { "value": "text-start", "label": "Left" },
+                        { "value": "text-center", "label": "Center" },
+                        { "value": "text-end", "label": "Right" }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "pt",
+                    "label": "Padding top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "pb",
+                    "label": "Padding bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 2
+                }
+            ]
+        },
+        {
+            "type": "size_chart",
+            "name": "Size chart",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "option_name",
+                    "label": "Option name",
+                    "default": "Size",
+                    "info": "The product option name to show the size chart button"
+                },
+                {
+                    "type": "select",
+                    "id": "btn_color",
+                    "label": "Button color",
+                    "default": "btn-outline-secondary",
+                    "options": [
+                        { "group": "Normal", "value": "btn-link", "label": "Link" },
+                        { "group": "Normal", "value": "btn-light", "label": "Light" },
+                        { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                        { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                        { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                        { "group": "Normal", "value": "btn-success", "label": "Success" },
+                        { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                        { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                        { "group": "Normal", "value": "btn-info", "label": "Info" },
+                        { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                        { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                        { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                        { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                        { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                        { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                        { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                        { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Size Chart"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                },
+                {
+                    "type": "page",
+                    "id": "page",
+                    "label": "Page"
+                }
+            ]
+        },
+        {
+            "type": "trust_badges",
+            "name": "Trust badges",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "label",
+                    "label": "Label",
+                    "default": "Trust badges list",
+                    "info": "Used for accessibility purposes"
+                },
+                {
+                    "type": "text",
+                    "id": "max_width",
+                    "label": "Max-width (px)",
+                    "default": "400"
+                },
+                {
+                    "type": "select",
+                    "id": "col_size",
+                    "label": "Column width",
+                    "options": [
+                        { "value": "col-3", "label": "25%" },
+                        { "value": "col-4", "label": "33%" },
+                        { "value": "col-6", "label": "50%" },
+                        { "value": "col-12", "label": "100%" }
+                    ],
+                    "default": "col-4"
+                },
+                {
+                    "type": "text",
+                    "id": "img_size",
+                    "label": "Image size (px)",
+                    "default": "24"
+                },
+                {
+                    "type": "header",
+                    "content": "item 1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_1",
+                    "label": "Image 1"
+                },
+                {
+                    "type": "html",
+                    "id": "text_1",
+                    "label": "Test 1"
+                },
+                {
+                    "type": "header",
+                    "content": "item 2"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_2",
+                    "label": "Image 2"
+                },
+                {
+                    "type": "html",
+                    "id": "text_2",
+                    "label": "Test 2"
+                },
+                {
+                    "type": "header",
+                    "content": "item 3"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_3",
+                    "label": "Image 3"
+                },
+                {
+                    "type": "html",
+                    "id": "text_3",
+                    "label": "Test 3"
+                },
+                {
+                    "type": "header",
+                    "content": "item 4"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_4",
+                    "label": "Image 4"
+                },
+                {
+                    "type": "html",
+                    "id": "text_4",
+                    "label": "Test 4"
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "inventory_bar",
+            "name": "Inventory bar",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "inventory_bar_low_threshold",
+                    "label": "Low inventory threshold",
+                    "info": "Below this level the inventory bar will display a warning color",
+                    "default": 10,
+                    "min": 2,
+                    "max": 100
+                },
+                {
+                    "type": "range",
+                    "id": "inventory_bar_max_threshold",
+                    "label": "Max inventory threshold",
+                    "info": "The current product inventory value will compare against this value to determine the progress bar width.",
+                    "default": 100,
+                    "min": 50,
+                    "max": 500,
+                    "step": 10
+                },
+                {
+                    "type": "select",
+                    "id": "inventory_bar_color_low",
+                    "label": "Low inventory color",
+                    "options": [
+                        { "value": "dark", "label": "Dark" },
+                        { "value": "primary", "label": "Primary" },
+                        { "value": "secondary", "label": "Secondary" },
+                        { "value": "success", "label": "Success" },
+                        { "value": "danger", "label": "Danger" },
+                        { "value": "warning", "label": "Warning" },
+                        { "value": "info", "label": "Info" }
+                    ],
+                    "default": "warning"
+                },
+                {
+                    "type": "select",
+                    "id": "inventory_bar_color_normal",
+                    "label": "Normal inventory color",
+                    "options": [
+                        { "value": "dark", "label": "Dark" },
+                        { "value": "primary", "label": "Primary" },
+                        { "value": "secondary", "label": "Secondary" },
+                        { "value": "success", "label": "Success" },
+                        { "value": "danger", "label": "Danger" },
+                        { "value": "warning", "label": "Warning" },
+                        { "value": "info", "label": "Info" }
+                    ],
+                    "default": "success"
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "upsell_modal",
+            "name": "Upsell modal",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "Will show immediately through a modal after the user clicks on the ATC (Add to cart) button"
+                },
+                {
+                    "type": "text",
+                    "id": "modal_title",
+                    "label": "Modal title",
+                    "default": "Hurry up before it's too late..."
+                },
+                {
+                    "type": "text",
+                    "id": "metafield",
+                    "label": "Metafield namespace\/key",
+                    "default": "ecomify.upsell",
+                    "info": "Please [create the metafield above first](https:\/\/shopify.com\/admin\/metafields\/product\/create) and then add the upsell products to it."
+                },
+                {
+                    "type": "range",
+                    "id": "limit",
+                    "label": "Limit products",
+                    "default": 2,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "text",
+                    "id": "modal_footer_btn",
+                    "label": "Continue button",
+                    "default": "Continue with your purchase"
+                },
+                {
+                    "type": "text",
+                    "id": "countdown_timer",
+                    "label": "Countdown timer",
+                    "info": "Please format either like this 2024-01-17 11:10am or January 17, 2024 11:10am. Leave empty to disable"
+                },
+                {
+                    "type": "text",
+                    "id": "countdown_timer_pretext",
+                    "label": "Timer pre-text",
+                    "default": "Offer expires in: "
+                }
+            ]
+        },
+        {
+            "type": "bought_together",
+            "name": "Bought Together",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "Offer your users the ability to buy multiple related products at once with the current product listed first."
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Frequently Bought Together"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "text",
+                    "id": "metafield",
+                    "label": "Metafield namespace\/key",
+                    "default": "ecomify.upsell",
+                    "info": "Please [create the metafield above first](https:\/\/shopify.com\/admin\/metafields\/product\/create) and then add the upsell products to it."
+                },
+                {
+                    "type": "range",
+                    "id": "limit",
+                    "label": "Limit products",
+                    "default": 3,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "header",
+                    "content": "Product"
+                },
+                {
+                    "type": "select",
+                    "id": "img_orientation",
+                    "label": "Image orientation",
+                    "default": "square",
+                    "options": [
+                        { "value": "square", "label": "Square" },
+                        { "value": "landscape", "label": "Landscape" },
+                        { "value": "potrait", "label": "Potrait" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "img_thumbnail",
+                    "label": "Image thumbnail",
+                    "default": "img-thumbnail",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "qty_breaks",
+            "name": "Quantity Breaks",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "Allow users to select pre-defied quantities with radio buttons, preferably with a discount."
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Buy more & save up to 40%"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "text",
+                    "id": "metafield",
+                    "label": "Metafield namespace\/key",
+                    "default": "ecomify.qty_breaks",
+                    "info": "Please [create the metafield above first](https:\/\/shopify.com\/admin\/metafields\/product\/create) and then add the quantity breaks value as described in our documentation."
+                },
+                {
+                    "type": "select",
+                    "id": "save_badge_color",
+                    "label": "Save badge color",
+                    "default": "bg-success text-white",
+                    "options": [
+                      { "group": "Light", "value": "bg-white text-dark", "label": "White" },
+                      { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                      { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                      { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                      { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                      { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                      { "group": "Alert", "value": "bg-warning text-dark", "label": "Warning" },
+                      { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                      { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "preferred_option",
+                    "label": "Preferred option",
+                    "default": "2",
+                    "info": "In case you want to display as \"Most Popular\" one of the options. Leave empty to disable."
+                },
+                { 
+                    "type": "text",
+                    "id": "preferred_option_text",
+                    "label": "Preferred option text",
+                    "default": "Most Popular"
+                },
+                {
+                    "type": "select",
+                    "id": "price_logic",
+                    "label": "Price to show",
+                    "default": "item",
+                    "options": [
+                        { "value": "item", "label": "Item" },
+                        { "value": "total", "label": "Total" }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "personalization",
+            "name": "Personalization field",
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "Display custom properties like Name Input or File Upload"
+                },
+                {
+                    "type": "select",
+                    "id": "type",
+                    "label": "Type",
+                    "default": "text",
+                    "options": [
+                        { "value": "text", "label": "Text" },
+                        { "value": "phone", "label": "Phone" },
+                        { "value": "date", "label": "Date" },
+                        { "value": "textarea", "label": "Textarea" },
+                        { "value": "file", "label": "File Upload" },
+                        { "value": "select", "label": "Select" },
+                        { "value": "checkbox", "label": "Checkbox" },
+                        { "value": "radio", "label": "Radio" }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "label",
+                    "label": "Label",
+                    "default": "Your Name"
+                },
+                {
+                    "type": "text",
+                    "id": "placeholder",
+                    "label": "Placeholder",
+                    "default": "John Doe",
+                    "info": "Leavey empty to hide. This setting is only used on the types that allows it."
+                },
+                {
+                    "type": "textarea",
+                    "id": "values",
+                    "label": "Values",
+                    "default": "blue, green, white",
+                    "info": "Applies only if the type setting selected above is 'select', 'radio' or 'checkbox'"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "required",
+                    "label": "Required field",
+                    "default": true,
+                    "info": "If enabled the customer can not leave this field empty. Note: 'Select', 'Radio' or 'Checkbox' types can not have a required property."
+                },
+                {
+                    "type": "text",
+                    "id": "maxlength",
+                    "label": "Max-length",
+                    "info": "Limit the number of characters for the input/textarea"
+                },
+                {
+                    "type": "richtext",
+                    "id": "helper_text",
+                    "label": "Helper text",
+                    "info": "Additonal text to show below the form field."
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "accordion",
+            "name": "Accordion",
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "accordion_style",
+                    "label": "Accordion style",
+                    "default": "accordion-default",
+                    "options": [
+                        { "value": "accordion-default", "label": "Default" },
+                        { "value": "accordion-flush", "label": "Flush (borderless)" },
+                        { "value": "accordion-fancy", "label": "Fancy" }
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "id": "open_first_item",
+                    "label": "Open first item by default",
+                    "default": true
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "header",
+                    "content": "item 1"
+                },
+                {
+                    "type": "text",
+                    "id": "title_1",
+                    "label": "Title",
+                    "default": "Accordion Item 1"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description_1",
+                    "label": "Description"
+                },
+                {
+                    "type": "liquid",
+                    "id": "html_content_1",
+                    "label": "HTML/LIQUID code",
+                    "info": "Note: You may use both HTML and Liquid codes. \n\n EXAMPLE: <p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p" 
+                },
+                {
+                    "type": "checkbox",
+                    "id": "description_1_is_desc",
+                    "label": "Show product description",
+                    "default": true
+                },
+                {
+                    "type": "html",
+                    "id": "icon_1",
+                    "label": "Icon",
+                    "info": "You may get svg icons from libraries like [Bootstrap Icons](https://icons.getbootstrap.com)"
+                },
+                {
+                    "type": "header",
+                    "content": "item 2"
+                },
+                {
+                    "type": "text",
+                    "id": "title_2",
+                    "label": "Title",
+                    "default": "Accordion Item 2"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description_2",
+                    "label": "Description",
+                    "default": "<p>Add some description or inject a metafield</p>"
+                },
+                {
+                    "type": "liquid",
+                    "id": "html_content_2",
+                    "label": "HTML/LIQUID code",
+                    "info": "Note: You may use both HTML and Liquid codes. \n\n EXAMPLE: <p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p" 
+                },
+                {
+                    "type": "html",
+                    "id": "icon_2",
+                    "label": "Icon",
+                    "info": "You may get svg icons from libraries like [Bootstrap Icons](https://icons.getbootstrap.com)"
+                },
+                {
+                    "type": "header",
+                    "content": "item 3"
+                },
+                {
+                    "type": "text",
+                    "id": "title_3",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description_3",
+                    "label": "Description"
+                },
+                {
+                    "type": "liquid",
+                    "id": "html_content_3",
+                    "label": "HTML/LIQUID code",
+                    "info": "Note: You may use both HTML and Liquid codes. \n\n EXAMPLE: <p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p" 
+                },
+                {
+                    "type": "html",
+                    "id": "icon_3",
+                    "label": "Icon",
+                    "info": "You may get svg icons from libraries like [Bootstrap Icons](https://icons.getbootstrap.com)"
+                },
+                {
+                    "type": "header",
+                    "content": "item 4"
+                },
+                {
+                    "type": "text",
+                    "id": "title_4",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description_4",
+                    "label": "Description"
+                },
+                {
+                    "type": "liquid",
+                    "id": "html_content_4",
+                    "label": "HTML/LIQUID code",
+                    "info": "Note: You may use both HTML and Liquid codes. \n\n EXAMPLE: <p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p" 
+                },
+                {
+                    "type": "html",
+                    "id": "icon_4",
+                    "label": "Icon",
+                    "info": "You may get svg icons from libraries like [Bootstrap Icons](https://icons.getbootstrap.com)"
+                },
+                {
+                    "type": "header",
+                    "content": "item 5"
+                },
+                {
+                    "type": "text",
+                    "id": "title_5",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description_5",
+                    "label": "Description"
+                },
+                {
+                    "type": "liquid",
+                    "id": "html_content_5",
+                    "label": "HTML/LIQUID code",
+                    "info": "Note: You may use both HTML and Liquid codes. \n\n EXAMPLE: <p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p" 
+                },
+                {
+                    "type": "html",
+                    "id": "icon_5",
+                    "label": "Icon",
+                    "info": "You may get svg icons from libraries like [Bootstrap Icons](https://icons.getbootstrap.com)"
+                },
+                {
+                    "type": "header",
+                    "content": "item 6"
+                },
+                {
+                    "type": "text",
+                    "id": "title_6",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description_6",
+                    "label": "Description"
+                },
+                {
+                    "type": "liquid",
+                    "id": "html_content_6",
+                    "label": "HTML/LIQUID code",
+                    "info": "Note: You may use both HTML and Liquid codes. \n\n EXAMPLE: <p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p" 
+                },
+                {
+                    "type": "html",
+                    "id": "icon_6",
+                    "label": "Icon",
+                    "info": "You may get svg icons from libraries like [Bootstrap Icons](https://icons.getbootstrap.com)"
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "delivery_info",
+            "name": "Delivery info",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "Quickly inform your customers about the shipping times."
+                },
+                {
+                    "type": "html",
+                    "id": "icon",
+                    "label": "Icon (svg)",
+                    "default": " <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"currentColor\" class=\"bi bi-truck\" viewbox=\"0 0 16 16\"><path d=\"M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z\"></path></svg>",
+                    "info": "You may get svg icons from libraries like [Bootstrap Icons](https://icons.getbootstrap.com)"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Delivery Info"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "<p><strong>Domestic</strong>: 2-3 days; <strong>International</strong>: 7-10 days</p>"
+                },
+                 {
+            "type": "number",
+            "id": "delivery_start_days",
+            "label": "Delivery start days from now",
+            "default": 3
+        },
+        {
+            "type": "number",
+            "id": "delivery_end_days",
+            "label": "Delivery end days from now",
+            "default": 10
+        },
+              {
+            "type": "text",
+            "id": "delivery_message",
+            "label": "Delivery Message",
+            "default": "Order within the next 23 hours 11 minutes to receive it. Estimated delivery is between"
+        },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "limited_offer",
+            "name": "Limited offer",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "Display an animated countdown timer for the \"on sale\" products below the price. It creates a sense of urgency. Note: It will not show if the product variant has only the regular price."
+                },
+                {
+                    "type": "color",
+                    "id": "color",
+                    "label": "Color",
+                    "default": "#dc3545"
+                },
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Text",
+                    "default": "Hurry up! This offer expires in: "
+                },
+                {
+                    "type": "text",
+                    "id": "countdown_timer",
+                    "label": "Countdown timer",
+                    "info": "Show an animated countdown timer on the side of the announcement text. Please format either like this 2024-01-17 11:10am or January 17, 2024 11:10am. Leave empty to disable"
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "liquid_code",
+            "name": "Liquid code",
+            "settings": [
+                {
+                    "type": "liquid",
+                    "id": "liquid",
+                    "label": "HTML code",
+                    "default": "<p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p>",
+                    "info": "Note: You may use both HTML and Liquid codes."
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "store_availability",
+            "name": "Store availability",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "separator",
+            "name": "Separator",
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "opacity",
+                    "label": "Border opacity",
+                    "min": 0,
+                    "max": 1,
+                    "step": 0.1,
+                    "default": 0.1
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                }
+            ]
+        },
+        {
+            "type": "media",
+            "name": "Media",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Image"
+                },
+                {
+                    "type": "select",
+                    "id": "img_thumbnail",
+                    "label": "Image thumbnail",
+                    "default": "img-thumbnail",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Video"
+                },
+                {
+                    "type": "video",
+                    "id": "video",
+                    "label": "Video"
+                },
+                {
+                    "type": "select",
+                    "id": "video_thumbnail",
+                    "label": "Video thumbnail",
+                    "default": "img-thumbnail",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "id": "autoplay",
+                    "label": "Autoplay",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "loop",
+                    "label": "Loop",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "muted",
+                    "label": "Muted",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "controls",
+                    "label": "Controls",
+                    "default": true
+                },
+                {
+                    "type": "header",
+                    "content": "External video"
+                },
+                {
+                    "type": "video_url",
+                    "id": "external_video",
+                    "label": "Video",
+                    "accept": [
+                        "youtube"
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "external_video_thumbnail",
+                    "label": "Video thumbnail",
+                    "default": "img-thumbnail",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                }
+            ]
+        },
+       {
+    "type": "page-content",
+    "name": "Page Content Block",
+    "settings": [
+        {
+            "type": "page",
+            "id": "page_handle",
+            "label": "Select a Page"
+        },
+          {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+              {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 2
+                },
+               {
+                  "type": "checkbox",
+                   "id": "show_title",
+                  "label": "Show Title",
+                   "default": true
+                 }
+             ]
+             },
+        {
+            "type": "contact_form",
+            "name": "Contact form",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Contact us"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "<p>Contact us regarding this product.</p>"
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                }
+            ]
+        },
+        {
+            "type": "testimonial",
+            "name": "Testimonial",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "General"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_verified_badge",
+                    "label": "Show verified badges",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_below_gallery_desktop",
+                    "label": "Show below the gallery (only on desktop)",
+                    "default": true
+                },
+                {
+                    "type": "header",
+                    "content": "Testimonial 1"
+                },
+                {
+                    "type": "richtext",
+                    "id": "testimonial_1",
+                    "label": "Testimonial",
+                    "default": "<p>\"Ecomify has made my online store look professional and modern. Sales have increased since switching to this theme.\"<\/p>"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_1",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "author_1",
+                    "label": "Author",
+                    "default": "Author's Name"
+                },
+                {
+                    "type": "header",
+                    "content": "Testimonial 2"
+                },
+                {
+                    "type": "richtext",
+                    "id": "testimonial_2",
+                    "label": "Testimonial",
+                    "default": "<p>\"Ecomify has made my online store look professional and modern. Sales have increased since switching to this theme.\"<\/p>"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_2",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "author_2",
+                    "label": "Author",
+                    "default": "Author's Name"
+                },
+                {
+                    "type": "header",
+                    "content": "Testimonial 3"
+                },
+                {
+                    "type": "richtext",
+                    "id": "testimonial_3",
+                    "label": "Testimonial",
+                    "default": "<p>\"Ecomify has made my online store look professional and modern. Sales have increased since switching to this theme.\"<\/p>"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_3",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "author_3",
+                    "label": "Author",
+                    "default": "Author's Name"
+                },
+                
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                }
+            ]
+        },
+        {
+            "type": "variant_description",
+            "name": "Variant description",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "metafield",
+                    "label": "Metafield",
+                    "default": "custom.variant_description",
+                    "info": "Use this metafield to switch a block of text when the variant changes through the options selector."
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                }
+            ]
+        },
+          {
+        "type": "free_gift_notice",
+        "name": "Free Gift Notice",
+        "limit": 1,
+        "settings": [
+            {
+                "type": "text",
+                "id": "free_gift_message",
+                "label": "Free Gift Message",
+                "default": "🔥 Get a Free Gift with each Purchase! 📦 Free Shipping on orders over $60!",
+                "info": "Customize the message to display for the free gift offer."
+            },
+            {
+                "type": "color",
+                "id": "text_color",
+                "label": "Text color",
+                "default": "#000000"
+            },
+            {
+                "type": "image_picker",
+                "id": "background_image",
+                "label": "Background Image",
+                "info": "Choose a background image for the free gift notice."
+            },
+            {
+                "type": "range",
+                "id": "image_opacity",
+                "label": "Image Opacity",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 100,
+                "info": "Set the opacity of the background image. Range from 0 (transparent) to 100 (fully opaque)."
+            },
+            {
+                "type": "header",
+                "content": "Spacing"
+            },
+            {
+                "type": "range",
+                "id": "mt",
+                "label": "Margin top",
+                "min": 0,
+                "max": 20,
+                "step": 1,
+                "default": 2
+            },
+            {
+                "type": "range",
+                "id": "mb",
+                "label": "Margin bottom",
+                "min": 0,
+                "max": 20,
+                "step": 1,
+                "default": 2
+            },
+            {
+                "type": "url",
+                "id": "slide_link",
+                "label": "Slide link",
+                "info": "Use this option if you prefer linking the whole slide and not through the button settings above."
+            }
+        ]
+    },
+        {
+            "type": "brand_image",
+            "name": "Brand image",
+            "settings": [
+
+                {
+                    "type": "header",
+                    "content": "General"
+                },
+                {
+                    "type": "text",
+                    "id": "metafield",
+                    "label": "Metafield",
+                    "default": "ecomify.brand_image",
+                    "info": "Use this metafield to add the brand image to the product."
+                },
+                {
+                    "type": "text",
+                    "id": "img_width",
+                    "label": "Image width (px)",
+                    "default": "85"
+                },
+                {
+                    "type": "text",
+                    "id": "img_height",
+                    "label": "Image height (px)",
+                    "default": "85"
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "pt",
+                    "label": "Padding top",
+                    "min": 0,
+                    "max": 15,
+                    "step": 1,
+                    "default": 0
+                },
+                {
+                    "type": "range",
+                    "id": "pb",
+                    "label": "Padding bottom",
+                    "min": 0,
+                    "max": 15,
+                    "step": 1,
+                    "default": 0
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "product_switcher",
+            "name": "Product switcher",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "paragraph",
+                    "content": "This feature acts like a variant switcher but instead, you can use it to switch between products. For example, if you have products that are almost the same but each one has a different color."
+                },
+                {
+                    "type": "header",
+                    "content": "General"
+                },
+                {
+                    "type": "text",
+                    "id": "metafield",
+                    "label": "Metafield namespace\/key",
+                    "default": "ecomify.product_switcher",
+                    "info": "Please [create the metafield above first](https:\/\/shopify.com\/admin\/metafields\/product\/create) with a type of Product (List) and then add the related products to it."
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Select color"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 3
+                },
+                {
+                    "type": "select",
+                    "id": "title_truncate",
+                    "label": "Truncate product titles",
+                    "default": "",
+                    "info": "Useful if your product titles are long",
+                    "options": [
+                        { "value": "", "label": "No (default)" },
+                        { "value": "text-truncate", "label": "One line" },
+                        { "value": "text-truncate-2", "label": "Two lines" },
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "selector_style",
+                    "label": "Selector style",
+                    "default": "select",
+                    "options": [
+                        { "value": "select", "label": "Select" },
+                        { "value": "buttons", "label": "Buttons" }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 5
+                }
+            ]
+        },
+        {
+            "type": "marquee",
+            "name": "Marquee",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "General"
+                },
+                {
+                    "type": "select",
+                    "id": "bg_color",
+                    "label": "Background color",
+                    "default": "bg-body text-body",
+                    "options": [
+                        { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                        { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                        { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                        { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                        { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                        { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                        { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                        { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                        { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                        { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+                    ]
+                },
+               {
+            "type": "url",
+            "id": "link",
+            "label": "Marquee Link"
+        },
+                {
+                    "type": "checkbox",
+                    "id": "bg_gradient",
+                    "label": "Background gradient",
+                    "default": false,
+                    "info": "Will not apply to light colors"
+                },
+                {
+                    "type": "textarea",
+                    "id": "text",
+                    "label": "Text",
+                    "default": "Ecomify theme, Ecomify theme, Ecomify Theme, Ecomify Theme,",
+                    "info": "Comma separated list"
+                },
+                {
+                    "type": "range",
+                    "id": "font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 3
+                },
+                {
+                    "type": "select",
+                    "id": "text_transform",
+                    "label": "Text transform",
+                    "default": "text-capitalize",
+                    "options": [
+                        { "value": "", "label": "Normal" },
+                        { "value": "text-capitalize", "label": "Capitalize" },
+                        { "value": "text-lowercase", "label": "Lowercase" },
+                        { "value": "text-uppercase", "label": "Uppercase" }
+        
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "list_label",
+                    "label": "List label",
+                    "default": "Promotional Features",
+                    "info": "Used for accessibility purposes"
+                },
+                {
+                    "type": "header",
+                    "content": "Effect"
+                },
+                {
+                    "type": "range",
+                    "id": "animation_duration",
+                    "label": "Animation duration",
+                    "min": 0,
+                    "max": 60,
+                    "step": 1,
+                    "default": 20,
+                    "unit": "sec"
+                },
+                {
+                    "type": "select",
+                    "id": "marquee_direction",
+                    "label": "Marquee direction",
+                    "default": "left",
+                    "options": [
+                        { "value": "left", "label": "Left" },
+                        { "value": "right", "label": "Right" }
+        
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "separator",
+                    "label": "Separator",
+                    "default": "separator-dot",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "separator-dot", "label": "Dot" }
+        
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Gap",
+                    "info": "Spacing between items."
+                },
+                {
+                    "type": "range",
+                    "id": "gap",
+                    "label": "Gap",
+                    "min": 0,
+                    "max": 12,
+                    "step": 1,
+                    "default": 6
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "pt",
+                    "label": "Padding top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "pb",
+                    "label": "Padding bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                }
+            ]
+        },
+        {
+            "type": "stories",
+            "name": "Stories",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "General"
+                },
+                {
+                    "type": "select",
+                    "id": "bg_color",
+                    "label": "Background color",
+                    "default": "bg-body text-body",
+                    "options": [
+                        { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                        { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                        { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                        { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                        { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                        { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                        { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                        { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                        { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                        { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "id": "bg_gradient",
+                    "label": "Background gradient",
+                    "default": false,
+                    "info": "Will not apply to light colors"
+                },
+                {
+                    "type": "text",
+                    "id": "list_label",
+                    "label": "List label",
+                    "default": "Featured Collections",
+                    "info": "Used for accessibility purposes"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "full_screen",
+                    "label": "Enable full-screen mode",
+                    "default": true
+                },
+                {
+                    "type": "select",
+                    "id": "animation",
+                    "label": "Animation",
+                    "default": "animate__fadeInRight",
+                    "options": [
+                        { "group": "Disabled", "value": "", "label": "No animation" },
+                        { "group": "Fade", "value": "animate__fadeIn", "label": "Fade In" },
+                        { "group": "Fade", "value": "animate__fadeInDown", "label": "Fade-in-down" },
+                        { "group": "Fade", "value": "animate__fadeInLeft", "label": "Fade-in-left" },
+                        { "group": "Fade", "value": "animate__fadeInRight", "label": "Fade-in-right" },
+                        { "group": "Fade", "value": "animate__fadeInUp", "label": "Fade-in-up" },
+                        { "group": "Zoom", "value": "animate__zoomIn", "label": "Zoom-in" },
+                        { "group": "Zoom", "value": "animate__zoomInDown", "label": "Zoom-in-down" },
+                        { "group": "Zoom", "value": "animate__zoomInLeft", "label": "Zoom-in-left" },
+                        { "group": "Zoom", "value": "animate__zoomInRight", "label": "Zoom-in-right" },
+                        { "group": "Zoom", "value": "animate__zoomInUp", "label": "Zoom-in-up" },
+                        { "group": "Back", "value": "animate__backInDown", "label": "Back-in-down" },
+                        { "group": "Back", "value": "animate__backInLeft", "label": "Back-in-left" },
+                        { "group": "Back", "value": "animate__backInRight", "label": "Back-in-right" },
+                        { "group": "Back", "value": "animate__backInUp", "label": "Back-in-up" },
+                        { "group": "Bounce", "value": "animate__bounceIn", "label": "Bounce-in" },
+                        { "group": "Bounce", "value": "animate__bounceInDown", "label": "Bounce-in-down" },
+                        { "group": "Bounce", "value": "animate__bounceInLeft", "label": "Bounce-in-left" },
+                        { "group": "Bounce", "value": "animate__bounceInRight", "label": "Bounce-in-right" },
+                        { "group": "Bounce", "value": "animate__bounceInUp", "label": "Bounce-in-up" },
+                        { "group": "LightSpeed", "value": "animate__lightSpeedInLeft", "label": "LightSpeed-in-left" },
+                        { "group": "LightSpeed", "value": "animate__lightSpeedInRight", "label": "LightSpeed-in-right" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "animation_speed",
+                    "label": "Animation speed",
+                    "default": "animate__fast",
+                    "options": [
+                        { "value": "animate__slower", "label": "Slower" },
+                        { "value": "animate__slow", "label": "Slow" },
+                        { "value": "", "label": "Normal" },
+                        { "value": "animate__fast", "label": "Fast" },
+                        { "value": "animate__faster", "label": "Faster" }
+                    ]
+                }, 
+                {
+                    "type": "header",
+                    "content": "Story Item"
+                },
+                {
+                    "type": "text",
+                    "id": "item_img_size",
+                    "label": "Image width/height (px)",
+                    "default": "70"
+                },
+                {
+                    "type": "range",
+                    "id": "item_stroke_width",
+                    "label": "Stroke width",
+                    "default": 2,
+                    "min": 1,
+                    "max": 4
+                },
+                {
+                    "type": "color",
+                    "id": "item_stroke_color_start",
+                    "label": "Stroke color start",
+                    "default": "#8a3ab9"
+                },
+                {
+                    "type": "color",
+                    "id": "item_stroke_color_end",
+                    "label": "Stroke color end",
+                    "default": "#cd486b"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 1
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "header",
+                    "content": "Spacing"
+                },
+                {
+                    "type": "range",
+                    "id": "pt",
+                    "label": "Padding top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "pb",
+                    "label": "Padding bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mt",
+                    "label": "Margin top",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "range",
+                    "id": "mb",
+                    "label": "Margin bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "default": 3
+                },
+                {
+                    "type": "header",
+                    "content": "Story 1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_1_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_1_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_1_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_1_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 2"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_2_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_2_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_2_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_2_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 3"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_3_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_3_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_3_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_3_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 4"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_4_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_4_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_4_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_4_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 5"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_5_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_5_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_5_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_5_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 6"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_6_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_6_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_6_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_6_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 7"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_7_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_7_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_7_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_7_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 8"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_8_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_8_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_8_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_8_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 9"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_9_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_9_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_9_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_9_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Story 10"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "story_10_img",
+                    "label": "Image",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "video",
+                    "id": "story_10_video",
+                    "label": "Video",
+                    "info": "Will show only in the full-screen mode"
+                },
+                {
+                    "type": "text",
+                    "id": "story_10_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "story_10_url",
+                    "label": "URL"
+                }
+            ]
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "templates": ["product"],
+    "presets": [
+        {
+            "name": "Product (template)",
+            "category": "Product page"
+        }
+    ]
+}
+{% endschema %}

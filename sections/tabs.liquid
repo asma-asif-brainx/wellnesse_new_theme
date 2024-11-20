@@ -1,0 +1,627 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+    case section.settings.img_orientation
+        when 'square'
+            assign img_width  = 900
+            assign img_height = 900
+        when 'landscape'
+            assign img_width  = 900
+            assign img_height = 720
+        when 'landscape-x2'
+            assign img_width  = 900
+            assign img_height = 600
+        when 'potrait'
+            assign img_width  = 720
+            assign img_height = 900
+        when 'potrait-x2'
+            assign img_width  = 600
+            assign img_height = 900
+    endcase
+%}
+
+<style>
+.nav-tabs {
+    --bs-nav-tabs-border-radius: {{ settings.border_radius | divided_by: 2 | append: 'rem' }}
+}
+</style>
+
+<section 
+    id="tabs-section-{{ section.id }}" 
+    class="tabs-section enter-view {{ bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    <div class="container">
+        <div class="mx-auto" style="max-width: {{ section.settings.max_width }}px">
+            <div class="row align-items-center {{ section.settings.img_align_desktop }}">
+                {% unless section.settings.image == blank %}
+                    <div class="col-lg-6 mb-6 mb-lg-0">
+                        <div 
+                            class="animate__animated animate__faster opacity-0"
+                            data-animate-class="animate__fadeIn"
+                            style="animation-delay: 0ms">
+                            <img
+                                class="img-fluid rounded {{ section.settings.img_thumbnail }}"
+                                src="{{ section.settings.image.src | image_url: width: img_width, height: img_height, crop: section.settings.img_crop }}"
+                                alt="{{ section.settings.image.alt | escape }}"
+                                width="{{ img_width }}"
+                                height="{{ img_height }}"
+                                loading="lazy">
+                        </div>
+                    </div>
+                {% endunless %}
+                <div class="{% if section.settings.image == blank %}col-lg-12{% else %}col-lg-6{% endif %}">
+                    <div class="pb-3 {{ section.settings.text_align }}">
+                        {% render 'section-header' %}
+                    </div>
+                    <div 
+                        id="nav-tabs-{{ section.id }}" 
+                        class="nav {{ section.settings.tabs_style }} {{ section.settings.tabs_position }}"
+                        role="tablist">
+                        {% for block in section.blocks %}
+                            <li class="nav-item" role="presentation" {{ block.shopify_attributes }}>
+                                <button 
+                                    id="tab-{{ block.id }}"
+                                    class="nav-link {% if forloop.first %}active{% endif %}" 
+                                    data-bs-toggle="tab" 
+                                    data-bs-target="#tab-pane-{{ block.id }}" 
+                                    type="button" 
+                                    role="tab" 
+                                    aria-controls="tab-pane-{{ block.id }}" 
+                                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                                    <div class="d-flex align-items-center">
+                                        {% if block.settings.table_title_icon != nil %}
+                                            <img
+                                                class="img-fluid me-4 flex-shrink-0"
+                                                src="{{ block.settings.table_title_icon.src | image_url: width: 44 }}"
+                                                alt="{{ block.settings.table_title_icon.alt | escape }}"
+                                                width="22"
+                                                height="{{ 22 | divided_by: block.settings.table_title_icon.aspect_ratio | round }}"
+                                                loading="lazy">
+                                        {% endif %}
+                                        {{  block.settings.tab_title }}
+                                    </div>
+                                </button>
+                            </li>
+                        {% endfor %}
+                    </div>
+                    <div class="tab-content pt-5">
+                        {% for block in section.blocks %}
+                            <div 
+                                id="tab-pane-{{ block.id }}" 
+                                class="tab-pane fade {% if forloop.first %}show active{% endif %}" 
+                                role="tabpanel" 
+                                aria-labelledby="tab-{{ block.id }}" 
+                                tabindex="0"
+                                {{ block.shopify_attributes }}>
+                                <div class="row align-items-center {{ block.settings.img_align_desktop }}">
+                                    {% unless block.settings.img == blank %}
+                                        {% liquid
+                                                case block.settings.img_orientation
+                                                    when 'square'
+                                                        assign img_width  = 900
+                                                        assign img_height = 900
+                                                    when 'landscape'
+                                                        assign img_width  = 900
+                                                        assign img_height = 720
+                                                    when 'landscape-x2'
+                                                        assign img_width  = 900
+                                                        assign img_height = 600
+                                                    when 'potrait'
+                                                        assign img_width  = 720
+                                                        assign img_height = 900
+                                                    when 'potrait-x2'
+                                                        assign img_width  = 600
+                                                        assign img_height = 900
+                                                endcase
+                                        %}
+                                        <div class="col-lg-6 mb-6 mb-lg-0">
+                                            <img
+                                                class="img-fluid rounded {{ block.settings.img_thumbnail }}"
+                                                src="{{ block.settings.img.src | image_url: width: img_width, height: img_height, crop: block.settings.img_crop }}"
+                                                alt="{{ block.settings.img.alt | escape }}"
+                                                width="{{ img_width }}"
+                                                height="{{ img_height }}"
+                                                loading="lazy">
+                                        </div>
+                                    {% endunless %}
+                                    {% unless block.settings.external_video == blank %}
+                                        {% liquid 
+                                            if block.settings.external_video.type == 'youtube'
+                                                assign video_src = 'https://www.youtube.com/embed/' | append: section.settings.external_video.id | append: '&mute=1 to &autoplay=1'
+                                            else
+                                                assign video_src = 'https://player.vimeo.com/video/' | append: section.settings.external_video.id
+                                            endif
+                                        %}
+                                        <div class="col-lg-6 mb-6 mb-lg-0">
+                                            <div class="ratio ratio-16x9">
+                                                <iframe
+                                                    class="rounded"
+                                                    src="{{ video_src }}"
+                                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                                    frameborder="0"
+                                                    allowfullscreen
+                                                    loading="lazy"
+                                                    {% if block.settings.force_lazyload and block.settings.external_video.type == 'youtube' %}
+                                                        srcdoc="
+                                                            <style>
+                                                                * { padding:0; margin:0; overflow:hidden }
+                                                                html, body { height: 100%; background: black; }
+                                                                img, span { position: absolute; width: 100%; top: 0; bottom: 0; left: 0; right: 0; margin: auto; transition: all .2s ease-out; }
+                                                                a:hover img { opacity: .75; }
+                                                                span {
+                                                                    width: 60px; 
+                                                                    height: 42px;
+                                                                    background-color: #FF0000; 
+                                                                    color: white; 
+                                                                    border-radius: 6px; 
+                                                                    display: flex;
+                                                                    align-items: center;
+                                                                    justify-content: center;
+                                                                }
+                                                                a:hover span { transform: scale(1.1); }
+                                                            </style>
+                                                            <a href=https://www.youtube.com/embed/{{ block.settings.external_video.id }}?autoplay=1&mute=1>
+                                                                <img 
+                                                                    src=https://img.youtube.com/vi/{{ block.settings.external_video.id }}/maxresdefault.jpg 
+                                                                    alt='Video The Dark Knight Rises: What Went Wrong? – Wisecrack Edition'>
+                                                                <span>
+                                                                    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' class='bi bi-play-fill' viewBox='0 0 16 16'>
+                                                                        <path d='m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z'/>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>"
+                                                    {% endif %}>
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    {% endunless %}
+                                    <div class="{% if block.settings.img == blank and block.settings.external_video == blank %}col-lg-12{% else %}col-lg-6{% endif %}">
+                                        {% unless block.settings.title == blank %}
+                                            <h2 class="title mb-4 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                                                {{ block.settings.title }}
+                                            </h2>
+                                        {% endunless %}
+                                        {% unless block.settings.description == blank %}
+                                            <div class="description rte {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+                                                {{ block.settings.description }}
+                                            </div>
+                                            {% if block.settings.html_content != blank %}
+                                                {{ block.settings.html_content }}
+                                            {% endif %}
+                                        {% endunless %}
+                                        {% if product and block.settings.show_product_description %}
+                                            <div class="product-description description rte {% if block.settings.description %}mt-4{% endif %}">
+                                                {{ product.description }}
+                                            </div>
+                                            {% if block.settings.html_content_product_description != blank %}
+                                                {{ block.settings.html_content_product_description }}
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Tabs",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-body text-body",
+            "options": [
+                { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "bg_gradient",
+            "label": "Background gradient",
+            "default": false,
+            "info": "Will not apply to light colors"
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max width (px)",
+            "info": "Adjust container width (in pixels)"
+        },
+        {
+            "type": "select",
+            "id": "tabs_style",
+            "label": "Tabs style",
+            "default": "nav-tabs",
+            "options": [
+                { "value": "nav-tabs", "label": "Tabs (default)" },
+                { "value": "nav-pills", "label": "Pills" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "tabs_position",
+            "label": "Tabs position",
+            "default": "",
+            "options": [
+                { "value": "", "label": "Left" },
+                { "value": "justify-content-center", "label": "Center" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Header"
+        },
+        {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text align",
+            "default": "text-center",
+            "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Tabs"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description (optional)",
+            "default": "<p>Add on optional description to this section</p>"
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "header",
+            "content": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Note: Image is optional and isually it is not needed. Also, you may need to adjust the 'Max width' setting above if you set an image."
+        },
+        {
+            "type": "select",
+            "id": "img_orientation",
+            "label": "Image orientation",
+            "default": "landscape",
+            "options": [
+                { "value": "square", "label": "Square" },
+                { "value": "landscape", "label": "Landscape" },
+                { "value": "landscape-x2", "label": "Landscape 2x" },
+                { "value": "potrait", "label": "Potrait" },
+                { "value": "potrait-x2", "label": "Potrait 2x" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "img_crop",
+            "label": "Image crop",
+            "default": "center",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "center", "label": "Center" },
+                { "value": "bottom", "label": "Bottom" },
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "img_thumbnail",
+            "label": "Image thumbnail",
+            "default": "img-thumbnail",
+            "options": [
+                { "value": "", "label": "None" },
+                { "value": "img-thumbnail", "label": "Thumbnail" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "img_align_desktop",
+            "label": "Image alignment (desktop)",
+            "default": "flex-lg-row",
+            "options": [
+                { "value": "flex-lg-row", "label": "Left" },
+                { "value": "flex-lg-row-reverse", "label": "Right" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "tab",
+            "name": "Tab",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "tab_title",
+                    "label": "Tab title",
+                    "default": "Tab title"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "table_title_icon",
+                    "label": "Table iitle icon"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 5
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "<p>Some description for this tab</p>"
+                },
+                {
+                    "type": "liquid",
+                    "id": "html_content",
+                    "label": "HTML/LIQUID code",
+                    "info": "Note: You may use both HTML and Liquid codes. \n\n EXAMPLE: <p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p" 
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_product_description",
+                    "label": "Show product description",
+                    "default": false,
+                    "info": "Note: the section must be in the product page"
+                },
+                {
+                    "type": "liquid",
+                    "id": "html_content_product_description",
+                    "label": "HTML/LIQUID code for product description",
+                    "info": "Note: You may use both HTML and Liquid codes this displays below the product description if enabled. \n\n EXAMPLE: <p class=\"bg-light rounded border p-4\">Today's date: <b>{{ 'now' | date: \"%b %d, %Y\" }}</b></p" 
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "header",
+                    "content": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Image"
+                },
+                {
+                    "type": "select",
+                    "id": "img_orientation",
+                    "label": "Image orientation",
+                    "default": "landscape",
+                    "options": [
+                        { "value": "square", "label": "Square" },
+                        { "value": "landscape", "label": "Landscape" },
+                        { "value": "landscape-x2", "label": "Landscape 2x" },
+                        { "value": "potrait", "label": "Potrait" },
+                        { "value": "potrait-x2", "label": "Potrait 2x" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "img_crop",
+                    "label": "Image crop",
+                    "default": "center",
+                    "options": [
+                        { "value": "top", "label": "Top" },
+                        { "value": "center", "label": "Center" },
+                        { "value": "bottom", "label": "Bottom" },
+                        { "value": "left", "label": "Left" },
+                        { "value": "right", "label": "Right" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "img_thumbnail",
+                    "label": "Image thumbnail",
+                    "default": "img-thumbnail",
+                    "options": [
+                        { "value": "", "label": "None" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "img_align_desktop",
+                    "label": "Image alignment (desktop)",
+                    "default": "flex-lg-row",
+                    "options": [
+                        { "value": "flex-lg-row", "label": "Left" },
+                        { "value": "flex-lg-row-reverse", "label": "Right" }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "External Video"
+                },
+                {
+                    "type": "video_url",
+                    "id": "external_video",
+                    "label": "Video link",
+                    "accept": [
+                        "youtube", "vimeo"
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "id": "force_lazyload",
+                    "label": "Force Layzload",
+                    "info": "Note: Applies only to YouTube videos. Modern browsers support the native lazyload feature but with this setting enabled youtube iframes have better lazyload implemenation as only the video screenshot is loaded.",
+                    "default": true
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Tabs",
+            "blocks": [
+                {
+                    "type": "tab",
+                    "settings": {
+                        "tab_title": "Tab 1",
+                        "description": "<p>Tab 1 content</p>"
+                    }
+                },
+                {
+                    "type": "tab",
+                    "settings": {
+                        "tab_title": "Tab 2",
+                        "description": "<p>Tab 2 content</p>"
+                    }
+                },
+                {
+                    "type": "tab",
+                    "settings": {
+                        "tab_title": "Tab 2",
+                        "description": "<p>Tab 2 content</p>"
+                    }
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

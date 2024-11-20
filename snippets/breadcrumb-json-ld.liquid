@@ -1,0 +1,86 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+
+{% if request.page_type == 'collection' %}
+  {% assign breadcrumb_position = 1%}
+  
+  {% capture breadcrumbs %}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": {{ breadcrumb_position }},
+        "name": "Home",
+        "item": "{{ shop.url }}"
+      }
+      {% assign breadcrumb_position = breadcrumb_position | plus: 1 %}
+      {% for parent_collection in collection.collections %}
+      ,{
+        "@type": "ListItem",
+        "position": {{ breadcrumb_position }},
+        "name": "{{ parent_collection.title | escape }}",
+        "item": "{{ shop.url }}/collections/{{ parent_collection.handle }}"
+      }
+      {% assign breadcrumb_position = breadcrumb_position | plus: 1 %}
+      {% endfor %}
+      ,{
+        "@type": "ListItem",
+        "position": {{ breadcrumb_position }},
+        "name": "{{ collection.title | escape }}",
+        "item": "{{ shop.url }}/collections/{{ collection.handle }}"
+      }
+    ]
+  }
+  {% endcapture %}
+
+  <script type="application/ld+json">
+  {{ breadcrumbs | strip_newlines }}
+  </script>
+{% endif %}
+
+{% if request.page_type == 'product' %}
+  {% liquid assign breadcrumb_position = 1 %}
+  {% capture breadcrumbs %}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": {{ breadcrumb_position }},
+        "name": "Home",
+        "item": "{{ shop.url }}"
+      }
+      {% assign breadcrumb_position = breadcrumb_position | plus: 1 %}
+      {% for collection in product.collections %}
+      ,{
+        "@type": "ListItem",
+        "position": {{ breadcrumb_position }},
+        "name": "{{ collection.title | escape }}",
+        "item": "{{ shop.url }}/collections/{{ collection.handle }}"
+      }
+      {% assign breadcrumb_position = breadcrumb_position | plus: 1 %}
+      {% endfor %}
+      ,{
+        "@type": "ListItem",
+        "position": {{ breadcrumb_position }},
+        "name": "{{ product.title | escape }}",
+        "item": "{{ shop.url }}/products/{{ product.handle }}"
+      }
+    ]
+  }
+  {% endcapture %}
+
+  <script type="application/ld+json">
+  {{ breadcrumbs | strip_newlines }}
+  </script>
+{% endif %}

@@ -1,0 +1,544 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+  if section.index > 1
+    assign media_loading = 'lazy'
+  else
+    assign media_loading = 'eager'
+  endif
+
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+
+  if customer
+      assign show_section = section.settings.access_members
+  else
+      assign show_section = section.settings.access_guests
+  endif
+%}
+
+<parallax-media
+  id="parallax-media-{{ section.id }}" 
+  class="
+    parallax-media
+    {{ pt }} 
+    {{ pb }} 
+    {{ mt }} 
+    {{ mb }}
+  "
+  style=" 
+    --text-color: {{ section.settings.text_color }};
+    --overlay-color: {{ section.settings.overlay_color }};
+    --bs-border-opacity: {{ section.settings.border_opacity | append: '%' }};
+  ">
+  <div 
+    class="media-wrapper" 
+    data-overlay-opacity="{{ section.settings.overlay_opacity }}"
+    style="
+      --overlay-color-rgb: {{ section.settings.overlay_color }};
+      --overlay-opacity: {{ section.settings.overlay_opacity | append: '%' }};
+      --overlay-blur: {{ section.settings.overlay_blur | append: 'px' }}">
+    {% if section.settings.video_mobile or section.settings.video_desktop %}
+      <div class="media-mobile">
+        {{-
+          section.settings.video_mobile | video_tag: 
+            class: 'parallax-media-media',
+            image_size: '800x', 
+            autoplay: true, 
+            loop: true, 
+            muted: true, 
+            controls: false,
+            loading: media_loading
+        -}}
+      </div>
+      <div class="media-desktop">
+        {{-
+          section.settings.video_desktop | video_tag: 
+            class: 'parallax-media-media',
+            image_size: '1600x', 
+            autoplay: true, 
+            loop: true, 
+            muted: true, 
+            controls: false,
+            loading: media_loading
+        -}}
+      </div>
+    {% elsif section.settings.img_mobile or section.settings.img_desktop %}
+      <div class="media-mobile">
+        <img 
+          class="parallax-media-media"
+          src="{{ section.settings.img_mobile | image_url: width: '800' }}" 
+          alt="{{ section.settings.img_mobile.alt }}"
+          width="800"
+          height="{{ 800 | divided_by: section.settings.img_mobile.aspect_ratio | round }}"
+          loading="{{ media_loading }}">
+      </div>
+      <div class="media-desktop">
+        <img 
+          class="parallax-media-media"
+          src="{{ section.settings.img_desktop | image_url: width: '1600' }}" 
+          alt="{{ section.settings.img_desktop.alt }}"
+          width="1600"
+          height="{{ 1600 | divided_by: section.settings.img_desktop.aspect_ratio | round }}"
+          loading="{{ media_loading }}">
+      </div>
+    {% else %}
+      {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+      {{ 'lifestyle-' | append: current | placeholder_svg_tag }}
+    {% endif %}
+  </div>
+  <div class="parallax-media-caption-wrapper">
+    {% for block in section.blocks %}
+      <div 
+        class="parallax-media-caption-inner" 
+        style="max-width: {{ block.settings.caption_max_width | append: 'px' }}; color: var(--text-color);">
+        <div class="parallax-media-caption-inner-inner">
+          {% unless block.settings.subtitle == blank %}
+            <p class="subtitle {{ block.settings.subtitle_font_size_mobile | prepend: 'fs-' }} {{ block.settings.subtitle_font_size_desktop | prepend: 'fs-lg-' }}">
+              {{ block.settings.subtitle }}
+            </p>
+          {% endunless %}
+          {% unless block.settings.title == blank %}
+            <h2 class="title mb-4 mb-desktop-5 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+              {{ block.settings.title }}
+            </h2>
+          {% endunless %}
+          {% unless block.settings.description == blank %}
+            <div class="description rte mb-5 {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}">
+              {{ block.settings.description }}
+            </div>
+          {% endunless %}
+          {% if block.settings.btn_primary_text != blank or block.settings.btn_secondary_text != blank %}
+            <div class="btn-wrapper m-n2">
+              {% unless block.settings.btn_primary_text == blank %}
+                <a 
+                  class="btn m-2 {{ block.settings.btn_primary_color }}"  
+                  href="{{ block.settings.btn_primary_url }}">
+                  {{ block.settings.btn_primary_text }}
+                </a>
+              {% endunless %}
+              {% unless block.settings.btn_secondary_text == blank %}
+                <a 
+                  class="btn m-2 {{ block.settings.btn_secondary_color }}"  
+                  href="{{ block.settings.btn_secondary_url }}">
+                  {{ block.settings.btn_secondary_text }}
+                </a>
+              {% endunless %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</parallax-media>
+
+<style>
+/*
+  Parallax media
+*/
+.parallax-media {
+  display: block;
+  position: relative;
+  color: var(--text-color);
+}
+
+.parallax-media .media-wrapper {
+  --opacity: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.parallax-media .media-wrapper::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(var(--overlay-color), var(--overlay-opacity));
+  backdrop-filter: blur(var(--overlay-blur));
+}
+
+.parallax-media-media {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.parallax-media-caption-wrapper {
+  position: relative;
+  margin-block-start: -100vh;
+}
+
+.parallax-media-caption-inner {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 1rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-mobile {
+  display: none;
+}
+
+.media-desktop {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .media-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .media-desktop {
+    display: block;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Parallax media",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_mobile",
+      "label": "Image - mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_desktop",
+      "label": "Image - desktop"
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Video - mobile"
+    },
+    {
+      "type": "video",
+      "id": "video_desktop",
+      "label": "Video - desktop" 
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 30,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "overlay_blur",
+      "label": "Blur",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Padding top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mt",
+      "label": "Margin top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mb",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Access"
+    },
+    {
+      "type": "checkbox",
+      "id": "access_guests",
+      "label": "Guests",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "access_members",
+      "label": "Members",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption_max_width",
+          "label": "Caption max-width (px)",
+          "default": "900"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Optional Subtitle",
+          "info": "Leave empty to disable"
+        },
+        {
+          "type": "range",
+          "id": "subtitle_font_size_mobile",
+          "label": "Subtitle font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "subtitle_font_size_desktop",
+          "label": "Subtitle font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Slide Title",
+          "info": "Leave empty to disable"
+        },
+        {
+          "type": "range",
+          "id": "title_font_size_mobile",
+          "label": "Title font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 6
+        },
+        {
+          "type": "range",
+          "id": "title_font_size_desktop",
+          "label": "Title font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 8
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>An optional description for this slide</p>",
+          "info": "Leave empty to disable"
+        },
+        {
+          "type": "range",
+          "id": "description_font_size_mobile",
+          "label": "Description font-size | mobile",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "description_font_size_desktop",
+          "label": "Description font-size | desktop",
+          "min": 1,
+          "max": 12,
+          "default": 2
+        },
+        {
+          "type": "header",
+          "content": "Primary button"
+        },
+        {
+          "type": "text",
+          "id": "btn_primary_text",
+          "label": "Button text",
+          "default": "Primary button",
+          "info": "Leave empty to disable"
+        },
+        {
+          "type": "select",
+          "id": "btn_primary_color",
+          "label": "Button color",
+          "default": "btn-primary",
+          "options": [
+            { "group": "Solid", "value": "btn-primary", "label": "Primary" },
+            { "group": "Solid", "value": "btn-secondary", "label": "Secondary" },
+            { "group": "Solid", "value": "btn-white", "label": "White" },
+            { "group": "Light", "value": "btn-light-primary", "label": "Primary" },
+            { "group": "Light", "value": "btn-light-secondary", "label": "Secondary" },
+            { "group": "Light", "value": "btn-light-white", "label": "White" },
+            { "group": "Outline", "value": "btn-outline-primary", "label": "Primary" },
+            { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary" },
+            { "group": "Outline", "value": "btn-outline-white", "label": "White" }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "btn_primary_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "header",
+          "content": "Secondary button"
+        },
+        {
+          "type": "text",
+          "id": "btn_secondary_text",
+          "label": "Button text",
+          "default": "Secondary button",
+          "info": "Leave empty to disable"
+        },
+        {
+          "type": "select",
+          "id": "btn_secondary_color",
+          "label": "Button color",
+          "default": "btn-secondary",
+          "options": [
+            { "group": "Solid", "value": "btn-primary", "label": "Primary" },
+            { "group": "Solid", "value": "btn-secondary", "label": "Secondary" },
+            { "group": "Solid", "value": "btn-white", "label": "White" },
+            { "group": "Light", "value": "btn-light-primary", "label": "Primary" },
+            { "group": "Light", "value": "btn-light-secondary", "label": "Secondary" },
+            { "group": "Light", "value": "btn-light-white", "label": "White" },
+            { "group": "Outline", "value": "btn-outline-primary", "label": "Primary" },
+            { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary" },
+            { "group": "Outline", "value": "btn-outline-white", "label": "White" }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "btn_secondary_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "presets": [
+    {
+      "name": "Parallax media",
+      "category": "General",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Title for Slide 1",
+            "subtitle": "Subtitle for Slide 1",
+            "description": "<p>Description for Slide 1</p>",
+            "btn_primary_text": "Primary Button 1",
+            "btn_primary_url": "#",
+            "btn_secondary_text": "Secondary Button 1",
+            "btn_secondary_url": "#"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Title for Slide 2",
+            "subtitle": "Subtitle for Slide 2",
+            "description": "<p>Description for Slide 2</p>",
+            "btn_primary_text": "Primary Button 2",
+            "btn_primary_url": "#",
+            "btn_secondary_text": "Secondary Button 2",
+            "btn_secondary_url": "#"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Title for Slide 3",
+            "subtitle": "Subtitle for Slide 3",
+            "description": "<p>Description for Slide 3</p>",
+            "btn_primary_text": "Primary Button 3",
+            "btn_primary_url": "#",
+            "btn_secondary_text": "Secondary Button 3",
+            "btn_secondary_url": "#"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

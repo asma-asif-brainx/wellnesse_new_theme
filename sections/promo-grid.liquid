@@ -1,0 +1,670 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+
+  assign bg_color = section.settings.bg_color
+
+  if section.settings.bg_gradient
+    assign bg_color = bg_color | append: ' bg-gradient'
+  endif
+
+  if customer
+    assign show_section = section.settings.access_members
+  else
+    assign show_section = section.settings.access_guests
+  endif
+
+  assign visibility = ''
+
+  if section.settings.visibility_xs == false
+    assign visibility = 'd-none'
+  endif
+
+  if section.settings.visibility_md
+    assign visibility = ' d-md-block' | prepend: visibility
+  else
+    assign visibility = ' d-md-none' | prepend: visibility
+  endif
+
+  if section.settings.visibility_lg
+    assign visibility = ' d-lg-block' | prepend: visibility
+  else
+    assign visibility = ' d-lg-none' | prepend: visibility
+  endif
+%}
+
+{%- style -%}
+  .promotion-grid {
+      width: 100%;
+      display: block;
+      {% if section.settings.section_size == 'full-width' %}
+          padding-left: 15px;
+          padding-right: 15px;
+      {% endif %}
+  }
+
+  .section-{{ section.id }}.promotion-grid {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .section-container {
+      width: 100%;
+      max-width: 1400px;
+      padding: 0 15px;
+      margin: 0 auto;
+      display: block;
+  }
+
+  .promotion-grid-row {
+      margin-left: -15px;
+      margin-right: -15px;
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .promotion-grid-col {
+      width: 50%;
+      float: left;
+      padding: 0 15px;
+      margin: 15px 0;
+  }
+
+  .promotion-grid-block {
+      width: 100%;
+      display: block;
+      height: 100%;
+      position: relative;
+  }
+
+  .promotion-grid-image svg.my-custom-class {
+      background: #333;
+  }
+
+  .promotion-grid-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+  }
+
+  .promotion-grid-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: .25rem; /* Add class for rounded corners */
+  }
+
+  .promotion-grid-detail {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 10px;
+      bottom: 10px;
+      display: flex;
+      padding: 15px;
+      border-radius: .25rem; /* Add class for rounded corners */
+  }
+
+  .promotion-detail-vertical-align-middle {
+      align-items: center;
+  }
+
+  .promotion-detail-horizontal-align-center {
+      justify-content: center;
+      text-align: center;
+  }
+
+  .promotion-detail-vertical-align-top {
+      align-items: flex-start;
+  }
+
+  .promotion-detail-horizontal-align-left {
+      justify-content: flex-start;
+      text-align: left;
+  }
+
+  .promotion-detail-vertical-align-bottom {
+      align-items: flex-end;
+  }
+
+  .promotion-detail-horizontal-align-right {
+      justify-content: flex-end;
+      text-align: right;
+  }
+
+  .promotion-detail__title.h2 {
+      font-size: 24px;
+      line-height: 34px;
+  }
+
+  .promotion-detail__title.h1 {
+      font-size: 36px;
+      line-height: 46px;
+  }
+
+  .promotion-detail__title.h0 {
+      font-size: 58px;
+      line-height: 68px;
+  }
+
+  .promotion-detail__text-subtitle * {
+      font-size: 22px;
+      line-height: 30px;
+  }
+
+  .promotion-grid-detail-inner .button {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 20px;
+      display: inline-block;
+      margin: 5px 10px;
+  }
+
+  .promotion-detail-buttons {
+      margin-top: 15px;
+      display: inline-block;
+      margin-left: -10px;
+      margin-right: -10px;
+  }
+
+  .promotion-detail-buttons .btn {
+      margin: 5px; /* Add spacing between buttons */
+  }
+
+  @media screen and (max-width: 749px) {
+  .section-{{ section.id }}.promotion-grid {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  }
+
+  .promotion-grid-col {
+      width: 100%;
+  }
+
+  .promotion-detail__title.h1 {
+      font-size: 30px;
+      line-height: 40px;
+  }
+
+  .promotion-detail__title.h0 {
+      font-size: 44px;
+      line-height: 54px;
+  }
+
+  .promotion-detail__text-subtitle * {
+      font-size: 20px;
+      line-height: 28px;
+  }
+  }
+{%- endstyle -%}
+<div class="promotion-grid section-{{ section.id }} {{ section.settings.bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }}">
+  {% if section.settings.section_size == 'container' %}
+    <div class="section-container">
+  {% endif %}
+
+  <div class="promotion-grid-row">
+    {% for block in section.blocks %}
+      <div class="promotion-grid-col">
+        <div class="promotion-grid-block">
+          <div class="promotion-grid-image">
+            {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | img_url: 'master' }}"
+                alt="{{ block.settings.image.alt }}"
+                class="rounded"
+              >
+            {% else %}
+              {{ 'collection-1' | placeholder_svg_tag: 'my-custom-class' }}
+            {% endif %}
+          </div>
+
+          <div
+            class="promotion-grid-detail promotion-detail-vertical-align-{{ block.settings.text_align_vertical }} promotion-detail-horizontal-align-{{ block.settings.text_align_horizontal }} rounded"
+            style="{% if block.settings.enable_border %}border: 1px solid {{ block.settings.border_color }};{% endif %}"
+          >
+            <div class="promotion-grid-detail-inner">
+              {% if block.settings.title != blank %}
+                <h2
+                  class="promotion-detail__title {{ block.settings.title_size }} {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}"
+                  style="color: {{ block.settings.title_color }}; text-transform: {{ block.settings.title_transform }}"
+                >
+                  {{ block.settings.title }}
+                </h2>
+              {% endif %}
+
+              {% if block.settings.description != blank %}
+                <div
+                  class="promotion-detail__text rte promotion-detail__text-{{ block.settings.description }} {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}"
+                  style="color: {{ block.settings.description_color }}"
+                >
+                  {{ block.settings.description }}
+                </div>
+              {% endif %}
+
+              {%- if block.settings.button_label_1 != blank or block.settings.button_label_2 != blank -%}
+                <div class="promotion-detail-buttons">
+                  {%- if block.settings.button_label_1 != blank -%}
+                    <a
+                      href="{{ block.settings.button_link_1 }}"
+                      class="btn {{ block.settings.btn_color_1 }}"
+                      style="color: {{ block.settings.btn_label_color_1 }};"
+                    >
+                      {{ block.settings.button_label_1 | escape }}
+                    </a>
+                  {%- endif -%}
+
+                  {%- if block.settings.button_label_2 != blank -%}
+                    <a
+                      href="{{ block.settings.button_link_2 }}"
+                      class="btn {{ block.settings.btn_color_2 }}"
+                      style="color: {{ block.settings.btn_label_color_2 }};"
+                    >
+                      {{ block.settings.button_label_2 | escape }}
+                    </a>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if section.settings.section_size == 'container' %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+"name": "Promotion grid",
+"class": "section",
+"settings": [
+    {
+        "type": "select",
+        "id": "section_size",
+        "options": [
+            {
+                "value": "container",
+                "label": "Container"
+            },
+            {
+                "value": "full-width",
+                "label": "Full width"
+            }
+        ],
+        "default": "full-width",
+        "label": "Section size"
+    },
+    {
+        "type": "header",
+        "content": "Desktop space"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+    },
+    {
+        "type": "header",
+        "content": "Mobile space"
+    },
+    {
+        "type": "range",
+        "id": "mobile_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+    },
+    {
+        "type": "range",
+        "id": "mobile_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+    },
+   
+    {
+        "type": "select",
+        "id": "bg_color",
+        "label": "Background color",
+        "default": "bg-body text-body",
+        "options": [
+            { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+            { "group": "Light", "value": "bg-white text-body", "label": "White" },
+            { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+            { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+            { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+            { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+            { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+            { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+            { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+            { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+        ]
+    },
+    {
+        "type": "header",
+        "content": "Visibility",
+        "info": "Show/hide this section based on the screen resolution"
+    },
+    {
+        "type": "checkbox",
+        "id": "visibility_xs",
+        "label": "Show on mobile",
+        "default": true
+    },
+    {
+        "type": "checkbox",
+        "id": "visibility_md",
+        "label": "Show on tablet",
+        "default": true
+    },
+    {
+        "type": "checkbox",
+        "id": "visibility_lg",
+        "label": "Show on desktop",
+        "default": true
+    },
+    {
+        "type": "header",
+        "content": "Access"
+    },
+    {
+        "type": "checkbox",
+        "id": "access_guests",
+        "label": "Guests",
+        "default": true
+    },
+    {
+        "type": "checkbox",
+        "id": "access_members",
+        "label": "Members",
+        "default": true
+    }
+],
+"blocks": [
+    {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Title"
+            },
+            {
+                "type": "inline_richtext",
+                "id": "title",
+                "default": "Promotion grid",
+                "label": "Title"
+            },
+             {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+            {
+                "type": "select",
+                "id": "title_transform",
+                "options": [
+                    {
+                        "value": "uppercase",
+                        "label": "Uppercase"
+                    },
+                    {
+                        "value": "lowercase",
+                        "label": "Lowercase"
+                    },
+                    {
+                        "value": "capitalize",
+                        "label": "Capitalize"
+                    },
+                    {
+                        "value": "",
+                        "label": "Auto"
+                    }
+                ],
+                "default": "",
+                "label": "Title transform"
+            },
+            {
+                "type": "color",
+                "id": "title_color",
+                "label": "Title color",
+                "default": "#fff"
+            },
+            {
+                "type": "header",
+                "content": "Content"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "default": "<p>Lorem Ipsum has been the industry's standard dummy text.</p>",
+                "label": "Description"
+            },
+          {
+                "type": "range",
+                "id": "description_font_size_mobile",
+                "label": "Description font-size | mobile",
+                "min": 1,
+                "max": 12,
+                "default": 2
+            },
+            {
+                "type": "range",
+                "id": "description_font_size_desktop",
+                "label": "Description font-size | desktop",
+                "min": 1,
+                "max": 12,
+                "default": 2
+            },
+            
+            {
+                "type": "color",
+                "id": "description_color",
+                "label": "Description color",
+                "default": "#fff"
+            },
+            {
+                "type": "header",
+                "content": "Button 1"
+            },
+            {
+                "type": "text",
+                "id": "button_label_1",
+                "default": "Button label",
+                "label": "Button label",
+                "info": "Leave the label blank to hide the button."
+            },
+            {
+                "type": "url",
+                "id": "button_link_1",
+                "label": "Button link"
+            },
+            {
+                "type": "select",
+                "id": "btn_color_1",
+                "label": "Button color",
+                "default": "btn-primary",
+                "options": [
+                    { "group": "Normal", "value": "btn-link", "label": "Link" },
+                    { "group": "Normal", "value": "btn-light", "label": "Light" },
+                    { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                    { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                    { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                    { "group": "Normal", "value": "btn-success", "label": "Success" },
+                    { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                    { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                    { "group": "Normal", "value": "btn-info", "label": "Info" },
+                    { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                    { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                    { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                    { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                    { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                    { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                    { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                    { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+                ]
+            },
+            {
+                "type": "text",
+                "id": "button_label_2",
+                "default": "Button label",
+                "label": "Button label",
+                "info": "Leave the label blank to hide the button."
+            },
+            {
+                "type": "url",
+                "id": "button_link_2",
+                "label": "Button link"
+            },
+            {
+                "type": "select",
+                "id": "btn_color_2",
+                "label": "Button color",
+                "default": "btn-primary",
+                "options": [
+                    { "group": "Normal", "value": "btn-link", "label": "Link" },
+                    { "group": "Normal", "value": "btn-light", "label": "Light" },
+                    { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                    { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                    { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                    { "group": "Normal", "value": "btn-success", "label": "Success" },
+                    { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                    { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                    { "group": "Normal", "value": "btn-info", "label": "Info" },
+                    { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                    { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                    { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                    { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                    { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                    { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                    { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                    { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+                ]
+            },
+            {
+                "type": "header",
+                "content": "placements"
+            },
+            {
+                "type": "select",
+                "id": "text_align_horizontal",
+                "options": [
+                    {
+                        "value": "left",
+                        "label": "Left"
+                    },
+                    {
+                        "value": "center",
+                        "label": "Center"
+                    },
+                    {
+                        "value": "right",
+                        "label": "Right"
+                    }
+                ],
+                "default": "center",
+                "label": "Horizontal text alignment"
+            },
+            {
+                "type": "select",
+                "id": "text_align_vertical",
+                "options": [
+                    {
+                        "value": "top",
+                        "label": "Top"
+                    },
+                    {
+                        "value": "middle",
+                        "label": "Middle"
+                    },
+                    {
+                        "value": "bottom",
+                        "label": "Bottom"
+                    }
+                ],
+                "default": "middle",
+                "label": "Vertical text alignment"
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_border",
+                "label": "Enable border",
+                "default": true
+            },
+            {
+                "type": "color",
+                "id": "border_color",
+                "label": "Border color",
+                "default": "#fff"
+            }
+        ]
+    }
+],
+"presets": [
+    {
+        "name": "Promotion grid",
+        "blocks": [
+            {
+                "type": "collection"
+            },
+            {
+                "type": "collection"
+            }
+        ]
+    }
+]
+}
+{% endschema %}
+

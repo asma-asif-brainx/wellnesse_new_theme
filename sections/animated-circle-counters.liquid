@@ -1,0 +1,353 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign bg_color = section.settings.bg_color
+
+    assign block_count = 0
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+    
+    assign thickness_ratio = '0.0' | append: section.settings.progress_circle_border_thickness_ratio
+
+    if section.settings.progress_circle_border_thickness_ratio > 9
+        assign thickness_ratio = section.settings.progress_circle_border_thickness_ratio | prepend: '0.'
+    endif
+
+    assign bordersTopBottom = section.settings.progress_circle_borders
+
+    if customer
+        assign show_section = section.settings.access_members
+    else
+        assign show_section = section.settings.access_guests
+    endif
+%}
+{% if show_section %}
+<section 
+  id="animated-circle-counters-{{ section.id }}" 
+  class="animated-circle-counters enter-view overflow-hidden {{ bg_color }}  {{ section.settings.text_align }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}" 
+  style="--progress-circle-size: {{ section.settings.progress_circle_size }}px; --progress-circle-border-thickness: calc(var(--progress-circle-size) * {{ thickness_ratio }});">
+    <div class="{{ section.settings.container }}" 
+         style="max-width: {{ section.settings.max_width }}px;">
+        {% render 'section-header' %}
+        {% for block in section.blocks %}
+        {% assign block_count = block_count | plus: 2 %}
+        <div class="row align-items-center {{ bordersTopBottom }} border-2 py-{{ section.settings.progress_circle_padding }} {% if forloop.last and bordersTopBottom != 'border-0' %}border-bottom{% endif %} {% unless section.settings.animation == '' %}animate__animated opacity-0 {{ section.settings.animation_speed }}{% endunless %}"
+            data-animate-class="{{ section.settings.animation }}"
+            style="animation-delay: {{ block_count }}00ms;">
+            <div class="progress-circle-wrapper">
+                <div class="progress-circle" 
+                     style="--percentage: 0%; --progress-border-color: {{ block.settings.progress_border_color }};" data-percentage="{{ block.settings.percentage }}">
+                    <div class="progress-value">{{ block.settings.percentage }}%</div>
+                </div>
+                <p class="mb-0 progress-circle-text">
+                    {{ block.settings.description }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Progress Circles",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-body text-body",
+            "options": [
+                { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "bg_gradient",
+            "label": "Background gradient",
+            "default": false,
+            "info": "Will not apply to light colors"
+        },
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max-width (px)"
+        },
+         {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text align",
+            "default": "text-center",
+             "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" },
+               { "value": "text-end", "label": "Right" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Animated Circle Counters"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description (optional)",
+            "default": "<p>Add on optional description to this section</p>"
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "header",
+            "content": "Circles"
+        },
+        {
+            "type": "range",
+            "id": "progress_circle_size",
+            "label": "Circle Size (px)",
+            "min": 50,
+            "max": 150,
+            "step": 1,
+            "default": 100,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "progress_circle_border_thickness_ratio",
+            "label": "Circle Thickness",
+            "info": "adjusts the animated border thickness",
+            "min": 1,
+            "max": 25,
+            "step": 1,
+            "default": 6
+        },
+        {
+            "type": "select",
+            "id": "progress_circle_borders",
+            "label": "Border color top and bottom",
+            "default": "border-top",
+            "options": [
+                { "value": "border-top", "label": "Default" },
+                { "value": "border-top border-primary", "label": "Primary" },
+                { "value": "border-top border-secondary", "label": "Secondary" },
+                { "value": "border-top border-light", "label": "Light" },
+                { "value": "border-top border-dark", "label": "Dark" },
+                { "value": "border-0", "label": "None" }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "progress_circle_padding",
+            "label": "Spacing top and bottom",
+            "min": 0,
+            "max": 6,
+            "step": 1,
+            "default": 3
+        },
+        {
+            "type": "header",
+            "content": "Animations"
+        },
+        {
+            "type": "select",
+            "id": "animation",
+            "label": "Animation",
+            "default": "animate__fadeInUp",
+            "options": [
+                { "group": "Disabled", "value": "", "label": "No animation" },
+                { "group": "Fade", "value": "animate__fadeIn", "label": "Fade In" },
+                { "group": "Fade", "value": "animate__fadeInDown", "label": "Fade-in-down" },
+                { "group": "Fade", "value": "animate__fadeInLeft", "label": "Fade-in-left" },
+                { "group": "Fade", "value": "animate__fadeInRight", "label": "Fade-in-right" },
+                { "group": "Fade", "value": "animate__fadeInUp", "label": "Fade-in-up" },
+                { "group": "Zoom", "value": "animate__zoomIn", "label": "Zoom-in" },
+                { "group": "Zoom", "value": "animate__zoomInDown", "label": "Zoom-in-down" },
+                { "group": "Zoom", "value": "animate__zoomInLeft", "label": "Zoom-in-left" },
+                { "group": "Zoom", "value": "animate__zoomInRight", "label": "Zoom-in-right" },
+                { "group": "Zoom", "value": "animate__zoomInUp", "label": "Zoom-in-up" },
+                { "group": "Back", "value": "animate__backInDown", "label": "Back-in-down" },
+                { "group": "Back", "value": "animate__backInLeft", "label": "Back-in-left" },
+                { "group": "Back", "value": "animate__backInRight", "label": "Back-in-right" },
+                { "group": "Back", "value": "animate__backInUp", "label": "Back-in-up" },
+                { "group": "Bounce", "value": "animate__bounceIn", "label": "Bounce-in" },
+                { "group": "Bounce", "value": "animate__bounceInDown", "label": "Bounce-in-down" },
+                { "group": "Bounce", "value": "animate__bounceInLeft", "label": "Bounce-in-left" },
+                { "group": "Bounce", "value": "animate__bounceInRight", "label": "Bounce-in-right" },
+                { "group": "Bounce", "value": "animate__bounceInUp", "label": "Bounce-in-up" },
+                { "group": "LightSpeed", "value": "animate__lightSpeedInLeft", "label": "LightSpeed-in-left" },
+                { "group": "LightSpeed", "value": "animate__lightSpeedInRight", "label": "LightSpeed-in-right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "animation_speed",
+            "label": "Animation speed",
+            "default": "animate__fast",
+            "options": [
+                { "value": "animate__slower", "label": "Slower" },
+                { "value": "animate__slow", "label": "Slow" },
+                { "value": "", "label": "Normal" },
+                { "value": "animate__fast", "label": "Fast" },
+                { "value": "animate__faster", "label": "Faster" }
+            ]
+        }, 
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Access"
+        },
+        {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        }
+    ],
+    "blocks": [
+        {
+            "type": "progress_circle",
+            "name": "Progress Circle",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "Your description here"
+                },
+                {
+                    "type": "number",
+                    "id": "percentage",
+                    "label": "Percentage",
+                    "default": 75
+                },
+                {
+                    "type": "color",
+                    "id": "progress_border_color",
+                    "label": "Border Color",
+                    "default": "#D81B60"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Progress Circles",
+            "category": "General"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,71 @@
+{% if section.settings.desk_img != blank %}
+    <div class="and_img">
+      {% assign img = section.settings.desk_img %}
+      {% assign img2 = section.settings.mob_img %}
+          <img class="desktop_only"
+            srcset="{%- if img.width >= 375 -%}{{ img | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if img.width >= 550 -%}{{ img | image_url: width: 550 }} 550w,{%- endif -%}
+            {%- if img.width >= 750 -%}{{ img | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if img.width >= 1100 -%}{{ img | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {%- if img.width >= 1500 -%}{{ img | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if img.width >= 1780 -%}{{ img | image_url: width: 1780 }} 1780w,{%- endif -%}
+            {%- if img.width >= 2000 -%}{{ img | image_url: width: 2000 }} 2000w,{%- endif -%}
+            {%- if img.width >= 3000 -%}{{ img | image_url: width: 3000 }} 3000w,{%- endif -%}
+            {%- if img.width >= 3840 -%}{{ img | image_url: width: 3840 }} 3840w,{%- endif -%}
+            {{ img | image_url }} {{ img.width }}w"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 10 }}px, (min-width: 750px) calc(100vw - 10px), calc(100vw - 10px)"
+            loading="lazy" 
+            alt="{{ img.alt | escape }}"
+            width="{{ img.width }}"
+            height="{{ img.width | divided_by: img.aspect_ratio }}"
+            src="{{ img | img_url: '1359x578' }}">
+    
+            <img class="mobile_only"
+            srcset="{%- if img2.width >= 375 -%}{{ img2 | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if img2.width >= 550 -%}{{ img2 | image_url: width: 550 }} 550w,{%- endif -%}
+            {%- if img2.width >= 750 -%}{{ img2 | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if img2.width >= 1100 -%}{{ img2 | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {%- if img2.width >= 1500 -%}{{ img2 | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if img2.width >= 1780 -%}{{ img2 | image_url: width: 1780 }} 1780w,{%- endif -%}
+            {%- if img2.width >= 2000 -%}{{ img2 | image_url: width: 2000 }} 2000w,{%- endif -%}
+            {%- if img2.width >= 3000 -%}{{ img2 | image_url: width: 3000 }} 3000w,{%- endif -%}
+            {%- if img2.width >= 3840 -%}{{ img2 | image_url: width: 3840 }} 3840w,{%- endif -%}
+            {{ img2 | image_url }} {{ img2.width }}w"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 10 | divided_by: 4 }}px, (min-width: 750px) calc(100vw - 10px), calc(100vw - 10px)"
+            loading="lazy" 
+            alt="{{ img2.alt | escape }}"
+            width="{{ img2.width }}"
+            height="{{ img2.width | divided_by: img2.aspect_ratio }}"
+            src="{{ img2 | img_url: '372×632' }}">
+    </div>
+    {% endif %}
+    <style>
+        .img_section .and_img img{
+            padding-top:0;
+        }
+    </style>
+    {% schema %}
+    {
+      "name": "Image Section",
+      "tag": "section",
+      "class": "spaced-section spaced-section--full-width img_section",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desk_img",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mob_img",
+          "label": "Mobile Image"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Image Section"
+        }
+      ]
+    }
+    {% endschema %}
+    

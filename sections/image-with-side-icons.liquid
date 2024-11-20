@@ -1,0 +1,437 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    if customer
+        assign show_section = section.settings.access_members
+    else
+        assign show_section = section.settings.access_guests
+    endif
+
+    assign visibility = ''
+
+    if section.settings.visibility_xs == false
+        assign visibility = 'd-none'
+    endif
+
+    if section.settings.visibility_md
+        assign visibility = ' d-md-block' | prepend: visibility
+    else 
+        assign visibility = ' d-md-none' | prepend: visibility
+    endif
+
+    if section.settings.visibility_lg
+        assign visibility = ' d-lg-block' | prepend: visibility
+    else 
+        assign visibility = ' d-lg-none' | prepend: visibility
+    endif
+%}
+
+<section 
+    id="image-with-side-icons-wrapper-{{ section.id }}" 
+    class="image-with-side-icons-wrapper enter-view {{ section.settings.bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ visibility }}">
+    <div class="{{ section.settings.container }}">
+        <div 
+            id="image-with-side-icons-{{ section.id }}" 
+            class="
+                image-with-side-icons 
+                carousel 
+                {{ section.settings.animation }}
+                {% if section.settings.indicators and section.blocks.size > 1 %}
+                    has-indicators
+                {% endif %}
+            " 
+            data-bs-ride="{% if section.settings.autoplay %}carousel{% else %}false{% endif %}">
+            {% if section.settings.indicators and section.blocks.size > 1 %}
+                <div class="carousel-indicators z-index-3 {% if section.settings.media_align == 'flex-md-row' %}align-indicators-left{% endif %}">
+                    {% for block in section.blocks %}
+                        <button 
+                            type="button" 
+                            data-bs-target="#image-with-side-icons-{{ section.id }}" 
+                            data-bs-slide-to="{{ forloop.index0 }}" 
+                            class="{% if forloop.first == true %}active{% endif %}" 
+                            aria-current="{% if forloop.first == true %}true{% endif %}" 
+                            aria-hidden="true">
+                            <img 
+                                class="img-fluid rounded {{ block.settings.img_border }}"
+                                src="{{ block.settings.image | img_url: '160x160', crop: 'center' }}"
+                                alt="{{ block.settings.image.alt }}"
+                                width="160"
+                                height="160"
+                                loading="lazy">
+                        </button>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="carousel-inner">
+                {% for block in section.blocks %}
+                    <div 
+                        class="carousel-item {% if forloop.first == true %}active{% endif %}" 
+                        data-index="{{ forloop.index0 }}" 
+                        {{ block.shopify_attributes }}>
+                        <div 
+                            class="row {{ section.settings.media_align }} align-items-center">
+                            <div class="col-lg-6">
+                                {% assign img_size = block.settings.img_width | append: 'x' | append: block.settings.img_height %}
+                                <img 
+                                    class="w-100 h-auto rounded {{ block.settings.img_border }}"
+                                    src="{{ block.settings.image | img_url: img_size, crop: 'center' }}"
+                                    alt="{{ block.settings.image.alt }}"
+                                    width="{{ block.settings.img_width }}"
+                                    height="{{ block.settings.img_height }}"
+                                    loading="lazy">
+                            </div>
+                            <div class="col-lg-6">
+                                <div 
+                                    class="border-primary p-6 p-lg-12 mt-n11 mt-lg-0 mx-4 ms-lg-0 me-lg-n11">
+                                    <h4 class="mb-4 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ block.settings.title_color }};">
+                                        {{ block.settings.title }}
+                                    </h4>
+                                    {% unless block.settings.description == blank %}
+                                        <div class="rte mb-6 {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ block.settings.description_color }};">
+                                            {{ block.settings.description }}
+                                        </div>
+                                    {% endunless %}
+                                    {% unless block.settings.btn_text == blank %}
+                                        <a 
+                                            class="btn m-1 {{ block.settings.btn_color }} {{ block.settings.btn_size }}" 
+                                            href="{{ block.settings.btn_url }}">
+                                            {{ block.settings.btn_text }}
+                                        </a>
+                                    {% endunless %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Image with Side Icons",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "options": [
+                { "group": "Light", "value": "bg-white", "label": "White" },
+                { "group": "Light", "value": "bg-light", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark", "label": "Dark" }
+            ],
+            "default": "bg-light"
+        },
+      
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid container" },
+                { "value": "", "label": "Full-width" }
+            ],
+            "default": "container"
+        },
+        {
+            "type": "select",
+            "id": "media_align",
+            "label": "Media alignment",
+            "info": "Note: On mobile, media will always be on top and text on the bottom",
+            "default": "flex-md-row",
+            "options": [
+                { "value": "flex-md-row", "label": "Left" },
+                { "value": "flex-md-row-reverse", "label": "Right" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Carousel"
+        },
+        {
+            "type": "checkbox",
+            "id": "indicators",
+            "label": "Show indicators",
+            "info": "Small iamge dots at the end",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "autoplay",
+            "label": "Enable autoplay",
+            "info": "Every 5 seconds",
+            "default": false
+        },
+        {
+            "type": "select",
+            "id": "animation",
+            "label": "Animation",
+            "options": [
+                { "value": "slide", "label": "Slide" },
+                { "value": "slide carousel-fade", "label": "Fade" }
+            ],
+            "default": "slide"
+        },
+      {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        },
+       {
+            "type": "header",
+            "content": "Visibility",
+            "info": "Show/hide this section based on the screen resolution"
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_xs",
+            "label": "Show on mobile",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_md",
+            "label": "Show on tablet",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "visibility_lg",
+            "label": "Show on desktop",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Spacing",
+            "info": "Based on Bootstrap spacing utility classes [Learn more](https://getbootstrap.com/docs/5.0/utilities/spacing/)"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 16,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        }
+    ],
+    "blocks": [
+        {
+            "type": "slide",
+            "name": "Slide",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "select",
+                    "id": "img_border",
+                    "label": "Image border",
+                    "default": "",
+                    "options": [
+                        { "value": "", "label": "Square" },
+                        { "value": "rounded", "label": "Rounded" },
+                        { "value": "img-thumbnail", "label": "Thumbnail" }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "img_width",
+                    "label": "Image width (px)",
+                    "default": "480"
+                },
+                {
+                    "type": "text",
+                    "id": "img_height",
+                    "label": "Image height (px)",
+                    "default": "480"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 6
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 8
+                },
+                {
+                    "type": "color",
+                    "id": "title_color",
+                    "label": "Title color",
+                    "default": "#000000"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "color",
+                    "id": "description_color",
+                    "label": "Description color",
+                    "default": "#000000"
+                },
+                {
+                    "type": "header",
+                    "content": "Button"
+                },
+                {
+                    "type": "text",
+                    "id": "btn_text",
+                    "label": "Button text",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button URL"
+                },
+                {
+                    "type": "select",
+                    "id": "btn_color",
+                    "label": "Button color",
+                    "default": "btn-primary",
+                    "options": [
+                        { "group": "Normal", "value": "btn-link", "label": "Link" },
+                        { "group": "Normal", "value": "btn-white", "label": "White" },
+                        { "group": "Normal", "value": "btn-light", "label": "Light" },
+                        { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                        { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                        { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                        { "group": "Normal", "value": "btn-success", "label": "Success" },
+                        { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                        { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                        { "group": "Normal", "value": "btn-info", "label": "Info" },
+                        { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                        { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                        { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                        { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                        { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                        { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                        { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+                    ]
+                },
+                {
+                    "type": "select",
+                    "id": "btn_size",
+                    "label": "Button size",
+                    "default": "",
+                    "options": [
+                        { "value": "btn-sm", "label": "Small" },
+                        { "value": "", "label": "Normal" },
+                        { "value": "btn-lg", "label": "Large" }
+                    ]
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with Side Icons",
+            "category": "Slider"
+        }
+    ]
+}
+{% endschema %}

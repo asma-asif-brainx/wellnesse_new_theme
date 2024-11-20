@@ -1,0 +1,421 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+
+{% liquid
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+
+  assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height
+  
+  if customer
+    assign show_section = section.settings.access_members
+  else
+    assign show_section = section.settings.access_guests
+  endif
+
+  assign visibility = ''
+
+  if section.settings.visibility_xs == false
+    assign visibility = 'd-none'
+  endif
+
+  if section.settings.visibility_md
+    assign visibility = ' d-md-block' | prepend: visibility
+  else 
+    assign visibility = ' d-md-none' | prepend: visibility
+  endif
+
+  if section.settings.visibility_lg
+    assign visibility = ' d-lg-block' | prepend: visibility
+  else 
+    assign visibility = ' d-lg-none' | prepend: visibility
+  endif
+%}
+
+{% unless section.settings.bg_image == blank %}
+<style>
+  #promo-about-{{ section.id }} {
+    background-image: url({{ section.settings.bg_image | img_url: '1600x' }});
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+{% endunless %}
+
+{% if show_section %}
+<section 
+  id="promo-about-{{ section.id }}"
+  class="promo-about overflow-hidden enter-view {{ section.settings.bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}{{ visibility }}">
+  <div class="{{ section.settings.container }}">
+    <div class="text-center">
+      {% unless section.settings.subtitle == blank %}
+        <p 
+          class="subtitle small mb-2 text-uppercase animate__animated animate__faster opacity-0 {{ section.settings.subtitle_font_size_mobile | prepend: 'fs-' }} {{ section.settings.subtitle_font_size_desktop | prepend: 'fs-lg-' }}"
+          data-animate-class="animate__fadeInUp"
+          style="animation-delay: 400ms; letter-spacing: 2px;">
+          {{ section.settings.subtitle }}
+        </p>
+      {% endunless %}
+      {% unless section.settings.title == blank %}
+        <h2 
+          class="title {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }} mb-7 animate__animated animate__faster opacity-0"
+          data-animate-class="animate__fadeInUp"
+          style="animation-delay: 200ms">
+          {{ section.settings.title }}
+        </h2>
+      {% endunless %}
+    </div>
+    <div class="promo-about-inner overflow-hidden">
+      {% if section.settings.video != blank %}
+        <video
+          class="img-fluid rounded {{ section.settings.img_border }}"
+          src="{{ section.settings.video }}"
+          width="{{ section.settings.img_width }}"
+          height="{{ section.settings.img_height }}"
+          {% if section.settings.autoplay %} autoplay{% endif %}
+          {% if section.settings.loop %} loop{% endif %}
+          {% if section.settings.muted %} muted{% endif %}
+          {% if section.settings.controls %} controls{% endif %}
+          loading="lazy"
+        ></video>
+      {% else %}
+        <img
+          class="img-fluid w-100 animate__animated animate__faster opacity-0 rounded"
+          src="{{ section.settings.image.src | img_url: img_size, crop: section.settings.img_crop }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          width="{{ section.settings.img_width }}"
+          height="{{ section.settings.img_height }}"
+          loading="lazy"
+          data-animate-class="animate__fadeIn"
+          style="min-height: 220px; object-fit: cover;">
+      {% endif %}
+      <div class="d-flex flex-column flex-lg-row pt-5 pt-lg-7 pb-4">
+        {% unless section.settings.description_left == blank %}
+          <div 
+            class="description rte px-lg-5 pb-5 pb-lg-0 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }} animate__animated animate__faster opacity-0"
+            data-animate-class="animate__fadeInLeft"
+            style="animation-delay: 400ms; text-align: {{ section.settings.description_left_alignment_mobile }}; color: {{ section.settings.description_left_color }};">
+            {{ section.settings.description_left }}
+          </div>
+        {% endunless %}
+        {% unless section.settings.description_right == blank %}
+          <div 
+            class="description rte px-lg-5 text-j {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }} animate__animated animate__faster opacity-0"
+            data-animate-class="animate__fadeInRight"
+            style="animation-delay: 400ms; text-align: {{ section.settings.description_right_alignment_mobile }}; color: {{ section.settings.description_right_color }};">
+            {{ section.settings.description_right }}
+          </div>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Promo About",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "bg-body text-body",
+      "options": [
+        { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+        { "group": "Light", "value": "bg-white text-body", "label": "White" },
+        { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+        { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+        { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+        { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+        { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+        { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+        { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+        { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container",
+      "default": "container",
+      "options": [
+        { "value": "", "label": "Full width" }, 
+        { "value": "container-fluid", "label": "Fluid" },
+        { "value": "container", "label": "Container" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "About Us"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "label": "Title font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "label": "Title font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Subtitle goes here"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size_mobile",
+      "label": "Subtitle font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size_desktop",
+      "label": "Subtitle font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "img_width",
+      "label": "Image width (px)",
+      "default": "1200"
+    },
+    {
+      "type": "text",
+      "id": "img_height",
+      "label": "Image height (px)",
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "img_crop",
+      "label": "Image crop",
+      "default": "center",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" },
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "url",
+      "id": "video",
+      "label": "Video URL",
+      "info": "This will replace the image if provided."
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay Video",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop Video",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "muted",
+      "label": "Mute Video",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "controls",
+      "label": "Show Video Controls",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "description_left",
+      "label": "Description (left)"
+    },
+    {
+      "type": "color",
+      "id": "description_left_color",
+      "label": "Description (left) text color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "description_left_alignment_mobile",
+      "label": "Description (left) alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "description_right",
+      "label": "Description (right)"
+    },
+    {
+      "type": "color",
+      "id": "description_right_color",
+      "label": "Description (right) text color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "description_right_alignment_mobile",
+      "label": "Description (right) alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_mobile",
+      "label": "Description font-size | mobile",
+      "min": 1,
+      "max": 12,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_desktop",
+      "label": "Description font-size | desktop",
+      "min": 1,
+      "max": 12,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "access_guests",
+      "label": "Guests",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "access_members",
+      "label": "Members",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "visibility_xs",
+      "label": "Show on mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "visibility_md",
+      "label": "Show on tablet",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "visibility_lg",
+      "label": "Show on desktop",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing",
+      "info": "Based on Bootstrap spacing utility classes [Learn more](https://getbootstrap.com/docs/5.0/utilities/spacing/)"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Padding top",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mt",
+      "label": "Margin top",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mb",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo About",
+      "category": "General"
+    }
+  ]
+}
+{% endschema %}

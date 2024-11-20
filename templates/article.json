@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "template-article": {
+      "type": "template-article",
+      "custom_css": [
+        "@media screen and (min-width: 601px) {img {padding: inherit; margin: auto; width: 800px; display: block; }}"
+      ],
+      "settings": {
+        "show_img": true,
+        "img_orientation": "landscape",
+        "img_thumbnail": "",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 7,
+        "max_width": "780",
+        "article_meta": false,
+        "show_tags": false,
+        "show_breadcrumbs": true,
+        "show_share_btn": false,
+        "show_prev_next_nav": true,
+        "show_scroll_progress_bar": true,
+        "pt": 0,
+        "pb": 0,
+        "mt": 6,
+        "mb": 10
+      }
+    }
+  },
+  "order": [
+    "template-article"
+  ]
+}

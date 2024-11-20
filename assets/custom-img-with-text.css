@@ -1,0 +1,27 @@
+.custom-img-with-text-section, .offer2-banner div{
+    background-color: unset !important;
+}
+.offer2-banner{
+    background-color: #d2d3d5 !important;
+    border-radius: 40px;
+}
+.offer2-banner .button-custom a{
+    border-radius: 30px;
+    padding: 15px 30px;
+    box-shadow: unset;
+    margin: 0 5px;
+    font-size: 18px;
+    max-width: 200px;
+    min-width: 200px;
+}
+.offer2-banner .toothpaste-banner_content .subtitle{
+    font-size: 26px !important;
+    text-transform: uppercase  !important;
+    letter-spacing: 1px  !important;
+    color: #e15e54  !important;
+    font-weight: 500;
+    order: 2;
+}
+.offer2-banner .toothpaste-banner_content .title{
+    font-size: 26px !important;   
+}

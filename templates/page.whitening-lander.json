@@ -1,0 +1,338 @@
+{
+  "sections": {
+    "image_with_text_gmN46A": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_RBXwqj": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/banner-image_0f2eef33-7c2c-43a4-8e9d-50a5be242b9b.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/banner-image_0f2eef33-7c2c-43a4-8e9d-50a5be242b9b.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_aP99PD": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "BEST FOR YOUR ORAL MICROBIOME",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "YOUR CAVITY CORRECTING TOOTHPASTE",
+            "title_font_size_mobile": 5,
+            "title_font_size_desktop": 7,
+            "description": "<p>We use all natural green tea and a biocompatible mineral called Hydroxyapatite. The same material your teeth are made of, hydroxyapatite helps stimulate growth in your teeth. This process (called remineralization) can help your body repair existing cavities and avoid new ones.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "BUY NOW",
+            "btn_url": "shopify:\/\/products\/toothpaste",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_RBXwqj",
+        "text_aP99PD"
+      ],
+      "custom_css": [
+        "div {background-color: #d2d3d5;}"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 8,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "richtext_BjN9fn": {
+      "type": "richtext",
+      "custom_css": [
+        "div {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": false,
+        "max_width": "820",
+        "text_align": "text-center",
+        "title": "DIFFERENCE BETWEEN WELLNESSE AND OTHER TOOTHPASTE BRANDS",
+        "title_font_size_mobile": 3,
+        "title_font_size_desktop": 4,
+        "description": "<h3>DID YOU KNOW THAT STORE-BOUGHT TOOTHPASTE IS SABOTAGING YOUR ORAL MICROBIOME?<\/h3><p>While most toothpastes are supposed to remove built up plaque and bacteria, they’re actually made with abrasive chemicals that strip the natural minerals from your teeth. Over time, exposure to these chemicals does the opposite of what they claim and contributes to poor oral health, cavities, and gum disease.<br\/><br\/>When we developed Wellnesse Whitening Toothpaste, we set out to solve this problem. Instead of fluoride and harsh whitening compounds, we use all natural green tea and a biocompatible mineral called hydroxyapatite. The minty flavor not only keeps your breath fresh all day long, but the natural properties in our toothpaste make your smile whiter and brighter with every brush.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_TUe3Fe": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_NQrN67": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "NO MORE COMPROMISES. JUST EFFECTIVE, CLEAN TOOTHPASTE YOU CAN ALWAYS TRUST...",
+            "subtitle_font_size_mobile": 6,
+            "subtitle_font_size_desktop": 2,
+            "title": "Wellness Mama approved!",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "SHOP NOW",
+            "btn_url": "shopify:\/\/collections\/all",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "image_iMKWzw": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Katie_2x_8fdc6071-61ee-483b-a931-80077340a55e.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/no-more-compromises_2.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_NQrN67",
+        "image_iMKWzw"
+      ],
+      "custom_css": [
+        "div {background-color: #d0cac5;}"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container-fluid",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "image_with_text_bp4J98": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_NgbRya": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/Untitled_design_-_2024-10-09T110125.300.png",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/Untitled_design_-_2024-10-09T110125.300.png",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_xGiYYg": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "ALL SMILES. NOTHING TO HIDE.",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description": "<p>Non-Toxic, Sustainable, and it really works. There’s no reason not to switch. Certified By: Leaping Bunny, B Corp Certified.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_NgbRya",
+        "text_xGiYYg"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container-fluid",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "richtext_Fgawai": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-center",
+        "title": "WELLNESSE WHITENING TOOTHPASTE INCLUDES THE VERY BEST, NATURAL INGREDIENTS FOR STRONGER TEETH, FRESHER BREATH, AND HEALTHIER FAMILIES",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 5,
+        "description": "<p>In a time where there are literally thousands of \"all-natural\" products on store shelves, it can be hard to know who to trust. We found this out the hard way when we started doing our research... and discovered that not<strong>all \"natural\" toothpastes are created equal.<\/strong>In fact, did you know that most store-bought toothpaste is actually sabotaging your oral microbiome and destroying your teeth and gums? The more we looked into it, the more we were shocked to find that many ingredients found in all-natural toothpastes can contribute to poor oral health, cavities, and gum disease. And the few natural toothpastes that do deliver on ingredients are rarely effective or that pleasant to use.<strong>So we decided to make our own, for the health of our family - and yours.<\/strong><\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 9,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "55f12060-bd1c-4134-9ffc-7b91fac745ee": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "67cab255-13e6-4d61-8005-5ad19aa18b97": {
+          "type": "post",
+          "settings": {
+            "url": "",
+            "likes": "24",
+            "comments": "12"
+          }
+        },
+        "e3139897-47db-4627-9d36-60b090cea553": {
+          "type": "post",
+          "settings": {
+            "url": "",
+            "likes": "24",
+            "comments": "12"
+          }
+        },
+        "26630e27-bdc4-462e-87cc-a930f8680157": {
+          "type": "post",
+          "settings": {
+            "url": "",
+            "likes": "24",
+            "comments": "12"
+          }
+        },
+        "39269685-f78b-484f-95d3-c9451cfd79cd": {
+          "type": "post",
+          "settings": {
+            "url": "",
+            "likes": "24",
+            "comments": "12"
+          }
+        },
+        "0eca41cb-040e-4fbb-b286-076d8c09ac42": {
+          "type": "post",
+          "settings": {
+            "url": "",
+            "likes": "24",
+            "comments": "12"
+          }
+        },
+        "378b7e77-470e-44ee-9039-f60f2f5db481": {
+          "type": "post",
+          "settings": {
+            "url": "",
+            "likes": "24",
+            "comments": "12"
+          }
+        }
+      },
+      "block_order": [
+        "67cab255-13e6-4d61-8005-5ad19aa18b97",
+        "e3139897-47db-4627-9d36-60b090cea553",
+        "26630e27-bdc4-462e-87cc-a930f8680157",
+        "39269685-f78b-484f-95d3-c9451cfd79cd",
+        "0eca41cb-040e-4fbb-b286-076d8c09ac42",
+        "378b7e77-470e-44ee-9039-f60f2f5db481"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "",
+        "bg_gradient": false,
+        "text_align": "text-center",
+        "title": "Instagram",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "title_branded": false,
+        "description": "<p>helps businesses showcase their products or services attractively<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_show": true,
+        "btn_text": "Follow @ecomgraduates",
+        "btn_url": "https:\/\/www.instagram.com\/ecomgraduates\/",
+        "btn_color": "btn-primary",
+        "btn_icon_show": true,
+        "img_orientation": "square",
+        "img_thumbnail": "",
+        "carousel_arrows": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 1,
+        "carousel_direction": "left",
+        "carousel_gap": 4,
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 4,
+        "breakpoint_xl": 5,
+        "breakpoint_xxl": 6,
+        "pt": 9,
+        "pb": 2,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "image_with_text_gmN46A",
+    "richtext_BjN9fn",
+    "image_with_text_TUe3Fe",
+    "image_with_text_bp4J98",
+    "richtext_Fgawai",
+    "55f12060-bd1c-4134-9ffc-7b91fac745ee"
+  ]
+}

@@ -1,0 +1,1415 @@
+{
+  "sections": {
+    "carousel": {
+      "type": "carousel",
+      "blocks": {
+        "7c7200c0-9e25-4d6f-8e80-68098f92561e": {
+          "type": "slide",
+          "settings": {
+            "img_mobile": "shopify:\/\/shop_images\/Untitled_design_-_2024-08-16T204018.742.png",
+            "img_mobile_height": 400,
+            "img_mobile_opacity": 1,
+            "img_mobile_blur": 0,
+            "caption_position_mobile": "carousel-caption-mobile-bottom",
+            "caption_text_align_mobile": "text-start",
+            "img_desktop": "shopify:\/\/shop_images\/Untitled_design_-_2024-08-16T204355.581.png",
+            "img_desktop_height": 650,
+            "img_desktop_opacity": 1,
+            "img_desktop_blur": 0,
+            "caption_position_desktop": "carousel-caption-desktop-left",
+            "caption_text_align_desktop": "text-lg-start",
+            "caption_max_width": "350",
+            "caption_color": "#000000",
+            "caption_animation": "animate__bounceIn",
+            "caption_animation_speed": "",
+            "subtitle": "CLINICALLY PROVEN",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "A Healthier & Brighter Smile",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 9,
+            "description": "<p>Fluoride-Free, Hydroxyapetite Toothpaste<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 4,
+            "btn_text": "SHOP NOW",
+            "btn_url": "shopify:\/\/products\/toothpaste",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm",
+            "btn_secondary_text": "Shop Oral Care",
+            "btn_secondary_url": "shopify:\/\/collections\/oral-care",
+            "btn_secondary_color": "btn-secondary",
+            "btn_secondary_size": "btn-sm",
+            "slide_link": "",
+            "image_overlay_position": "last",
+            "image_overlay_width_desktop": 0,
+            "image_overlay_width_mobile": 0
+          }
+        },
+        "5b27cc43-509b-440b-afe4-bb8aba37be7f": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "img_mobile_height": 500,
+            "img_mobile_opacity": 0.9,
+            "img_mobile_blur": 0,
+            "caption_position_mobile": "carousel-caption-mobile-center",
+            "caption_text_align_mobile": "text-center",
+            "img_desktop_height": 600,
+            "img_desktop_opacity": 1,
+            "img_desktop_blur": 0,
+            "caption_position_desktop": "carousel-caption-desktop-right",
+            "caption_text_align_desktop": "text-lg-end",
+            "caption_max_width": "",
+            "caption_color": "",
+            "caption_animation": "animate__fadeInRight",
+            "caption_animation_speed": "animate__fast",
+            "subtitle": "Developed by EcomGraduates™",
+            "subtitle_font_size_mobile": 1,
+            "subtitle_font_size_desktop": 2,
+            "title": "Dive Into The Beauty Of Ecomify",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 9,
+            "description": "<p>Experience the ultimate in skincare with our innovative, natural formulas designed to nourish, hydrate, and rejuvenate.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "Buy Theme",
+            "btn_url": "https:\/\/ecomgraduates.com\/products\/ecomify-premium-shopify-theme",
+            "btn_color": "btn-primary",
+            "btn_size": "",
+            "btn_secondary_text": "Shop Beauty",
+            "btn_secondary_url": "shopify:\/\/collections\/beauty",
+            "btn_secondary_color": "btn-secondary",
+            "btn_secondary_size": "",
+            "slide_link": "",
+            "image_overlay_position": "first",
+            "image_overlay_width_desktop": 150,
+            "image_overlay_width_mobile": 150
+          }
+        },
+        "248cd0c1-af37-44c5-b139-355211beb24b": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "loop": true,
+            "video_mobile_height": 550,
+            "video_mobile_opacity": 0.8,
+            "video_mobile_blur": 0,
+            "caption_position_mobile": "carousel-caption-mobile-center",
+            "caption_text_align_mobile": "text-center",
+            "video_desktop_height": 650,
+            "video_desktop_opacity": 0.7,
+            "video_desktop_blur": 0,
+            "caption_position_desktop": "carousel-caption-desktop-center",
+            "caption_text_align_desktop": "text-lg-center",
+            "caption_max_width": "600",
+            "caption_color": "",
+            "caption_animation": "animate__zoomIn",
+            "caption_animation_speed": "",
+            "subtitle": "New Feature",
+            "subtitle_font_size_mobile": 1,
+            "subtitle_font_size_desktop": 2,
+            "title": "Increase Conversions with Engaging Video Sliders",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 9,
+            "description": "<p>Videos are a highly engaging medium that can capture and hold the attention of potential customers<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "Buy Theme",
+            "btn_url": "https:\/\/ecomgraduates.com\/products\/ecomify-premium-shopify-theme",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md",
+            "btn_secondary_text": "",
+            "btn_secondary_url": "",
+            "btn_secondary_color": "btn-primary",
+            "btn_secondary_size": "btn-md",
+            "slide_link": "",
+            "image_overlay_position": "first",
+            "image_overlay_width_desktop": 150,
+            "image_overlay_width_mobile": 150
+          }
+        }
+      },
+      "block_order": [
+        "7c7200c0-9e25-4d6f-8e80-68098f92561e",
+        "5b27cc43-509b-440b-afe4-bb8aba37be7f",
+        "248cd0c1-af37-44c5-b139-355211beb24b"
+      ],
+      "settings": {
+        "bg_color": "bg-dark",
+        "container": "",
+        "controls": true,
+        "controls_style": "carousel-controls-arrows",
+        "indicators": true,
+        "indicators_style": "carousel-indicators-circles",
+        "autoplay": true,
+        "animation": "slide",
+        "ken_burns": false,
+        "lazyload": false,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "waves_VqBM3N": {
+      "type": "waves",
+      "settings": {
+        "wave_animation_speed": 12,
+        "wave_placement": "eg-waves-top",
+        "color": "#78dad2",
+        "blend_wave": true,
+        "wave_blend_color": "#174a50",
+        "wave_blend_alpha": 1,
+        "wave_height_desktop": 8,
+        "wave_height_mobile": 4
+      }
+    },
+    "f572d8b4-a727-4da4-8bf4-d0d95d35cd10": {
+      "type": "marquee",
+      "blocks": {
+        "6f985370-a3ec-4881-9619-f073a02d1f42": {
+          "type": "item",
+          "settings": {
+            "text": "Oral Care for the Whole Family",
+            "url": "shopify:\/\/collections\/oral-care"
+          }
+        },
+        "1ea6b740-8402-445f-bbfd-3a71af0a7206": {
+          "type": "item",
+          "settings": {
+            "text": "1 Million+ Tubes Sold",
+            "url": "shopify:\/\/collections\/oral-care"
+          }
+        },
+        "581eeadc-6ced-4cff-b047-d21dbff24b2d": {
+          "type": "item",
+          "settings": {
+            "text": "20000+ 5-Star Reviews",
+            "url": "shopify:\/\/collections\/oral-care"
+          }
+        },
+        "e1a2317f-8142-4a47-8c15-05e46029375c": {
+          "type": "item",
+          "settings": {
+            "text": "B-Corp Certified",
+            "url": "shopify:\/\/collections\/oral-care"
+          }
+        },
+        "2f89523b-aa27-418d-87f2-764136f88a55": {
+          "type": "item",
+          "settings": {
+            "text": "Natural",
+            "url": "shopify:\/\/pages\/faqs-ingredients-integrity"
+          }
+        },
+        "ff694ec3-dd34-4fea-b61d-bf9183a38a2c": {
+          "type": "item",
+          "settings": {
+            "text": "Recommended By Dentists",
+            "url": "shopify:\/\/collections\/oral-care"
+          }
+        }
+      },
+      "block_order": [
+        "6f985370-a3ec-4881-9619-f073a02d1f42",
+        "1ea6b740-8402-445f-bbfd-3a71af0a7206",
+        "581eeadc-6ced-4cff-b047-d21dbff24b2d",
+        "e1a2317f-8142-4a47-8c15-05e46029375c",
+        "2f89523b-aa27-418d-87f2-764136f88a55",
+        "ff694ec3-dd34-4fea-b61d-bf9183a38a2c"
+      ],
+      "settings": {
+        "container": "",
+        "max_width": "",
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "font_size_mobile": 2,
+        "font_size_desktop": 2,
+        "text_transform": "text-capitalize",
+        "list_label": "Promotional Features",
+        "animation_duration": 25,
+        "marquee_direction": "left",
+        "separator": "separator-dot",
+        "gap": 6,
+        "pt": 3,
+        "pb": 3,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "165151877352b831f8": {
+      "type": "featured-products",
+      "blocks": {
+        "block_J7Y6Ej": {
+          "type": "block",
+          "settings": {
+            "products": [
+              "toothpaste",
+              "floss-picks",
+              "probiotic-mints",
+              "concentrated-mouthwash",
+              "tongue-scraper"
+            ],
+            "collection": "",
+            "limit": 8,
+            "tab_title": "Best-selling"
+          }
+        }
+      },
+      "block_order": [
+        "block_J7Y6Ej"
+      ],
+      "settings": {
+        "bg_color": "",
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Best-Selling Oral Care",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 4,
+        "carousel_enable": true,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "0",
+        "carousel_rewind": true,
+        "breakpoint_xs": 1,
+        "breakpoint_xs_partial": true,
+        "breakpoint_sm": 1,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "shopify:\/\/collections\/all",
+        "btn_color": "btn-outline-secondary",
+        "pt": 9,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_list_UN6NaB": {
+      "type": "image-list",
+      "blocks": {
+        "item_YTigmB": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/business_insider_logo_2x_01168cfb-f873-42aa-a0cf-b68aa921d83f-min_1_2.png",
+            "img_width": "90",
+            "img_height": "90",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_8EEd7K": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Untitled_design_-_2024-08-11T192803.527.png",
+            "img_width": "90",
+            "img_height": "90",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_3xzVpr": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/New_York_Mag_2x_61a0f336-4a81-4d37-b680-da6345eac9c4_3_-min_1_1.webp",
+            "img_width": "90",
+            "img_height": "90",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_DFcRKx": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/skinny_confidential_2x_63339187-cf2f-486a-9f54-048adb784576-min_1.webp",
+            "img_width": "90",
+            "img_height": "90",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_ifWqrN": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/hola_usa_2x_08bc974f-e51b-4bae-b799-47ffad758c53_2_-min.png",
+            "img_width": "90",
+            "img_height": "90",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        }
+      },
+      "block_order": [
+        "item_YTigmB",
+        "item_8EEd7K",
+        "item_3xzVpr",
+        "item_DFcRKx",
+        "item_ifWqrN"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Featured In",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "animation": "animate__fadeInRight",
+        "animation_speed": "animate__fast",
+        "breakpoint_xs": 3,
+        "breakpoint_sm": 3,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 6,
+        "breakpoint_xl": 6,
+        "breakpoint_xxl": 6,
+        "gap_xs": 4,
+        "gap_sm": 6,
+        "gap_lg": 8,
+        "pt": 9,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0,
+        "link_behavior": "button"
+      }
+    },
+    "43facfe0-2c1b-4294-a0e2-fb808acae866": {
+      "type": "parallax-image",
+      "custom_css": [
+        "h2 {color: #ffffff;}",
+        "p {color: #ffffff;}",
+        "a {color: #ffffff;}"
+      ],
+      "settings": {
+        "animation": "",
+        "animation_speed": "animate__fast",
+        "img_mobile": "shopify:\/\/shop_images\/jwi-10.jpg",
+        "img_mobile_opacity": 0.5,
+        "img_mobile_blur": 0,
+        "img_mobile_orientation": "down",
+        "img_mobile_scale": 100,
+        "img_mobile_min_height": "0",
+        "img_desktop": "shopify:\/\/shop_images\/jwi-10_70714212-18a6-4d1c-95f4-5e3a9320b5fa.jpg",
+        "img_desktop_opacity": 0.5,
+        "img_desktop_blur": 0,
+        "img_desktop_orientation": "down",
+        "img_desktop_scale": 119,
+        "img_desktop_min_height": "600",
+        "max_width": "800",
+        "subtitle": "",
+        "subtitle_font_size_mobile": 2,
+        "subtitle_font_size_desktop": 2,
+        "title": "PERSONAL CARE PRODUCTS CRAFTED BY A CONSCIOUS CONSUMER LIKE YOU",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Wellnesse was started by a mom who was struggling with her own health. After doing tons of research, she realized most of the products on store shelves were filled with <a href=\"\/pages\/faqs-ingredients-integrity\" title=\"FAQs - INGREDIENTS & INTEGRITY\">toxic ingredients.<\/a> As such, she went to work formulating effective recipes for the personal care products used by her and her family.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 3,
+        "btn_text": "Learn More",
+        "btn_url": "shopify:\/\/pages\/about",
+        "btn_color": "btn-primary",
+        "btn_size": "",
+        "pt": 4,
+        "pb": 4,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "21b8e246-edcf-46e9-ba04-2682f4a3d8b3": {
+      "type": "icon-blocks",
+      "blocks": {
+        "82cc916c-3828-4ef5-be52-3f552d12166b": {
+          "type": "item",
+          "settings": {
+            "bg_color": "bg-dark text-white",
+            "shadow": "shadow-none",
+            "border_color": "",
+            "border_width": 0,
+            "text_align": "text-start",
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"25\" height=\"25\" fill=\"#ffffff\" class=\"bi bi-heart\" viewbox=\"0 0 16 16\">\n  <path d=\"m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15\"><\/path>\n<\/svg>",
+            "icon_position": "left",
+            "title": "CRUELTY FREE",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "6259cab6-5a5d-422c-b9d3-e20b0ce080fe": {
+          "type": "item",
+          "settings": {
+            "bg_color": "bg-dark text-white",
+            "shadow": "shadow-none",
+            "border_color": "",
+            "border_width": 0,
+            "text_align": "text-start",
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"25\" height=\"25\" fill=\"#ffffff\" class=\"bi bi-globe-americas\" viewbox=\"0 0 16 16\">\n  <path d=\"M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z\"><\/path>\n<\/svg>",
+            "icon_position": "left",
+            "title": "SUSTAINABLY SOURCED",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "0cb11e39-1e41-4048-9002-be0a3959aab7": {
+          "type": "item",
+          "settings": {
+            "bg_color": "bg-dark text-white",
+            "shadow": "shadow-none",
+            "border_color": "",
+            "border_width": 0,
+            "text_align": "text-start",
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"25\" height=\"25\" fill=\"#ffffff\" class=\"bi bi-brightness-high\" viewbox=\"0 0 16 16\">\n  <path d=\"M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708\"><\/path>\n<\/svg>",
+            "icon_position": "left",
+            "title": "PARABAN & SULFATE FREE",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-outline-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_Nrf78U": {
+          "type": "item",
+          "settings": {
+            "bg_color": "bg-dark text-white",
+            "shadow": "shadow-none",
+            "border_color": "",
+            "border_width": 0,
+            "text_align": "text-start",
+            "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"25\" height=\"25\" fill=\"#ffffff\" class=\"bi bi-flower1\" viewbox=\"0 0 16 16\">\n  <path d=\"M6.174 1.184a2 2 0 0 1 3.652 0A2 2 0 0 1 12.99 3.01a2 2 0 0 1 1.826 3.164 2 2 0 0 1 0 3.652 2 2 0 0 1-1.826 3.164 2 2 0 0 1-3.164 1.826 2 2 0 0 1-3.652 0A2 2 0 0 1 3.01 12.99a2 2 0 0 1-1.826-3.164 2 2 0 0 1 0-3.652A2 2 0 0 1 3.01 3.01a2 2 0 0 1 3.164-1.826M8 1a1 1 0 0 0-.998 1.03l.01.091q.017.116.054.296c.049.241.122.542.213.887.182.688.428 1.513.676 2.314L8 5.762l.045-.144c.248-.8.494-1.626.676-2.314.091-.345.164-.646.213-.887a5 5 0 0 0 .064-.386L9 2a1 1 0 0 0-1-1M2 9l.03-.002.091-.01a5 5 0 0 0 .296-.054c.241-.049.542-.122.887-.213a61 61 0 0 0 2.314-.676L5.762 8l-.144-.045a61 61 0 0 0-2.314-.676 17 17 0 0 0-.887-.213 5 5 0 0 0-.386-.064L2 7a1 1 0 1 0 0 2m7 5-.002-.03a5 5 0 0 0-.064-.386 16 16 0 0 0-.213-.888 61 61 0 0 0-.676-2.314L8 10.238l-.045.144c-.248.8-.494 1.626-.676 2.314-.091.345-.164.646-.213.887a5 5 0 0 0-.064.386L7 14a1 1 0 1 0 2 0m-5.696-2.134.025-.017a5 5 0 0 0 .303-.248c.184-.164.408-.377.661-.629A61 61 0 0 0 5.96 9.23l.103-.111-.147.033a61 61 0 0 0-2.343.572c-.344.093-.64.18-.874.258a5 5 0 0 0-.367.138l-.027.014a1 1 0 1 0 1 1.732zM4.5 14.062a1 1 0 0 0 1.366-.366l.014-.027q.014-.03.036-.084a5 5 0 0 0 .102-.283c.078-.233.165-.53.258-.874a61 61 0 0 0 .572-2.343l.033-.147-.11.102a61 61 0 0 0-1.743 1.667 17 17 0 0 0-.629.66 5 5 0 0 0-.248.304l-.017.025a1 1 0 0 0 .366 1.366m9.196-8.196a1 1 0 0 0-1-1.732l-.025.017a5 5 0 0 0-.303.248 17 17 0 0 0-.661.629A61 61 0 0 0 10.04 6.77l-.102.111.147-.033a61 61 0 0 0 2.342-.572c.345-.093.642-.18.875-.258a5 5 0 0 0 .367-.138zM11.5 1.938a1 1 0 0 0-1.366.366l-.014.027q-.014.03-.036.084a5 5 0 0 0-.102.283c-.078.233-.165.53-.258.875a61 61 0 0 0-.572 2.342l-.033.147.11-.102a61 61 0 0 0 1.743-1.667c.252-.253.465-.477.629-.66a5 5 0 0 0 .248-.304l.017-.025a1 1 0 0 0-.366-1.366M14 9a1 1 0 0 0 0-2l-.03.002a5 5 0 0 0-.386.064c-.242.049-.543.122-.888.213-.688.182-1.513.428-2.314.676L10.238 8l.144.045c.8.248 1.626.494 2.314.676.345.091.646.164.887.213a5 5 0 0 0 .386.064zM1.938 4.5a1 1 0 0 0 .393 1.38l.084.035q.108.045.283.103c.233.078.53.165.874.258a61 61 0 0 0 2.343.572l.147.033-.103-.111a61 61 0 0 0-1.666-1.742 17 17 0 0 0-.66-.629 5 5 0 0 0-.304-.248l-.025-.017a1 1 0 0 0-1.366.366m2.196-1.196.017.025a5 5 0 0 0 .248.303c.164.184.377.408.629.661A61 61 0 0 0 6.77 5.96l.111.102-.033-.147a61 61 0 0 0-.572-2.342c-.093-.345-.18-.642-.258-.875a5 5 0 0 0-.138-.367l-.014-.027a1 1 0 1 0-1.732 1m9.928 8.196a1 1 0 0 0-.366-1.366l-.027-.014a5 5 0 0 0-.367-.138c-.233-.078-.53-.165-.875-.258a61 61 0 0 0-2.342-.572l-.147-.033.102.111a61 61 0 0 0 1.667 1.742c.253.252.477.465.66.629a5 5 0 0 0 .304.248l.025.017a1 1 0 0 0 1.366-.366m-3.928 2.196a1 1 0 0 0 1.732-1l-.017-.025a5 5 0 0 0-.248-.303 17 17 0 0 0-.629-.661A61 61 0 0 0 9.23 10.04l-.111-.102.033.147a61 61 0 0 0 .572 2.342c.093.345.18.642.258.875a5 5 0 0 0 .138.367zM8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3\"><\/path>\n<\/svg>",
+            "icon_position": "left",
+            "title": "NATURAL",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "82cc916c-3828-4ef5-be52-3f552d12166b",
+        "6259cab6-5a5d-422c-b9d3-e20b0ce080fe",
+        "0cb11e39-1e41-4048-9002-be0a3959aab7",
+        "item_Nrf78U"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h3 {color: #ffffff;}"
+      ],
+      "settings": {
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 6,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "animation": "animate__fadeInRight",
+        "animation_speed": "animate__fast",
+        "breakpoint_xs_scroll": true,
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 4,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "pt": 6,
+        "pb": 6,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "testimonials_LggyC9": {
+      "type": "testimonials",
+      "blocks": {
+        "item_rALCAR": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "border-secondary",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/dr-meghan-thomas_2x_5d3a9d5f-3594-4489-9719-3929101f164a_webp.png",
+            "img_width": "150",
+            "img_height": "150",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "DR. MEGHAN THOMAS, DMD",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<h6>\"I use Wellnesse toothpaste and recommend it to my patients.<\/h6><p>It contains hydroxyapatite, a naturally occurring mineral that helps support tooth enamel to keep teeth strong. Ingredients like neem and green tea to support a healthy oral microbiome, and keep your breath fresh. Wellnesse toothpaste gets your teeth just as white (if not whiter) than everything else--without all the chemicals. Why would anyone NOT switch?”<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_HjNtrj": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "border-secondary",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/Dr_Porter_Headshot_1_jpg.webp",
+            "img_width": "150",
+            "img_height": "150",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "DR. RYAN PORTER, DDS",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<h6>\"I highly recommend it for all my patients. It's simply much healthier and reparative.<\/h6><p>Wellnesse is amazing! Not only do I use Wellnesse for my personal care, I highly recommend it for all my patients. It's simply much healthier and reparative.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        },
+        "item_RN64pk": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "border-secondary",
+            "border_width": 1,
+            "img": "shopify:\/\/shop_images\/Mask_Group_98096_2x-min_png.webp",
+            "img_width": "150",
+            "img_height": "150",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "CHELSEA PULEO",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<h6><strong>\"I love their philosophy as well as their clean ingredient list.<\/strong><\/h6><p>Finding a toothpaste with clean ingredients that actually works has been a challenge for me. When I discovered Wellnesse, I knew it was the right fit for us…As someone who is always trying to make better choices for my family, I love their philosophy as well as their clean ingredient list. Plus my children love the kids strawberry toothpaste so it’s a win for the whole family!\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "item_rALCAR",
+        "item_HjNtrj",
+        "item_RN64pk"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "fb_style": false,
+        "show_trustpilot_stars": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "What Experts Are Saying",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_arrows": true,
+        "carousel_pagination": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "1",
+        "carousel_rewind": true,
+        "carousel_loop": false,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 3,
+        "btn_show": true,
+        "btn_text": "Read all reviews",
+        "btn_url": "shopify:\/\/pages\/reviews",
+        "btn_color": "btn-primary",
+        "pt": 10,
+        "pb": 7,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "tiktok_slider_nqPYDP": {
+      "type": "tiktok-slider",
+      "blocks": {
+        "slide_jJgdVQ": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Brittany Seal- TT.mp4",
+            "title": "My Teeth Whitening Secret",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 2,
+            "product": "toothpaste",
+            "product_title_truncate": ""
+          }
+        },
+        "slide_Ffkgyq": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Oshin Salmon Morris - muamisss_shin.mp4",
+            "title": "Why 1M People LOVE This Toothpaste",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 2,
+            "product": "toothpaste",
+            "product_title_truncate": ""
+          }
+        },
+        "slide_fXTrbi": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Snaptik.app_7390782369738935595.mp4",
+            "title": "Only the good stuff, never filler or flouride",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 2,
+            "product": "",
+            "product_title_truncate": ""
+          }
+        },
+        "slide_BbjPVx": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Video Jun 17 2024, 4 16 59 PM (1).mp4",
+            "title": "",
+            "title_font_size_mobile": 2,
+            "title_font_size_desktop": 2,
+            "product": "balanced-whitening-bundle",
+            "product_title_truncate": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_jJgdVQ",
+        "slide_Ffkgyq",
+        "slide_fXTrbi",
+        "slide_BbjPVx"
+      ],
+      "custom_css": [
+        "a {color: #000000;}"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Not Your Ordinary Toothpaste",
+        "title_font_size_desktop": 8,
+        "title_font_size_mobile": 6,
+        "description": "<p><a href=\"\/pages\/faqs-ingredients-integrity\" title=\"FAQs - INGREDIENTS & INTEGRITY\">Non-toxic<\/a> • Fluoride-Free • Sustainably Sourced • Remineralizes Tooth Enamel • Safe for the Entire Family<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_icon_show": false,
+        "ratio": "ratio-9x16",
+        "carousel_arrows": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": true,
+        "carousel_interval": 1,
+        "carousel_per_move": "0",
+        "carousel_rewind": false,
+        "carousel_gap": 10,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 4,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "760bf039-c25b-482c-8e29-635514882d15": {
+      "type": "testimonials",
+      "blocks": {
+        "f0c4d8db-a501-4177-aa7b-8fdfc748383c": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-none",
+            "border_color": "border-info",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "HANNAH",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<p>“Completes my morning routine. I didn't know I needed this in my life until I had it. I feel like my mouth is the cleanest it has ever been after using this tongue scraper.\"<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "shopify:\/\/collections\/apparel",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "056f66d2-8a85-41f4-bf20-0fc5f30b4947": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "border-info",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "BETH",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<p>“Finally a high quality product my prone to eczema family can all use. I love that our hair actually comes out clean and with no lingering residue or greasiness. Clean, conditioned hair, no mess, no fuss. This is the real deal we've all been hoping for!”<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "shopify:\/\/collections\/drinkware",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "ecae6784-4061-42e3-96c3-ae8bae3d688b": {
+          "type": "item",
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "border-info",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "NANCY",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#78dad2",
+            "description": "<p>“Shiny smile. This is my go to toothpaste along with Wellnesse mint toothpaste. When putting a product in your mouth it has to be 100% natural and beneficial and that’s what this product is”<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "shopify:\/\/collections\/footwear",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "a8ddc39f-8309-4f1a-834a-9c85e24344fa": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Frankie Y",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#4267b2",
+            "description": "<p><em> \"Ecomify has exceeded my expectations. The support team is always there to help, and the theme is easy to use.\"<\/em><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "Shop Beauty",
+            "btn_url": "shopify:\/\/collections\/make-up",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "efb15204-c2e0-4334-866f-2a14027d5453": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Manny R",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#4267b2",
+            "description": "<p><em>\"Ecomify is the ultimate solution for my e-commerce website. It's modern, easy to use, and has helped me attract more customers.\"<\/em><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "Shop Drinkware",
+            "btn_url": "shopify:\/\/collections\/drinkware",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "7128c110-a0a5-425b-8d59-8465265ac849": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Drew B",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#4267b2",
+            "description": "<p><em>\"Ecomify is a game-changer for my online store. The design is beautiful and the features are top-notch.\"<\/em><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "Shop Electronics",
+            "btn_url": "shopify:\/\/collections\/electronics",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "ba909255-939f-4e41-a103-76e90ff2111f": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Bren E",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#4267b2",
+            "description": "<p><em>\"I love the customizable options and mobile optimization of Ecomify. It's the perfect theme for my e-commerce business.\"<\/em><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "Shop Hats",
+            "btn_url": "shopify:\/\/collections\/apparel",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        },
+        "1d93f1e3-3cc3-4f5a-b797-051f8e8129b2": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text_align": "text-start",
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_width": "70",
+            "img_height": "70",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "title": "Chris W",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "show_stars": true,
+            "star_color": "#4267b2",
+            "description": "<p><em>\"Ecomify has made my website look professional and modern. My customers love it and I've seen an increase in sales.\"<\/em><\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "Shop Make Up",
+            "btn_url": "shopify:\/\/collections\/make-up",
+            "btn_color": "btn-outline-primary",
+            "btn_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "f0c4d8db-a501-4177-aa7b-8fdfc748383c",
+        "056f66d2-8a85-41f4-bf20-0fc5f30b4947",
+        "ecae6784-4061-42e3-96c3-ae8bae3d688b",
+        "a8ddc39f-8309-4f1a-834a-9c85e24344fa",
+        "efb15204-c2e0-4334-866f-2a14027d5453",
+        "7128c110-a0a5-425b-8d59-8465265ac849",
+        "ba909255-939f-4e41-a103-76e90ff2111f",
+        "1d93f1e3-3cc3-4f5a-b797-051f8e8129b2"
+      ],
+      "custom_css": [
+        "h3 {color: #ffffff;}",
+        "p {color: #ffffff;}"
+      ],
+      "settings": {
+        "bg_color": "bg-dark text-white",
+        "bg_gradient": false,
+        "fb_style": true,
+        "show_trustpilot_stars": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Don’t Take Our Word For It…",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 7,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_arrows": true,
+        "carousel_pagination": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "1",
+        "carousel_rewind": true,
+        "carousel_loop": true,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 2,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 3,
+        "btn_show": false,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "c8149c08-5564-4163-8c0c-77ef4fbc5f4c": {
+      "type": "look-book",
+      "blocks": {
+        "4f31db55-b303-4e0f-8a77-10214a6a0123": {
+          "type": "point",
+          "settings": {
+            "title": "Charcoal Toothpaste",
+            "description": "<p>Our best-selling fluoride-free remineralizing hydroxyapatite toothpaste, now with an exciting remix featuring the power of activated charcoal. Experience an intensified teeth whitening effect and an added detoxification boost for your oral care routine.<\/p>",
+            "product": "charcoal-toothpaste",
+            "show_image": true,
+            "show_price": true,
+            "btn_text": "SHOP NOW",
+            "btn_color": "btn-primary",
+            "mobile_pos_left": 11,
+            "mobile_pos_top": 49,
+            "desktop_pos_left": 26,
+            "desktop_pos_top": 40
+          }
+        },
+        "2172a783-ba30-4e85-8d4b-401d3ff680c8": {
+          "type": "point",
+          "settings": {
+            "title": "Whitening Toothpaste",
+            "description": "<p>Our remineralizing fluoride-free hydroxyapatite toothpaste is so good for your oral health your dentist will ask <em>you <\/em>what you've been doing.<\/p>",
+            "product": "toothpaste",
+            "show_image": true,
+            "show_price": true,
+            "btn_text": "VIEW PRODUCT",
+            "btn_color": "btn-primary",
+            "mobile_pos_left": 29,
+            "mobile_pos_top": 49,
+            "desktop_pos_left": 37,
+            "desktop_pos_top": 40
+          }
+        },
+        "2524cdc8-64ea-4935-a2e7-2cd0627efefb": {
+          "type": "point",
+          "settings": {
+            "title": "SILK FLOSS",
+            "description": "<p>Our floss combines the gentle strength of pure silk, the smooth glide of candelilla wax, and the antimicrobial and antiviral properties of pure peppermint oil to provide the ultimate oral care experience using only <em>three<\/em> ingredients. Oral care has never been so clean and simple.<\/p>",
+            "product": "silk-floss",
+            "show_image": true,
+            "show_price": true,
+            "btn_text": "SHOP NOW",
+            "btn_color": "btn-primary",
+            "mobile_pos_left": 41,
+            "mobile_pos_top": 82,
+            "desktop_pos_left": 45,
+            "desktop_pos_top": 84
+          }
+        },
+        "ffc9d9b4-7327-4013-8f7c-e3da83b8fc93": {
+          "type": "point",
+          "settings": {
+            "title": "CHILDREN'S BAMBOO TOOTHBRUSHES",
+            "description": "<p>The same sleek, sustainable design reimagined to fit little hands and teeth! Each pack contains three children’s toothbrushes in three vibrant colors: pink, blue, and mint. Who said brushing couldn’t be fun?<\/p>",
+            "product": "childrens-toothbrushes",
+            "show_image": true,
+            "show_price": true,
+            "btn_text": "SHOP NOW",
+            "btn_color": "btn-primary",
+            "mobile_pos_left": 57,
+            "mobile_pos_top": 45,
+            "desktop_pos_left": 57,
+            "desktop_pos_top": 30
+          }
+        },
+        "point_3PM4j3": {
+          "type": "point",
+          "settings": {
+            "title": "BAMBOO TOOTHBRUSH",
+            "description": "<p>With their firm bristles and a slightly smaller head, our bamboo toothbrushes are specifically designed to effortlessly reach those challenging nooks and crannies within your mouth that other brushes simply cannot access. <\/p><p>Our toothbrushes provide an unparalleled deep cleaning experience, ensuring that every corner of your mouth receives the attention it deserves.  Experience a more thorough cleansing for an even more brilliant shine.<\/p>",
+            "product": "toothbrush",
+            "show_image": true,
+            "show_price": true,
+            "btn_text": "SHOP NOW",
+            "btn_color": "btn-primary",
+            "mobile_pos_left": 71,
+            "mobile_pos_top": 31,
+            "desktop_pos_left": 63,
+            "desktop_pos_top": 15
+          }
+        },
+        "point_G8HNYE": {
+          "type": "point",
+          "settings": {
+            "title": "CHILDREN'S STRAWBERRY TOOTHPASTE",
+            "description": "<p>Oral hygiene can be a battle with little ones, but our Strawberry Toothpaste is about to make your child fall in love with brushing their teeth! Kids are delighted by the natural fruity flavor but are still protected from bacteria and cavities by our tried-and-true, family-favorite formula.<\/p><p>Unlike traditional toothpastes, we've replaced fluoride with anti-cavity hydroxyapatite, a safe and effective alternative that fulfills all the dental needs of your precious ones.<\/p>",
+            "product": "childrens-strawberry-toothpaste",
+            "show_image": true,
+            "show_price": true,
+            "btn_text": "View product",
+            "btn_color": "btn-primary",
+            "mobile_pos_left": 86,
+            "mobile_pos_top": 49,
+            "desktop_pos_left": 73,
+            "desktop_pos_top": 25
+          }
+        }
+      },
+      "block_order": [
+        "4f31db55-b303-4e0f-8a77-10214a6a0123",
+        "2172a783-ba30-4e85-8d4b-401d3ff680c8",
+        "2524cdc8-64ea-4935-a2e7-2cd0627efefb",
+        "ffc9d9b4-7327-4013-8f7c-e3da83b8fc93",
+        "point_3PM4j3",
+        "point_G8HNYE"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "text_align": "text-center",
+        "title": "Personal Care Products for the Entire Family",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p><strong>Loved by millions. <\/strong>Each formulation originally created by a mom who decided to take her health and her family’s health into her own hands.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 3,
+        "mobile_image": "shopify:\/\/shop_images\/1_8f7d3640-f7a5-479d-83bd-477043099989.png",
+        "desktop_image": "shopify:\/\/shop_images\/1x_1cde6634-c323-402e-b8aa-af82085209b3.webp",
+        "img_thumbnail": "",
+        "point_color": "--bs-primary",
+        "point_diameter": 0.8,
+        "pt": 12,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "latest_articles_xAq8gf": {
+      "type": "latest-articles",
+      "custom_css": [
+        "div {text-align: center}"
+      ],
+      "settings": {
+        "blog": "all",
+        "limit": 3,
+        "bg_color": "bg-light text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Your Guide to Nontoxic Living",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "article_img_orientation": "landscape-3",
+        "article_title_font_size_mobile": 4,
+        "article_title_font_size_desktop": 4,
+        "article_meta": false,
+        "article_excerpt": false,
+        "breakpoint_xs_scroll": true,
+        "breakpoint_xs": 1,
+        "breakpoint_sm": 3,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 3,
+        "breakpoint_xl": 3,
+        "breakpoint_xxl": 4,
+        "pt": 11,
+        "pb": 5,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "8d55bda5-1068-404d-a559-eff3ade47f99": {
+      "type": "separator",
+      "settings": {
+        "full_width": false,
+        "opacity": 0.1,
+        "border_color": "#000000",
+        "border_thickness": 1,
+        "mt": 5,
+        "mb": 9
+      }
+    },
+    "1f537229-0551-4565-8189-e06a27ee55c2": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "73fca3a3-5844-4743-ab17-37ef4570216e": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.50.32_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C4od-AyAPQd\/",
+            "likes": "11,700",
+            "comments": "210"
+          }
+        },
+        "34a40ac2-b1d3-455e-a971-b5ae776b6176": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.54.07_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C-VL-CoN_yU\/",
+            "likes": "24",
+            "comments": "12"
+          }
+        },
+        "1c0adf68-1a17-4645-8b54-173b708107c1": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.51.14_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C4YcHWwSVIG\/",
+            "likes": "751",
+            "comments": "44"
+          }
+        },
+        "176239bd-8953-49e8-8639-a3b29d71d6fa": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.55.59_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C-EemeqsSMI\/",
+            "likes": "13",
+            "comments": "2"
+          }
+        },
+        "f1fec2ce-1382-4edd-9713-34368769a158": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.52.37_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C-iDW0iy-0F\/",
+            "likes": "24",
+            "comments": "2"
+          }
+        },
+        "c8ba0325-a8ab-4be2-b997-50fce3908ecb": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.53.28_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C-aIDZZSVfb\/",
+            "likes": "33",
+            "comments": "8"
+          }
+        },
+        "post_iC7Fz8": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_8.04.00_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C9saGR0xG7a\/",
+            "likes": "39",
+            "comments": "5"
+          }
+        }
+      },
+      "block_order": [
+        "73fca3a3-5844-4743-ab17-37ef4570216e",
+        "34a40ac2-b1d3-455e-a971-b5ae776b6176",
+        "1c0adf68-1a17-4645-8b54-173b708107c1",
+        "176239bd-8953-49e8-8639-a3b29d71d6fa",
+        "f1fec2ce-1382-4edd-9713-34368769a158",
+        "c8ba0325-a8ab-4be2-b997-50fce3908ecb",
+        "post_iC7Fz8"
+      ],
+      "settings": {
+        "bg_color": "",
+        "bg_gradient": false,
+        "text_align": "text-center",
+        "title": "Follow on Instagram",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 6,
+        "title_branded": false,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_show": true,
+        "btn_text": "Follow @mywellnesse",
+        "btn_url": "https:\/\/www.instagram.com\/mywellnesse",
+        "btn_color": "btn-outline-primary",
+        "btn_icon_show": true,
+        "img_orientation": "square",
+        "img_thumbnail": "",
+        "carousel_arrows": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 1,
+        "carousel_direction": "left",
+        "carousel_gap": 10,
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 4,
+        "breakpoint_xl": 5,
+        "breakpoint_xxl": 6,
+        "pt": 7,
+        "pb": 12,
+        "mt": 4,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "carousel",
+    "waves_VqBM3N",
+    "f572d8b4-a727-4da4-8bf4-d0d95d35cd10",
+    "165151877352b831f8",
+    "image_list_UN6NaB",
+    "43facfe0-2c1b-4294-a0e2-fb808acae866",
+    "21b8e246-edcf-46e9-ba04-2682f4a3d8b3",
+    "testimonials_LggyC9",
+    "tiktok_slider_nqPYDP",
+    "760bf039-c25b-482c-8e29-635514882d15",
+    "c8149c08-5564-4163-8c0c-77ef4fbc5f4c",
+    "latest_articles_xAq8gf",
+    "8d55bda5-1068-404d-a559-eff3ade47f99",
+    "1f537229-0551-4565-8189-e06a27ee55c2"
+  ]
+}

@@ -1,0 +1,128 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign wave_color = section.settings.color
+    assign wave_color_1 = wave_color | color_modify: 'alpha', 0.8
+    assign wave_color_2 = wave_color | color_modify: 'alpha', 0.6
+    assign wave_color_3 = wave_color | color_modify: 'alpha', 0.4
+    assign wave_color_4 = wave_color | color_modify: 'alpha', 0.2
+%}
+
+<div 
+    id="waves-section-{{ section.id }}">
+      <div class="eg-waves-section">
+        <svg class="eg-waves {{ section.settings.wave_placement }}" 
+          xmlns="http://www.w3.org/2000/svg" 
+          xmlns:xlink="http://www.w3.org/1999/xlink" 
+          viewBox="0 24 150 28" 
+          preserveAspectRatio="none" 
+          shape-rendering="auto"
+          style="--wave-height-mobile: {{ section.settings.wave_height_mobile }}vh; --wave-height-desktop: {{ section.settings.wave_height_desktop }}vh;"
+          >
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+            </defs>
+            <g class="eg-waves-parallax" style="--wave-animation-speed: {{ section.settings.wave_animation_speed }}s;">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="{{ wave_color_1 }}"></use>
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="{{ wave_color_2 }}"></use>
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="{{ wave_color_3 }}"></use>
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="{% if section.settings.blend_wave %}{{ section.settings.wave_blend_color | color_modify: 'alpha', section.settings.wave_blend_alpha }}{% else %}{{ wave_color_4 }}{% endif %}"></use>
+            </g>
+        </svg>
+      </div>
+</div>
+  
+{% schema %}
+{
+    "name": "Waves",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "range",
+            "id": "wave_animation_speed",
+            "label": "Animation speed",
+            "min": 0,
+            "max": 25,
+            "step": 1,
+            "default": 5
+        },
+        {
+            "type": "select",
+            "id": "wave_placement",
+            "label": "Waves placement",
+            "info": "Adjust this and position along with moving the section above or below another section",
+            "options": [
+                { "value": "eg-waves-top", "label": "Top" },
+                { "value": "eg-waves-bottom", "label": "Bottom" }
+            ],
+            "default": "eg-waves-top"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Wave color",
+          "default": "#D81B60"
+        },
+        {
+            "type": "checkbox",
+            "id": "blend_wave",
+            "label": "Blend wave",
+            "info": "Blend the last wave with the color selected below",
+            "default": false
+        },
+        {
+          "type": "color",
+          "id": "wave_blend_color",
+          "label": "Wave blend color",
+          "default": "#FFFFFF"
+        },
+        {
+            "type": "range",
+            "id": "wave_blend_alpha",
+            "label": "Wave blend opacity",
+            "min": 0,
+            "max": 1,
+            "step": 0.1,
+            "default": 1
+        },
+        {
+            "type": "header",
+            "content": "Wave size"
+        },
+        {
+            "type": "range",
+            "id": "wave_height_desktop",
+            "label": "Wave height desktop",
+            "min": 0,
+            "max": 75,
+            "step": 1,
+            "default": 15
+        },
+        {
+            "type": "range",
+            "id": "wave_height_mobile",
+            "label": "Wave height mobile",
+            "min": 0,
+            "max": 75,
+            "step": 1,
+            "default": 15
+        }
+    ],
+    "presets": [
+        {
+            "name": "Waves",
+            "category": "General"
+        }
+    ]
+}
+{% endschema %}

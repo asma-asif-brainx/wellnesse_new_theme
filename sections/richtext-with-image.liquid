@@ -1,0 +1,307 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+%}
+
+<style>
+    @media (max-width: 575px) {
+        #richtext-with-image-{{ section.id }} {
+            background-image: url({{ section.settings.img_mobile | image_url: width: 1200 }});
+            background-position: bottom;
+            background-size: 200%;
+            background-repeat: no-repeat;
+        }
+    }
+    @media (min-width: 576px) {
+        #richtext-with-image-{{ section.id }} {
+            background-image: url({{ section.settings.img_desktop | image_url: width: 2400 }});
+            background-position: bottom;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+    }
+
+@media (max-width: 575px) {
+    .richtext-with-image .description {
+        font-size: 1rem !important;
+    }
+}
+              
+</style>
+
+{% unless section.settings.bg_color_hex == blank or section.settings.bg_color_hex contains 'rgba' %}
+    <style>
+        #richtext-with-image-{{ section.id }} {
+            background-color: {{ section.settings.bg_color_hex }} !important;
+        }
+    </style>
+{% endunless %}
+
+<section 
+    id="richtext-with-image-{{ section.id }}" 
+    class="richtext-with-image enter-view position-relative text-center {{ section.settings.bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    {% if section.settings.show_img_top %}
+        <!-- You can place an optional top image or decorative element here -->
+    {% endif %}
+    <div class="{{ section.settings.container }}">
+       
+        {% unless section.settings.title == blank %}
+            <div 
+                class="animate__animated animate__fast opacity-0"
+                data-animate-class="animate__fadeInUp"
+                style="animation-delay: 400ms;">
+                <h2 class="title mb-5 {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}"
+                  style="color: {{ section.settings.title_color }};">
+                    {{ section.settings.title }}
+                </h2>
+            </div>
+        {% endunless %}
+        {% unless section.settings.description == blank %}
+            <div 
+                class="animate__animated animate__fast opacity-0"
+                data-animate-class="animate__fadeInUp"
+                style="animation-delay: 600ms;">
+                <div class="description rte mb-10 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}"
+                   style="color: {{ section.settings.description_color }};">
+                    {{ section.settings.description }}
+                </div>
+            </div>
+        {% endunless %}
+        {% unless section.settings.btn_text == blank %}
+            <div 
+                class="animate__animated animate__fast opacity-0"
+                data-animate-class="animate__fadeInUp"
+                style="animation-delay: 800ms;">
+                <a 
+                    class="btn btn-styled {{ section.settings.btn_color }} {{ section.settings.btn_size }}"
+                    href="{{ section.settings.btn_url }}">
+                    {{ section.settings.btn_text }}
+                </a>
+            </div>
+        {% endunless %}
+    </div>
+    {% if section.settings.show_img_bottom %}
+        <!-- You can place an optional bottom image or decorative element here -->
+    {% endif %}
+</section>
+
+
+{% schema %}
+{
+    "name": "richtext-with-image",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "",
+            "options": [
+                { "group": "Inherit", "value": "", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-dark", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-tertiary text-white", "label": "Tertiary" },
+                { "group": "Dark", "value": "bg-quaternary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" }
+            ]
+        },
+        {
+            "type": "color",
+            "id": "bg_color_hex",
+            "label": "Background color (hex)"
+        },
+       
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Rich Text With Image"
+        },
+         {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+      {
+    "type": "color",
+    "id": "title_color",
+    "label": "Title Color",
+    "default": "#000000"
+},
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+       
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+      {
+    "type": "color",
+    "id": "description_color",
+    "label": "Description Color",
+    "default": "#000000"
+},
+         {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "header",
+            "content": "Button"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text",
+            "default": "Learn more",
+            "info": "Leave empty to disable"
+        },
+        {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+        },
+        {
+            "type": "select",
+            "id": "btn_color",
+            "label": "Button color",
+            "default": "btn-primary",
+            "options": [
+                { "group": "Normal", "value": "btn-white", "label": "White" },
+                { "group": "Normal", "value": "btn-light", "label": "Light" },
+                { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                { "group": "Normal", "value": "btn-tertiary", "label": "Tertiary" },
+                { "group": "Normal", "value": "btn-quaternary", "label": "Quaternary" },
+                { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                { "group": "Outline", "value": "btn-outline-white", "label": "White Outline" },
+                { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                { "group": "Outline", "value": "btn-outline-tertiary", "label": "Tertiary Outline" },
+                { "group": "Outline", "value": "btn-outline-quaternary", "label": "Quaternary Outline" },
+                { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "btn_size",
+            "label": "Button size",
+            "default": "btn-md",
+            "options": [
+                { "value": "btn-sm", "label": "Small" },
+                { "value": "btn-md", "label": "Normal" },
+                { "value": "btn-lg", "label": "Large" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "img_mobile",
+            "label": "Image - mobile"
+        },
+        {
+            "type": "image_picker",
+            "id": "img_desktop",
+            "label": "Image - desktop"
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "richtext-with-image"
+        }
+    ]
+}
+{% endschema %}

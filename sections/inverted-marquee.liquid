@@ -1,0 +1,317 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+    if customer
+        assign show_section = section.settings.access_members
+    else
+        assign show_section = section.settings.access_guests
+    endif
+
+    assign inverted_text = false
+    if bg_color contains 'bg-white' or bg_color contains 'bg-light'
+        assign inverted_text = true
+    endif
+%}
+
+{% if show_section %}
+    <div class="full-width-bg {{ bg_color }}">
+        <div class="{{ section.settings.container }}" style="max-width: {{ section.settings.max_width }}px;">
+            <section 
+                id="inverted-marquee-{{ section.id }}" 
+                class="inverted-marquee overflow-hidden {{ section.settings.separator }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+                <div class="content">
+                    <div class="sliding-img wrapper {{ section.settings.img_border }}">
+                        <img loading="lazy" src="{{ section.settings.image | image_url }}" alt="{{ section.settings.image_alt }}" class="img-fluid {{ section.settings.img_shape }}">
+                    </div>
+                    <div class="sliding-text {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}" style="animation-duration: {{ section.settings.animation_duration }}s;">
+                        {{ section.settings.marquee_text }}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endif %}
+
+<style>
+.full-width-bg.bg-body {
+    background-color: var(--bs-body-bg);
+}
+.full-width-bg.bg-body.text-body {
+    color: var(--bs-body-color);
+}
+.wrapper {
+    overflow: hidden;
+    position: relative;
+}
+.content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sliding-img {
+    position: relative;
+    width: clamp(20%, 50%, 120px); /* Larger image on mobile */
+    aspect-ratio: 1 / 1; /* Square aspect ratio */
+    overflow: hidden;
+}
+.circle {
+    border-radius: 50%;
+}
+.sliding-text {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    white-space: nowrap;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    mix-blend-mode: difference;
+    padding: 0 100%;
+    animation: marquee 9s linear infinite;
+    font-family: inherit; /* Ensure the text inherits the global font */
+}
+{% if inverted_text %}
+.sliding-text {
+    filter: invert(1);
+}
+{% endif %}
+@keyframes marquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+@media (max-width: 767px) {
+    .sliding-text {
+        font-size: var(--fs-{{ section.settings.title_font_size_mobile }}, 4rem);
+    }
+    .sliding-img {
+        width: clamp(40%, 70%, 200px); /* Larger image on mobile */
+    }
+}
+@media (min-width: 768px) {
+    .sliding-text {
+        font-size: {{ section.settings.title_font_size_desktop }}rem !important;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const marquees = document.querySelectorAll('.inverted-marquee .sliding-text');
+    marquees.forEach(marquee => {
+        const direction = '{{ section.settings.marquee_direction }}';
+        if (direction === 'right') {
+            marquee.style.animationDirection = 'reverse';
+        }
+    });
+});
+</script>
+
+{% schema %}
+{
+    "name": "Inverted Marquees",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "", "label": "Full-width" }
+            ],
+            "info": "The container is for the content of the text."
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max-width (px)"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-body text-body",
+            "options": [
+                { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "bg_gradient",
+            "label": "Background gradient",
+            "default": false,
+            "info": "Will not apply to light colors."
+        },
+        {
+            "type": "text",
+            "id": "marquee_text",
+            "label": "Marquee Text",
+            "default": "The best of the best!"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "select",
+            "id": "img_border",
+            "label": "Image border",
+            "default": "",
+            "options": [
+                { "value": "", "label": "None" },
+                { "value": "img-thumbnail", "label": "Thumbnail" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "img_shape",
+            "label": "Image shape",
+            "default": "rounded",
+            "options": [
+                { "value": "rounded", "label": "Rounded" },
+                { "value": "circle", "label": "Circle" }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 24,
+            "default": 16
+        },
+        {
+            "type": "range",
+            "id": "animation_duration",
+            "label": "Animation Duration (seconds)",
+            "min": 5,
+            "max": 60,
+            "default": 9,
+            "info": "Adjust the speed of the marquee animation."
+        },
+        {
+            "type": "select",
+            "id": "marquee_direction",
+            "label": "Marquee Direction",
+            "default": "left",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Spacing",
+            "info": "Based on Bootstrap spacing utility classes [Learn more](https://getbootstrap.com/docs/5.0/utilities/spacing/)"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 4
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 4
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 10
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 10
+        },
+        {
+            "type": "header",
+            "content": "Access"
+        },
+        {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        }
+    ],
+    "presets": [
+        {
+            "name": "Inverted Marquees",
+            "category": "General",
+            "settings": {
+                "marquee_text": "MANAGING A WEBSITE IS NOT FOR THE FAINT OF HEART, BUT THE SUPPORT AT ECOMGRADUATES IS ABSOLUTELY PHENOMENAL"
+            }
+        }
+    ]
+}
+{% endschema %}

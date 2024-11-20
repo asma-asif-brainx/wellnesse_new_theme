@@ -1,0 +1,285 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+%}
+
+
+
+<section 
+    id="large-image-with-icons-{{ section.id }}" 
+    class="large-image-with-icons position-relative overflow-hidden {{ bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+     <img
+    class="large-image-with-icons-bg-img"
+    src="{{ section.settings.bg_image_desktop | image_url: width: 1600 }}"
+    srcset="{{ section.settings.bg_image_mobile | image_url: width: 800 }} 800w, {{ section.settings.bg_image_desktop | image_url: width: 1600 }} 1600w"
+    sizes="(max-width: 767px) 800px, 1600px"
+    alt="{{ section.settings.image.alt | escape }}"
+    width="1600"
+    height="{{ 1600 | divided_by: section.settings.image.aspect_ratio | round }}"
+    loading="lazy">
+  
+    <div class="container position-relative text-center">
+        <div class="mx-auto" style="max-width: {{ section.settings.max_width }}px;">
+            {% unless section.settings.title == blank %}
+                <h2 class="title mb-7 mb-lg-9 {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.title_color }};">
+                    {{ section.settings.title }}
+                </h2>
+            {% endunless %}
+            {% unless section.settings.description == blank %}
+                <div class="description rte mb-9 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ section.settings.description_color }};">
+                    {{ section.settings.description }}
+                </div>
+            {% endunless %}
+            <ul class="list-unstyled d-flex justify-content-center mb-0">
+                {% for block in section.blocks %}
+                    <li class="px-0 px-sm-7 px-xl-9">
+                        {% unless block.settings.title == blank %}
+                            <h3 class="title mb-3 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ block.settings.title_color }};">
+                                {{ block.settings.title }}
+                            </h3>
+                        {% endunless %}
+                        <div class="icon d-flex align-items-center justify-content-center" style="height: 116px;">
+                            {{ block.settings.icon }}
+                        </div>
+                        {% unless block.settings.description == blank %}
+                            <div class="description rte mb-0 {{ block.settings.description_font_size_mobile | prepend: 'fs-' }} {{ block.settings.description_font_size_desktop | prepend: 'fs-lg-' }}" style="color: {{ block.settings.description_color }};">
+                                {{ block.settings.description }}
+                            </div>
+                        {% endunless %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Large Image with Icons",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-white",
+            "options": [
+                { "group": "Light", "value": "bg-white", "label": "White" },
+                { "group": "Light", "value": "bg-light", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max-width (px)",
+            "default": "1000",
+             "info": "width of the content  of the icon. the iamge  will be  full width."
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image_desktop",
+            "label": "Desktop Background Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image_mobile",
+            "label": "Mobile Background Image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Large Image with Icons"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 4
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title color",
+            "default": "#000000"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 5
+        },
+        {
+            "type": "color",
+            "id": "description_color",
+            "label": "Description color",
+            "default": "#000000"
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "item",
+            "name": "Item",
+           "limit": 4,
+            "settings": [
+                {
+                    "type": "html",
+                    "id": "icon",
+                    "label": "Icon (SVG)"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Benefits Title"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "label": "Title font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 4
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "label": "Title font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 5
+                },
+                {
+                    "type": "color",
+                    "id": "title_color",
+                    "label": "Title color",
+                    "default": "#000000"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "<p>Benifit.</p>"
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_mobile",
+                    "label": "Description font-size | mobile",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "range",
+                    "id": "description_font_size_desktop",
+                    "label": "Description font-size | desktop",
+                    "min": 1,
+                    "max": 12,
+                    "default": 2
+                },
+                {
+                    "type": "color",
+                    "id": "description_color",
+                    "label": "Description color",
+                    "default": "#000000"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Large Image with Icons",
+            "category": "General"
+        }
+    ]
+}
+{% endschema %}

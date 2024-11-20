@@ -1,0 +1,210 @@
+
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+
+{% liquid 
+    assign pt = block.settings.pt | prepend: 'pt-'
+    assign pb = block.settings.pb | prepend: 'pb-'
+    assign mt = block.settings.mt | prepend: 'mt-'
+    assign mb = block.settings.mb | prepend: 'mb-'
+  
+    assign bg_color = block.settings.bg_color
+
+    if block.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+    unless block.settings.story_1_img == blank
+        assign stories_images = block.settings.story_1_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';'
+        assign stories_images_full = block.settings.story_1_img | image_url: width: 2400  | append: ';'
+        assign stories_videos = block.settings.story_1_video.sources[1].url | append: ';'
+        assign stories_titles = block.settings.story_1_title | append: ';' 
+        assign stories_url = block.settings.story_1_url | append: ';' 
+    endunless
+    unless block.settings.story_2_img == blank
+        assign stories_images = block.settings.story_2_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_2_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_2_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_2_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_2_url | append: ';' | prepend: stories_url
+    endunless
+    unless block.settings.story_3_img == blank
+        assign stories_images = block.settings.story_3_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_3_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_3_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_3_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_3_url | append: ';' | prepend: stories_url
+    endunless
+    unless block.settings.story_4_img == blank
+        assign stories_images = block.settings.story_4_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_4_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_4_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_4_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_4_url | append: ';' | prepend: stories_url
+    endunless
+    unless block.settings.story_5_img == blank
+        assign stories_images = block.settings.story_5_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_5_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_5_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_5_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_5_url | append: ';' | prepend: stories_url
+    endunless
+    unless block.settings.story_6_img == blank
+        assign stories_images = block.settings.story_6_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_6_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_6_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_6_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_6_url | append: ';' | prepend: stories_url
+    endunless
+    unless block.settings.story_7_img == blank
+        assign stories_images = block.settings.story_7_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_7_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_7_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_7_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_7_url | append: ';' | prepend: stories_url
+    endunless
+    unless block.settings.story_8_img == blank
+        assign stories_images = block.settings.story_8_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_8_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_8_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_8_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_8_url | append: ';' | prepend: stories_url
+    endunless
+    unless block.settings.story_9_img == blank
+        assign stories_images = block.settings.story_9_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_9_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_9_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_9_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_9_url | append: ';' | prepend: stories_url
+    endunless
+    unless block.settings.story_10_img == blank
+        assign stories_images = block.settings.story_10_img | image_url: width: block.settings.item_img_size, height: block.settings.item_img_size, crop: 'center'  | append: ';' | prepend: stories_images
+        assign stories_images_full = block.settings.story_10_img | image_url: width: 2400  | append: ';' | prepend: stories_images_full
+        assign stories_videos = block.settings.story_10_video.sources[1].url | append: ';' | prepend: stories_videos
+        assign stories_titles = block.settings.story_10_title | append: ';' | prepend: stories_titles
+        assign stories_url = block.settings.story_10_url | append: ';' | prepend: stories_url
+    endunless
+
+    assign stories_images = stories_images | split: ';'
+    assign stories_images_full = stories_images_full | split: ';'
+    assign stories_videos = stories_videos | split: ';'
+    assign stories_titles = stories_titles | split: ';'
+    assign stories_url = stories_url | split: ';'
+%}
+
+
+<style>
+    #product-block-stories-{{ block.id }} .img-wrapper {
+        width: {{ block.settings.item_img_size | plus: 21 }}px; 
+        height: {{ block.settings.item_img_size | plus: 21 }}px;
+    }
+    #product-block-stories-{{ block.id }} svg  {
+        stroke: {{ block.settings.item_stroke_color_start }};
+        stroke-width: {{ block.settings.item_stroke_width }};
+    }
+    @keyframes animated_stories_stroke_draw {
+        from {
+            stroke: {{ block.settings.item_stroke_color_start }} /* #8a3ab9 */;
+            stroke-dasharray: 1;
+        }
+        to {
+            stroke: {{ block.settings.item_stroke_color_end }}; /* #cd486b */
+            transform:rotate(180deg);
+            stroke-dasharray: 8;
+        }
+    }
+</style>
+
+{% if block.settings.full_screen %}
+    <link href="{{ 'vendor-glightbox.min.css' | asset_url }}" rel="stylesheet" media="print" onload="this.media='all'">
+    <script src="{{ 'vendor-glightbox.min.js' | asset_url }}" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            GLightbox({
+                selector: '[data-gallery="animated-stories-block"]',
+                loop: true,
+                autoplayVideos: true
+            })
+        })
+    </script>
+{% endif %}
+
+<div 
+    id="product-block-stories-{{ block.id }}"
+    class="product-block-stories animated-stories enter-view rounded position-relative overflow-hidden {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ bg_color }}" {{ block.shopify_attributes }}>
+    <ul 
+        class="stories-list list-unstyled d-flex justify-content-md-center overflow-auto px-2 pb-4 mb-0 text-center"
+        aria-label="{{ block.settings.list_label }}">
+        {% for story_img in stories_images %}
+            <li class="mx-n1">
+                <div 
+                    class="{% unless block.settings.animation == '' %}animate__animated opacity-0 {{ block.settings.animation_speed }}{% endunless %}"
+                    data-animate-class="{{ block.settings.animation }}"
+                    style="animation-delay: {{ forloop.index0 | times: 100 }}ms;">
+                    <a 
+                        class="animated-stories-link text-decoration-none {% if bg_color contains 'text-white' %}text-current-color{% endif %}" 
+                        {% if block.settings.full_screen %}
+                            {% if stories_videos[forloop.index0] != blank %}
+                                href="{{ stories_videos[forloop.index0] }}" 
+                            {% else %}
+                                href="{{ stories_images_full[forloop.index0] }}" 
+                            {% endif %}
+                            class="glightbox" 
+                            data-gallery="animated-stories-block"
+                            data-desc-position="top"
+                            data-description="{{ stories_titles[forloop.index0] }}"
+                        {% else %}
+                            href="{{ stories_url[forloop.index0] }}"
+                        {% endif %}
+                       >
+                        <div class="img-wrapper">
+                            <div 
+                                class="img-wrapper-inner" 
+                                style="
+                                    width: {{ block.settings.item_img_size | append: 'px' }};
+                                    height: {{ block.settings.item_img_size | append: 'px' }}
+                                ">
+                                {% if stories_videos[forloop.index0] != nil %}
+                                    <video 
+                                        playsinline="playsinline" 
+                                        autoplay="autoplay"
+                                        class="" 
+                                        loop="loop" 
+                                        muted="muted" 
+                                        loading="lazy" 
+                                        preload="none" 
+                                        data-autoplay="true">
+                                        <source src="{{ stories_videos[forloop.index0] }}" type="video/mp4">
+                                    </video>
+                                {% elsif story_img != nil %}
+                                    <img 
+                                        class="img-fluid" 
+                                        src="{{ story_img }}"
+                                        width="{{ block.settings.item_img_size }}"
+                                        height="{{ block.settings.item_img_size }}"
+                                        loading="lazy">
+                                {% else %}
+                                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                                    {{ 'collection-' | append: current | placeholder_svg_tag }}
+                                {% endif %}
+                            </div>
+                            <svg viewBox="0 0 100 100">  
+                                <circle cx="50" cy="50" r="40" />
+                            </svg>
+                        </div>
+                        <h6 class="title mt-n2 mb-0 {{ block.settings.title_font_size_mobile | prepend: 'fs-' }} {{ block.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                            {{ stories_titles[forloop.index0] }}
+                        </h6>
+                    </a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

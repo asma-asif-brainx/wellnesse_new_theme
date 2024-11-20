@@ -1,0 +1,53 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% if settings.cart_shipping_protect_enable %}
+    {% liquid 
+        assign product = settings.cart_shipping_protect_product
+
+        assign in_cart_line_item = nil
+
+        for line_item in cart.items
+            if line_item.product.handle == product.handle
+                assign in_cart_line_item = line_item
+            endif
+        endfor
+
+        assign price = product.price | money
+    %}
+    
+    <div 
+        id="cart-shipping-protection" 
+        class="{{ settings.cart_shipping_protect_bg_color }} my-4">
+        <div class="rte description d-flex justify-content-center">
+            <div class="form-check form-switch">
+                <input 
+                    id="cart-shipping-protection-checkbox"
+                    class="form-check-input" 
+                    type="checkbox" 
+                    onchange="onChangeCartShippingProtection(this, event)"
+                    value="{{ product.variants.first.id }}"
+                    {% if in_cart_line_item != nil %}
+                        checked
+                        data-line-item-key="{{ in_cart_line_item.key }}"
+                    {% endif %}>
+                <label class="form-check-label description rte" for="cart-shipping-protection-checkbox">
+                    {{ settings.cart_shipping_protect_text | replace: '[price]', price }}
+                </label>
+            </div>
+        </div>
+        {% unless settings.cart_shipping_protect_features == blank %}
+            <div id="cart-shipping-protection-features">
+                <div class="rte description">
+                    {{ settings.cart_shipping_protect_features }}
+                </div>
+            </div>
+        {% endunless %}
+    </div>
+{% endif %}

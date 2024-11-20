@@ -1,0 +1,135 @@
+{
+  "sections": {
+    "template_tracking_ejknRK": {
+      "type": "template-tracking",
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "text_align": "text-center",
+        "title": "Track Your Order",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Add on optional description to this section<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_color": "btn-primary",
+        "btn_size": "",
+        "pt": 12,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "social_cards_46g844": {
+      "type": "social-cards",
+      "blocks": {
+        "item_J97rYe": {
+          "type": "item",
+          "settings": {
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_crop": "center",
+            "title": "Card Title",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 5,
+            "description": "<p>Showcase your brand with enticing content. Highlight key features, products, or services. Invite engagement and curiosity with captivating descriptions. Inspire interest and interaction with every card<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "facebook_link": "https:\/\/www.facebook.com\/EcomGraduates",
+            "instagram_link": "https:\/\/www.instagram.com\/ecomgraduates\/",
+            "twitter_link": "https:\/\/twitter.com\/GraduatesEcom"
+          }
+        },
+        "item_f3enBx": {
+          "type": "item",
+          "settings": {
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_crop": "center",
+            "title": "Card Title",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 5,
+            "description": "<p>Showcase your brand with enticing content. Highlight key features, products, or services. Invite engagement and curiosity with captivating descriptions. Inspire interest and interaction with every card<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "facebook_link": "https:\/\/www.facebook.com\/EcomGraduates",
+            "instagram_link": "https:\/\/www.instagram.com\/ecomgraduates\/",
+            "twitter_link": "https:\/\/twitter.com\/GraduatesEcom"
+          }
+        },
+        "item_adzLLw": {
+          "type": "item",
+          "settings": {
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_crop": "center",
+            "title": "Card Title",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 5,
+            "description": "<p>Showcase your brand with enticing content. Highlight key features, products, or services. Invite engagement and curiosity with captivating descriptions. Inspire interest and interaction with every card<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "facebook_link": "https:\/\/www.facebook.com\/EcomGraduates",
+            "instagram_link": "https:\/\/www.instagram.com\/ecomgraduates\/",
+            "twitter_link": "https:\/\/twitter.com\/GraduatesEcom"
+          }
+        },
+        "item_jgepDn": {
+          "type": "item",
+          "settings": {
+            "shadow": "shadow-sm",
+            "border_color": "",
+            "border_width": 1,
+            "img_crop": "center",
+            "title": "Card Title",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 5,
+            "description": "<p>Showcase your brand with enticing content. Highlight key features, products, or services. Invite engagement and curiosity with captivating descriptions. Inspire interest and interaction with every card<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "facebook_link": "https:\/\/www.facebook.com\/EcomGraduates",
+            "instagram_link": "https:\/\/www.instagram.com\/ecomgraduates\/",
+            "twitter_link": "https:\/\/twitter.com\/GraduatesEcom"
+          }
+        }
+      },
+      "block_order": [
+        "item_J97rYe",
+        "item_f3enBx",
+        "item_adzLLw",
+        "item_jgepDn"
+      ],
+      "settings": {
+        "bg_color": "",
+        "max_width": "1200",
+        "title": "Social Cards",
+        "title_text_align": "text-center",
+        "text_align": "text-center",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "<p>Join The Community <\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "description_text_align": "text-center",
+        "access_guests": true,
+        "access_members": true,
+        "row_xs": 1,
+        "row_sm": 2,
+        "row_lg": 2,
+        "pt": 7,
+        "pb": 12,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "template_tracking_ejknRK",
+    "social_cards_46g844"
+  ]
+}

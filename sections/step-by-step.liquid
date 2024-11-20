@@ -1,0 +1,445 @@
+
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height
+%}
+
+<section 
+    id="step-by-step-{{ section.id }}"
+    class="step-by-step {{ section.settings.bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    <div class="{% if section.settings.container %}container{% else %}container-fluid{% endif %}">
+        <div class="row align-items-center flex-column-reverse {{ section.settings.media_align }}">
+            <div class="col-md-{{ section.settings.media_size }}">
+                <div class="tab-content {% if section.settings.media_align == 'flex-md-row' %}mb-6 mb-md-0{% else %}mt-7 mt-md-0{% endif %}">
+                    {% for block in section.blocks %}
+                        <div 
+                            id="pane-{{ section.id }}-{{ forloop.index }}"
+                            class="tab-pane fade {% if forloop.first %}show active{% endif %}" 
+                            role="tabpanel" 
+                            aria-labelledby="tab-{{ section.id }}-{{ forloop.index }}" 
+                            tabindex="0">
+                            <img
+                                class="img-fluid w-100 {{ section.settings.img_border }}"
+                                src="{{ block.settings.img.src | img_url: img_size, crop: section.settings.img_crop }}"
+                                alt="{{ block.settings.img.alt | escape }}"
+                                width="{{ section.settings.img_width }}"
+                                height="{{ section.settings.img_height }}"
+                                loading="lazy">
+                        </div>
+                    {% endfor %}
+                </div>
+                <ul class="nav nav-underline" role="tablist">
+                    {% for block in section.blocks %}
+                        <li 
+                            class="nav-item" 
+                            role="presentation"
+                            style="width: {{ 100 | divided_by: section.blocks.size  | append: '%' }}">
+                            <button 
+                                id="tab-{{ section.id }}-{{ forloop.index }}"
+                                class="nav-link {% if forloop.first %}active{% endif %}" 
+                                data-bs-toggle="tab"
+                                data-bs-target="#pane-{{ section.id }}-{{ forloop.index }}" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="pane-{{ section.id }}-{{ forloop.index }}" 
+                                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                                {% unless block.settings.step_img == blank %}
+                                    <img
+                                        class="img-fluid mb-2"
+                                        src="{{ block.settings.step_img.src | image_url: width: 160 }}"
+                                        alt="{{ block.settings.istep_imgmg.alt | escape }}"
+                                        width="80"
+                                        height="{{ 80 | divided_by: block.settings.step_img.aspect_ratio | round }}"
+                                        loading="lazy">
+                                {% endunless %}
+                                {{ block.settings.step_title }}
+                            </button>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md">
+                {% unless section.settings.title == blank %}
+                    <h2 class="title {{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }} mb-3 text-md-start text-center" {{section.id}}>
+                        {{ section.settings.title }}
+                    </h2>
+                {% endunless %}
+                {% unless section.settings.subtitle == blank %}
+                    <h3 class="subtitle {{ section.settings.subtitle_font_size_mobile | prepend: 'fs-' }} {{ section.settings.subtitle_font_size_desktop | prepend: 'fs-lg-' }} mb-3 text-md-start text-center" style="color: {{ section.settings.subtitle_color}}">
+                        {{ section.settings.subtitle }}
+                    </h3>
+                {% endunless %}
+                {% unless section.settings.description == blank %}
+                    <div class="description rte mb-6 {{ section.settings.description_font_size_mobile | prepend: 'fs-' }} {{ section.settings.description_font_size_desktop | prepend: 'fs-lg-' }} text-md-start text-center">
+                        {{ section.settings.description }}
+                    </div>
+                {% endunless %}
+               <div class="text-md-start text-center mx-n2">
+                    {% unless section.settings.btn_1_text == blank %}
+                        <a href="{{ section.settings.btn_1_url }}" class="btn mx-2 px-6 {{ section.settings.btn_1_color }} {{ section.settings.btn_1_size }}">
+                            {{ section.settings.btn_1_text }}
+                        </a>
+                    {% endunless %}
+                    {% unless section.settings.btn_2_text == blank %}
+                        <a href="{{ section.settings.btn_2_url }}" class="btn mx-2 px-6 {{ section.settings.btn_2_color }} {{ section.settings.btn_2_size }}">
+                            {{ section.settings.btn_2_text }}
+                        </a>
+                    {% endunless %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Step by step",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-white text-body",
+            "options": [
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Dark", "value": "bg-brand-gradient text-white", "label": "Brand gradient" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "container",
+            "label": "Wrap in a container",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "media_align",
+            "label": "Media alignment",
+            "info": "Note: On mobile Media will always be on top and text on the bottom",
+            "default": "flex-md-row",
+            "options": [
+                { "value": "flex-md-row", "label": "Left" },
+                { "value": "flex-md-row-reverse", "label": "Right" }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "media_size",
+            "label": "Media size",
+            "info": "Note: Applies only on desktop view",
+            "default": 6,
+            "min": 4,
+            "max": 8
+        },
+        {
+            "type": "header",
+            "content": "Image settings",
+            "info": "Will apply to all images"
+        },
+        {
+            "type": "text",
+            "id": "img_width",
+            "label": "Image width (px)",
+            "default": "600"
+        },
+        {
+            "type": "text",
+            "id": "img_height",
+            "label": "Image height (px)",
+            "default": "600"
+        },
+        {
+            "type": "select",
+            "id": "img_crop",
+            "label": "Image crop",
+            "default": "center",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "center", "label": "Center" },
+                { "value": "bottom", "label": "Bottom" },
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "img_border",
+            "label": "Image border",
+            "default": "",
+            "options": [
+                { "value": "", "label": "Square" },
+                { "value": "rounded", "label": "Rounded" },
+                { "value": "img-thumbnail", "label": "Thumbnail" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Step by step"
+        },
+         {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle"
+        },
+        {
+            "type": "range",
+            "id": "subtitle_font_size_mobile",
+            "label": "Subtitle font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "subtitle_font_size_desktop",
+            "label": "Subtitle font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "color",
+            "id": "subtitle_color",
+            "label": "Subtitle color"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "header",
+            "content": "Button #1"
+        },
+        {
+            "type": "text",
+            "id": "btn_1_text",
+            "label": "Button text",
+            "info": "Leave empty to disable"
+        },
+        {
+            "type": "url",
+            "id": "btn_1_url",
+            "label": "Button URL"
+        },
+        {
+            "type": "select",
+            "id": "btn_1_color",
+            "label": "Button color",
+            "default": "btn-outline-primary",
+            "options": [
+                { "group": "Normal", "value": "btn-link", "label": "Link" },
+                { "group": "Normal", "value": "btn-light", "label": "Light" },
+                { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                { "group": "Normal", "value": "btn-success", "label": "Success" },
+                { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                { "group": "Normal", "value": "btn-info", "label": "Info" },
+                { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "btn_1_size",
+            "label": "Button size",
+            "default": "",
+            "options": [
+                { "value": "btn-sm", "label": "Small" },
+                { "value": "", "label": "Normal" },
+                { "value": "btn-lg", "label": "Large" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Button #2"
+        },
+        {
+            "type": "text",
+            "id": "btn_2_text",
+            "label": "Button text",
+            "info": "Leave empty to disable"
+        },
+        {
+            "type": "url",
+            "id": "btn_2_url",
+            "label": "Button URL"
+        },
+        {
+            "type": "select",
+            "id": "btn_2_color",
+            "label": "Button color",
+            "default": "btn-outline-primary",
+            "options": [
+                { "group": "Normal", "value": "btn-link", "label": "Link" },
+                { "group": "Normal", "value": "btn-light", "label": "Light" },
+                { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                { "group": "Normal", "value": "btn-success", "label": "Success" },
+                { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                { "group": "Normal", "value": "btn-info", "label": "Info" },
+                { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "btn_2_size",
+            "label": "Button size",
+            "default": "",
+            "options": [
+                { "value": "btn-sm", "label": "Small" },
+                { "value": "", "label": "Normal" },
+                { "value": "btn-lg", "label": "Large" }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Spacing",
+            "info": "Based on Bootstrap spacing utility classes [Learn more](https://getbootstrap.com/docs/5.0/utilities/spacing/)"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "step",
+            "name": "Step",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Main image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "step_img",
+                    "label": "Step image"
+                },
+                {
+                    "type": "html",
+                    "id": "step_title",
+                    "label": "Step title",
+                    "default": "Step Title"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Step by step"
+        }
+    ]
+}
+{% endschema %}

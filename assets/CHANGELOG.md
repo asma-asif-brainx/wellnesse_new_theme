@@ -1,0 +1,362 @@
+# Change Log
+
+## [3.4.3] - 2024-07-14
+- Various small fixes and other improvements in code
+
+## [3.4.2] - 2024-07-08
+- Handle inline videos - Animated Stories #1383
+- Various small fixes and other improvements in code
+
+## [3.4.1] - 2024-06-26
+- Various small fixes and other improvements in code
+
+## [3.4.0] - 2024-06-03
+- Sync quantity fields between the Product form and the Sticky ATC #1082
+- Allow for a megamenu in the right side of the navbar #1084
+- Deselect option in the quantity breaks feature #1085
+- Position settings mobile/desktop for the Go-to-top button #1088
+- Automatically play videos in the product media gallery #1095
+- Product switcher in the product form (like variant switcher) #1063
+- Close button for the announcement bar - only on desktop #1107
+- Infinite pagination trigger option by scroll or click #1111
+- Alert colors in settings do not work on the alert buttons #1124
+- Delivery date picker in the cart drawer/page #1113
+- 404 page support for JSON template #1172
+- Advanced Accordion section - option to have first item opened by default or not #1149
+- Marquee block in the main product #1162
+- Step-by-step - section #1167
+- Sale badge diagonal styling on product items #1164
+- Option to hide out of stock products in the collection page #1183
+- Replace the product image on swatch change - product items #1151
+- Stories as a block on the product template #1191
+- currency and lanaguage in header option #1138
+- button hover effect option #1230
+- cart additional content- desktop view only #1229
+- Spacing settings for the product cards
+- add discount to slide out cart #1260
+- Ability to show a random product from a collection - Single product section #1273
+- Testimonials block in PDP should have the slider ability #1283
+
+## [3.3.0] - 2024-03-17
+- Improve design for the Shopify Subscriptions app block #959
+- Font size settings for the title and description items in the FAQ (accordion) section #958
+- Improve design for the Shipping protection feature #966
+- File input is not getting the light color setting #986
+- Font-size settings for the accordion product block #985
+- Font-size settings for the accordion product block #985
+- Tabs section #957
+- Wave section #998
+- Free product upsell option in the cart goal feature #1003
+- Discount bar section #1010
+- Nav Bar hamburger menu to hide the menu label #1009
+- advanced image with text section option #1006
+- Order Tracking Page #1002
+- Setting to always show the navbar toggler on mobile/desktop #992
+- Add circle animation on the Animated Counter section #988
+- Setting to display the testimonial block below the product gallery on PDP #1017
+- Replace currency selector with the new market selector #1021
+- Extra links next to the icons in the navbar section #1023
+- Variant switcher selector feature for the cart line items 
+- Change the position for the wishlist buttons within the product items. #955
+- Accept Terms of Service checkbox in the cart drawer and cart page #1043
+- Carousel text-align setting for captions #991
+- Megamenu second-level menu items should be clickable #1008
+- Change title/subtitle position in mobile for the "Advanced image with text" section #1012
+- Animation settings for the Animated Stories are missing #1015
+- Blur setting for the navbar section #1034
+- Newsletter block options in the footer section #1038
+- "Go to top" button in the footer section #1031
+- Faq widget- new section #1048
+- Trust badges in pdp should be of an image type #1052
+- Option to show the total price instead of item price in quantity breaks feature #1067
+
+## [3.2.0] - 2024-01-25
+- Testimonial setting doesn't work on the cart page #881
+- Offcanvas search is not closing when adding a product in the cart from it #877
+- Font-size settings issue in the contact form section #883
+- Loop settings for videos in the carousel section #889
+- Automatically check option availability in the variant selector, pdp #856
+- Quantity selector - above the add to cart option #892
+- Multi Block - section #863
+- Testimonial section support for Facebook styled reviews #870
+- Min order threshold settings for the cart #873
+- Shipping protection checkbox #651
+- Video thumbnail setting for the External Video section #897
+- 3D buttons style through global theme settings #894
+- Prevent users from right clicking or to select text (shop protect) #874
+- Collection filters within the content in desktop view #903
+- Guest/Members visibility options for various sections #865
+- Full screen support for the Animated Stories section #872
+- Show cart upsells within the menu drawer #852
+- Offcanvas rounded style settings #929
+- Rivyo reviews - styling #939
+- Price within the ATC button should reflect the QTY Break change #940
+- Pricing plans - section #901
+- Small fix for the image with text section #932
+- Refactor Currency/Language switcher in the mobile and desktop view #944
+- Add Breadcrumbs to Collection Lists, Pages, Blogs, etc.. #1036
+
+## [3.1.0] - 2024-12-24
+- Age Verification Modal - section #663
+- Upgrade to subscription selector within the cart drawer #647
+- Collection banner - section #769
+- qty break enhacements #742
+- Sticky ATC qty input field should have plus/minus buttons #715
+- Option to disable "Login info" in the offcanvas menu #792
+- Size chart modal doesn't work in the Single Product section #706
+- Images in the carousel section should have an adapt setting #591
+- External Video setting for the FAQ section #723
+- More concise helper text for the Color swatches setting #711
+- Gift Wrapping option in the cart #716
+- Contact form block in the product page #720
+- Replace mobile footer plus/minus with arrow icons #728
+- FAQ search - section #722
+- Accordion style setting in the accordion block in PDP doesn't work #743
+- Support for the new type boolean in the collection filters #768
+- Transparent header setting for the navbar #816
+- Some enhancements in the comparison table section #732
+- Subscriptions discount in percentage is not correctly calculated in the Purchase Options feature #822
+- Dynamic buttons do not show in the Product form #770
+- Inactive browser tab text dynamically change #805
+- Horizontal or Vertical layout option for the cart upsell #744
+- Support for Okendo Reviews #745
+- Video support for the cards section #761
+- Compared at price should reflect in the cart drawer if no automatic discounts are present. #779
+- Support for Route protection app #774
+- Media block in PDP (Image, Mp4 Video, External video) #781
+- MP4 video support for the Image With Text section #795
+- Option to show the price in the ATC button, only PDP form #803
+- Setting to have tags in blog either by a select field or as a button list #804
+- Allow sections in the login template #807
+- Tabbed navigation - section #836
+- Gift card product form should have the new recipient form. #844
+- Media Grid - section #842
+- Cart testimonial feature #808
+- Different cart icons - global setting #820
+- Image based custom badge for products through metafield #841
+- Testimonial block in PDP #838
+- Variant description dynamic metafield based on variant switcher #855
+- Icon setting in the FAQ's section title #858
+- Threads social link #923
+- Fix dropdown and megamenu dropdown in the navbar transparent mode #922
+
+## [3.0.0] - 2023-09-18
+- [NEW] Lookbook - section #579 
+- [NEW] Timeline - section #568
+- [NEW] Animated Counters - section #613
+- Upgrade Bootstrap framework to v5.3 and other vendor scripts and styles #563
+- Shipping rates feature does not initialize after cart drawer refresh  #512
+- Password goes blank, even with a license in place #510
+- Two liquid code blocks issue in the PDP #518
+- Product description is not getting hidden through settings. #540
+- Recently View section issues with Wishlist visibility #544
+- Improve global theme settings #570
+- Refactor the logic for the "Prefer Dark Design". Dark design should work with color options only #571
+- Fix the "Cart Goal" feature with multiple currenecies #523
+- Carousel caption's color setting does not work #573
+- Carousel caption's needs a max-width setting to prevent the description text from going to wide. #574
+- Improve global theme settings #570
+- The first item in the FAQ section should have a setting if it's open or not #569
+- Option to disable the cart drawer #543
+- Partial slide view in mobile setting in the Featured Products section #580
+- Megamenu container should be full-width #581
+- Refactor product page blocks so they can all be ordered as needed. #583
+- Sticky Video is not properly closed. Visibility issue #588
+- Loox and JudgMe support #533
+- Completely refactor the "Image with Text" section #618
+- Product list option in empty cart state #612
+- Change Twitter logo to X #595
+- Refactor the "Single Product" section #616
+- Provide styling options for the accordion block in PDP #637
+- Use SVG icons instead of text in the Plus/minus in qty fields. #630
+- Do not show arrows in the product media gallery if few slides #624
+- Purchase options improvements in PDP #634
+- Product card - global settings #626
+- Icon setting for the cart goal feature, shipping, gift, etc #654
+- Fix some small theme editor issues with the Newsletter Popup section #672
+- Refactor sections' header to be a snippet #667
+- Mobile/desktop font-size settings for various sections #658
+- FAQ item should open if clicked on the corresponding block - admin #673
+- Sticky video section small fixes in theme editor #674
+- Font-family and font-size settings for desktop and mobile menus #662
+- Better organize cart items elements #657
+- Improved Image orientation setting for the product gallery image #675
+- Lookbook section points do not work on the Safari browser #735
+- Various small fixes and further improvements in the code
+
+## [2.6.0] - 2023-06-01
+- [NEW] RTL (right-to-left) language mode support #381
+- [NEW] Sticky Video - section #288
+- [NEW] Comparison Table - section #431
+- Refactor cart drawer elements with better design (Note, Shipping rates, etc) #422
+- Phone icon setting for the social icons #409
+- Fancy alternate style for the FAQ accordion section #426
+- Fix indentation in settings_schema.json file #421
+- Automatically close the cart drawer if it's empty. #417
+- Carousel captions color settings #413
+- Download our mobile app block in the footer section #241
+- Improvements in the Marquee section #399
+- Logo position setting for the navbar in desktop view #280
+- Newsletter section should not have "enable section" setting #438
+- New page explaining the mobile app logic. #435
+- Navbar mobile logo setting #440
+- Maxlength and helper text settings for the personalisation field in PDP #432
+- Alert color settings in the global theme settings #439
+- Gradient background setting for various ~20 sections #347
+- Background Gradient setting for buttons #443
+- Parallax section doesn't work in Safari #446
+- Custom animations for caption elements in the carousel section #447
+- Breadcrumb position option in the PDP #448
+- Store availability block setting to enable/disable #449
+- Setting in multiple sections to show inventory (stock) in product list items #452
+- Link setting for each block in the marquee section #444
+- Remove global animation setting, since sections will be controlled by a local setting #451
+- Animation setting for various sections #450
+- Image with text setting to control column size in desktop #459
+- Second button should not cut in mobile - carousel section #460
+- Product description setting to show above the product accordion blocks #457
+- Size chart modal option in PDP #463
+- icons on the pdp accordion elements #462
+- Animated Stories text color issues in dark background color #464
+- Color swatches issue with option values that include the same name #477
+- Sticky Video - hitting the close button is difficult #475
+- Various small fixes and further improvements in the code
+
+## [2.5.0] - 2023-05-01
+- [NEW] Brands page/section #244
+- [NEW] Speech Recognition Feature for Search Input #352
+- [NEW] Limited offer text in pdp #312
+- Position issue with carousel caption on iOS devices #313
+- Dynamic checkout buttons support in the product form. #319
+- Image setting within the accordion items in the FAQ section #318
+- Setting to choose a collection in the cart upsell feature #311
+- Setting to enable/disable the collection title in the Featured Collection section #310
+- HTML section should have the option for liquid code #309
+- Truncate setting for product titles in the search result #305
+- Cart goal value setting change to text field #303
+- Single Product section should not show errors if a product is not assigned. #301
+- Product option to show in the megamenu #299
+- Newsletter section should be dynamic (missing presets) #330
+- Add discord icon in the social icons #333
+- Update the README.md file #339
+- Option to remove light bg on footer about us #342
+- More spacing for arrows in the Features Products section, if the container is set to fluid #332
+- Setting for scroll mode in mobile for some sections #346
+- Setting to open the offcanvas drawer from bottom->up #350
+- Store availability issue on variant change #358
+- Cart page should have the features of the cart drawer #355
+- "But it now" button does not work if the Quantity field is missing #366
+- Blog Navigation Prev-Next buttons #369
+- Shipping link inside the cart drawer open in a new tab #360
+- Sticky setting for the Announcement bar #359
+- Structured data for the FAQ section has issues #378
+- Navbar should not have a "body" color option #388
+- Sticky card on mobile for the Custom Bundle feature #387
+- Remove product from the wishlist if its added to the cart #392
+- Image - new section #393
+- Truncate title on the bundle builder does not work #390
+- Custom heading fonts from Files #367
+- Container setting for the Carousel section #396
+- Custom Liquid/HTML block in the product template #397
+- Various small fixes and further improvements in the code
+
+## [2.4.0] - 2023-04-04
+- [NEW] Single product - section #223
+- [NEW] Shipping Calculator Feature in Cart Drawer #243
+- [NEW] Display Store Availability Options (Local Pickup) #227
+- [NEW] Recently Viewed - section #281
+- [NEW] Recently Wishlisted - section #283
+- Setting to enable the lightbox gallery mode in product media gallery #234
+- Image display setting for the Article section #242
+- Delivery info block in PDP #181
+- Intent option for recommended products section #275
+- Support for multiple color swatches at the same product form #271
+- Change some option field to textarea in the global theme settings. #272
+- Add image option to the accordion section #249
+- Variant Images for Color Swatches in Bundle Collection are missing #255
+- Setting to enable/disable infinite pagination #251
+- Setting to show the product SKU (product page) #267
+- Cart Goal - increment by smaller amounts #295
+- Bundle Total price should discount on the exact tier price #289
+- Expiration time setting for the announcement bar section #293
+- Bought Together - Issues with sold-out variants and sold-out products #291
+- Cart upsells - Do not show 'Sold-out' items #290
+- Stacked setting for the Featured Products section #287
+- Article meta (author, date) setting to show/hide in the Article pages #286
+- Various small fixes and further improvements in the code
+
+## [2.3.0] - 2023-03-17
+- [NEW] Quiz feature #126
+- [NEW] Custom Properties in the Product Form (Personalizations) #172
+- Add "shopify_attributes" to each block for the new theme inspector feature #215
+- Design improvements for the Frequently Bought Together feature (desktop only) #157
+- Small fixes for the Sticky ATC in the PDP #178
+- Whole link for the carousel slide images #214
+- Color swatches option to select either swatch images or the variant images #205
+- More options for the product media gallery in the PDP #196
+- Various small fixes and further improvements in the code
+
+## [2.2.0] - 2023-02-20
+- [NEW] TikTok Slider #125
+- [NEW] Carousel section support for video slides #146
+- [NEW] Support for 3d models in the product media gallery (glb format) #155
+- [NEW] Advanced contact form with options to select fields #173
+- Stories should have sample image data on install #152
+- Indicators style naming bug in the carousel section #151
+- Console error if hash is present on other pages #150
+- Setting to control sale badge color and visibility for product list items #145
+- Layout options for the navbar section, (mobile only) #144
+- Fix TikTok slider performance, lazy-loading, page-speed etc #164
+- Various small fixes and further improvements in the code
+
+## [2.1.0] - 2023-02-04
+- [NEW] MP4 video - section #44
+- [NEW] Image Compare - section #123
+- [NEW] Animated Stories - new section #131
+- [New] Icon Blocks - new section #107
+- [NEW] Price Range slider feature for the collection filters #78
+- [NEW] Image List - section #39
+- Hover mode in product items issue if there is just one image #109
+- Hover option for navbar menu items (only if accessibility is in place) #106
+- Product items review badges should be within snippet #110
+- Megamenu should better align with a few columns #105
+- Page content - new section for pages only #120
+- Truncate product item title - through setting #118
+- Small fixes in the Upsell Modal feature in PDP #117
+- Extra characters in the product form options should be escaped #114
+- Desktop navbar menu items have better line height when 2 rows #113
+- Icon align setting for the Icons Block section #132
+- Various small fixes and further improvements in the code
+
+## [2.0.0] - 2023-01-21
+- [NEW] Bundle Builder - new feature #71
+- [NEW] Support for Purchase Options (Subscription option) #9
+- Swatches in product list items must obey to text-align setting #67
+- Newsletter popup should have the placeholder image when first installed #91
+- Featured Products section should have a collection setting #90
+- Support for Shop Pay Instalments #86
+- Size buttons inside collection filters can be styled as buttons #81
+- Swatches popover do not init after ajax change on collection page and recommended products section #79
+- Container settings for various sections/templates #77
+- Hover setting along with the current image gallery for product list items, users can choose #76
+- Cards section issues with dark bg colors #70
+- Dark theme issues mobile menu and close buttons in modal #69
+- Structured Data Support for the F.A.Q section #62
+- Latest Articles section #34
+- Switch to section groups #72
+- Color swatcher helper file generator feature #82
+- Various small fixes and further improvements in code
+
+## [1.1.0] - 2023-01-09
+- [NEW] Quantity Break feature in the product form #49
+- Product form input qty should have plus/minus buttons #47
+- Added Option to disable animations on scroll #55
+- Product form input qty should have plus/minus buttons #47
+- Lazy load vendor styles, wherever it is possible #46
+- Main content get faded when navbar dropdowns get opened #24
+- Small fixes for color swatches in product list items #54
+- No option to disable the newsletter section #51
+- Added color option for demo purposes #20
+- Various small fixes
+
+## [1.0.0] - 2022-12-29

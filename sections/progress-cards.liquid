@@ -1,0 +1,924 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign heading_font_size = "fs-" | append: section.settings.title_font_size_desktop
+    assign card_heading_size = section.settings.title_font_size_desktop | divided_by: 1.5 | ceil
+    assign block_heading_size = "fs-" | append: card_heading_size
+
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+      if customer
+        assign show_section = section.settings.access_members
+    else
+        assign show_section = section.settings.access_guests
+    endif
+%}
+{% if show_section %}
+
+  {% style %}
+    .bg-blur-3 {
+      backdrop-filter: blur(3px);
+    }
+    #product-progress-{{ section.id }} .progress {
+      --bs-progress-height: 0.5rem;
+    }
+    .card-custom {
+      background-color: transparent!important;
+      isolation: isolate;
+      box-shadow:0.125rem 0.125rem 0.75rem rgb(0 0 0 / 66%);
+      border-radius: var(--bs-border-radius);
+    }
+
+    @media (max-width: 575px) {
+      #product-progress-{{ section.id }} div.row.xs-scroll {
+        overflow: auto;
+        flex-wrap: nowrap;
+        padding: 0 0.5rem 0.5rem;
+        margin: 0 -1rem -0.5rem !important;
+      }
+  
+      #product-progress-{{ section.id }} div.row.xs-scroll .col-12 {
+        width: 85vw;
+        flex: none;
+      }
+    }
+  {% endstyle %}
+  
+<section 
+    id="product-progress-{{ section.id }}" 
+    class="product-progress enter-view overflow-hidden position-relative {{ bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}" style="background: url('{{ section.settings.bg_image | image_url }}')  no-repeat center center / cover!important; isolation:isolate;">
+    <div class="{{ bg_color }} d-block position-absolute top-0 start-0 w-100 h-100" style="z-index: 1; opacity: calc({{ section.settings.bg_opacity }} / 100);"><span></span></div>
+    <div class="{{ section.settings.container }} position-relative" style="z-index: 2;max-width: {{ section.settings.max_width }}px;">
+      {% if section.settings.title != blank %}
+        <h1 class="mb-5  {{ section.settings.text_align_desktop }} {{ section.settings.text_align_mobile }} {{ heading_font_size }}">{{ section.settings.title }}</h1>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <div class="mb-5  {{ section.settings.text_align_desktop }} {{ section.settings.text_align_mobile }}">{{ section.settings.description }}</div>
+      {% endif %}
+        <div class="mt-8 row g-8 {% if section.settings.breakpoint_xs_scroll %}pb-6 xs-scroll{% endif %}">
+            
+          {% for block in section.blocks %}
+            <div class="col-12 {{ section.settings.column_count_tablet }} {{ section.settings.column_count_desktop }}">
+                <div class="border-0 card-custom px-5 py-8 h-100 d-flex flex-column position-relative {{ section.settings.card_bg }} overflow-hidden">
+                  <div class="position-absolute top-0 start-0 w-100 h-100 {{ section.settings.card_bg }}" style="opacity: calc({{ section.settings.card_bg_opacity }} / 100); z-index:-1;"><span></span></div>
+                    <h5 class=" {{ block_heading_size }} card-title text-center {% if block.settings.heading_color == "none" %}{% else %}{{ block.settings.heading_color }}{% endif %}">
+                      {{ block.settings.block_heading }}
+                    </h5>
+                    <div class=" card-text mt-4 text-center">{{ block.settings.content }}</div>
+                  
+                    {% if block.settings.category_1_label != blank %}
+                      <div class="mt-auto mb-6 d-flex gap-5">
+                        {% if block.settings.category_1_icon != blank %}
+                          <img src="{{ block.settings.category_1_icon | image_url }}" class="d-block bg-white rounded-4 p-2" height="40" width="40" loading="lazy" />
+                        {% endif %}
+                        <div class="w-100">
+                          <div class=" text-left font-bold">{{ block.settings.category_1_label }}</div>
+                          <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-processor progress-card-bar {% if block.settings.category_1_color == "none" %}{{ section.settings.category_1_color }}{% else %}{{ block.settings.category_1_color }}{% endif %}" role="progressbar" style="width: {% if request.design_mode %}{{ block.settings.category_1_value | default: 50 }}{% else %}0{% endif %}%;" data-width="{{ block.settings.category_1_value | default: 50 }}%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  
+                    {% if block.settings.category_2_label != blank %}
+                      <div class="mb-6 d-flex gap-5">
+                        {% if block.settings.category_2_icon != blank %}
+                          <img src="{{ block.settings.category_2_icon | image_url }}" class="d-block bg-white rounded-4 p-2" height="40" width="40" loading="lazy" />
+                        {% endif %}
+                        <div class="w-100">
+                          <div class=" text-left font-bold">{{ block.settings.category_2_label }}</div>
+                          <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-processor progress-card-bar {% if block.settings.category_2_color == "none" %}{{ section.settings.category_2_color }}{% else %}{{ block.settings.category_2_color }}{% endif %}" role="progressbar" style="width: {% if request.design_mode %}{{ block.settings.category_2_value | default: 50 }}{% else %}0{% endif %}%;" data-width="{{ block.settings.category_2_value | default: 50 }}%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  
+                    {% if block.settings.category_3_label != blank %}
+                      <div class="mb-6 d-flex gap-5">
+                        {% if block.settings.category_3_icon != blank %}
+                          <img src="{{ block.settings.category_3_icon | image_url }}" class="d-block bg-white rounded-4 p-2" height="40" width="40" loading="lazy" />
+                        {% endif %}
+                        <div class="w-100">
+                          <div class=" text-left font-bold">{{ block.settings.category_3_label }}</div>
+                          <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-processor progress-card-bar {% if block.settings.category_3_color == "none" %}{{ section.settings.category_3_color }}{% else %}{{ block.settings.category_3_color }}{% endif %}" role="progressbar" style="width: {% if request.design_mode %}{{ block.settings.category_3_value | default: 50 }}{% else %}0{% endif %}%;" data-width="{{ block.settings.category_3_value | default: 50 }}%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  
+                    {% if block.settings.category_4_label != blank %}
+                      <div class="mb-6 d-flex gap-5">
+                        {% if block.settings.category_4_icon != blank %}
+                          <img src="{{ block.settings.category_4_icon | image_url }}" class="d-block bg-white rounded-4 p-2" height="40" width="40" loading="lazy" />
+                        {% endif %}
+                        <div class="w-100">
+                          <div class=" text-left font-bold">{{ block.settings.category_4_label }}</div>
+                          <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-processor progress-card-bar {% if block.settings.category_4_color == "none" %}{{ section.settings.category_4_color }}{% else %}{{ block.settings.category_4_color }}{% endif %}" role="progressbar" style="width: {% if request.design_mode %}{{ block.settings.category_4_value | default: 50 }}{% else %}0{% endif %}%;" data-width="{{ block.settings.category_4_value | default: 50 }}%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  
+                    {% if block.settings.category_5_label != blank %}
+                      <div class="mb-6 d-flex gap-5">
+                        {% if block.settings.category_5_icon != blank %}
+                          <img src="{{ block.settings.category_5_icon | image_url }}" class="d-block bg-white rounded-4 p-2" height="40" width="40" loading="lazy" />
+                        {% endif %}
+                        <div class="w-100">
+                          <div class=" text-left font-bold">{{ block.settings.category_5_label }}</div>
+                          <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-processor progress-card-bar {% if block.settings.category_5_color == "none" %}{{ section.settings.category_5_color }}{% else %}{{ block.settings.category_5_color }}{% endif %}" role="progressbar" style="width: {% if request.design_mode %}{{ block.settings.category_5_value | default: 50 }}{% else %}0{% endif %}%;" data-width="{{ block.settings.category_5_value | default: 50 }}%"></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+
+                    {% if block.settings.button_label != blank %}
+                      <a 
+                        href="{{ block.settings.button_url }}" 
+                        class="mt-6 d-block btn mx-auto {{ section.settings.btn_size }} {% if block.settings.btn_color == "none" %}{{ section.settings.btn_color }}{% else %}{{ block.settings.btn_color }}{% endif %}"
+                        style="">
+                        {{ block.settings.button_label }}
+                      </a>
+                    {%  endif %}
+                </div>
+            </div>
+          {% endfor %}
+            
+        </div>
+    </div>
+</section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const thisSection = document.querySelector("#product-progress-{{ section.id }}");
+            const progressBars = thisSection.querySelectorAll('.progress-card-bar');
+
+            progressBars.forEach(item=>item.style.width = "0%")
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(()=>{
+                          const bar = entry.target;
+                          bar.style.width = bar.getAttribute('data-width');
+                          observer.unobserve(bar);
+                        }, 333)
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            progressBars.forEach(bar => {
+                observer.observe(bar);
+            });
+        });
+    </script>
+
+{% endif %}
+
+{% schema %}
+{
+    "name": "Progress Cards",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+          "type": "select",
+          "id": "column_count_desktop",
+          "label": "Column count | Desktop",
+          "default": "col-lg-3",
+          "options": [
+            {"label": "2", "value": "col-lg-6"},
+            {"label": "3", "value": "col-lg-4"},
+            {"label": "4", "value": "col-lg-3"}
+          ]
+        },
+        {
+          "type": "select",
+          "id": "column_count_tablet",
+          "label": "Column count | Tablet",
+          "default": "col-md-6",
+          "options": [
+            {"label": "1", "value": "col-md-12"},
+            {"label": "2", "value": "col-md-6"},
+            {"label": "3", "value": "col-md-4"}
+          ]
+        },
+        {
+            "type": "checkbox",
+            "id": "breakpoint_xs_scroll",
+            "label": "Scroll on mobile",
+            "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background image"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-body text-body",
+            "options": [
+                { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                { "group": "Alert", "value": "bg-info text-white", "label": "Info" },
+              { "group": "Dark", "value": "bg-brand-gradient text-white", "label": "Brand gradient" }
+            ],
+          "info": "If background image is selected, then this will behave as overlay on top"
+        },
+        {
+          "type": "range",
+          "id": "bg_opacity",
+          "label": "Background opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 100,
+          "unit": "%"
+        },
+       {
+            "type": "select",
+            "id": "media_align",
+            "label": "Media alignment",
+            "info": "Note: On mobile Media will always be on top and text on the bottom",
+            "default": "flex-row",
+            "options": [
+                { "value": "flex-row", "label": "Left" },
+                { "value": "flex-row-reverse", "label": "Right" }
+            ]
+        },
+      
+        {
+            "type": "checkbox",
+            "id": "bg_gradient",
+            "label": "Background gradient",
+            "default": false,
+            "info": "Will not apply to light colors"
+        },
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "container-fluid", "label": "Fluid" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max-width (px)"
+        },
+        {
+            "type": "header",
+            "content": "Header"
+        },
+        
+       {
+            "type": "select",
+            "id": "text_align_mobile",
+            "label": "Text align - mobile",
+            "default": "text-start",
+            "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" }
+            ]
+        },
+       {
+            "type": "select",
+            "id": "text_align_desktop",
+            "label": "Text align - desktop",
+            "default": "text-lg-start",
+            "options": [
+                { "value": "text-lg-start", "label": "Left" },
+                { "value": "text-lg-center", "label": "Center" }
+            ]
+        },
+
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Title"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description (optional)",
+            "default": "<p>Add on optional description to this section</p>"
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_mobile",
+            "label": "Description font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "description_font_size_desktop",
+            "label": "Description font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+       {
+            "type": "header",
+            "content": "Button"
+        },
+        {
+            "type": "select",
+            "id": "btn_color",
+            "label": "Button color",
+            "default": "btn-outline-primary",
+            "options": [
+                { "group": "Normal", "value": "btn-link", "label": "Link" },
+                { "group": "Normal", "value": "btn-light", "label": "Light" },
+                { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+                { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+                { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+                { "group": "Normal", "value": "btn-success", "label": "Success" },
+                { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+                { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+                { "group": "Normal", "value": "btn-info", "label": "Info" },
+                { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+                { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+                { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+                { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+                { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+                { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+                { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+                { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "btn_size",
+            "label": "Button size",
+            "default": "w-100",
+            "options": [
+                { "value": "btn-sm mx-auto", "label": "Small" },
+                { "value": "px-11 mx-auto", "label": "Normal" },
+                { "value": "w-100", "label": "Full-width" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "animation",
+            "label": "Animation",
+            "default": "animate__fadeInUp",
+            "options": [
+                { "group": "Disabled", "value": "", "label": "No animation" },
+                { "group": "Fade", "value": "animate__fadeIn", "label": "Fade In" },
+                { "group": "Fade", "value": "animate__fadeInDown", "label": "Fade-in-down" },
+                { "group": "Fade", "value": "animate__fadeInLeft", "label": "Fade-in-left" },
+                { "group": "Fade", "value": "animate__fadeInRight", "label": "Fade-in-right" },
+                { "group": "Fade", "value": "animate__fadeInUp", "label": "Fade-in-up" },
+                { "group": "Zoom", "value": "animate__zoomIn", "label": "Zoom-in" },
+                { "group": "Zoom", "value": "animate__zoomInDown", "label": "Zoom-in-down" },
+                { "group": "Zoom", "value": "animate__zoomInLeft", "label": "Zoom-in-left" },
+                { "group": "Zoom", "value": "animate__zoomInRight", "label": "Zoom-in-right" },
+                { "group": "Zoom", "value": "animate__zoomInUp", "label": "Zoom-in-up" },
+                { "group": "Back", "value": "animate__backInDown", "label": "Back-in-down" },
+                { "group": "Back", "value": "animate__backInLeft", "label": "Back-in-left" },
+                { "group": "Back", "value": "animate__backInRight", "label": "Back-in-right" },
+                { "group": "Back", "value": "animate__backInUp", "label": "Back-in-up" },
+                { "group": "Bounce", "value": "animate__bounceIn", "label": "Bounce-in" },
+                { "group": "Bounce", "value": "animate__bounceInDown", "label": "Bounce-in-down" },
+                { "group": "Bounce", "value": "animate__bounceInLeft", "label": "Bounce-in-left" },
+                { "group": "Bounce", "value": "animate__bounceInRight", "label": "Bounce-in-right" },
+                { "group": "Bounce", "value": "animate__bounceInUp", "label": "Bounce-in-up" },
+                { "group": "LightSpeed", "value": "animate__lightSpeedInLeft", "label": "LightSpeed-in-left" },
+                { "group": "LightSpeed", "value": "animate__lightSpeedInRight", "label": "LightSpeed-in-right" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "animation_speed",
+            "label": "Animation speed",
+            "default": "animate__fast",
+            "options": [
+                { "value": "animate__slower", "label": "Slower" },
+                { "value": "animate__slow", "label": "Slow" },
+                { "value": "", "label": "Normal" },
+                { "value": "animate__fast", "label": "Fast" },
+                { "value": "animate__faster", "label": "Faster" }
+            ]
+        }, 
+        {
+            "type": "header",
+            "content": "Card Settings"
+        },
+        {
+          "type": "select",
+          "id": "card_bg",
+          "label": "Card background",
+          "default": "none",
+          "options": [
+            { "group": "Normal", "value": "none", "label": "Transparent"},
+            { "group": "Normal", "value": "bg-link text-body", "label": "Link" },
+            { "group": "Normal", "value": "bg-light text-body", "label": "Light" },
+            { "group": "Normal", "value": "bg-dark text-white", "label": "Dark" },
+            { "group": "Normal", "value": "bg-primary text-white", "label": "Primary" },
+            { "group": "Normal", "value": "bg-secondary text-white", "label": "Secondary" },
+            { "group": "Normal", "value": "bg-success text-white", "label": "Success" },
+            { "group": "Normal", "value": "bg-danger text-white", "label": "Danger" },
+            { "group": "Normal", "value": "bg-warning text-white", "label": "Warning" },
+            { "group": "Normal", "value": "bg-info text-white", "label": "Info" },
+            { "group": "Blur", "value": "bg-blur-3", "label": "Blur - Transparent"},
+            { "group": "Blur", "value": "bg-link bg-blur-3 text-body", "label": "Blur - Link" },
+            { "group": "Blur", "value": "bg-light bg-blur-3 text-body", "label": "Blur - Light" },
+            { "group": "Blur", "value": "bg-dark bg-blur-3 text-white", "label": "Blur - Dark" },
+            { "group": "Blur", "value": "bg-primary bg-blur-3 text-white", "label": "Blur - Primary" },
+            { "group": "Blur", "value": "bg-secondary bg-blur-3 text-white", "label": "Blur - Secondary" },
+            { "group": "Blur", "value": "bg-success bg-blur-3 text-white", "label": "Blur - Success" },
+            { "group": "Blur", "value": "bg-danger bg-blur-3 text-white", "label": "Blur - Danger" },
+            { "group": "Blur", "value": "bg-warning bg-blur-3 text-white", "label": "Blur - Warning" },
+            { "group": "Blur", "value": "bg-info bg-blur-3 text-white", "label": "Blur - Info" }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "card_bg_opacity",
+          "label": "Background opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 100,
+          "unit": "%"
+        },
+        {
+            "type": "header",
+            "content": "Progress bar"
+        },
+        {
+          "type": "select",
+          "id": "category_1_color",
+          "label": "Progress bar 'Category 1' color",
+          "default": "bg-primary",
+          "options": [
+            { "value": "bg-link", "label": "Link" },
+            { "value": "bg-light", "label": "Light" },
+            { "value": "bg-dark", "label": "Dark" },
+            { "value": "bg-primary", "label": "Primary" },
+            { "value": "bg-secondary", "label": "Secondary" },
+            { "value": "bg-success", "label": "Success" },
+            { "value": "bg-danger", "label": "Danger" },
+            { "value": "bg-warning", "label": "Warning" },
+            { "value": "bg-info", "label": "Info" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "category_2_color",
+          "label": "Progress bar 'Category 2' color",
+          "default": "bg-primary",
+          "options": [
+            { "value": "bg-link", "label": "Link" },
+            { "value": "bg-light", "label": "Light" },
+            { "value": "bg-dark", "label": "Dark" },
+            { "value": "bg-primary", "label": "Primary" },
+            { "value": "bg-secondary", "label": "Secondary" },
+            { "value": "bg-success", "label": "Success" },
+            { "value": "bg-danger", "label": "Danger" },
+            { "value": "bg-warning", "label": "Warning" },
+            { "value": "bg-info", "label": "Info" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "category_3_color",
+          "label": "Progress bar 'Category 3' color",
+          "default": "bg-primary",
+          "options": [
+            { "value": "bg-link", "label": "Link" },
+            { "value": "bg-light", "label": "Light" },
+            { "value": "bg-dark", "label": "Dark" },
+            { "value": "bg-primary", "label": "Primary" },
+            { "value": "bg-secondary", "label": "Secondary" },
+            { "value": "bg-success", "label": "Success" },
+            { "value": "bg-danger", "label": "Danger" },
+            { "value": "bg-warning", "label": "Warning" },
+            { "value": "bg-info", "label": "Info" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "category_4_color",
+          "label": "Progress bar 'Category 4' color",
+          "default": "bg-primary",
+          "options": [
+            { "value": "bg-link", "label": "Link" },
+            { "value": "bg-light", "label": "Light" },
+            { "value": "bg-dark", "label": "Dark" },
+            { "value": "bg-primary", "label": "Primary" },
+            { "value": "bg-secondary", "label": "Secondary" },
+            { "value": "bg-success", "label": "Success" },
+            { "value": "bg-danger", "label": "Danger" },
+            { "value": "bg-warning", "label": "Warning" },
+            { "value": "bg-info", "label": "Info" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "category_5_color",
+          "label": "Progress bar 'Category 5' color",
+          "default": "bg-primary",
+          "options": [
+            { "value": "bg-link", "label": "Link" },
+            { "value": "bg-light", "label": "Light" },
+            { "value": "bg-dark", "label": "Dark" },
+            { "value": "bg-primary", "label": "Primary" },
+            { "value": "bg-secondary", "label": "Secondary" },
+            { "value": "bg-success", "label": "Success" },
+            { "value": "bg-danger", "label": "Danger" },
+            { "value": "bg-warning", "label": "Warning" },
+            { "value": "bg-info", "label": "Info" }
+          ]
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+      {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 0
+        },
+      {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        }
+    ],
+    "blocks": [
+    {
+      "type": "progress_item",
+      "name": "Progress item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Card settings"
+        },
+          {
+            "type": "text",
+            "id": "block_heading",
+            "label": "Title",
+            "default": "Card title"
+          },
+          {
+            "type": "select",
+            "id": "heading_color",
+            "label": "Heading color",
+            "default": "none",
+            "options": [
+              {"label": "Default", "value": "none"},
+              {"label": "Primary", "value": "text-primary"},
+              {"label": "Secondary", "value": "text-secondary"},
+              {"label": "Danger", "value": "text-danger"},
+              {"label": "Warning", "value": "text-warning"}
+            ]
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Description",
+            "default": "<p>Lorem ipsum dolor sit amor</p>"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+          },
+          {
+            "type": "select",
+            "id": "btn_color",
+            "label": "Button color",
+            "default": "none",
+            "options": [
+              {"label": "Default", "value": "none"},
+              { "group": "Normal", "value": "btn-link", "label": "Link" },
+              { "group": "Normal", "value": "btn-light", "label": "Light" },
+              { "group": "Normal", "value": "btn-dark", "label": "Dark" },
+              { "group": "Normal", "value": "btn-primary", "label": "Primary" },
+              { "group": "Normal", "value": "btn-secondary", "label": "Secondary" },
+              { "group": "Normal", "value": "btn-success", "label": "Success" },
+              { "group": "Normal", "value": "btn-danger", "label": "Danger" },
+              { "group": "Normal", "value": "btn-warning", "label": "Warning" },
+              { "group": "Normal", "value": "btn-info", "label": "Info" },
+              { "group": "Outline", "value": "btn-outline-light", "label": "Light Outline" },
+              { "group": "Outline", "value": "btn-outline-dark", "label": "Dark Outline" },
+              { "group": "Outline", "value": "btn-outline-primary", "label": "Primary Outline" },
+              { "group": "Outline", "value": "btn-outline-secondary", "label": "Secondary Outline" },
+              { "group": "Outline", "value": "btn-outline-success", "label": "Success Outline" },
+              { "group": "Outline", "value": "btn-outline-danger", "label": "Danger Outline" },
+              { "group": "Outline", "value": "btn-outline-warning", "label": "Warning Outline" },
+              { "group": "Outline", "value": "btn-outline-info", "label": "Info Outline" }
+            ],
+            "info": "Use 'Default' to match other buttons, controlled in section settings, or use a different style for this button only"
+          },
+          {
+            "type": "header",
+            "content": "Category 1"
+          },
+          {
+            "type": "image_picker",
+            "id": "category_1_icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "category_1_label",
+            "label": "Name",
+            "default": "Category"
+          },
+          {
+            "type": "number",
+            "id": "category_1_value",
+            "label": "Progress value",
+            "default": 50
+          },
+          {
+            "type": "select",
+            "id": "category_1_color",
+            "label": "Progress bar color",
+            "default": "none",
+            "options": [
+              {"label": "Default", "value": "none"},
+              { "value": "bg-link", "label": "Link" },
+              { "value": "bg-light", "label": "Light" },
+              { "value": "bg-dark", "label": "Dark" },
+              { "value": "bg-primary", "label": "Primary" },
+              { "value": "bg-secondary", "label": "Secondary" },
+              { "value": "bg-success", "label": "Success" },
+              { "value": "bg-danger", "label": "Danger" },
+              { "value": "bg-warning", "label": "Warning" },
+              { "value": "bg-info", "label": "Info" }
+            ],
+            "info": "Set to 'Default' to use section settings, or use a different style for this bar only"
+          },
+          {
+            "type": "header",
+            "content": "Category 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "category_2_icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "category_2_label",
+            "label": "Name",
+            "default": "Category"
+          },
+          {
+            "type": "number",
+            "id": "category_2_value",
+            "label": "Progress value",
+            "default": 50
+          },
+          {
+            "type": "select",
+            "id": "category_2_color",
+            "label": "Progress bar color",
+            "default": "none",
+            "options": [
+              {"label": "Default", "value": "none"},
+              { "value": "bg-link", "label": "Link" },
+              { "value": "bg-light", "label": "Light" },
+              { "value": "bg-dark", "label": "Dark" },
+              { "value": "bg-primary", "label": "Primary" },
+              { "value": "bg-secondary", "label": "Secondary" },
+              { "value": "bg-success", "label": "Success" },
+              { "value": "bg-danger", "label": "Danger" },
+              { "value": "bg-warning", "label": "Warning" },
+              { "value": "bg-info", "label": "Info" }
+            ],
+            "info": "Set to 'Default' to use section settings, or use a different style for this bar only"
+          },
+          {
+            "type": "header",
+            "content": "Category 3"
+          },
+          {
+            "type": "image_picker",
+            "id": "category_3_icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "category_3_label",
+            "label": "Name",
+            "default": "Category"
+          },
+          {
+            "type": "number",
+            "id": "category_3_value",
+            "label": "Progress value",
+            "default": 50
+          },
+          {
+            "type": "select",
+            "id": "category_3_color",
+            "label": "Progress bar color",
+            "default": "none",
+            "options": [
+              {"label": "Default", "value": "none"},
+              { "value": "bg-link", "label": "Link" },
+              { "value": "bg-light", "label": "Light" },
+              { "value": "bg-dark", "label": "Dark" },
+              { "value": "bg-primary", "label": "Primary" },
+              { "value": "bg-secondary", "label": "Secondary" },
+              { "value": "bg-success", "label": "Success" },
+              { "value": "bg-danger", "label": "Danger" },
+              { "value": "bg-warning", "label": "Warning" },
+              { "value": "bg-info", "label": "Info" }
+            ],
+            "info": "Set to 'Default' to use section settings, or use a different style for this bar only"
+          },
+          {
+            "type": "header",
+            "content": "Category 4"
+          },
+          {
+            "type": "image_picker",
+            "id": "category_4_icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "category_4_label",
+            "label": "Name",
+            "default": "Category"
+          },
+          {
+            "type": "number",
+            "id": "category_4_value",
+            "label": "Progress value",
+            "default": 50
+          },
+          {
+            "type": "select",
+            "id": "category_4_color",
+            "label": "Progress bar color",
+            "default": "none",
+            "options": [
+              {"label": "Default", "value": "none"},
+              { "value": "bg-link", "label": "Link" },
+              { "value": "bg-light", "label": "Light" },
+              { "value": "bg-dark", "label": "Dark" },
+              { "value": "bg-primary", "label": "Primary" },
+              { "value": "bg-secondary", "label": "Secondary" },
+              { "value": "bg-success", "label": "Success" },
+              { "value": "bg-danger", "label": "Danger" },
+              { "value": "bg-warning", "label": "Warning" },
+              { "value": "bg-info", "label": "Info" }
+            ],
+            "info": "Set to 'Default' to use section settings, or use a different style for this bar only"
+          },
+          {
+            "type": "header",
+            "content": "Category 5"
+          },
+          {
+            "type": "image_picker",
+            "id": "category_5_icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "category_5_label",
+            "label": "Name",
+            "default": "Category"
+          },
+          {
+            "type": "number",
+            "id": "category_5_value",
+            "label": "Progress value",
+            "default": 50
+          },
+          {
+            "type": "select",
+            "id": "category_5_color",
+            "label": "Progress bar color",
+            "default": "none",
+            "options": [
+              {"label": "Default", "value": "none"},
+              { "value": "bg-link", "label": "Link" },
+              { "value": "bg-light", "label": "Light" },
+              { "value": "bg-dark", "label": "Dark" },
+              { "value": "bg-primary", "label": "Primary" },
+              { "value": "bg-secondary", "label": "Secondary" },
+              { "value": "bg-success", "label": "Success" },
+              { "value": "bg-danger", "label": "Danger" },
+              { "value": "bg-warning", "label": "Warning" },
+              { "value": "bg-info", "label": "Info" }
+            ],
+            "info": "Set to 'Default' to use section settings, or use a different style for this bar only"
+          }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Progress Cards",
+            "category": "Image"
+        }
+    ]
+}
+{% endschema %}

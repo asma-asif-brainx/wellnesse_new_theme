@@ -1,0 +1,484 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid
+    assign pt = section.settings.pt | prepend: 'pt-'
+    assign pb = section.settings.pb | prepend: 'pb-'
+    assign mt = section.settings.mt | prepend: 'mt-'
+    assign mb = section.settings.mb | prepend: 'mb-'
+
+    assign bg_color = section.settings.bg_color
+
+    if section.settings.bg_gradient
+        assign bg_color = bg_color | append: ' bg-gradient'
+    endif
+
+    if customer
+        assign show_section = section.settings.access_members
+    else
+        assign show_section = section.settings.access_guests
+    endif
+%}
+
+{% unless section.settings.bg_image_desktop == blank %}
+<style>
+  @media (min-width: 768px) {
+    #video-comparison-{{ section.id }} {
+      background-image: url({{ section.settings.bg_image_desktop | img_url: '1600x' }});
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+</style>
+{% endunless %}
+
+{% unless section.settings.bg_image_mobile == blank %}
+<style>
+  @media (max-width: 767px) {
+    #video-comparison-{{ section.id }} {
+      background-image: url({{ section.settings.bg_image_mobile | img_url: '800x' }});
+      background-size: cover;
+      background-attachment: scroll;
+      background-position: center;
+    }
+  }
+</style>
+{% endunless %}
+
+{% if show_section %}
+    <div class="{{ bg_color }}">
+        <section 
+            id="video-comparison-{{ section.id }}" 
+            class="video-comparison {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+            <div class="{{ section.settings.container }}" style="max-width: {{ section.settings.max_width }}px; margin: 0 auto;">
+                <div class="comparison-heading {{ section.settings.text_align }}">
+                    <h2 class="{{ section.settings.title_font_size_mobile | prepend: 'fs-' }} {{ section.settings.title_font_size_desktop | prepend: 'fs-lg-' }}">
+                        {{ section.settings.title }}
+                    </h2>
+                </div>
+                <div class="comparison-subheading {{ section.settings.text_align }}">
+                    <p class="{{ section.settings.subtitle_font_size_mobile | prepend: 'fs-' }} {{ section.settings.subheading_font_size_desktop | prepend: 'fs-lg-' }}">
+                        {{ section.settings.subheading }}
+                    </p>
+                </div>
+                <div class="comparison-videos d-flex justify-content-between align-items-center position-relative">
+                    <div class="comparison-video position-relative">
+                        <p class="comparison-label rounded {{ section.settings.label_align }}" style="background-color: {{ section.settings.video_label_1_bg }}; color: {{ section.settings.video_label_1_color }}; font-size: {{ section.settings.label_font_size }}px;">
+                            {{ section.settings.video_label_1 }}
+                        </p>
+                        {% if section.settings.video_1 != blank %}
+                            {{- section.settings.video_1 | video_tag: 
+                                class: 'rounded', 
+                                autoplay: section.settings.autoplay, 
+                                loop: section.settings.loop, 
+                                muted: section.settings.muted, 
+                                controls: section.settings.controls 
+                            -}}
+                        {% endif %}
+                    </div>
+                    <p class="comparison-versus position-absolute" style="background-color: {{ section.settings.versus_bg_color }}; color: {{ section.settings.versus_text_color }};">VS</p>
+                    <div class="comparison-video position-relative">
+                        <p class="comparison-label rounded {{ section.settings.label_align }}" style="background-color: {{ section.settings.video_label_2_bg }}; color: {{ section.settings.video_label_2_color }}; font-size: {{ section.settings.label_font_size }}px;">
+                            {{ section.settings.video_label_2 }}
+                        </p>
+                        {% if section.settings.video_2 != blank %}
+                            {{- section.settings.video_2 | video_tag: 
+                                class: 'rounded', 
+                                autoplay: section.settings.autoplay, 
+                                loop: section.settings.loop, 
+                                muted: section.settings.muted, 
+                                controls: section.settings.controls 
+                            -}}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endif %}
+
+<style> 
+/* Video styles */
+.video-comparison video {
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+}
+
+.video-comparison .comparison-videos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 21px; /* Adjusted gap for desktop */
+}
+
+.video-comparison .comparison-video {
+    position: relative;
+    flex: 1; /* Allows both videos to take up equal space */
+}
+
+.video-comparison .comparison-label {
+    padding: 6px 8px;
+    border-radius: 24px;
+    font-weight: 700;
+    position: absolute;
+    top: 10px;
+    z-index: 2;
+    text-align: center;
+    max-width: fit-content;
+}
+
+.video-comparison .comparison-label.text-start {
+    left: 10px;
+    transform: translateX(0);
+}
+
+.video-comparison .comparison-label.text-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.video-comparison .comparison-label.text-end {
+    right: 10px;
+    transform: translateX(0);
+}
+
+.video-comparison .comparison-versus {
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    padding: 12px;
+    line-height: 1;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 767px) {
+    .video-comparison .comparison-videos {
+        flex-direction: column;
+        gap: 2px; /* Reduced gap for mobile */
+    }
+
+    .video-comparison .comparison-video {
+        width: 100%;
+    }
+
+    .video-comparison .comparison-versus {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+</style>
+
+{% schema %}
+{
+    "name": "Video Comparison",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Ecomify VS Other Brands"
+        },
+        {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text align",
+            "default": "text-center",
+            "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" },
+                { "value": "text-end", "label": "Right" }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_mobile",
+            "label": "Title font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 6
+        },
+        {
+            "type": "range",
+            "id": "title_font_size_desktop",
+            "label": "Title font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 8
+        },
+        {
+            "type": "text",
+            "id": "subheading",
+            "label": "Subheading",
+            "default": "Introducing the ultimate Shopify theme that will transform your online store and give it the boost it needs to stand out in today's competitive market."
+        },
+        {
+            "type": "range",
+            "id": "subtitle_font_size_mobile",
+            "label": "Subtitle font-size | mobile",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "subheading_font_size_desktop",
+            "label": "Subheading font-size | desktop",
+            "min": 1,
+            "max": 12,
+            "default": 2
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image_desktop",
+            "label": "Background image (Desktop)"
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image_mobile",
+            "label": "Background image (Mobile)"
+        },
+        {
+            "type": "select",
+            "id": "container",
+            "label": "Container",
+            "default": "container",
+            "options": [
+                { "value": "container", "label": "Container" },
+                { "value": "", "label": "Full-width" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max-width (px)"
+        },
+        {
+            "type": "select",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "bg-body text-body",
+            "options": [
+                { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+                { "group": "Light", "value": "bg-white text-body", "label": "White" },
+                { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+                { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+                { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+                { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+                { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+                { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+                { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+                { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "bg_gradient",
+            "label": "Background gradient",
+            "default": false,
+            "info": "Will not apply to light colors"
+        },
+        {
+            "type": "header",
+            "content": "Video 1"
+        },
+        {
+            "type": "video",
+            "id": "video_1",
+            "label": "Video 1"
+        },
+        {
+            "type": "text",
+            "id": "video_label_1",
+            "label": "Video 1 Label",
+            "default": "Our Brand"
+        },
+        {
+            "type": "color",
+            "id": "video_label_1_bg",
+            "label": "Video 1 Label Background Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "color",
+            "id": "video_label_1_color",
+            "label": "Video 1 Label Text Color",
+            "default": "#000000"
+        },
+        {
+            "type": "select",
+            "id": "label_align",
+            "label": "Label Align",
+            "default": "text-center",
+            "options": [
+                { "value": "text-start", "label": "Left" },
+                { "value": "text-center", "label": "Center" },
+                { "value": "text-end", "label": "Right" }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "label_font_size",
+            "label": "Label Font Size (px)",
+            "min": 8,
+            "max": 24,
+            "default": 12
+        },
+        {
+            "type": "header",
+            "content": "Video 2"
+        },
+        {
+            "type": "video",
+            "id": "video_2",
+            "label": "Video 2"
+        },
+        {
+            "type": "text",
+            "id": "video_label_2",
+            "label": "Video 2 Label",
+            "default": "Our Competitors"
+        },
+        {
+            "type": "color",
+            "id": "video_label_2_bg",
+            "label": "Video 2 Label Background Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "color",
+            "id": "video_label_2_color",
+            "label": "Video 2 Label Text Color",
+            "default": "#000000"
+        },
+        {
+            "type": "header",
+            "content": "Video Settings"
+        },
+        {
+            "type": "checkbox",
+            "id": "autoplay",
+            "label": "Autoplay",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "loop",
+            "label": "Loop",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "muted",
+            "label": "Muted",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "controls",
+            "label": "Controls",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Comparison VS"
+        },
+        {
+            "type": "color",
+            "id": "versus_bg_color",
+            "label": "VS Background Color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "versus_text_color",
+            "label": "VS Text Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "pt",
+            "label": "Padding top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 4
+        },
+        {
+            "type": "range",
+            "id": "pb",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 4
+        },
+        {
+            "type": "range",
+            "id": "mt",
+            "label": "Margin top",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mb",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 20,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Access"
+        },
+        {
+            "type": "checkbox",
+            "id": "access_guests",
+            "label": "Guests",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "access_members",
+            "label": "Members",
+            "default": true
+        }
+    ],
+    "presets": [
+        {
+            "name": "Video Comparison",
+            "category": "General",
+            "blocks": []
+        }
+    ]
+}
+{% endschema %}

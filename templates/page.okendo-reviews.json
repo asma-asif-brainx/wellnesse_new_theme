@@ -1,0 +1,129 @@
+{
+  "sections": {
+    "html_8XCDrp": {
+      "type": "html",
+      "settings": {
+        "html": "<div data-oke-widget=\"\"><\/div>",
+        "bg_color": "",
+        "bg_gradient": false,
+        "container": "container-fluid",
+        "text_align": "text-center",
+        "title": "",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "55f12060-bd1c-4134-9ffc-7b91fac745ee": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "67cab255-13e6-4d61-8005-5ad19aa18b97": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.52.37_PM.png",
+            "url": "",
+            "likes": "58",
+            "comments": "5"
+          }
+        },
+        "e3139897-47db-4627-9d36-60b090cea553": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.54.07_PM.png",
+            "url": "",
+            "likes": "76",
+            "comments": "5"
+          }
+        },
+        "26630e27-bdc4-462e-87cc-a930f8680157": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.51.14_PM.png",
+            "url": "",
+            "likes": "17",
+            "comments": "2"
+          }
+        },
+        "39269685-f78b-484f-95d3-c9451cfd79cd": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_8.04.00_PM.png",
+            "url": "",
+            "likes": "24",
+            "comments": "12"
+          }
+        },
+        "378b7e77-470e-44ee-9039-f60f2f5db481": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.50.32_PM.png",
+            "url": "",
+            "likes": "32",
+            "comments": "6"
+          }
+        },
+        "0eca41cb-040e-4fbb-b286-076d8c09ac42": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.55.59_PM.png",
+            "url": "",
+            "likes": "18",
+            "comments": "2"
+          }
+        }
+      },
+      "block_order": [
+        "67cab255-13e6-4d61-8005-5ad19aa18b97",
+        "e3139897-47db-4627-9d36-60b090cea553",
+        "26630e27-bdc4-462e-87cc-a930f8680157",
+        "39269685-f78b-484f-95d3-c9451cfd79cd",
+        "378b7e77-470e-44ee-9039-f60f2f5db481",
+        "0eca41cb-040e-4fbb-b286-076d8c09ac42"
+      ],
+      "settings": {
+        "bg_color": "",
+        "bg_gradient": false,
+        "text_align": "text-center",
+        "title": "Let's Connect!",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "title_branded": false,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_show": true,
+        "btn_text": "Follow @mywellnesse",
+        "btn_url": "https:\/\/instagram.com\/mywellnesse",
+        "btn_color": "btn-primary",
+        "btn_icon_show": true,
+        "img_orientation": "square",
+        "img_thumbnail": "",
+        "carousel_arrows": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 1,
+        "carousel_direction": "left",
+        "carousel_gap": 4,
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 4,
+        "breakpoint_xl": 5,
+        "breakpoint_xxl": 6,
+        "pt": 9,
+        "pb": 2,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "html_8XCDrp",
+    "55f12060-bd1c-4134-9ffc-7b91fac745ee"
+  ]
+}

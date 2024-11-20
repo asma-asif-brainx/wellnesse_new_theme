@@ -1,0 +1,117 @@
+{% comment %}
+---------------------------------------------------------
+Copyright © 2024 Ecomify Theme. All rights reserved.
+Unauthorized copying, modification, distribution, or use
+of this code or any portion of it, is strictly prohibited.
+Violators will be prosecuted to the fullest extent of the law.
+---------------------------------------------------------
+{% endcomment %}
+
+{% liquid 
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+
+  assign bg_color = section.settings.bg_color
+
+  if section.settings.bg_gradient
+    assign bg_color = bg_color | append: ' bg-gradient'
+  endif
+%}
+
+<section 
+  id="breadcrumbs-wrapper-{{ section.id }}" 
+  class="breadcrumbs-wrapper {{ bg_color }} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+  <div class="{{ section.settings.container }}">
+    {% render 'breadcrumbs' %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Breadcrumbs",
+  "settings": [
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "bg-body text-body",
+      "options": [
+        { "group": "Light", "value": "bg-body text-body", "label": "Body" },
+        { "group": "Light", "value": "bg-white text-body", "label": "White" },
+        { "group": "Light", "value": "bg-light text-body", "label": "Light" },
+        { "group": "Dark", "value": "bg-primary text-white", "label": "Primary" },
+        { "group": "Dark", "value": "bg-secondary text-white", "label": "Secondary" },
+        { "group": "Dark", "value": "bg-dark text-white", "label": "Dark" },
+        { "group": "Alert", "value": "bg-success text-white", "label": "Success" },
+        { "group": "Alert", "value": "bg-warning text-white", "label": "Warning" },
+        { "group": "Alert", "value": "bg-danger text-white", "label": "Danger" },
+        { "group": "Alert", "value": "bg-info text-white", "label": "Info" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "bg_gradient",
+      "label": "Background gradient",
+      "default": false,
+      "info": "Will not apply to light colors"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container",
+      "default": "container",
+      "options": [
+        { "value": "container-fluid", "label": "Fluid" },
+        { "value": "container", "label": "Container" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Padding top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mt",
+      "label": "Margin top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mb",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breadcrumbs"
+    }
+  ]
+}
+{% endschema %}

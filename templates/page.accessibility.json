@@ -1,0 +1,139 @@
+{
+  "sections": {
+    "richtext_KpikGE": {
+      "type": "richtext",
+      "custom_css": [
+        "p {color: #000000;}",
+        "h3 {color: #000000;}",
+        "h2 {color: #000000;"
+      ],
+      "settings": {
+        "bg_color": "bg-white text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "text_align": "text-start",
+        "title": "Accessibility",
+        "title_font_size_mobile": 8,
+        "title_font_size_desktop": 8,
+        "description": "<p>Wellnesse PBC is committed to improving the accessibility and usability of our website for all users. <\/p><p>We are using the relevant portions of the <a href=\"https:\/\/www.w3.org\/WAI\/standards-guidelines\/wcag\/\" target=\"_blank\">World Wide Web Consortium’s Web Content Accessibility Guidelines (WCAG)<\/a> to guide compliance. The relevant portions of the WCAG serve as our primary web accessibility standard, though other standards may also be used to provide accessibility to the extent required by the Americans with Disabilities Act (ADA).<\/p><h3>Technical Specifications<\/h3><p>Accessibility of Wellnesse.com relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:<\/p><ul><li>HTML<\/li><li>CSS<\/li><li>JavaScript<\/li><\/ul><p>These technologies are relied upon for conformance with the accessibility standards used.<\/p><h3>Feedback<\/h3><p>Our accessibility efforts are ongoing and we welcome your feedback. If you have specific questions or concerns about the usability of any page on our website, or are experiencing difficulties in navigating or accessing the contents of our site, please <a href=\"https:\/\/wellnesse.com\/pages\/contact\" title=\"contact\">contact our customer service<\/a> department at support@wellnesse.com or 850-820-2000.<\/p><p>If you encounter an accessibility issue, please specify the particular page in your email, and we will make all reasonable efforts to make that page accessible for you.<\/p><p>By using our website and our services, you agree that all matters relating to your access to or use of our website, including all disputes, will be governed by the laws of the United States and by the laws of the state of Florida without regard to its conflicts of laws and provisions. You expressly understand and agree to submit to the personal and exclusive jurisdiction and venue in the state and federal courts in United States, Florida, and you hereby waive any objection to such jurisdiction or venue.<\/p>",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "animation": "",
+        "animation_speed": "animate__fast",
+        "pt": 11,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "55f12060-bd1c-4134-9ffc-7b91fac745ee": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "67cab255-13e6-4d61-8005-5ad19aa18b97": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.52.37_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C-iDW0iy-0F\/?igsh=ZTRuNW41cWkyMGRh",
+            "likes": "58",
+            "comments": "5"
+          }
+        },
+        "e3139897-47db-4627-9d36-60b090cea553": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.54.07_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C-VL-CoN_yU\/?igsh=MW5rN2xpczkzZXJ3MQ==",
+            "likes": "76",
+            "comments": "5"
+          }
+        },
+        "26630e27-bdc4-462e-87cc-a930f8680157": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.51.14_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C4YcHWwSVIG\/?igsh=MWp5bW1sZm81Ynd4ag==",
+            "likes": "17",
+            "comments": "2"
+          }
+        },
+        "39269685-f78b-484f-95d3-c9451cfd79cd": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_8.04.00_PM.png",
+            "url": "https:\/\/www.instagram.com\/reel\/C9saGR0xG7a\/?igsh=MTA0b3lwcnN4d3NyYg==",
+            "likes": "24",
+            "comments": "12"
+          }
+        },
+        "378b7e77-470e-44ee-9039-f60f2f5db481": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.50.32_PM.png",
+            "url": "https:\/\/www.instagram.com\/p\/C4od-AyAPQd\/?igsh=MWttMmlkNjUzbHk0Zg==",
+            "likes": "32",
+            "comments": "6"
+          }
+        },
+        "0eca41cb-040e-4fbb-b286-076d8c09ac42": {
+          "type": "post",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2024-08-11_at_7.55.59_PM.png",
+            "url": "https:\/\/www.instagram.com\/reel\/C-EemeqsSMI\/?igsh=c2hnbG50M2xpcjF6",
+            "likes": "18",
+            "comments": "2"
+          }
+        }
+      },
+      "block_order": [
+        "67cab255-13e6-4d61-8005-5ad19aa18b97",
+        "e3139897-47db-4627-9d36-60b090cea553",
+        "26630e27-bdc4-462e-87cc-a930f8680157",
+        "39269685-f78b-484f-95d3-c9451cfd79cd",
+        "378b7e77-470e-44ee-9039-f60f2f5db481",
+        "0eca41cb-040e-4fbb-b286-076d8c09ac42"
+      ],
+      "settings": {
+        "bg_color": "",
+        "bg_gradient": false,
+        "text_align": "text-center",
+        "title": "Let's Connect!",
+        "title_font_size_mobile": 6,
+        "title_font_size_desktop": 8,
+        "title_branded": false,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_show": true,
+        "btn_text": "Follow @mywellnesse",
+        "btn_url": "https:\/\/instagram.com\/mywellnesse",
+        "btn_color": "btn-primary",
+        "btn_icon_show": true,
+        "img_orientation": "square",
+        "img_thumbnail": "",
+        "carousel_arrows": true,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 1,
+        "carousel_direction": "left",
+        "carousel_gap": 4,
+        "breakpoint_xs": 2,
+        "breakpoint_sm": 2,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 4,
+        "breakpoint_xl": 5,
+        "breakpoint_xxl": 6,
+        "pt": 9,
+        "pb": 2,
+        "mt": 0,
+        "mb": 0
+      }
+    }
+  },
+  "order": [
+    "richtext_KpikGE",
+    "55f12060-bd1c-4134-9ffc-7b91fac745ee"
+  ]
+}

@@ -1,0 +1,535 @@
+{
+  "sections": {
+    "promo_about_pfMiNt": {
+      "type": "promo-about",
+      "custom_css": [
+        "@media screen and (min-width: 768px) {h2 {text-align: center; vertical-align: middle; }}"
+      ],
+      "settings": {
+        "bg_color": "bg-light text-body",
+        "container": "container",
+        "title": "ABOUT WELLNESSE SUBSCRIPTIONS",
+        "title_font_size_mobile": 7,
+        "title_font_size_desktop": 8,
+        "subtitle": "",
+        "subtitle_font_size_mobile": 2,
+        "subtitle_font_size_desktop": 2,
+        "image": "shopify:\/\/shop_images\/Wellnesse-18_1.jpg",
+        "img_width": "1200",
+        "img_height": "600",
+        "img_crop": "center",
+        "video": "",
+        "autoplay": true,
+        "loop": true,
+        "muted": false,
+        "controls": true,
+        "description_left": "<h4>GOOD THINGS ARE BETTER ON REPEAT<\/h4><p>Personal care shouldn’t be stressful. With a subscription, you’ll always receive <em>your <\/em>products on <em>your <\/em>schedule, and each subscription item comes with a 15% <em>lifetime <\/em>discount so you can simplify <em>and<\/em> save.<\/p>",
+        "description_left_color": "#000000",
+        "description_left_alignment_mobile": "center",
+        "description_right": "",
+        "description_right_color": "#000000",
+        "description_right_alignment_mobile": "left",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 3,
+        "access_guests": true,
+        "access_members": true,
+        "visibility_xs": true,
+        "visibility_md": true,
+        "visibility_lg": true,
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_list_6CEEGd": {
+      "type": "image-list",
+      "blocks": {
+        "item_NiJRcn": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/feel-good_2x_d6142581-14f4-4eb9-8472-f36e89754233.png",
+            "img_width": "50",
+            "img_height": "50",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_7aMftt": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/edit-frequency_2x_602d5683-bcb9-4dc7-a6fe-38fa08da3741.png",
+            "img_width": "50",
+            "img_height": "50",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_wjDwVH": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/swap-pause-cancel_2x_b58fb275-7220-4573-b803-297c550bacfb.png",
+            "img_width": "50",
+            "img_height": "50",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_9Ff9Be": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/goodbye-lastbit_2x_faa591b2-00a7-4565-9a96-cbe14f2eb498.png",
+            "img_width": "50",
+            "img_height": "50",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_RJkytK": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/save10percent.png",
+            "img_width": "50",
+            "img_height": "50",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        },
+        "item_hzgJd9": {
+          "type": "item",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/easy-safe-checkout_2x_f9a07758-1f28-4d20-aead-91d2db0c5882.png",
+            "img_width": "50",
+            "img_height": "50",
+            "img_crop": "center",
+            "title": "",
+            "title_font_size_mobile": 4,
+            "title_font_size_desktop": 4,
+            "description": "",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 2,
+            "btn_text": "",
+            "btn_url": "",
+            "btn_color": "btn-primary",
+            "btn_size": "btn-sm"
+          }
+        }
+      },
+      "block_order": [
+        "item_NiJRcn",
+        "item_7aMftt",
+        "item_wjDwVH",
+        "item_9Ff9Be",
+        "item_RJkytK",
+        "item_hzgJd9"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "text_align": "text-center",
+        "title": "SUBSCRIBE. SIMPLIFY. SAVE.",
+        "title_font_size_mobile": 5,
+        "title_font_size_desktop": 8,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "animation": "animate__fadeInRight",
+        "animation_speed": "animate__fast",
+        "breakpoint_xs": 3,
+        "breakpoint_sm": 3,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 6,
+        "breakpoint_xl": 6,
+        "breakpoint_xxl": 6,
+        "gap_xs": 2,
+        "gap_sm": 6,
+        "gap_lg": 9,
+        "pt": 8,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0,
+        "link_behavior": "button"
+      }
+    },
+    "featured_products_4rkp7a": {
+      "type": "featured-products",
+      "blocks": {
+        "block_YHwM8n": {
+          "type": "block",
+          "settings": {
+            "products": [],
+            "collection": "skin-care",
+            "limit": 19,
+            "tab_title": "SKIN CARE"
+          }
+        },
+        "block_NidYV8": {
+          "type": "block",
+          "settings": {
+            "products": [],
+            "collection": "hair",
+            "limit": 19,
+            "tab_title": "HAIR CARE"
+          }
+        },
+        "block_DPiefm": {
+          "type": "block",
+          "settings": {
+            "products": [],
+            "collection": "oral-care",
+            "limit": 18,
+            "tab_title": "ORAL CARE"
+          }
+        }
+      },
+      "block_order": [
+        "block_YHwM8n",
+        "block_NidYV8",
+        "block_DPiefm"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "container": "container",
+        "text_align": "text-center",
+        "title": "Subscriptions over $99 within the contiguous US qualify for free shipping!",
+        "title_font_size_mobile": 4,
+        "title_font_size_desktop": 6,
+        "description": "",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "carousel_enable": true,
+        "carousel_arrows": true,
+        "carousel_pagination": false,
+        "carousel_easing": "cubic-bezier(.42,.65,.27,.99)",
+        "carousel_speed": 400,
+        "carousel_autoplay": false,
+        "carousel_interval": 5,
+        "carousel_per_move": "0",
+        "carousel_rewind": true,
+        "breakpoint_xs": 1,
+        "breakpoint_xs_partial": true,
+        "breakpoint_sm": 3,
+        "breakpoint_md": 3,
+        "breakpoint_lg": 4,
+        "breakpoint_xl": 4,
+        "breakpoint_xxl": 4,
+        "btn_show": false,
+        "btn_text": "View more products",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "pt": 0,
+        "pb": 0,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "richtext_with_image_FMr9TB": {
+      "type": "richtext-with-image",
+      "settings": {
+        "bg_color": "",
+        "bg_color_hex": "",
+        "container": "container",
+        "title": "ONLY THE BEST FOR YOUR BODY",
+        "title_font_size_mobile": 6,
+        "title_color": "#f8f9fa",
+        "title_font_size_desktop": 6,
+        "description": "<p>We’ve crafted formulas that are better than what’s already on shelves, but without toxins, parabens, sulfates and more. Each of our ingredients was hand-selected to produce a formula that cleanses, moisturizes, and refreshes your skin for a once-in-a-lifetime experience every time you step into the shower.<\/p>",
+        "description_color": "#ffffff",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "img_mobile": "shopify:\/\/shop_images\/best-for-your-body_2x_3b277d75-4e47-446e-8be4-4bbb49072802.png",
+        "img_desktop": "shopify:\/\/shop_images\/best-for-your-body_2x_3b277d75-4e47-446e-8be4-4bbb49072802.webp",
+        "pt": 11,
+        "pb": 11,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "image_with_text_tDAKBq": {
+      "type": "image-with-text",
+      "blocks": {
+        "image_XW4eHB": {
+          "type": "image",
+          "settings": {
+            "mobile_img": "shopify:\/\/shop_images\/flouride-free-image_2x_c0c2cdf3-5a2c-4305-b549-3e193e6fc2e1_1.webp",
+            "mobile_img_orientation": "adapt",
+            "mobile_img_crop": "center",
+            "mobile_img_thumbnail": "",
+            "desktop_img": "shopify:\/\/shop_images\/flouride-free-image_2x_c0c2cdf3-5a2c-4305-b549-3e193e6fc2e1_1.webp",
+            "desktop_img_orientation": "adapt",
+            "desktop_img_crop": "center",
+            "desktop_img_thumbnail": ""
+          }
+        },
+        "text_7cbVAX": {
+          "type": "text",
+          "settings": {
+            "text_align_mobile": "text-start",
+            "text_align_desktop": "text-lg-start",
+            "subtitle": "",
+            "subtitle_font_size_mobile": 2,
+            "subtitle_font_size_desktop": 2,
+            "title": "BETTER PRACTICES EVERY STEP OF THE WAY",
+            "title_font_size_mobile": 6,
+            "title_font_size_desktop": 8,
+            "description": "<p>We are committed to building a sustainable supply chain that supports women and minority-owned businesses. We aim to build an authentic community of partners who are passionate about our brand. Apply to earn affiliate commissions and get early access to products.<\/p>",
+            "description_font_size_mobile": 2,
+            "description_font_size_desktop": 3,
+            "btn_text": "APPLY NOW",
+            "btn_url": "https:\/\/wellnesse.com\/pages\/affiliates",
+            "btn_color": "btn-outline-primary",
+            "btn_size": "btn-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_XW4eHB",
+        "text_7cbVAX"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "container": "container",
+        "max_width": "",
+        "desktop_layout": "1\/2",
+        "animation": "animate__fadeInUp",
+        "animation_speed": "animate__fast",
+        "pt": 8,
+        "pb": 8,
+        "mt": 0,
+        "mb": 0,
+        "access_guests": true,
+        "access_members": true
+      }
+    },
+    "richtext_with_image_Vc3BTP": {
+      "type": "richtext-with-image",
+      "settings": {
+        "bg_color": "",
+        "bg_color_hex": "",
+        "container": "container",
+        "title": "PERFORMANCE, TRANSPARENCY & ACCOUNTABILITY",
+        "title_font_size_mobile": 6,
+        "title_color": "#f8f9fa",
+        "title_font_size_desktop": 6,
+        "description": "<p>Our B Corp certification means that we have achieved the highest verified standard of environmental and social impact, giving you certified business practices you can trust.<\/p>",
+        "description_color": "#ffffff",
+        "description_font_size_mobile": 2,
+        "description_font_size_desktop": 2,
+        "btn_text": "",
+        "btn_url": "",
+        "btn_color": "btn-primary",
+        "btn_size": "btn-md",
+        "img_mobile": "shopify:\/\/shop_images\/1x_2fdb0413-7340-425d-b48e-0700152eab9b.webp",
+        "img_desktop": "shopify:\/\/shop_images\/1x_99e6c07c-d72b-4937-9028-5c5df0569f6b.webp",
+        "pt": 9,
+        "pb": 9,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "tabs_faq_idqDkf": {
+      "type": "tabs-faq",
+      "blocks": {
+        "text_cX4rbb": {
+          "type": "text",
+          "settings": {
+            "title": "WHAT ARE THE BENEFITS OF HAVING A SUBSCRIPTION?",
+            "description": "<p>Wellnesse subscription customers gain access to exclusive discounts and automated delivery schedules customized to fit their specific needs. You’ll never have to worry about running out, re-ordering, or paying full price!<\/p>",
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": false
+          }
+        },
+        "text_KNNzj6": {
+          "type": "text",
+          "settings": {
+            "title": "CAN I CHANGE MY SUBSCRIPTION?",
+            "description": "<p>Absolutely! You can update your order frequency and your subscription items at any time by logging into your customer account.<\/p>",
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        },
+        "text_36NMAJ": {
+          "type": "text",
+          "settings": {
+            "title": "WHERE DO YOU SHIP?",
+            "description": "<p>We ship within the United States, PO Boxes, APO, Australia, Canada, Denmark, Finland, France, Germany, Ireland, Italy, Mexico, Netherlands, New Zealand, Norway, Portugal, South Africa, Sweden, Switzerland, and the United Kingdom.<\/p>",
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        },
+        "text_9rb8P3": {
+          "type": "text",
+          "settings": {
+            "title": "ARE WELLNESSE PRODUCTS ALL NATURAL?",
+            "description": "<p>Yes! We formulate our personal care products with safe, all natural ingredients. Wellnesse products are always cruelty-free, GMO-free, sulfate-free, paraben-free, and phthalate-free.<\/p>",
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        },
+        "text_86DApr": {
+          "type": "text",
+          "settings": {
+            "title": "Can I order as a gift for someone else?",
+            "description": "<p>When ordering as a gift for someone, be sure to enter in your email address to receive all summary information but enter in the recipient’s name and shipping information. We will be sure to keep all prices and receipts out of the package.<\/p>",
+            "img_orientation": "landscape",
+            "img_crop": "center",
+            "img_thumbnail": "img-thumbnail",
+            "img_align_desktop": "flex-lg-row",
+            "external_video": "",
+            "force_lazyload": true
+          }
+        }
+      },
+      "block_order": [
+        "text_cX4rbb",
+        "text_KNNzj6",
+        "text_36NMAJ",
+        "text_9rb8P3",
+        "text_86DApr"
+      ],
+      "settings": {
+        "bg_color": "bg-body text-body",
+        "bg_gradient": false,
+        "max_width": "960",
+        "accordion_style": "accordion-flush",
+        "open_first_item": true,
+        "title": "FREQUENTLY ASKED QUESTIONS",
+        "pt": 10,
+        "pb": 10,
+        "mt": 0,
+        "mb": 0
+      }
+    },
+    "faq_widget_97TYgx": {
+      "type": "faq-widget",
+      "blocks": {
+        "text_DqYEQb": {
+          "type": "text",
+          "settings": {
+            "faq_heading": "WHAT ARE THE BENEFITS OF HAVING A SUBSCRIPTION?",
+            "faq_content": "<p>Wellnesse subscription customers gain access to exclusive discounts and automated delivery schedules customized to fit their specific needs. You’ll never have to worry about running out, re-ordering, or paying full price!<\/p>"
+          }
+        },
+        "text_EDra4T": {
+          "type": "text",
+          "settings": {
+            "faq_heading": "CAN I CHANGE MY SUBSCRIPTION?",
+            "faq_content": "<p>Absolutely! You can update your order frequency and your subscription items at any time by logging into your customer account.<\/p>"
+          }
+        },
+        "text_UtmFhk": {
+          "type": "text",
+          "settings": {
+            "faq_heading": "WHERE DO YOU SHIP?",
+            "faq_content": "<p>We ship within the United States, PO Boxes, APO, Australia, Canada, Denmark, Finland, France, Germany, Ireland, Italy, Mexico, Netherlands, New Zealand, Norway, Portugal, South Africa, Sweden, Switzerland, and the United Kingdom.<\/p>"
+          }
+        },
+        "text_fG6LBt": {
+          "type": "text",
+          "settings": {
+            "faq_heading": "ARE WELLNESSE PRODUCTS ALL NATURAL?",
+            "faq_content": "<p>Yes! We formulate our personal care products with safe, all natural ingredients. Wellnesse products are always cruelty-free, GMO-free, sulfate-free, paraben-free, and phthalate-free.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_DqYEQb",
+        "text_EDra4T",
+        "text_UtmFhk",
+        "text_fG6LBt"
+      ],
+      "settings": {
+        "vertical_offset": 100,
+        "accordion_style": "accordion-default",
+        "open_first_item": true,
+        "popup_btn_text": "FAQ",
+        "faq_popup_title": "",
+        "faq_title_font_size_mobile": 4,
+        "faq_title_font_size_desktop": 4,
+        "detail": "",
+        "faq_description_font_size_mobile": 2,
+        "faq_description_font_size_desktop": 2,
+        "show_stars": false,
+        "view_more_text": "",
+        "view_more_link": ""
+      }
+    }
+  },
+  "order": [
+    "promo_about_pfMiNt",
+    "image_list_6CEEGd",
+    "featured_products_4rkp7a",
+    "richtext_with_image_FMr9TB",
+    "image_with_text_tDAKBq",
+    "richtext_with_image_Vc3BTP",
+    "tabs_faq_idqDkf",
+    "faq_widget_97TYgx"
+  ]
+}
